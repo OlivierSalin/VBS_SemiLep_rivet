@@ -1,0 +1,25 @@
+{
+  "n_jets" : 2,
+  "n_lepton_stable": 4,
+
+  "eta_lepton_electron": [[0.0, 1.37],[1.52, 2.47]], 
+  "eta_lepton_muon" : 2.7,
+  "eta_tagjets": 4.5,
+
+  "pt_lepton_electron": 7.0,
+  "pt_lepton_muon": 5.0,
+  "pt_lepton2": 20.0,
+  "pt_lepton1": 20.0,
+  "pt_jet": 30.0,
+  "pt_tagjet1": 40.0,
+  "pt_tagjet2": 40.0,
+
+  "m_tagjets": 300.0,
+
+  "dy_tagjets": 2.0,
+
+  "dR_all_pairs": 0.05,
+  "m_ll_all_pairs": 5.0,
+  "m_llll":130,
+  "centrality_quadjj": 0.4
+  }

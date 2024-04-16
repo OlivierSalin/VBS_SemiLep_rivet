@@ -1,0 +1,16 @@
+{
+  "Min_DR_Wq_jets":[150, 0.0, 1.5],
+  "Min_DR_VBSq_jets":[150, 0.0, 1.5],
+  "Min_DR_q_Tagjets":[150, 0.0, 2.5],
+  "resolved_min_DR_Wq_jets":[200, 0.0, 1.5],
+  "merged_min_DR_Wq_fjets":[150, 0.0, 1.5],
+  "misID_tag_jets":[12, -2, 4],
+  "merged_misID_tag_jets":[12, -2, 4],
+  "resolved_misID_tag_jets":[12, -2, 4],
+  "merged_fjet_FromTruth_W_q":[10, -2, 3],
+  "resolved_sjets_FromTruth_W_q":[10, -2, 3],
+  "resolved_sjet1_FromTruth_W_q":[10, -2, 3],
+  "resolved_sjet2_FromTruth_W_q":[10, -2, 3],
+  "FromTruth_W_q_tagjets":[10, -2, 3],
+  "bef_cut_Is_VBS_event":[3, 0, 3]
+}

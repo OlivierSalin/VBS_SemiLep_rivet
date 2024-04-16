@@ -1,0 +1,30 @@
+{
+  "n_jets" : 2,
+  "n_b_jets": 0,
+  "n_lepton_stable": 1,
+  "n_gap_jets": 0,  
+  "n_photons_iso": 1,
+
+  "eta_lepton_electron": [[0.0, 1.37],[1.52, 2.47]], 
+  "eta_photon": [[0.0, 1.37],[1.52, 2.37]], 
+  "eta_lepton_muon" : 2.5,
+  "eta_tagjets": 4.4,
+
+  "pt_lepton": 30.0,
+  "pt_photon": 22.0,
+  "pt_tagjet1": 50.0,
+  "pt_tagjet2": 50.0,
+  "pt_MET": 30,
+
+  "m_tagjets": 1000.0,
+  "m_W_T": 30,
+
+  "centrality_jjly":0.35,
+  "dy_tagjets": 2.0,
+
+  "cone_frac_photon": 0.2, 
+
+  "dphi_MET_tagjet": 0.4,
+  "dR_particles": 0.4,
+  "abs_diff_m_ly_m_z": 10.0
+  }

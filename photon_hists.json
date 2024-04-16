@@ -1,0 +1,6 @@
+{
+  "n_photons_iso" : [10, 0.0, 10.0],
+  "cone_frac_photon": [50, 0.0, 0.3], 
+  "eta_photon": [60, -6.0, 6.0],
+  "pt_photon": [300, 0, 5000.0]
+  }

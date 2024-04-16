@@ -1,0 +1,21 @@
+rivet-build RivetVBS_CROSS_TERMS.so VBS_CROSS_TERMS.cc
+
+to run rivet+plots for one config, when files are downloaded already
+python run_rivet.py --evtMax 10000 --conf "user.okurdysh.MadGraph_WmWm_lvlv_FM0_SM" --DOCUT "NO" --redoRivet "yes" --redoPlots "yes"
+python run_rivet.py --evtMax 400 --conf "user.okurdysh.MadGraph_WpWm_lvlv_FT0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "yes"
+also can add path to config .plot with plots labels thouth --plotConfRivet
+
+python run_chain.py --jobName "user.okurdysh.MadGraph_WmWm_lvlv_FM0_SM_try4" --runAgain "yes"
+
+python run_chain.py --jobName "user.okurdysh.MadGraph_Zy_lly_FT1vsFT2_CROSS" --runAgain "yes" --evtMax 200
+python run_chain.py --jobName "user.okurdysh.MadGraph_Zy_lly_FT1vsFT2_CROSS"  --runWithCuts "no" --runAgain "yes" --evtMax 200
+
+
+
+python run_chain_summary.py --runQUADAndCROSS "yes"  --runWithCuts "no" --sumPlotsOnly "no"
+
+for plots 
+python run_chain_summary.py --runQUADAndCROSS "yes" --runWithCuts "yes" --sumPlotsOnly "yes"
+
+python run_chain_summary.py --tProd "WmWm" --runQUADAndCROSS "yes"  --sumPlotsOnly "yes" --SMOnSumPlots "yes"
+python run_chain_summary.py --tProd "WpWm" --runQUADAndCROSS "yes"  --sumPlotsOnly "yes"

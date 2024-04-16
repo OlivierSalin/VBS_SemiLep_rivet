@@ -1,0 +1,44 @@
+{
+  "n_jets_min" : 2,
+
+  "n_fjets" : 1,
+  "n_jet_resolved": 4,
+  "n_lepton_stable": 2,
+
+  "eta_lepton_electron": [[0.0, 1.37],[1.52, 2.47]], 
+  "eta_lepton_muon" : 2.5,
+  "eta_jets": [2.5, 4.5],
+  "eta_jets_max": 4.5,
+  "eta_fjets": 2,
+
+  "pt_lepton_electron": 7.0,
+  "pt_lepton_muon": 7.0,
+
+  "pt_jet_small_eta": 20,
+  "pt_jet_large_eta": 30,
+  "pt_jet": 30,
+  "pt_fjet": 200,
+  "m_fjet_min": 50,
+
+  "pt_lepton2": 27.0,
+  "pt_lepton1": 27.0,
+  "m_ll":[83,99],
+
+  "pt_tagjet1": 30.0,
+  "pt_tagjet2": 30.0,
+  "m_tagjets": 401.0,
+
+  "DR_fjet_tagjet": 1.4,
+  "m_fjet_WZ": [64,106],
+
+  "pt_signaljet1": 40.0,
+  "pt_signaljet2": 20.0, 
+  "m_dijet_signal": [64,106],
+  "m_jjj":220,
+
+  "dy_tagjets": 2.0,
+
+
+
+  "centrality_quadjj": 0.4
+  }

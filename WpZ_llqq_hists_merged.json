@@ -1,0 +1,19 @@
+{
+  "merged_m_ll": [100, 0.0, 200.0],
+  "merged_pt_ll": [150, 0.0, 3000.0],
+  "merged_leptons_pids":[30, -15.0, 15.0],
+  "merged_pt_tagjets": [150, 0.0, 3000.0],
+  "merged_pt_fjet": [150, 0.0, 3000.0],
+  "merged_n_fjets": [10, 0.0, 10.0],
+  "merged_mass_fjets": [100, 0.0, 200.0],
+  "merged_mass_WZ":[150, 0.0, 1000.0],
+  "merged_pt_WZ":[150, 0.0, 3000.0],
+  "merged_pt_Full":[150, 0.0, 3000.0],
+  "merged_mass_Full":[150, 0.0, 1000.0],
+  "merged_ZeppZ":[100, 0.0, 10.0],
+  "merged_ZeppV":[100, 0.0, 10.0],
+  "merged_ZeppZV":[100, 0.0, 10.0],
+  "merged_ZeppMerged":[100, 0.0, 10.0],
+  "merged_Ntrk_tagjets":[100, 0.0, 50.0],
+  "merged_Ntrk_fjets":[100, 0.0, 50.0]
+}

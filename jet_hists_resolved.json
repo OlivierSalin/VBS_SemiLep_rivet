@@ -1,0 +1,13 @@
+{
+  "resolved_n_jets" : [10, 0.0, 10.0],
+  "resolved_pt_tagjet1": [200, 0.0, 3000.0], 
+  "resolved_pt_tagjet2": [200, 0.0, 3000.0],
+  "resolved_eta_tagjets": [60, -6.0, 6.0],
+  "resolved_eta_tagjet1": [60, -6.0, 6.0],
+  "resolved_eta_tagjet2": [60, -6.0, 6.0],
+  "resolved_eta_tagjet1_2": [120, -12.0, 12.0],
+  "resolved_phi_tagjets": [60, -6.0, 6.0],
+  "resolved_m_tagjets": [200, 0.0, 3000.0],
+  "resolved_dy_tagjets": [50, 0.0, 12.0],
+  "resolved_dphi_tagjets": [50, 0.0, 12.0]
+  }
