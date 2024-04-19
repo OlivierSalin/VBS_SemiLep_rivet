@@ -573,6 +573,41 @@ namespace Rivet {
         }
         } */
 
+/*         if(sjets_sig.size()>0){
+        // Loop over all particles
+            printf("\nTruth information: matching Jet particles with W Boson quark \n");
+            for(const Particle& p : all_particles){
+                ConstGenParticlePtr p_ = p.genParticle(); // Get the underlying GenParticle
+                int status = p_->status(); // Get the status of the particle
+                
+                // Check if the particle is a W boson with a status of 23, 22, or 21
+                if(p.pid() == 24 && (abs(status) == 23 || abs(status) == 22 || abs(status) == 21)){
+                    const Particle W_boson= p;
+                    std::vector<Particle> valid_quarks = ValidQuark_W(W_boson);
+                    for(const Particle& descendant : ValidQuark_W(W_boson)){
+                        int descendant_status = descendant.genParticle()->status();
+                        //printf("Descendant PID: %d and Descendant Status: %d\n", descendant.pid(), descendant_status);
+                        int jetCounter = 0;
+                        double minDeltaR = std::numeric_limits<double>::max();
+                        for(const Jet& jet : jets){
+                            const double dR = deltaR(descendant, jet);
+                            if(dR < minDeltaR) minDeltaR = dR;
+                            printf("\nQuark pid : %d\n ", descendant.pid());
+                            std::cout << "Jet " << jetCounter << ", DeltaR quark with jet: " << dR << std::endl;
+                            printf("Matching Jet particles with W Boson: %f\n", MatchingJet(jet, W_boson));
+                            std::cout << " DeltaR jet and W boson : " << deltaR(W_boson, jet) << std::endl;
+                            jetCounter++;
+                        }
+                        printf("\nQuark pid : %d\n ", descendant.pid());
+                        std::cout << "Min DeltaR quark with jets: " << minDeltaR << std::endl;
+                        
+                    
+                    }                   
+                }
+            }
+
+        } */
+
         // Check if we are in the Merged signal region
         if (n_fjets > 0) {
             _cutflows_merged.fillnext();

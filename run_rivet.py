@@ -3,10 +3,12 @@ import subprocess
 import lib_utils as lu
 import utils_func as uf
 import os
+import shutil
 import run_chain
 import yoda
 import glob
 import ROOT
+from datetime import datetime
 ROOT.gStyle.SetOptStat(0)
 ROOT.gROOT.SetBatch(ROOT.kTRUE)
 from array import array
@@ -19,6 +21,8 @@ parser.add_option("--evtMax", default = 100)
 parser.add_option("--redoRivet", default = "no")
 parser.add_option("--redoPlots", default = "no")
 parser.add_option("--runAgain", default = "yes")
+parser.add_option("--name", default = "")
+parser.add_option("--keep", default = False)
 opts, _ = parser.parse_args()
 
 prod_dec, base_dir = lu.find_prod_dec_and_dir(opts.conf)
@@ -127,6 +131,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     write_to_f(mydir + "frac_after_cuts_error_bar_merged.txt", frac_cut_er_bar_merged)
     
     write_to_f(mydir + "frac_after_cuts_error_bar_resolved.txt", frac_cut_er_bar_resolved)
+    write_to_f(mydir + "Cross_section_fb.txt", xsec_fb)
     #
     lu.save_xsec_frac_prod(mydir,xsec_fb,
                             frac_cut, frac_pos, frac_neg, frac_cut_er_bar,
@@ -176,10 +181,37 @@ print(f'Cross section in fb for {keyy}: {xsection_fb}')
 
 mydir=conf_dir + f"/DOCUT_{opts.DOCUT}/"
 
-save_job_infos(f"DOCUT={opts.DOCUT}", conf_dir + f"/DOCUT_{opts.DOCUT}/", prod_dec,xsec_fb=0.0000)
+plots_backup_dir = mydir + "Plots_backup/"
+os.makedirs(plots_backup_dir, exist_ok=True)
+
+save_job_infos(f"DOCUT={opts.DOCUT}", conf_dir + f"/DOCUT_{opts.DOCUT}/", prod_dec,xsec_fb=xsection_fb)
 label_plot= f"{proc}_{decay}_{EFT_op}"
 uf.plot_histograms(output_plot=mydir + "/plots/", desired_num_bins=200, file_path=mydir + "/hists.root", label=label_plot)
 
 
+if (opts.keep):
+    timestamp_day = datetime.now().strftime("%d_%m")
+    day_dir = plots_backup_dir+timestamp_day+ "/"
+    os.makedirs(plots_backup_dir+timestamp_day+ "/", exist_ok=True)
+    timestamp_hour = datetime.now().strftime("_%Hh%M")
+    run_dir = day_dir + opts.name + timestamp_hour + "/"
+    os.makedirs(run_dir, exist_ok=True)
+
+    files_to_copy = [
+        "hists.root",
+        "frac_after_cuts_error_bar_merged.txt",
+        "frac_after_cuts_error_bar_resolved.txt",
+        "cutflow_merged.txt",
+        "cutflow_resolved.txt",
+        "cutflow_merged_img.png",
+        "cutflow_resolved_img.png",
+        "Cross_section_fb.txt",
+    ]
+
+    for file in files_to_copy:
+        shutil.copy2(mydir + file, run_dir)
+
+    # Copy the repository mydir + "/plots/"
+    shutil.copytree(mydir + "/plots/", run_dir + "plots/")
 #print(f'Cross section in fb: {xsec_fb}')
 

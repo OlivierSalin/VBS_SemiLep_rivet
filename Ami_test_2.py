@@ -68,7 +68,9 @@ def cross_section_fb(EFT_op, EFT_type,  proces, dec):
             for decay in Decay:
                 if process == 'WmZ' or process == 'WpZ':
                     process_ = 'WZ'
-                pattern = f'%WZjj_llqq_EW6%'
+                if process == "ZZ":
+                    process_= "ZZ"
+                pattern = f'%{process_}jj_llqq_EW6%'
                 List_ami = AtlasAPI.list_datasets(client, patterns=[pattern], 
                                                 fields=['ldn', 'cross_section', 'dataset_number'], 
                                                 limit=[1, 100], type='EVNT', project='mc16%')

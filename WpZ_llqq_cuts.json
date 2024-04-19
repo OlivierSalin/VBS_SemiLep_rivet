@@ -9,7 +9,7 @@
   "eta_lepton_muon" : 2.5,
   "eta_jets": [2.5, 4.5],
   "eta_jets_max": 4.5,
-  "eta_fjets": 2,
+  "eta_fjets": 2.0,
 
   "pt_lepton_electron": 7.0,
   "pt_lepton_muon": 7.0,
@@ -17,6 +17,7 @@
   "pt_jet_small_eta": 20,
   "pt_jet_large_eta": 30,
   "pt_jet": 30,
+  "pt_jet_":[20,30],
   "pt_fjet": 200,
   "m_fjet_min": 50,
 
@@ -26,7 +27,7 @@
 
   "pt_tagjet1": 30.0,
   "pt_tagjet2": 30.0,
-  "m_tagjets": 401.0,
+  "m_tagjets": 400.0,
 
   "DR_fjet_tagjet": 1.4,
   "m_fjet_WZ": [64,106],

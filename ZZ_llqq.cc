@@ -19,11 +19,11 @@ namespace Rivet {
 
 
     /// @brief Add a short analysis description here
-    class WpZ_llqq : public Analysis {
+    class ZZ_llqq : public Analysis {
     public:
 
     /// Constructor
-    RIVET_DEFAULT_ANALYSIS_CTOR(WpZ_llqq);
+    RIVET_DEFAULT_ANALYSIS_CTOR(ZZ_llqq);
 
     const Particle GetParent(const Particle& p) 
     {
@@ -360,6 +360,8 @@ namespace Rivet {
         _jet_pt20_eta_cut_1 = ((Cuts::absetaIn(0.0, _jcuts["eta_jets"][0])) && (Cuts::pt > dbl(_jcuts["pt_jet_"][0])*GeV));
         _jet_pt30_eta_cut_2 = ((Cuts::absetaIn(_jcuts["eta_jets"][0], _jcuts["eta_jets"][1])) && (Cuts::pt > dbl(_jcuts["pt_jet_"][1])*GeV));
 
+
+
         // The basic final-state projection:
         // all final-state particles within
         // the given eta acceptance
@@ -471,13 +473,13 @@ namespace Rivet {
         book(_h2["min_DR_Wq_jets_W_pt"],"Min_DR_Wq_jets_W_pt", 200, 0.0, 1.5, 300, 0, 3000);
 
         // Cut-flows merged region
-        _cutflows_merged.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
+        _cutflows_merged.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","pt_tagjet1_2","m_tagjets",
                             "At_least_one_fjets","fjets_is_W/Z","Total_Merged_selec",});
         // Cut-flows resolved region
-        _cutflows_resolved.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
+        _cutflows_resolved.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","pt_tagjet1_2","m_tagjets",
-                            "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","M_jjj","Total_Resolved_selec",});
+                            "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","Total_Resolved_selec",});
 
     }
 
@@ -533,6 +535,7 @@ namespace Rivet {
         const Particle parent_lep2 = GetParent(lep2);
 
 
+
         _h["bef_cut_pt_lepton1"]->fill(lep1.pT());_h["bef_cut_pt_lepton2"]->fill(lep2.pT());
         // Cuts on the pT of the leptons
         if (_docut==1 && (leptons[0].pT()<_jcuts["pt_lepton1"] || leptons[1].pT()<_jcuts["pt_lepton2"])) vetoEvent;
@@ -550,7 +553,6 @@ namespace Rivet {
 
         // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
         Jets jets = apply<FastJets>(event, "jets").jetsByPt(_jet_pt20_eta_cut_1 || _jet_pt30_eta_cut_2);
-        idiscardIfAnyDeltaRLess(jets, leptons, 0.2);
 
 
         int n_jets = jets.size();
@@ -614,7 +616,7 @@ namespace Rivet {
 
 
         // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
-        Jets fjets = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > dbl(_jcuts["pt_fjet"])*GeV));
+        Jets fjets = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > dbl(_jcuts["pt_fjet"])*GeV) && (Cuts::abseta < _jcuts["eta_fjet"]));
         _h["bef_cutDR_n_fjets"]->fill(fjets.size());
         idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4);
 
@@ -644,7 +646,7 @@ namespace Rivet {
 
         if(Check_VBS_event(all_particles)){
             const Particle W_bson = GetWboson(all_particles);
-            //printf("w_boson pt: %f",W_bson.mom().pt());
+            printf("w_boson pt: %f",W_bson.mom().pt());
             
             std::vector<double> minDeltaRs = Truth_q_minDR_jets(all_particles, jets);
             //std::cout << "\nTruth min DRs: ";
@@ -843,6 +845,11 @@ namespace Rivet {
             if(result2 == 0) {
                 _h["resolved_sjetsmisID_FromTruth_Tagjet_q"]->fill(IsTruthTagJet(all_particles, sjets_sig[1], cutof_DR));
             }
+
+
+
+
+
             
             // Make a cut on signal_mjj
             const FourMomentum fourvec_signal_jets = signal_jet1 + signal_jet2;
@@ -871,18 +878,16 @@ namespace Rivet {
             const double ZeppZV_resolved = abs(fourvec_signal_jets_ll.eta() - eta_tag_jet_mean);
 
             double ZeppRes = 0.0;
-            double signal_mjjj=0.0;
             if (sjets_sig.size() > 2){
                 const FourMomentum signal_jet3 = sjets_sig[2].mom();
 
                 ZeppRes = abs(signal_jet3.eta() - eta_tag_jet_mean);
 
                 fourvec_signal_jjj = signal_jet1 + signal_jet2 + signal_jet3;
-                signal_mjjj = fourvec_signal_jjj.mass();                
-            
+                double signal_mjjj = fourvec_signal_jjj.mass();                
+                // if ((_docut==1 && (signal_mjjj < _jcuts["m_jjj"] )) ) {vetoEvent;}
+                // _cutflows_resolved.fillnext();            
             }
-            if ((_docut==1 && (sjets_sig.size() > 2) && (signal_mjjj < _jcuts["m_jjj"] )) ) {vetoEvent;}
-            _cutflows_resolved.fillnext();
 
 
 
@@ -998,10 +1003,10 @@ namespace Rivet {
     int _docut;
     Cut _electron_eta_cut;
     Cut _muon_eta_cut;
-    Cut _electron_pt_cut;
-    Cut _muon_pt_cut;
     Cut _jet_pt20_eta_cut_1;
     Cut _jet_pt30_eta_cut_2;
+    Cut _electron_pt_cut;
+    Cut _muon_pt_cut;
     json _jcuts;
     Cutflows _cutflows_merged;
     Cutflows _cutflows_resolved;
@@ -1012,6 +1017,6 @@ namespace Rivet {
     };
 
 
-    RIVET_DECLARE_PLUGIN(WpZ_llqq);
+    RIVET_DECLARE_PLUGIN(ZZ_llqq);
 
 }

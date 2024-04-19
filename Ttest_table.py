@@ -4,8 +4,10 @@ from array import array
 
 import shutil
 import matplotlib.pyplot as plt
+
 plt.rcParams['text.usetex'] = True
-import pandas as pd
+import pandas as pd   
+from pandas.plotting import table
 
 from optparse import OptionParser
 parser = OptionParser()
@@ -116,22 +118,64 @@ print(all_counts)
 print(all_error)
 
 
+# Convert the dictionary to a DataFrame
+
+
+def format_value(row):
+    if row['Signal region'] == 'merged' or row['Signal region'] == 'resolved':
+        percentage = round(row[opts.Ana] / common_total_value * 100, 2)
+        error_key = f"{row['Operator']}_err_frac_{row['Signal region']}"
+        error = round(all_error[error_key] * common_total_value)
+        return f"{row[opts.Ana]} ({percentage}" + r"\%) $\pm$ " + f"{error}"
+    else:
+        return row[opts.Ana]
+
+data = []
+for key, value in all_counts.items():
+  operator, region = key.split('_')
+  data.append({'Operator': operator, 'Signal region': region, opts.Ana: value})
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Check if all 'total' values are the same for each operator
+total_values = df[df['Signal region'] == 'total'][opts.Ana]
+if total_values.nunique() > 1:
+  raise ValueError("Not all 'total' values are the same for each operator")
+
+# Get the common 'total' value
+common_total_value = total_values.iloc[0]
+
+# Add a new row at the beginning with 'Operator' = 'Any', 'Signal region' = 'total', and 'value' as the common value
+df = pd.concat([pd.DataFrame([{'Operator': 'Any', 'Signal region': 'total', opts.Ana: common_total_value}]), df], ignore_index=True)
+
+# Filter out rows where 'Signal region' is 'total' and 'Operator' is not 'Any'
+df = df[~((df['Signal region'] == 'total') & (df['Operator'] != 'Any'))]
+
+# Apply the format_value function to the 'value' column
+df[opts.Ana] = df.apply(format_value, axis=1)
+
+# Sort by Operator (optional)
+df = df.sort_values(by='Operator')
+
+# Create a new figure with a single subplot
+fig, ax = plt.subplots(1, 1)
+
+# Hide the axes
+ax.axis('off')
+
+# Create a table from the DataFrame and add it to the subplot
+table(ax, df, loc='center')
+
+# Save the figure as a PDF
+plt.savefig('./Tables/table_bis1_.pdf', format='pdf')
 
 
 
 
 
-def get_cutflow_arrays(cutflow_file):
-    names = []
-    cumu = []
-    incr = []
-    with open(cutflow_file) as f:
-        for i_line in f.readlines():
-            line_arr = [i_thing.strip().replace("%", "") for i_thing in i_line.split(" ") if i_thing != ""]
-            print(line_arr)
-            if len(line_arr) != 5: continue
-            names.append(line_arr[1])
-            cumu.append(float(line_arr[3]))
-            incr.append(float(line_arr[4]))
-    return names, cumu, incr
+
+
+
+
     
