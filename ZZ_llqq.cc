@@ -390,6 +390,7 @@ namespace Rivet {
 
         // Fat jet (merged regime) --> the anti-kT algorithm and a jet-radius parameter 1.0       
         FastJets fatjetsfs(hadrons, FastJets::ANTIKT, 1.0, JetAlg::Muons::NONE, JetAlg::Invisibles::NONE);
+        _trimmer = fastjet::Filter(fastjet::JetDefinition(fastjet::kt_algorithm, 0.2), fastjet::SelectorPtFractionMin(0.05));
         declare(fatjetsfs, "fjets");
         declare(MissingMomentum(), "METFinder");
 
@@ -479,7 +480,7 @@ namespace Rivet {
         // Cut-flows resolved region
         _cutflows_resolved.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","pt_tagjet1_2","m_tagjets",
-                            "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","Total_Resolved_selec",});
+                            "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","M_jjj","Total_Resolved_selec",});
 
     }
 
@@ -616,7 +617,7 @@ namespace Rivet {
 
 
         // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
-        Jets fjets = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > dbl(_jcuts["pt_fjet"])*GeV) && (Cuts::abseta < _jcuts["eta_fjet"]));
+        Jets fjets = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > dbl(_jcuts["pt_fjet"])*GeV) && (Cuts::abseta < 2.0 ));
         _h["bef_cutDR_n_fjets"]->fill(fjets.size());
         idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4);
 
@@ -646,7 +647,7 @@ namespace Rivet {
 
         if(Check_VBS_event(all_particles)){
             const Particle W_bson = GetWboson(all_particles);
-            printf("w_boson pt: %f",W_bson.mom().pt());
+            //printf("w_boson pt: %f",W_bson.mom().pt());
             
             std::vector<double> minDeltaRs = Truth_q_minDR_jets(all_particles, jets);
             //std::cout << "\nTruth min DRs: ";
@@ -820,7 +821,7 @@ namespace Rivet {
             const FourMomentum signal_jet2 = sjets_sig[1].mom(); 
 
             // Make a cut on the leading pT and subleading pT
-            if ((_docut==1 && (signal_jet1.pT() < 40 || signal_jet2.pT() < 20)) ) {
+            if ((_docut==1 && (signal_jet1.pT() < 40.0 || signal_jet2.pT() < 20.0)) ) {
                 vetoEvent;
             }
             _cutflows_resolved.fillnext();
@@ -878,16 +879,18 @@ namespace Rivet {
             const double ZeppZV_resolved = abs(fourvec_signal_jets_ll.eta() - eta_tag_jet_mean);
 
             double ZeppRes = 0.0;
+            double signal_mjjj=0.0;
             if (sjets_sig.size() > 2){
                 const FourMomentum signal_jet3 = sjets_sig[2].mom();
 
                 ZeppRes = abs(signal_jet3.eta() - eta_tag_jet_mean);
 
                 fourvec_signal_jjj = signal_jet1 + signal_jet2 + signal_jet3;
-                double signal_mjjj = fourvec_signal_jjj.mass();                
-                // if ((_docut==1 && (signal_mjjj < _jcuts["m_jjj"] )) ) {vetoEvent;}
-                // _cutflows_resolved.fillnext();            
+                signal_mjjj = fourvec_signal_jjj.mass();                
+            
             }
+            if ((_docut==1 && (sjets_sig.size() > 2) && (signal_mjjj < 220.0 )) ) {vetoEvent;}
+            _cutflows_resolved.fillnext();
 
 
 
@@ -996,6 +999,7 @@ namespace Rivet {
 
     /// @name Histograms
     /// @{
+    fastjet::Filter _trimmer;
     map<string, Histo1DPtr> _h;
     map<string, Histo2DPtr> _h2;
     // map<string, Profile1DPtr> _p;

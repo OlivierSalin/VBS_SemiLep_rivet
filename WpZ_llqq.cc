@@ -388,6 +388,7 @@ namespace Rivet {
 
         // Fat jet (merged regime) --> the anti-kT algorithm and a jet-radius parameter 1.0       
         FastJets fatjetsfs(hadrons, FastJets::ANTIKT, 1.0, JetAlg::Muons::NONE, JetAlg::Invisibles::NONE);
+        _trimmer = fastjet::Filter(fastjet::JetDefinition(fastjet::kt_algorithm, 0.2), fastjet::SelectorPtFractionMin(0.05));
         declare(fatjetsfs, "fjets");
         declare(MissingMomentum(), "METFinder");
 
@@ -614,10 +615,23 @@ namespace Rivet {
 
 
         // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
-        Jets fjets = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > dbl(_jcuts["pt_fjet"])*GeV));
+/*         Jets fjets = apply<FastJets>(event, "fjets").jetsByPt(Cuts::pT > 200*GeV && Cuts::abseta < 2.0);
+        //printf("\nSize n_fjets: %d\n", fjets.size());
+        _h["bef_cutDR_n_fjets"]->fill(fjets.size());
+        idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4); */
+        //printf("Size n_fjets after: %d\n", fjets.size());
+
+        Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > 200*GeV) && (Cuts::abseta < dbl(_jcuts["eta_fjets"])));
+        
+        PseudoJets ljets;
+        for (const Jet& fjet : fjets_) { ljets += _trimmer(fjet); }
+        sort(ljets.begin(), ljets.end(), [](PseudoJet const &l, PseudoJet const &r) { return l.pt() > r.pt(); });
+        Jets fjets;
+        for (const PseudoJet &lj : ljets) { fjets.push_back(Jet(lj)); }
+        //printf("\nSize n_fjets: %d\n", fjets.size());
         _h["bef_cutDR_n_fjets"]->fill(fjets.size());
         idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4);
-
+        //printf("Size n_fjets after: %d\n", fjets.size());
         int n_fjets = fjets.size();
         _h["bef_cut_n_fjets"]->fill(fjets.size());
 
@@ -991,6 +1005,7 @@ namespace Rivet {
 
     /// @name Histograms
     /// @{
+    fastjet::Filter _trimmer;
     map<string, Histo1DPtr> _h;
     map<string, Histo2DPtr> _h2;
     // map<string, Profile1DPtr> _p;

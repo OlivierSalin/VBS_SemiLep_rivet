@@ -17,7 +17,7 @@
   "pt_jet_small_eta": 20,
   "pt_jet_large_eta": 30,
   "pt_jet": 30,
-  "pt_jet_":[20,30],
+  "pt_jet_":[20.0,30.0],
   "pt_fjet": 200,
   "m_fjet_min": 50,
 
@@ -30,12 +30,12 @@
   "m_tagjets": 400.0,
 
   "DR_fjet_tagjet": 1.4,
-  "m_fjet_WZ": [64,106],
+  "m_fjet_WZ": [64.0,106.0],
 
   "pt_signaljet1": 40.0,
   "pt_signaljet2": 20.0, 
-  "m_dijet_signal": [64,106],
-  "m_jjj":220,
+  "m_dijet_signal": [64.0,106.0],
+  "m_jjj":220.0,
 
   "dy_tagjets": 2.0,
 
