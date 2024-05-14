@@ -2,10 +2,10 @@ Code is a branch of the original code from Oleskii: https://github.com/oleksii16
 
 rivet-build RivetWpZ_llqq.so WpZ_llqq.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/   
 
-Sample can be generated from Madgraph and then downloaded from panda with rucio: name pattern "user.osalin.Magraph_WmZ_llqq_FM0_QUAD":
-python run_rivet.py --evtMax 100 --conf "MGPy8EG_aQGCFM4_QUAD_1_WpZ_llqq" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
+Sample can be generated from Madgraph and then downloaded from panda with rucio:
+python run_rivet.py --evtMax 100 --conf "user.osalin.Magraph_WmZ_llqq_FM0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
 
-Sample can also be directly downloaded from the grid if already produce by the Run 2 analysis (check on AMI): name pattern "MGPy8EG_aQGCFM4_QUAD_1_WpZ_llqq"
+Sample can also be directly downloaded from the grid if already produce by the Run 2 analysis (check on AMI): 
 python run_rivet.py --evtMax 100 --conf "MGPy8EG_aQGCFM4_QUAD_1_WpZ_llqq" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
 
 
