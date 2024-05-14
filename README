@@ -1,5 +1,15 @@
-rivet-build RivetVBS_CROSS_TERMS.so VBS_CROSS_TERMS.cc
+Code is a branch of the original code from Oleskii: https://github.com/oleksii165/vbs_cross_terms_study
 
+rivet-build RivetWpZ_llqq.so WpZ_llqq.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/   
+
+Sample can be generated from Madgraph and then downloaded from panda with rucio:
+python run_rivet.py --evtMax 100 --conf "user.osalin.Magraph_WmZ_llqq_FM0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
+
+Sample can also be directly downloaded from the grid if already produce by the Run 2 analysis (check on AMI): 
+python run_rivet.py --evtMax 100 --conf "MGPy8EG_aQGCFM4_QUAD_1_WpZ_llqq" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
 to run rivet+plots for one config, when files are downloaded already
 python run_rivet.py --evtMax 10000 --conf "user.okurdysh.MadGraph_WmWm_lvlv_FM0_SM" --DOCUT "NO" --redoRivet "yes" --redoPlots "yes"
 python run_rivet.py --evtMax 400 --conf "user.okurdysh.MadGraph_WpWm_lvlv_FT0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "yes"
