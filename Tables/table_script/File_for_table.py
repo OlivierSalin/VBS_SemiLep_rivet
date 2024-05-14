@@ -16,7 +16,7 @@ decays=["llqq"]
 
 
 def file_for_table(mydir):
-    run_dir = mydir + "Tables/Tables_file_first/"
+    run_dir = mydir + "Tables/Tables_file_second/"
     os.makedirs(run_dir, exist_ok=True)
 
     files_to_copy = [
