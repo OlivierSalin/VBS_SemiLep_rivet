@@ -2,6 +2,7 @@
   "resolved_n_jets" : [10, 0.0, 10.0],
   "resolved_pt_tagjet1": [200, 0.0, 3000.0], 
   "resolved_pt_tagjet2": [200, 0.0, 3000.0],
+  "resolved_delta_pt_tagjet": [200, 0.0, 3000.0],
   "resolved_eta_tagjets": [60, -6.0, 6.0],
   "resolved_eta_tagjet1": [60, -6.0, 6.0],
   "resolved_eta_tagjet2": [60, -6.0, 6.0],

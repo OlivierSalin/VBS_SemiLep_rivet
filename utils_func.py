@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['text.usetex'] = True
 import pandas as pd
 import numpy as np
+import re
 import pyAMI.client
 import pyAMI.atlas.api as AtlasAPI
 client = pyAMI.client.Client('atlas')
@@ -23,43 +24,66 @@ def extract_EFT_op_proces_dec(conf):
     
     return EFT_op, EFT_type, proc, decay
 
+def extract_EFT_op_proces_dec_bis(conf):
+    """
+    This function takes conf as a parameter,
+    and returns the EFT operator, process, and decay.
+    """
+    pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
+    match = re.search(pattern, conf)
+    if match:
+        EFT_op = match.group(1)
+        EFT_type = match.group(2)
+        proc = match.group(3)
+        decay = match.group(4)
+        
+    elif conf.startswith("user."):
+        # If the conf matches the Sample_name_ pattern
+        parts = conf.split('_')
+        EFT_op,EFT_type, proc, decay = parts[3], parts[4], parts[1], parts[2]
+    else:
+        raise ValueError("Invalid conf format")
+
+    return EFT_op, EFT_type, proc, decay
+
 
 def cross_section_fb(EFT_op, EFT_type,  proces, dec):
     """
     This function takes an EFT operator, a process, and a decay as parameters,
     and returns the cross section for the corresponding dataset.
     """
+    
     all_ops = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7",
                "FS02","FS1",
                "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
     all_ops2 = ["FM","FS","FT"]
+    all_ops_ = [op + "_QUAD" for op in all_ops]
     Processes = [proces]
     Decay = [dec]
 
     organized_info = {}
 
     if EFT_type == 'QUAD':
-        for op in all_ops2:
-            for process in Processes:
-                for decay in Decay:
-                    pattern = f'%MGPy8EG_aQGC{op}%_QUAD_1_{process}_{decay}%'
-                    List_ami = AtlasAPI.list_datasets(client, patterns=[pattern], 
-                                                    fields=['ldn', 'cross_section', 'dataset_number'], 
-                                                    limit=[1, 100], type='EVNT', project='mc16%')
+        for process in Processes:
+            for decay in Decay:  
+                pattern = f"%%MGPy8EG_aQGCF%%_{process}_{decay}%%"
+                List_ami = AtlasAPI.list_datasets(client, patterns=[pattern], 
+                                                fields=['ldn', 'cross_section', 'dataset_number'], 
+                                                limit=[1, 100], type='EVNT', project='mc16%')
 
-                    if List_ami:
-                        for dataset in List_ami:
-                            operator = next((op for op in all_ops if op in dataset['ldn']), None)
-                            if operator:
-                                key = f"{operator}_{EFT_type}_{process}_{decay}"
-                                if key not in organized_info:
-                                    organized_info[key] = {'name': [], 'cross_section': [], 'dataset_number': []}
+                if List_ami:
+                    for dataset in List_ami:
+                        operator = next((op for op in all_ops_ if op in dataset['ldn']), None)
+                        if operator:
+                            key = f"{operator}_{process}_{decay}"
+                            if key not in organized_info:
+                                organized_info[key] = {'name': [], 'cross_section': [], 'dataset_number': []}
 
-                                organized_info[key]['name'].append(dataset['ldn'])
-                                organized_info[key]['cross_section'].append(dataset['cross_section']) # Cross section in nb
-                                organized_info[key]['dataset_number'].append(dataset['dataset_number'])
-                    else:
-                        print(f'No datasets found for {op}_{process}_{decay}\n')
+                            organized_info[key]['name'].append(dataset['ldn'])
+                            organized_info[key]['cross_section'].append(dataset['cross_section']) # Cross section in nb
+                            organized_info[key]['dataset_number'].append(dataset['dataset_number'])
+                else:
+                    print(f'No datasets found for {process}_{decay}\n')
                         
     elif (EFT_type == 'SM'):
         for process in Processes:

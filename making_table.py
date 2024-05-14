@@ -149,22 +149,20 @@ for decay in ["llqq"]:
 #print(all_error_dict)
 
 
-xsection_SM=uf.cross_section_fb(EFT_op='FM0', EFT_type='SM', proces=process, dec=decay)
-lumi_scalling_SM= round(lumi*xsection_SM, 2)
-# Convert the dictionary to a DataFrame
-
 
 
 xsection_dict = {}
 def format_and_join_values(group, phys_process):
     process=phys_process.split("_")[0]
     decay=phys_process.split("_")[1]
-    print(f"Processing {process}_{decay}")
+    #print(f"Processing {process}_{decay}")
     formatted_values = {'total': '', 'merged': '', 'resolved': ''}
     for _, row in group.iterrows():
         if phys_process in row:
             if row['Signal region'] in ['total','merged', 'resolved']:
                 if row['Operator'] == 'SM':
+                    xsection_SM=uf.cross_section_fb(EFT_op='FM0', EFT_type='SM', proces=process, dec=decay)
+                    lumi_scalling_SM= round(lumi*xsection_SM, 2)
                     lumiscaling = lumi_scalling_SM
                 else:
                     key=f"{process}_{decay}_{row['Operator']}" 
@@ -181,7 +179,7 @@ def format_and_join_values(group, phys_process):
                 total_value = total_value[0]
                 #print(f"Phys process {phys_process}, total value: {total_value}")
                 yield_ = row[phys_process]
-                print("Phys process %d operator %d, Yield %d",phys_process, row['Operator'],yield_)
+                #print("Phys process %d operator %d, Yield %d",phys_process, row['Operator'],yield_)
                 if pd.notnull(yield_) and total_value != 0:
                     yield_normalised = yield_/total_value
                     if ((yield_normalised* lumiscaling) > 0.09) :
@@ -198,7 +196,7 @@ def format_and_join_values(group, phys_process):
                         error_key = f"{row['Operator']}_err_frac_{row['Signal region']}"
                         error = round(all_error_[error_key] * 100, 2)
                         
-                        formatted_values[row['Signal region']] = f"{yield_scaled}  ({percentage} " + r"$\pm$ " + f"{error})" r"\%"
+                        formatted_values[row['Signal region']] = f"({percentage} " + r"$\pm$ " + f"{error})" r"\%"
                 
             else:
                 formatted_values[row['Signal region']] = row[phys_process]
@@ -244,8 +242,8 @@ tab = table(ax, df_final, loc='center', cellLoc='center', rowLabels=[])
 cellDict = tab.get_celld()
 for i in range(0,len(df_final.columns)):
     for j in range(0,len(df_final)+1):
-        cellDict[(j,i)].set_height(0.06)
-        cellDict[(j,i)].PAD = 0.03
+        cellDict[(j,i)].set_height(0.07)
+        cellDict[(j,i)].PAD = 0.02
         
 fig.set_size_inches(12, 12)
 
@@ -253,7 +251,7 @@ fig.set_size_inches(12, 12)
 ax.axis('off')
 
 # Save the figure as a PDF
-plt.savefig('./Tables/table_Proces02_.pdf', format='pdf')
+plt.savefig('./Tables/table_Proces04_.pdf', format='pdf')
 
 
 

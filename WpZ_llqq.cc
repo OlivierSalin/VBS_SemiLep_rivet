@@ -10,6 +10,11 @@
 #include "Rivet/Projections/MissingMomentum.hh"
 #include "Rivet/Math/MathUtils.hh"
 #include "Rivet/Tools/Cutflow.hh"
+
+#include "fastjet/contrib/Nsubjettiness.hh"
+#include "fastjet/contrib/EnergyCorrelator.hh"
+#include "fastjet/contrib/SoftDrop.hh"
+
 #include <fstream>
 #include <algorithm>
 #include <nlohmann/json.hpp>
@@ -328,6 +333,17 @@ namespace Rivet {
         return 0; // Return 0 if the jet does not match the W boson or any valid quark from the W boson
     }
 
+    const double Centrality(const Jets& tagjets, const FourMomentum& jet_Vlep, const FourMomentum& jet_Vhad){
+        double min_eta_tag_jet=std::min(tagjets[0].eta(), tagjets[1].eta());
+        double max_eta_tag_jet=std::max(tagjets[0].eta(), tagjets[1].eta());
+        double min_eta_Vjet=std::min(jet_Vlep.eta(), jet_Vhad.eta());
+        double max_eta_Vjet=std::max(jet_Vlep.eta(), jet_Vhad.eta());
+        double delta_eta_pos= max_eta_tag_jet - min_eta_Vjet;   
+        double delta_eta_neg= max_eta_Vjet - min_eta_tag_jet;   
+        return std::min(delta_eta_pos, delta_eta_neg);
+
+
+    }
 
 
 
@@ -353,6 +369,10 @@ namespace Rivet {
         std::cout << "++++++ to check json 1 var got photon pt min " << _jcuts["m_tagjets"] << "\n";
         _electron_eta_cut = (Cuts::absetaIn(_jcuts["eta_lepton_electron"][0][0], _jcuts["eta_lepton_electron"][0][1])) || 
                                 (Cuts::absetaIn(_jcuts["eta_lepton_electron"][1][0], _jcuts["eta_lepton_electron"][1][1]));
+
+
+
+        _el_eta_cut = Cuts::absetaIn(0.0, _jcuts["eta_lepton_muon"]);
         _muon_eta_cut = Cuts::absetaIn(0.0, _jcuts["eta_lepton_muon"]);
         _electron_pt_cut = Cuts::pT > dbl(_jcuts["pt_lepton_electron"])*GeV; 
         _muon_pt_cut = Cuts::pT > dbl(_jcuts["pt_lepton_muon"])*GeV; 
@@ -388,6 +408,7 @@ namespace Rivet {
 
         // Fat jet (merged regime) --> the anti-kT algorithm and a jet-radius parameter 1.0       
         FastJets fatjetsfs(hadrons, FastJets::ANTIKT, 1.0, JetAlg::Muons::NONE, JetAlg::Invisibles::NONE);
+        // Define AntiKt10TruthTrimmedPtFrac5SmallR20Jets
         _trimmer = fastjet::Filter(fastjet::JetDefinition(fastjet::kt_algorithm, 0.2), fastjet::SelectorPtFractionMin(0.05));
         declare(fatjetsfs, "fjets");
         declare(MissingMomentum(), "METFinder");
@@ -402,14 +423,6 @@ namespace Rivet {
         _hist_names.push_back(it.key());
         }
 
-        // Truth information histograms
-
-        std::ifstream truth_hist_file(txt_dir + "/Hists/WpZ_llqq_hists_truth.json");      
-        json truth_hist = json::parse(truth_hist_file);
-        for (json::iterator it = truth_hist.begin(); it != truth_hist.end(); ++it) {
-        book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
-        _hist_names.push_back(it.key());
-        }
 
 
         // Merged histograms
@@ -468,8 +481,7 @@ namespace Rivet {
         book(_c["neg_w_final_merged"],"neg_w_final_merged");
         book(_c["neg_w_final_resolved"],"neg_w_final_resolved");
 
-        // Book special 2D histogram
-        book(_h2["min_DR_Wq_jets_W_pt"],"Min_DR_Wq_jets_W_pt", 200, 0.0, 1.5, 300, 0, 3000);
+
 
         // Cut-flows merged region
         _cutflows_merged.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
@@ -493,12 +505,7 @@ namespace Rivet {
 
         const Particles all_particles = event.allParticles();
         // Fill the truth histograms
-        if(Check_VBS_event(all_particles)){
-            _h["bef_cut_Is_VBS_event"]->fill(1);
-        } else {
-            _h["bef_cut_Is_VBS_event"]->fill(0);
-        }
-        const double cutof_DR = 0.2;
+
 
         _cutflows_merged.fillinit();
         _cutflows_resolved.fillinit();
@@ -506,7 +513,7 @@ namespace Rivet {
         Particles e_stable;
         Particles mu_stable;
         if (_docut==1){
-            e_stable = apply<FinalState>(event, "e_stable").particlesByPt(_electron_eta_cut && _electron_pt_cut);
+            e_stable = apply<FinalState>(event, "e_stable").particlesByPt(_el_eta_cut && _electron_pt_cut);
             mu_stable = apply<FinalState>(event, "mu_stable").particlesByPt(_muon_eta_cut && _muon_pt_cut);
         }
         else{
@@ -530,11 +537,10 @@ namespace Rivet {
         const Particle& lep1 = leptons[0];
         const Particle& lep2 = leptons[1];
 
-        const Particle parent_lep1 = GetParent(lep1);
-        const Particle parent_lep2 = GetParent(lep2);
+/*         const Particle parent_lep1 = GetParent(lep1);
+        const Particle parent_lep2 = GetParent(lep2); */
 
 
-        _h["bef_cut_pt_lepton1"]->fill(lep1.pT());_h["bef_cut_pt_lepton2"]->fill(lep2.pT());
         // Cuts on the pT of the leptons
         if (_docut==1 && (leptons[0].pT()<_jcuts["pt_lepton1"] || leptons[1].pT()<_jcuts["pt_lepton2"])) vetoEvent;
         _cutflows_merged.fillnext();
@@ -611,26 +617,41 @@ namespace Rivet {
 
         const double dy_tagjets = fabs(tag1_jet.rap() - tag2_jet.rap());
 
-
+         
 
 
         // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
-/*         Jets fjets = apply<FastJets>(event, "fjets").jetsByPt(Cuts::pT > 200*GeV && Cuts::abseta < 2.0);
+/*         Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt(Cuts::pT > 100*GeV && Cuts::abseta < 2.0);
         //printf("\nSize n_fjets: %d\n", fjets.size());
+        Jets fjets;
+        for (const Jet &LargeRjet : fjets_) {
+            if (LargeRjet.pt() > 200*GeV) {
+                fjets.push_back(LargeRjet);
+            }
+        }
         _h["bef_cutDR_n_fjets"]->fill(fjets.size());
         idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4); */
         //printf("Size n_fjets after: %d\n", fjets.size());
 
-        Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt((Cuts::pT > 200*GeV) && (Cuts::abseta < dbl(_jcuts["eta_fjets"])));
+        Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt(Cuts::pT > 200*GeV && Cuts::abseta < 2.0);
+        //Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt();
         
         PseudoJets ljets;
         for (const Jet& fjet : fjets_) { ljets += _trimmer(fjet); }
         sort(ljets.begin(), ljets.end(), [](PseudoJet const &l, PseudoJet const &r) { return l.pt() > r.pt(); });
         Jets fjets;
-        for (const PseudoJet &lj : ljets) { fjets.push_back(Jet(lj)); }
+        PseudoJets tr_ljets;
+        for (const PseudoJet &lj : ljets) { 
+            if((Jet(lj).pt() > 200*GeV && Jet(lj).abseta() < 2.0)) {
+                fjets.push_back(Jet(lj));
+                tr_ljets.push_back(lj); 
+            }
+        }
+
         //printf("\nSize n_fjets: %d\n", fjets.size());
         _h["bef_cutDR_n_fjets"]->fill(fjets.size());
         idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4);
+        idiscardIfAnyDeltaRLess(fjets, leptons, 1.0);
         //printf("Size n_fjets after: %d\n", fjets.size());
         int n_fjets = fjets.size();
         _h["bef_cut_n_fjets"]->fill(fjets.size());
@@ -654,98 +675,27 @@ namespace Rivet {
 
         // Mean eta tagging jets for Zeppenfeld variable
         const double eta_tag_jet_mean = (tag1_jet.eta() + tag2_jet.eta())/2;
+        _h["resolved_DR_min_lepton_tagjets1"]->fill(std::min(deltaR(lep1, tag1_jet), deltaR(lep2, tag1_jet)));
+        _h["resolved_DR_min_lepton_tagjets2"]->fill(std::min(deltaR(lep1, tag2_jet), deltaR(lep2, tag2_jet)));
 
 
-        if(Check_VBS_event(all_particles)){
-            const Particle W_bson = GetWboson(all_particles);
-            //printf("w_boson pt: %f",W_bson.mom().pt());
-            
-            std::vector<double> minDeltaRs = Truth_q_minDR_jets(all_particles, jets);
-            //std::cout << "\nTruth min DRs: ";
-            for(size_t i = 0; i < minDeltaRs.size(); ++i){
-                _h["Min_DR_Wq_jets"]->fill(minDeltaRs[i]);
-                _h2["min_DR_Wq_jets_W_pt"]->fill(minDeltaRs[i], W_bson.mom().pt());
-                //std::cout << minDeltaRs[i] << " ";
-            }
-            //std::cout << "\n";
-            
-
-            std::vector<double> minDeltaRs_tag = Truth_q_minDR_jets(all_particles, tag_jets);
-            //std::cout << "\nTruth Tag min DRs: ";
-            for(size_t i = 0; i < minDeltaRs_tag.size(); ++i){
-                _h["Min_DR_q_Tagjets"]->fill(minDeltaRs_tag[i]);
-                //std::cout << minDeltaRs_tag[i] << " ";
-            }
-            //std::cout << "\n";
-
-
-            //printf("\nTagging Quarks \n");
-            std::vector<Particle> taggingQuarks = Tagging_quarks(all_particles);
-            if(taggingQuarks.size() == 2){
-                for(const Particle& taggingQuark : taggingQuarks){
-                    //printf("\nTagging Quark PID: %d, Status: %d\n", taggingQuark.pid(), taggingQuark.genParticle()->status());
-                    int jetCount_ = 0;
-                    double minDeltaR_ = std::numeric_limits<double>::max();
-                    for(const Jet& jet : tag_jets){
-                        const double dR = deltaR(taggingQuark, jet);
-                        if(dR < minDeltaR_) minDeltaR_ = dR;
-                        //std::cout << "Jet " << jetCount_ << ", DeltaR quark with jet: " << dR << std::endl;
-                        //printf("Matching Jet particles with Truth: %f\n", MatchingJet(jet, taggingQuark));
-                        //printf("Is Tagging Jet: %d\n", IsTruthTagJet(taggingQuarks, jet));
-                        jetCount_++;
-                    }
-                    //std::cout << "   min DeltaR Tag quark with jets: " << minDeltaR_ << std::endl;
-                    _h["Min_DR_VBSq_jets"]->fill(minDeltaR_);
-                }
-            }
-            
-            
-            int tag_jet_misID = 0;
-            double dR_cut = 0.2;
-            //std::vector<Particle> taggingQuarks = Tagging_quarks(all_particles);
-            if(taggingQuarks.size() != 2){
-                tag_jet_misID = -1; // Set to -1 to indicate a bad event
-            } else {
-                for(const Jet& jet : tag_jets){
-                    bool truth_DRmatch = false;
-                    for(const Particle& taggingQuark : taggingQuarks){
-                        const double dR = deltaR(taggingQuark, jet);
-                        if(dR < dR_cut) {
-                            truth_DRmatch = true;
-                            break;
-                        }
-                    }
-                    if(!truth_DRmatch) {
-                        tag_jet_misID++;
-                        _h["FromTruth_W_q_misIDtagjets"]->fill(IsTrueWboson(all_particles, jet, cutof_DR, false));
-                    }
-                }
-            }
-            //printf("\nTagging Jets MisID: %d\n", tag_jet_misID);
-            //printf("NbTagJetMisID: %d\n", NbTagJetMisID(all_particles, tag_jets, 0.1));  
-            _h["misID_tag_jets"]->fill(tag_jet_misID);
-            _h["FromTruth_W_q_tagjets"]->fill(IsTrueWboson(all_particles, tag_jets[0], cutof_DR, false)+ IsTrueWboson(all_particles, tag_jets[1], cutof_DR, false));
-        }
 
             
         // Check if we are in the Merged signal region
         if (n_fjets > 0) {
             _cutflows_merged.fillnext();
-            std::vector<double> minDeltaRs_merged = Truth_q_minDR_jets(all_particles, fjets, true);
-            //std::cout << "\nTruth merged min DRs: ";
-            if(Check_VBS_event(all_particles)){
-                for(size_t i = 0; i < minDeltaRs_merged.size(); ++i){
-                    _h["merged_min_DR_Wq_fjets"]->fill(minDeltaRs_merged[i]);
-                    //std::cout << minDeltaRs_merged[i] << ",  ";
-                }
-                //std::cout << "\n";
 
-                _h["merged_fjet_FromTruth_W_q"]->fill(IsTrueWboson(all_particles, fjets[0], cutof_DR, true));
-                if(IsTrueWboson(all_particles, fjets[0], cutof_DR, true)==0){
-                    _h["merged_fjetmisID_FromTruth_Tagjet_q"]->fill(IsTruthTagJet(all_particles, fjets[0], cutof_DR));
-                }
+            const double beta = 1;
+            const fastjet::PseudoJet &LJet= tr_ljets[0];
+            fastjet::contrib::EnergyCorrelator ECF3(3,beta,fastjet::contrib::EnergyCorrelator::pt_R);
+            fastjet::contrib::EnergyCorrelator ECF2(2,beta,fastjet::contrib::EnergyCorrelator::pt_R);
+            fastjet::contrib::EnergyCorrelator ECF1(1,beta,fastjet::contrib::EnergyCorrelator::pt_R);
 
-            }
+            double recf3 = ECF3(LJet);
+            double recf2 = ECF2(LJet);
+            double recf1 = ECF1(LJet);
+            double d2_fjets = (recf2 != 0 ? recf3 * (recf1*recf1*recf1) /(recf2*recf2*recf2) : -1);
+
             const FourMomentum fourvec_fjets = fjets[0].mom();
             if ((_docut==1 && (fourvec_fjets.mass() >= _jcuts["m_fjet_WZ"][0] && fourvec_fjets.mass() <= _jcuts["m_fjet_WZ"][1]))||_docut==0) {
                 _cutflows_merged.fillnext();
@@ -753,16 +703,18 @@ namespace Rivet {
                 // Total cutflow of the merged region
                 _cutflows_merged.fillnext();
 
-                
-
-                _h["merged_misID_tag_jets"]->fill(NbTagJetMisID(all_particles, tag_jets, cutof_DR));
             
-
                 // Four vector of the QGC system in resolved region llJ
                 const FourMomentum fourvec_fjets_ll = lep1.mom() + lep2.mom() + fjets[0].mom();
-
                 // Four vector of the Full system in resolved region 
                 const FourMomentum fourvec_fjets_full = lep1.mom() + lep2.mom() + fjets[0].mom() + tag1_jet + tag2_jet;
+
+
+                // Centrality variables
+                const double Centrality_merged = Centrality(tag_jets, fourvec_ll, fourvec_fjets);
+                const double CentralityV_merged = Centrality(tag_jets, fourvec_fjets, fourvec_fjets);
+                const double CentralityZ_merged = Centrality(tag_jets, fourvec_ll,fourvec_ll);
+                const double CentralityZV_merged = Centrality(tag_jets, fourvec_fjets_ll, fourvec_fjets_ll);
 
                 // Zeppenfeld variables
                 const double ZeppZ_merged = abs(fourvec_ll.eta() - eta_tag_jet_mean);
@@ -790,21 +742,29 @@ namespace Rivet {
                 //lepton plots
                 _h["merged_n_lepton_stable"]->fill(nlep);
                 _h["merged_pt_lepton"]->fill(lep1.pT()); _h["merged_pt_lepton"]->fill(lep2.pT()); 
-                _h["merged_pt_lepton"]->fill(lep1.pT()); _h["merged_pt_lepton"]->fill(lep2.pT()); 
-                _h["merged_eta_lepton"]->fill(lep1.eta()); _h["merged_eta_lepton"]->fill(lep2.eta());    
+                _h["merged_pt_lepton1"]->fill(lep1.pT()); _h["merged_pt_lepton2"]->fill(lep2.pT()); 
                 _h["merged_eta_lepton"]->fill(lep1.eta()); _h["merged_eta_lepton"]->fill(lep2.eta());    
                 //ana-specific
                 _h["merged_m_ll"]->fill(m_ll);
                 _h["merged_pt_ll"]->fill(fourvec_ll.pT());
                 _h["merged_leptons_pids"]->fill(lep1.pid());_h["merged_leptons_pids"]->fill(lep2.pid());
                 _h["merged_pt_tagjets"]->fill(fourvec_tag_jj.pT());
+                _h["merged_eta_fjet"]->fill(fourvec_fjets.eta());
                 _h["merged_pt_fjet"]->fill(fourvec_fjets.pT());
+                _h["merged_D2_fjet"]->fill(d2_fjets);
                 _h["merged_n_fjets"]->fill(n_fjets);
+                _h["merged_DR_lepton_fjets"]->fill(std::min(deltaR(fourvec_fjets, lep1),deltaR(fourvec_fjets, lep2)));
+                _h["merged_DR_ll_fjets"]->fill(deltaR(fourvec_fjets, fourvec_ll));
+                _h["merged_DR_tagJet_fjets"]->fill(deltaR(fourvec_fjets, tag1_jet));_h["merged_DR_tagJet_fjets"]->fill(deltaR(fourvec_fjets, tag2_jet));
                 _h["merged_mass_fjets"]->fill(fourvec_fjets.mass());
                 _h["merged_mass_WZ"]->fill(fourvec_fjets_ll.mass());                
                 _h["merged_pt_WZ"]->fill(fourvec_fjets_ll.pt());                
                 _h["merged_mass_Full"]->fill(fourvec_fjets_full.mass());                
                 _h["merged_pt_Full"]->fill(fourvec_fjets_full.pt());
+                _h["merged_Centrality"]->fill(Centrality_merged);
+                _h["merged_CentralityVhad"]->fill(CentralityV_merged);
+                _h["merged_CentralityZ"]->fill(CentralityZ_merged);
+                _h["merged_CentralityZV"]->fill(CentralityZV_merged);
                 _h["merged_ZeppZ"]->fill(ZeppZ_merged);
                 _h["merged_ZeppV"]->fill(ZeppV_merged);
                 _h["merged_ZeppZV"]->fill(ZeppZV_merged);
@@ -836,27 +796,8 @@ namespace Rivet {
                 vetoEvent;
             }
             _cutflows_resolved.fillnext();
+            
 
-            std::vector<double> minDeltaRs_resolved = Truth_q_minDR_jets(all_particles, sjets_sig);
-            //std::cout << "\nTruth resolved min DRs: ";
-            for(size_t i = 0; i < minDeltaRs_resolved.size(); ++i){
-                _h["resolved_min_DR_Wq_jets"]->fill(minDeltaRs_resolved[i]);
-                //std::cout << minDeltaRs_resolved[i] << " ";
-            }
-            //std::cout << "\n";
-
-            _h["resolved_sjets_FromTruth_W_q"]->fill(IsTrueWboson(all_particles, sjets_sig[0], cutof_DR, false)+IsTrueWboson(all_particles, sjets_sig[1], cutof_DR, false));
-            int result1 = IsTrueWboson(all_particles, sjets_sig[0], cutof_DR, false);
-            _h["resolved_sjet1_FromTruth_W_q"]->fill(result1);
-            if(result1 == 0) {
-                _h["resolved_sjetsmisID_FromTruth_Tagjet_q"]->fill(IsTruthTagJet(all_particles, sjets_sig[0], cutof_DR));
-            }
-
-            int result2 = IsTrueWboson(all_particles, sjets_sig[1], cutof_DR, false);
-            _h["resolved_sjet2_FromTruth_W_q"]->fill(result2);
-            if(result2 == 0) {
-                _h["resolved_sjetsmisID_FromTruth_Tagjet_q"]->fill(IsTruthTagJet(all_particles, sjets_sig[1], cutof_DR));
-            }
             
             // Make a cut on signal_mjj
             const FourMomentum fourvec_signal_jets = signal_jet1 + signal_jet2;
@@ -866,12 +807,7 @@ namespace Rivet {
                 vetoEvent;
             }
             _cutflows_resolved.fillnext();
-
             
-
-            _h["resolved_misID_tag_jets"]->fill(NbTagJetMisID(all_particles, tag_jets, cutof_DR));
-            
-
             const FourMomentum fourvec_signal_jets_ll = lep1.mom() + lep2.mom() + fourvec_signal_jets;
 
             // Four vector of the Full system in resolved region 
@@ -879,33 +815,59 @@ namespace Rivet {
             // More than 2 signal jets candidates
             FourMomentum fourvec_signal_jjj;
 
+            // Centrality variables
+            const double Centrality_resolved = Centrality(tag_jets, fourvec_ll, fourvec_signal_jets);
+            const double CentralityV_resolved = Centrality(tag_jets, fourvec_signal_jets, fourvec_signal_jets);
+            const double CentralityZ_resolved = Centrality(tag_jets, fourvec_ll,fourvec_ll);
+            const double CentralityZV_resolved = Centrality(tag_jets, fourvec_signal_jets_ll, fourvec_signal_jets_ll);
+
             // Zeppenfeld variables
             const double ZeppZ_resolved = abs(fourvec_ll.eta() - eta_tag_jet_mean);
             const double ZeppV_resolved = abs(fourvec_signal_jets.eta() - eta_tag_jet_mean);
             const double ZeppZV_resolved = abs(fourvec_signal_jets_ll.eta() - eta_tag_jet_mean);
 
             double ZeppRes = 0.0;
-            double signal_mjjj=0.0;
-            if (sjets_sig.size() > 2){
-                const FourMomentum signal_jet3 = sjets_sig[2].mom();
 
-                ZeppRes = abs(signal_jet3.eta() - eta_tag_jet_mean);
 
-                fourvec_signal_jjj = signal_jet1 + signal_jet2 + signal_jet3;
-                signal_mjjj = fourvec_signal_jjj.mass();                
-            
+            double topMass = 173.0; // Top quark mass in GeV
+            double sdM = std::numeric_limits<double>::max(); // Initialize to maximum possible value
+            FourMomentum signal_jet3;
+            double signal_mjjj = 0.0;
+
+            for (const Jet& jetcand : jets) {
+                if (jetcand.mom() == signal_jet1 || jetcand.mom() == signal_jet2) continue;
+
+                double mjjj = (signal_jet1 + signal_jet2 + jetcand.mom()).mass();
+                if (abs(mjjj - topMass) < sdM) {
+                    sdM = abs(mjjj - topMass);
+                    signal_jet3 = jetcand.mom();
+                }
             }
-            if ((_docut==1 && (sjets_sig.size() > 2) && (signal_mjjj < _jcuts["m_jjj"] )) ) {vetoEvent;}
+
+            if (_docut==1 && signal_jet3.isZero()) {
+                // No suitable third jet found
+                vetoEvent;
+            } else {
+                // Update fourvec_signal_jjj and signal_mjjj with the found third jet
+                fourvec_signal_jjj = signal_jet1 + signal_jet2 + signal_jet3;
+                signal_mjjj = fourvec_signal_jjj.mass();
+
+                // Add condition for signal_mjjj to be above 220 GeV
+                if (_docut==1 && signal_mjjj < 220.0) {
+                    vetoEvent;
+                }
+            }
+
+
+
             _cutflows_resolved.fillnext();
-
-
-
             _cutflows_resolved.fillnext();
             // Fill in the histograms for the resolved region
             //jet plots
             _h["resolved_n_jets"]->fill(n_jets);
             _h["resolved_pt_tagjet1"]->fill(tag1_jet.pt());
             _h["resolved_pt_tagjet2"]->fill(tag2_jet.pt());
+            _h["resolved_delta_pt_tagjet"]->fill(abs(tag1_jet.pt()-tag2_jet.pt()));
             _h["resolved_eta_tagjets"]->fill(tag1_jet.eta()); _h["resolved_eta_tagjets"]->fill(tag2_jet.eta());
             _h["resolved_phi_tagjets"]->fill(tag1_jet.phi()); _h["resolved_phi_tagjets"]->fill(tag2_jet.phi());
             _h["resolved_m_tagjets"]->fill(m_tagjets);
@@ -914,13 +876,14 @@ namespace Rivet {
             //lepton plots
             _h["resolved_n_lepton_stable"]->fill(nlep);
             _h["resolved_pt_lepton"]->fill(lep1.pT()); _h["resolved_pt_lepton"]->fill(lep2.pT()); 
-            _h["resolved_pt_lepton"]->fill(lep1.pT()); _h["resolved_pt_lepton"]->fill(lep2.pT()); 
-            _h["resolved_eta_lepton"]->fill(lep1.eta()); _h["resolved_eta_lepton"]->fill(lep2.eta());    
+            _h["resolved_pt_lepton1"]->fill(lep1.pT()); _h["resolved_pt_lepton2"]->fill(lep2.pT()); 
             _h["resolved_eta_lepton"]->fill(lep1.eta()); _h["resolved_eta_lepton"]->fill(lep2.eta());    
             //ana-specific
             _h["resolved_m_ll"]->fill(m_ll);
             _h["resolved_pt_ll"]->fill(fourvec_ll.pT());
             _h["resolved_leptons_pids"]->fill(lep1.pid());_h["resolved_leptons_pids"]->fill(lep2.pid());
+            _h["resolved_DR_min_lepton_sigjets1"]->fill(std::min(deltaR(signal_jet1, lep1),deltaR(signal_jet1, lep2)));
+            _h["resolved_DR_min_lepton_sigjets2"]->fill(std::min(deltaR(signal_jet2, lep1),deltaR(signal_jet2, lep2)));
             _h["resolved_pt_tagjets"]->fill(fourvec_tag_jj.pT());
             _h["resolved_n_fjets"]->fill(n_fjets);
             _h["resolved_pt_signal_jets"]->fill(signal_jet1.pT());_h["resolved_pt_signal_jets"]->fill(signal_jet2.pT());
@@ -929,18 +892,22 @@ namespace Rivet {
             _h["resolved_pt_WZ"]->fill(fourvec_signal_jets_ll.pt());                
             _h["resolved_mass_Full"]->fill(fourvec_signal_jets_full.mass());                
             _h["resolved_pt_Full"]->fill(fourvec_signal_jets_full.pt());  
+            _h["resolved_Centrality"]->fill(Centrality_resolved);
+            _h["resolved_CentralityVhad"]->fill(CentralityV_resolved);
+            _h["resolved_CentralityZ"]->fill(CentralityZ_resolved);
+            _h["resolved_CentralityZV"]->fill(CentralityZV_resolved);
             _h["resolved_ZeppZ"]->fill(ZeppZ_resolved);
             _h["resolved_ZeppV"]->fill(ZeppV_resolved);
             _h["resolved_ZeppZV"]->fill(ZeppZV_resolved);
             
             _h["resolved_Ntrk_tagjets"]->fill(CountChargedTracks(tag_jets[0])); _h["resolved_Ntrk_tagjets"]->fill(CountChargedTracks(tag_jets[1]));
             _h["resolved_Ntrk_signal_jets"]->fill(CountChargedTracks(sjets_sig[0])); _h["resolved_Ntrk_signal_jets"]->fill(CountChargedTracks(sjets_sig[1]));
-
+            _h["resolved_mjjj"]->fill(fourvec_signal_jjj.mass());
         
             // More than 2 signal jets candidates
             if (sjets_sig.size() > 2){
                 _h["resolved_DeltaPt_sig_jet2_jet3"]-> fill(abs(signal_jet2.pT() - sjets_sig[2].mom().pT()));   
-                _h["resolved_mjjj"]->fill(fourvec_signal_jjj.mass());
+                
                 _h["resolved_ZeppRes"]->fill(ZeppRes);
             }
 
@@ -1013,6 +980,7 @@ namespace Rivet {
     int _docut;
     Cut _electron_eta_cut;
     Cut _muon_eta_cut;
+    Cut _el_eta_cut;
     Cut _electron_pt_cut;
     Cut _muon_pt_cut;
     Cut _jet_pt20_eta_cut_1;

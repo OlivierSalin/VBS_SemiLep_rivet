@@ -25,8 +25,8 @@ parser.add_option("--name", default = "")
 parser.add_option("--keep", default = False)
 opts, _ = parser.parse_args()
 
-prod_dec, base_dir = lu.find_prod_dec_and_dir(opts.conf)
-conf_dir, _ = lu.find_evnt_dir_and_file(base_dir + f"/*{opts.conf}*EXT0")
+prod_dec, base_dir = lu.find_prod_dec_and_dir_bis(opts.conf)
+conf_dir, _, _ = lu.find_evnt_dir_and_file_bis(base_dir,opts.conf)
 conf_cut_dir = lu.get_conf_cut_dir(conf_dir, opts.DOCUT)
 rivet_out_name = conf_cut_dir + f'/MyOutput.yoda.gz'
 if not os.path.exists(rivet_out_name): do_rivet = 1
@@ -40,8 +40,8 @@ else:
     print("dont do evnt conversion since redoRivet=", opts.redoRivet, f"and file {rivet_out_name} exists ", os.path.exists(rivet_out_name))
 
 plots_dir = conf_cut_dir + "/rivet-plots/"
-if not os.path.exists(plots_dir): do_plots = 1
-elif os.path.exists(plots_dir) and opts.redoPlots=="yes": do_plots = 1
+if opts.redoPlots=="no": do_plots = 0
+elif opts.redoPlots=="yes": do_plots = 1
 else: do_plots = 0
 if do_plots:
     plot_com = f"rivet-mkhtml MyOutput.yoda.gz:'Title={prod_dec}' --no-ratio"
@@ -71,14 +71,11 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
         if yoda_f[i_name].type()=="Histo1D": hists_1h_in_yoda.append(i_name)  
     print("have 1d hists to be saved in root:", hists_1h_in_yoda, "in yoda file", yoda_f_str)
 
-    root_file = mydir + "/hists.root"
-    if not os.path.exists(root_file) or not os.path.exists(mydir + "xsec_fb.txt"): proceed = 1
-    elif (os.path.exists(root_file) or os.path.exists(mydir + "xsec_fb.txt")) and opts.runAgain=="yes": proceed = 1
-    else: proceed = 0
 
-    if not proceed:
-        print("dont do xsec and hisst to root")
-        return  
+
+    root_file = mydir + "/hists.root"
+    if os.path.exists(root_file):
+        os.remove(root_file)
     
     # save fid xsec
     rivet_dir_name = f"/{prod_dec}:OUTDIR=/{mydir}".replace("//","/")
@@ -173,7 +170,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
 
 #save_job_infos("DOCUT='" + f'{opts.DOCUT}', conf_dir + "/DOCUT='" + f'"{opts.DOCUT}"' + "/", prod_dec)
 
-EFT_op, EFT_type, proc, decay = uf.extract_EFT_op_proces_dec(opts.conf)
+EFT_op, EFT_type, proc, decay = uf.extract_EFT_op_proces_dec_bis(opts.conf)
 
 keyy = f"{EFT_op}_{EFT_type}_{proc}_{decay}"    
 xsection_fb = uf.cross_section_fb(EFT_op,EFT_type, proc, decay)

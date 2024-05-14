@@ -4,10 +4,13 @@ from array import array
 
 import shutil
 import matplotlib.pyplot as plt
+import numpy as np
+import math
 
 plt.rcParams['text.usetex'] = True
 import pandas as pd   
 from pandas.plotting import table
+import utils_func as uf
 
 from optparse import OptionParser
 parser = OptionParser()
@@ -32,7 +35,7 @@ output_table = f"{base_dir}/{opts.Ana}/Plots/Table/test01/DOCUT_{opts.DOCUT}/"
 if not os.path.exists(output_table):
     os.makedirs(output_table)
     
-
+lumi = 139
     
 Cutflow_paths = {
     "SM": f"{base_dir}/{opts.Ana}/user.osalin.MadGraph_{opts.Ana}_FM0_SM_EXT0/DOCUT_{opts.DOCUT}/",
@@ -117,18 +120,57 @@ all_counts,all_error = get_all_counts(Cutflow_path)
 print(all_counts)
 print(all_error)
 
-
+process=opts.Ana.split("_")[0]
+decay=opts.Ana.split("_")[1]
+xsection_SM=uf.cross_section_fb(EFT_op='FM0', EFT_type='SM', proces=process, dec=decay)
+lumi_scalling_SM= round(lumi*xsection_SM, 2)
 # Convert the dictionary to a DataFrame
 
 
-def format_value(row):
-    if row['Signal region'] == 'merged' or row['Signal region'] == 'resolved':
-        percentage = round(row[opts.Ana] / common_total_value * 100, 2)
-        error_key = f"{row['Operator']}_err_frac_{row['Signal region']}"
-        error = round(all_error[error_key] * common_total_value)
-        return f"{row[opts.Ana]} ({percentage}" + r"\%) $\pm$ " + f"{error}"
-    else:
-        return row[opts.Ana]
+
+xsection_dict = {}
+def format_and_join_values(group):
+    formatted_values = {'total': '', 'merged': '', 'resolved': ''}
+    for _, row in group.iterrows():
+        if row['Signal region'] in ['total','merged', 'resolved']:
+            if row['Operator'] == 'SM':
+                lumiscaling = lumi_scalling_SM
+            else:
+                key=f"{process}_{decay}_{row['Operator']}" 
+                if key in xsection_dict:
+                    xsection = xsection_dict[key]
+                else:
+                    xsection = uf.cross_section_fb(EFT_op=row['Operator'], EFT_type='QUAD',  proces=process, dec=decay)
+                    xsection_dict[key] = xsection  # Store the calculated cross section in the dictionary
+                    print(f"\nCross section of Operator: {row['Operator']}, EFT_type: QUAD, process: {process}, decay: {decay} is {xsection} fb")
+                    
+                lumiscaling = lumi*xsection
+                #print(f"\nCross section of Operator: {row['Operator']}, EFT_type: QUAD, process: {process}, decay: {decay} is {xsection} fb")
+                #print(f"Luminosity scaling factor: {lumiscaling}")
+                
+            
+            total_value = df[(df['Signal region'] == 'total') & (df['Operator'] == row['Operator'])][opts.Ana].values[0]
+            yield_= row[opts.Ana]
+            yield_normalised = row[opts.Ana]/total_value
+            if ((yield_normalised* lumiscaling) > 0.09) :
+                yield_scaled = round(yield_normalised * lumiscaling, 2)
+            else:
+                yield_scaled = round(yield_normalised * lumiscaling, 4)
+            percentage = round(yield_normalised * 100, 2)
+        
+            if row['Signal region'] == 'total':
+                formatted_values['total'] = f"{yield_scaled}  ({percentage})" r"\%"
+            
+            elif row['Signal region'] in ['merged', 'resolved']:
+                error_key = f"{row['Operator']}_err_frac_{row['Signal region']}"
+                error = round(all_error[error_key] * 100, 2)
+                
+                formatted_values[row['Signal region']] = f"{yield_scaled}  ({percentage} " + r"$\pm$ " + f"{error})" r"\%"
+            
+        else:
+            formatted_values[row['Signal region']] = row[opts.Ana]
+    
+    return {'Signal Region': 'total\nmerged\nresolved', opts.Ana: '\n'.join(formatted_values.values())}
 
 data = []
 for key, value in all_counts.items():
@@ -138,37 +180,40 @@ for key, value in all_counts.items():
 # Create DataFrame
 df = pd.DataFrame(data)
 
-# Check if all 'total' values are the same for each operator
-total_values = df[df['Signal region'] == 'total'][opts.Ana]
-if total_values.nunique() > 1:
-  raise ValueError("Not all 'total' values are the same for each operator")
-
-# Get the common 'total' value
-common_total_value = total_values.iloc[0]
-
-# Add a new row at the beginning with 'Operator' = 'Any', 'Signal region' = 'total', and 'value' as the common value
-df = pd.concat([pd.DataFrame([{'Operator': 'Any', 'Signal region': 'total', opts.Ana: common_total_value}]), df], ignore_index=True)
-
-# Filter out rows where 'Signal region' is 'total' and 'Operator' is not 'Any'
-df = df[~((df['Signal region'] == 'total') & (df['Operator'] != 'Any'))]
-
 # Apply the format_value function to the 'value' column
-df[opts.Ana] = df.apply(format_value, axis=1)
-
-# Sort by Operator (optional)
+#df[opts.Ana] = df.apply(format_value, axis=1)
 df = df.sort_values(by='Operator')
+
+# Group by 'Operator' and apply the join_values function to the 'value' column
+#df_grouped = df.groupby('Operator').apply(join_values).apply(pd.Series).reset_index()
+df_grouped = df.groupby('Operator').apply(format_and_join_values).apply(pd.Series).reset_index()
+# Rename the 0 column to 'value'
+df_grouped.rename(columns={0: opts.Ana}, inplace=True)
+
+# Sort by Operator with SM operator being on top
+df_grouped['sort'] = df_grouped['Operator'].apply(lambda x: 0 if x=='SM' else 1)
+df_grouped.sort_values(by=['sort', 'Operator'], inplace=True)
+df_grouped.drop(columns='sort', inplace=True)
 
 # Create a new figure with a single subplot
 fig, ax = plt.subplots(1, 1)
-
-# Hide the axes
 ax.axis('off')
 
+# Remove the index
+df_grouped.index = [''] * len(df_grouped)
+
 # Create a table from the DataFrame and add it to the subplot
-table(ax, df, loc='center')
+tab = table(ax, df_grouped, loc='center', cellLoc='center', rowLabels=[])
+
+# Adjust cell padding to fit sublines
+cellDict = tab.get_celld()
+for i in range(0,len(df_grouped.columns)):
+    for j in range(0,len(df_grouped)+1):
+        cellDict[(j,i)].set_height(0.15)
+        cellDict[(j,i)].PAD = 0.05
 
 # Save the figure as a PDF
-plt.savefig('./Tables/table_bis1_.pdf', format='pdf')
+plt.savefig('./Tables/table_Lumi03_.pdf', format='pdf')
 
 
 

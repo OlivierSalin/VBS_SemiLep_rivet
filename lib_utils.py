@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import math
 import json
+import re
 import pyAMI.client
 import pyAMI.atlas.api as AtlasAPI
 client = pyAMI.client.Client('atlas')
@@ -233,6 +234,26 @@ def find_prod_dec_and_dir(conf):
     print("dir would be", conf_dir)
     return prod_dec, conf_dir
 
+def find_prod_dec_and_dir_bis(conf):
+    if conf.startswith("user."):
+        prod_temp = conf[conf.find("user.osalin.MadGraph_")+len("user.osalin.MadGraph_"):]
+        print("start from string", prod_temp)
+        prod_dec = prod_temp[:prod_temp.find("_F")]
+        print("from conf found production dec", prod_dec)
+        conf_dir = f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/{prod_dec}/"
+        print("dir would be", conf_dir)
+    else:
+        pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
+        match = re.search(pattern, conf)
+        if match:
+            prod_dec = match.group(3) + "_" + match.group(4)
+            print("From conf found production dec", prod_dec)
+            conf_dir = f"/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/{prod_dec}/"
+            print("Dir would be", conf_dir)
+        else:
+            raise ValueError("Invalid conf format")
+    return prod_dec, conf_dir
+
 def find_evnt_dir_and_file(search_com):
     conf_dir_arr = glob.glob(search_com)
     print("found possibilities for dir", conf_dir_arr)
@@ -243,6 +264,38 @@ def find_evnt_dir_and_file(search_com):
     evnt_file = evnt_file_candidates[0] if len(evnt_file_candidates)>0 else -1
 
     return conf_dir, evnt_file
+
+def find_evnt_dir_and_file_bis(base_dir, conf):
+    if conf.startswith("user."):
+        search_com= base_dir + f"/*{conf}*EXT0"
+        print("searching for dir with pattern", search_com)
+        conf_dir_arr = glob.glob(search_com)
+        print("found possibilities for dir", conf_dir_arr)
+        conf_dir = conf_dir_arr[0] if len(conf_dir_arr)>=1 else -1  
+        if conf_dir == -1: raise ValueError("did not find folder for this config ",search_com)
+
+        evnt_file_candidates = glob.glob(conf_dir + "/*EVNT.root")
+        print("found possibilities for evnt file", evnt_file_candidates)
+        evnt_file = evnt_file_candidates[0] if len(evnt_file_candidates)>0 else -1
+        if evnt_file == -1: raise ValueError("did not find EVNT file for this config ",conf_dir)
+    
+    else:
+        pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
+        match = re.search(pattern, conf)
+        if(match):
+            search_com = base_dir + f"/*{conf}*"
+            print("searching for dir with pattern", search_com)
+            conf_dir_arr = glob.glob(search_com)
+            print("found possibilities for dir", conf_dir_arr)
+            conf_dir = conf_dir_arr[0] if len(conf_dir_arr)>=1 else -1  
+            if conf_dir == -1: raise ValueError("did not find folder for this config ",search_com)
+            
+            evnt_file_candidates = [file for file in glob.glob(conf_dir + "/*EVNT*.pool.root.1") if not file.endswith('.part')]
+            print("found possibilities for evnt file", evnt_file_candidates)
+            evnt_file = evnt_file_candidates[0] if len(evnt_file_candidates)>0 else -1
+        
+
+    return conf_dir, evnt_file, evnt_file_candidates
 
 def get_conf_cut_dir(evnt_dir, docut):
     mydir = evnt_dir + f"/DOCUT_{docut}/"
