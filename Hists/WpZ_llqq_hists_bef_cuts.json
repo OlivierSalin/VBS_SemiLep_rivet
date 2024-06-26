@@ -1,15 +1,10 @@
 {
   "bef_cut_nlep": [10, 0, 10.0],
-  "bef_cut_pt_lepton1": [300, 0.0, 1000.0],
-  "bef_cut_pt_lepton2": [300, 0.0, 1000.0],
   "bef_cutDR_n_jets":[10, 0, 10.0],
   "bef_cut_n_jets":[10, 0, 10.0],
   "bef_cutTag_n_jets":[10, 0, 10.0],
   "aft_cutTag_n_jets":[10, 0, 10.0],
   "bef_cutDR_n_fjets":[10, 0, 10.0],
-  "bef_cutDR_DRTag_fjets":[60, -6.0, 6.0],
-  "bef_cutDR_pt_fjets":[150, 0.0, 3000.0],
-  "bef_cutDR_eta_fjets":[60, -6.0, 6.0],
   "bef_cut_n_fjets":[10, 0, 10.0],
   "bef_cut_m_tag_jets":[500, 0.0, 4000.0]
 }

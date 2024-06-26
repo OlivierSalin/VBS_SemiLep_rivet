@@ -291,11 +291,50 @@ def find_evnt_dir_and_file_bis(base_dir, conf):
             if conf_dir == -1: raise ValueError("did not find folder for this config ",search_com)
             
             evnt_file_candidates = [file for file in glob.glob(conf_dir + "/*EVNT*.pool.root.1") if not file.endswith('.part')]
-            print("found possibilities for evnt file", evnt_file_candidates)
+            #print("found possibilities for evnt file", evnt_file_candidates)
             evnt_file = evnt_file_candidates[0] if len(evnt_file_candidates)>0 else -1
         
 
     return conf_dir, evnt_file, evnt_file_candidates
+
+def find_evnt_dir_and_file_part(base_dir, conf, part_number, files_per_part=7):
+    pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
+    match = re.search(pattern, conf)
+    if(match):
+        search_com = base_dir + f"/*{conf}*"
+        print("searching for dir with pattern", search_com)
+        conf_dir_arr = glob.glob(search_com)
+        print("found possibilities for dir", conf_dir_arr)
+        conf_dir = conf_dir_arr[0] if len(conf_dir_arr)>=1 else -1  
+        if conf_dir == -1: raise ValueError("did not find folder for this config ",search_com)
+        
+        # Calculate the start and end file numbers for this part
+        start_file = (part_number - 1) * files_per_part + 1
+        end_file = part_number * files_per_part + 1
+
+        # Select the files for this part
+        evnt_file_candidates = []
+        event_files_= [file for file in glob.glob(conf_dir + "/*EVNT*.pool.root.1") if not file.endswith('.part')]
+        
+        if part_number * files_per_part > len(event_files_):
+            raise ValueError("part_number*files_per_part is greater than the number of available files")
+
+        for file in glob.glob(conf_dir + "/*EVNT*.pool.root.1"):
+            if not file.endswith('.part'):
+                # Extract the file number from the file name
+                match_ = re.search(r'EVNT\.\d+\.(_\d+)\.pool\.root\.1', file)
+                if match_:
+                    file_number = int(match_.group(1).lstrip('_'))
+                    #print("file number", file_number)
+                    if start_file <= file_number < end_file:
+                        print("file number", file_number, "is in the range", start_file, end_file)
+                        evnt_file_candidates.append(file)
+
+        print("found part for evnt file", evnt_file_candidates)
+        evnt_file = evnt_file_candidates[0] if len(evnt_file_candidates)>0 else -1
+
+        return conf_dir, evnt_file,evnt_file_candidates
+
 
 def get_conf_cut_dir(evnt_dir, docut):
     mydir = evnt_dir + f"/DOCUT_{docut}/"
@@ -412,27 +451,31 @@ def get_sumw_initial(log_file):
     return sumw_in
 
 def save_xsec_frac_prod(savedir,xsec_fb,
-                        frac,frac_pos,frac_neg, frac_er_bar, 
-                        pos_w_in, neg_w_in, pos_w_f, neg_w_f,
-                        pos_n_in, neg_n_in, pos_n_f, neg_n_f):
+                        frac_merged,frac_pos_merged,frac_neg_merged, 
+                        pos_w_in, neg_w_in, pos_w_f_resolved, neg_w_f_resolved,pos_w_f_merged, neg_w_f_merged,
+                        pos_n_in, neg_n_in, pos_n_f_resolved, neg_n_f_resolved, pos_n_f_merged, neg_n_f_merged):
     write_to_f(savedir + "xsec_fb.txt",xsec_fb)
     #
-    write_to_f(savedir + "frac_after_cuts.txt",frac)
-    write_to_f(savedir + "frac_after_cuts_pos.txt",frac_pos)
-    write_to_f(savedir + "frac_after_cuts_neg.txt",frac_neg)
-    write_to_f(savedir + "frac_after_cuts_error_bar.txt", frac_er_bar)
+    write_to_f(savedir + "frac_after_cuts_pos.txt",frac_pos_merged)
+    write_to_f(savedir + "frac_after_cuts_neg.txt",frac_neg_merged)
     #
-    write_to_f(savedir + "xsec_times_frac_fb.txt",xsec_fb*frac)
+    write_to_f(savedir + "xsec_times_frac_merged_fb.txt",xsec_fb*frac_merged)
     #
     write_to_f(savedir + "pos_sumw_in.txt", pos_w_in)
     write_to_f(savedir + "neg_sumw_in.txt", neg_w_in)
-    write_to_f(savedir + "pos_sumw_f.txt", pos_w_f)
-    write_to_f(savedir + "neg_sumw_f.txt", neg_w_f)
+    write_to_f(savedir + "pos_sumw_f_resolved.txt", pos_w_f_resolved)
+    write_to_f(savedir + "neg_sumw_f_resolved.txt", neg_w_f_resolved)
+    
+    write_to_f(savedir + "pos_sumw_f_merged.txt", pos_w_f_merged)
+    write_to_f(savedir + "neg_sumw_f_merged.txt", neg_w_f_merged)
     #
     write_to_f(savedir + "pos_w_n_in.txt", pos_n_in)
     write_to_f(savedir + "neg_w_n_in.txt", neg_n_in)
-    write_to_f(savedir + "pos_w_n_f.txt", pos_n_f)
-    write_to_f(savedir + "neg_w_n_f.txt", neg_n_f)
+    write_to_f(savedir + "pos_w_n_f_resolved.txt", pos_n_f_resolved)
+    write_to_f(savedir + "neg_w_n_f_resolved.txt", neg_n_f_resolved)
+    
+    write_to_f(savedir + "pos_w_n_f_merged.txt", pos_n_f_merged)
+    write_to_f(savedir + "neg_w_n_f_merged.txt", neg_n_f_merged)
     
 
 def write_to_f(product_file,product):

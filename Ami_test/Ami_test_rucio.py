@@ -19,12 +19,14 @@ rse="spacetoken=ATLASSCRATCHDISK&cloud=FR"
 
 all_ops = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7",
            "FS02","FS1",
-           "FT0","FT1","FT2","FT5","FT6","FT7"]
+           "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 all_ops_ = [op + "_QUAD" for op in all_ops]
 
 Processes = ["WmZ","WpZ","ZZ"]
+Processes = ["WmZ","WpZ","WmWm","WpWm","WmWp","WpWp"]
 
 Decay = ["vvqq"]
+Decay = ["lvqq"]
 
 def get_datasets(process, decay):
     pattern = f"%%MGPy8EG_aQGCF%%_{process}_{decay}%%"
@@ -55,8 +57,12 @@ def get_first_dataset_numbers_and_names(organized_info):
     for op in all_ops_:
         for process in Processes:
             for decay in Decay:
-                dataset_numbers.append(organized_info[f'{op}_{process}_{decay}']['dataset_number'][0])
-                names.append(organized_info[f'{op}_{process}_{decay}']['name'][0])
+                key = f'{op}_{process}_{decay}'
+                if key in organized_info:
+                    dataset_numbers.append(organized_info[key]['dataset_number'][0])
+                    names.append(organized_info[key]['name'][0])
+                else:
+                    print(f"Warning: No datasets found for {key}")
     return dataset_numbers, names
 
 

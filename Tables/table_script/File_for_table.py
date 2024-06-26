@@ -3,17 +3,12 @@ import shutil
 import glob
 import re
 
-
-
-
 all_ops = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 all_ops_SM = ["FM0"]
 processes=["WmZ","WpZ","ZZ"]
 decays=["llqq"]
-
-
 
 def file_for_table(mydir):
     run_dir = mydir + "Tables/Tables_file_second/"

@@ -1,12 +1,23 @@
 # example of running:   athena rivet_example.py -c 'conf="user.okurdysh.MadGraph_WmWm_lvlv_FT0_FULL";DOCUT="YES"'
 
 theApp.EvtMax = -1
-print("#####received conf from cmd through -c 'conf=X;DOCUT=Y':  ",conf, DOCUT)
+print("#####received conf from cmd through -c 'conf=X;DOCUT=Y;Part=Z':  ",conf, DOCUT, Part)
 import lib_utils
 prod_dec, base_dir = lib_utils.find_prod_dec_and_dir_bis(conf)
 #evnt_conf_dir,evnt_file  = lib_utils.find_evnt_dir_and_file(base_dir + f"/*{conf}_EXT0")
+
+
 evnt_conf_dir,evnt_file,evnt_files  = lib_utils.find_evnt_dir_and_file_bis(base_dir,conf)
+
+if Part != "":
+    part_number = int(Part.split('_')[1])
+    file_per_part=5
+    evnt_conf_dir,evnt_file,evnt_files  = lib_utils.find_evnt_dir_and_file_part(base_dir,conf,part_number,file_per_part)
+    evnt_conf_dir = evnt_conf_dir + f'/{Part}/'
+    
 conf_cut_dir = lib_utils.get_conf_cut_dir(evnt_conf_dir, DOCUT)
+
+print("conf_cut_dir: ", conf_cut_dir)
 
 import AthenaPoolCnvSvc.ReadAthenaPool
 #svcMgr.EventSelector.InputCollections = [ evnt_file ]
@@ -28,7 +39,7 @@ rivet.AnalysisPath = os.environ['PWD']
 rivet.Analyses += [f'{prod_dec}:OUTDIR={conf_cut_dir}']
 rivet.RunName = ''
 rivet.HistoFile = conf_cut_dir + f'/MyOutput.yoda.gz'
-rivet.CrossSection = 1.0 #xsec_pb
+#rivet.CrossSection = 1.0 #xsec_pb
 #rivet.IgnoreBeamCheck = True
 job += rivet
 

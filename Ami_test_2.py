@@ -2,8 +2,9 @@ import pyAMI.client
 import pyAMI.atlas.api as AtlasAPI
 from lib_utils import find_prod_dec_and_dir
 from optparse import OptionParser
+import utils_func as uf
 parser = OptionParser()
-parser.add_option("--conf", default = "user.osalin.MadGraph_WmZ_llqq_FM1_QUAD")
+parser.add_option("--conf", default = "user.osalin.MadGraph_WmZ_llqq_FM5_QUAD")
 opts, _ = parser.parse_args()
 
 client = pyAMI.client.Client('atlas')
@@ -109,6 +110,37 @@ def cross_section_fb(EFT_op, EFT_type,  proces, dec):
         print(f'Error: No datasets found for {key_}')
         return None
 
+
+all_ops = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7",
+           "FS02","FS1",
+           "FT0","FT1","FT2","FT5","FT6","FT7"]
+all_ops_ = [op + "_QUAD" for op in all_ops]
+all_ops_.append("FM0_SM")
+Processes = ["WmZ","WpZ","ZZ"]
+Decay = ["llqq"]
 keyy = f"{EFT_op}_{EFT_type}_{proc}_{decay}"    
 xsection_fb = cross_section_fb(EFT_op,EFT_type, proc, decay)
 print(f'Cross section in fb for {keyy}: {xsection_fb}')
+
+xsection_fb_ami=uf.cross_section_fb(EFT_op,EFT_type, proc, decay)
+print(f'Cross section in fb for {keyy} from AMI: {xsection_fb_ami} fb')
+xsection_fb_txt=uf.take_xsec_fb(EFT_op,EFT_type, proc, decay)
+print(f'Cross section in fb for {keyy} from txt file: {xsection_fb_txt} fb')
+
+""" VBS_xsection = {}
+
+# Loop over all combinations of operators, processes, and decays
+for EFT_op_ in all_ops_:
+    EFT_op, EFT_type = EFT_op_.split('_')
+    for proc in Processes:
+        for decay in Decay:
+            # Create the key
+            keyy = f"{EFT_op}_{EFT_type}_{proc}_{decay}"    
+            xsection_fb = cross_section_fb(EFT_op,EFT_type, proc, decay)
+            # Store the cross section in the dictionary
+            VBS_xsection[keyy] = xsection_fb
+
+# Write the dictionary to a text file
+with open('VBS_xsection.txt', 'w') as f:
+    for key, value in VBS_xsection.items():
+        f.write(f'{key}: {value}\n') """

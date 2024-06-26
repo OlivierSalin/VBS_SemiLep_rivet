@@ -2,6 +2,7 @@
   "Min_DR_Wq_jets":[150, 0.0, 1.5],
   "Min_DR_VBSq_jets":[150, 0.0, 1.5],
   "Min_DR_q_Tagjets":[150, 0.0, 2.5],
+  "Delta_R_tagging_quark":[150, 0.0, 10.0],
   "resolved_min_DR_Wq_jets":[200, 0.0, 1.5],
   "merged_min_DR_Wq_fjets":[150, 0.0, 1.5],
   "misID_tag_jets":[12, -2, 4],

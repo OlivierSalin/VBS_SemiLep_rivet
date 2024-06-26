@@ -29,8 +29,9 @@ all_ops = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7",
 all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
+all_ops_SM = ["SM","FM0","FS1","FT1"]
 
-processes=["WmZ","WpZ","ZZ"]
+processes=["WpZ","WmZ","ZZ"]
 decays=["llqq"]
 
 base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/"
@@ -45,12 +46,12 @@ lumi = 139
 Cutflow_paths = {}
 
 for decay in ["llqq"]:
-    for process in ["WpZ","WmZ","ZZ"]:
+    for process in processes:
         for op in all_ops_SM:
             if op=="SM":
-                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGCFM0_{op}_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/Tables_file_first/")
+                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGCFM0_{op}_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/BDT_ntuple_Bina_03/")
             else:
-                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGC{op}_QUAD_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/Tables_file_first/")
+                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGC{op}_QUAD_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/BDT_ntuple_Bina_03/")
             matches = glob.glob(path)
             #print(matches)
             if not matches:
@@ -62,12 +63,13 @@ all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
+all_ops_SM = ["SM","FM0","FM2","FS1","FT1","FT5"]
 Cutflow_paths_dict = {}
 all_counts_dict = {}
 all_error_dict = {}
 
 for decay in ["llqq"]:
-    for process in ["WpZ","WmZ","ZZ"]:
+    for process in processes:
         phys_process = f"{process}_{decay}"
         Cutflow_path = {}
         for op in all_ops_SM:
@@ -205,6 +207,7 @@ def format_and_join_values(group, phys_process):
 
 data = []
 phys_processes = ["WmZ_llqq","WpZ_llqq","ZZ_llqq"]
+phys_processes = ["WpZ_llqq"]
 df_grouped_list = []            
 for phys_process, all_counts in all_counts_dict.items():
     data=[]
@@ -251,7 +254,7 @@ fig.set_size_inches(12, 12)
 ax.axis('off')
 
 # Save the figure as a PDF
-plt.savefig('./Tables/table_Proces04_.pdf', format='pdf')
+plt.savefig('./Tables/table_op_less_less.pdf', format='pdf')
 
 
 

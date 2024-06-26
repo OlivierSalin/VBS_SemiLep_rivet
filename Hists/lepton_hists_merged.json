@@ -1,7 +1,11 @@
 {
   "merged_n_lepton_stable" : [10, 0.0, 10.0],
-  "merged_pt_lepton": [200, 0.0, 3000.0], 
-  "merged_pt_lepton1": [200, 0.0, 3000.0], 
-  "merged_pt_lepton2": [200, 0.0, 3000.0], 
-  "merged_eta_lepton": [60, -6.0, 6.0]
+  "merged_lepton_pt": [200, 0.0, 2000.0], 
+  "merged_lepton_delta_pt": [200, 0.0, 2000.0], 
+  "merged_lepton1_pt": [200, 0.0, 2000.0], 
+  "merged_lepton2_pt": [200, 0.0, 2000.0], 
+  "merged_lepton_eta": [60, -6.0, 6.0],
+  "merged_lepton1_eta": [60, -6.0, 6.0],
+  "merged_lepton2_eta": [60, -6.0, 6.0],
+  "merged_lepton_delta_eta": [60, 0.0, 3.0]
   }

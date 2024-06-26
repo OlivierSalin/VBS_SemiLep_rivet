@@ -14,21 +14,47 @@ parser.add_option("--DOCUT", default = "YES")
 parser.add_option("--SM", default = "YES")
 parser.add_option("--QUAD1", default = "FS1")
 parser.add_option("--QUAD2", default = "FT1")
-parser.add_option("--bins", default = 25)
+parser.add_option("--bins", default = 10)
 opts, _ = parser.parse_args()
 
 all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
-base_dir_plot = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/Plots_op/"
+base_dir_plot = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/Plots_op4/"
 
 categories = {
-    "SM": [ROOT.kViolet, ROOT.kMagenta], 
-    "FM": [ROOT.kRed, ROOT.kOrange], 
-    "FS": [ROOT.kBlue, ROOT.kCyan],  # Changed from kCyan to kAzure+7 for more contrast
-    "FT": [ROOT.kGreen+3, ROOT.kSpring-9]  # Changed from kTeal to kSpring-9 for more contrast
+    "cat1": ["FM0", "FM1", "FM7", ROOT.kRed-2, ROOT.kPink+6],
+    "cat2": ["FM2", "FM3", "FM4", "FM5", ROOT.kOrange+10, ROOT.kYellow-4],
+    "cat3": ["FT0", "FT1", "FT2", ROOT.kBlue-9, ROOT.kViolet-6],
+    "cat4": ["FT5", "FT6", "FT7", ROOT.kAzure, ROOT.kCyan],
+    "cat5": ["FT8", "FT9", ROOT.kCyan-10, ROOT.kTeal-6],
+    "cat6": ["FS1","FS02", ROOT.kGreen+3, ROOT.kSpring-9],
+    "cat7": ["SM", ROOT.kBlack, ROOT.kBlack]
 }
+
+categories_bis = {
+    "FM0": [ROOT.kMagenta-4,1],
+    "FM1": [ROOT.kPink+1,9],
+    "FM7": [ROOT.kPink+6,7],
+    "FM2": [ROOT.kRed+1,1],
+    "FM3": [ROOT.kOrange+10,9],
+    "FM4": [ROOT.kOrange-3,7],
+    "FM5": [ROOT.kYellow-9,4],
+    "FT0": [ROOT.kBlue-9,1],
+    "FT1": [ROOT.kViolet-9,9],
+    "FT2": [ROOT.kViolet-6,7],
+    "FT5": [ROOT.kAzure,1],
+    "FT6": [ROOT.kAzure+7,9],
+    "FT7": [ROOT.kCyan-3,7],
+    "FT8": [ROOT.kCyan-10,1],
+    "FT9": [ROOT.kTeal-6,9],
+    "FS1": [ROOT.kGreen+3,1],
+    "FS02": [ROOT.kSpring-9,9],
+    "SM": [ROOT.kBlack,1]
+}
+
+
 # Function to generate a gradient of colors
 def get_gradient_color(color1, color2, steps, step):
     r1 = ROOT.gROOT.GetColor(color1).GetRed()
@@ -54,26 +80,33 @@ def plot_histograms(desired_num_bins, root_files_info, output_plot):
     # Create a dictionary to map each operator to a color
 # Create a dictionary to map each operator to a color
     operator_colors = {}
-    for operator in all_ops_SM:
-        category = operator[:2]  # Get the category from the operator name
-        operators_in_category = [op for op in all_ops_SM if op.startswith(category)]  # Get all operators in this category
-        color_index = operators_in_category.index(operator)  # Get the index of the operator within its category
-        color1 = categories[category][0]  # Get the first color for this category
-        color2 = categories[category][1]  # Get the second color for this category
-        color = get_gradient_color(color1, color2, len(operators_in_category), color_index)  # Create a gradient color
-        operator_colors[operator] = color  # Store the color
-
+    for category, operators in categories.items():
+        for operator in operators[:-2]:  # Exclude the last two items (colors)
+            color_index = operators.index(operator)
+            color1 = operators[-2]  # Second to last item is the first color
+            color2 = operators[-1]  # Last item is the second color
+            color = get_gradient_color(color1, color2, len(operators)-2, color_index)  # Create a gradient color
+            operator_colors[operator] = color
+            
+    operator_colors_bis = {}
+    operator_style_bis = {}
+    for operator, values in categories_bis.items():
+        color1 = values[0]  # First item is the color
+        style1 = values[1]  # Second item is the style
+        operator_colors_bis[operator] = color1
+        operator_style_bis[operator] = style1
 
     for parameter_to_plot in keys:    
         # Create a new TCanvas
         canvas_name = "canvas_" + parameter_to_plot
         canvas = ROOT.TCanvas(canvas_name, "Stacked Histograms", 2000, 2000)
 
+        ROOT.gPad.SetRightMargin(0.2)
         # Create a THStack
-        hs = ROOT.THStack("hs", "Distribution of " + parameter_to_plot+ ' \nnb of bins:'+str(desired_num_bins))
+        hs = ROOT.THStack("hs", "Distribution of " + parameter_to_plot+ ' \n\nnb of bins:'+str(desired_num_bins))
         
         # Create a legend
-        legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+        legend = ROOT.TLegend(0.82, 0.5, 1.0, 0.9)
         
         # Loop over the files to retrieve and stack the histograms
         for legend_name, file_path in root_files_info.items():
@@ -90,7 +123,7 @@ def plot_histograms(desired_num_bins, root_files_info, output_plot):
                 histogram.Rebin(rebin_factor)
                 
             op=legend_name.split("_")[-1]
-            color = operator_colors[op]  # Get the color for this operator
+            color = operator_colors_bis[op]  # Get the color for this operator
             histogram.SetFillColor(color)
             histogram.SetMarkerStyle(20)
             histogram.SetMarkerColor(color)
@@ -114,13 +147,13 @@ def plot_histograms(desired_num_bins, root_files_info, output_plot):
         hs.GetYaxis().SetTitle("Events / bin")
         
         # Set log scale for y-axis
-        canvas.SetLogy()
-        ROOT.gPad.SetLogy()
+        #canvas.SetLogy()
+        #ROOT.gPad.SetLogy()
         
         # Draw the legend
         legend.Draw()
         canvas.SetCanvasSize(1000, 1000)
-        ROOT.gPad.SetLogy()
+        #ROOT.gPad.SetLogy()
         # Update the canvas
         canvas.Update()
         
@@ -136,17 +169,19 @@ all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
+all_ops_cat = ["SM","FM0","FM2","FS1","FT1","FT5"]
 
 
-for process in ["WmZ"]:
+
+for process in ["WpZ"]:
     Root_paths = {}
 
     for decay in ["llqq"]:
-        for op in all_ops_SM:
+        for op in all_ops_cat:
             if op=="SM":
-                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGCFM0_{op}_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/Tables_file_first/hists.root")
+                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGCFM0_{op}_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/Tables_file_polar/hists.root")
             else:
-                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGC{op}_QUAD_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/Tables_file_first/hists.root")
+                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGC{op}_QUAD_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/Tables_file_polar/hists.root")
             matches = glob.glob(path)
             #print(matches)
             if not matches:
@@ -160,7 +195,7 @@ for process in ["WmZ"]:
     # Call the function with the desired parameters
     desired_num_bins = int(opts.bins)  # Replace with your desired number of bins
 
-    output_plot = f"{base_dir_plot}/{process}/"
+    output_plot = f"{base_dir_plot}/Linear/{process}/"
 
     # Check if the directory exists, if not, create it
     if not os.path.exists(output_plot):

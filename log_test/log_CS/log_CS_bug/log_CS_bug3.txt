@@ -1,0 +1,1704 @@
+Thu May 23 14:19:11 CEST 2024
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq";DOCUT="YES""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+#####received conf from cmd through -c 'conf=X;DOCUT=Y':   MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq YES
+From conf found production dec WpZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq//*MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400']
+found possibilities for evnt file ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000002.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23188020._000001.pool.root.1']
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000002.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23188020._000001.pool.root.1']
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Thu May 23 14:19:44 2024
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://atlasbpfrontier.cern.ch:3127)(proxyurl=http://atlasbpfrontier.fnal.gov:3127) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] 0CF41F02-EE23-7D45-A33A-0B15889915B0
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1 File version:60806
+ClassIDSvc           INFO getRegistryEntries: read 1842 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/plotting
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/' for WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] 0CF41F02-EE23-7D45-A33A-0B15889915B0
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] 0CF41F02-EE23-7D45-A33A-0B15889915B0
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1 File version:60806
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 503263    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20001, run #503263 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+++++++received outidir/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this WpZ_llqq is /exp/atlas/salin/ATLAS/VBS_mc/plotting/WpZ_llqq_cuts.json
+++++++ to check json 1 var got photon pt min 400.0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20001, run #503263 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20002, run #503263 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20002, run #503263 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20003, run #503263 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20003, run #503263 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20004, run #503263 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20004, run #503263 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20005, run #503263 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20005, run #503263 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20006, run #503263 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20006, run #503263 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20007, run #503263 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20007, run #503263 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20008, run #503263 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20008, run #503263 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20009, run #503263 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20009, run #503263 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20010, run #503263 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20010, run #503263 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20011, run #503263 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20011, run #503263 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20012, run #503263 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20012, run #503263 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20013, run #503263 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20013, run #503263 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20014, run #503263 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20014, run #503263 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20015, run #503263 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20015, run #503263 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20016, run #503263 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20016, run #503263 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20017, run #503263 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20017, run #503263 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20018, run #503263 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20018, run #503263 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20019, run #503263 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20019, run #503263 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20020, run #503263 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20020, run #503263 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20021, run #503263 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20021, run #503263 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20022, run #503263 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20022, run #503263 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20023, run #503263 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20023, run #503263 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20024, run #503263 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20024, run #503263 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20025, run #503263 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20025, run #503263 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20026, run #503263 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20026, run #503263 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20027, run #503263 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20027, run #503263 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20028, run #503263 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20028, run #503263 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20029, run #503263 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20029, run #503263 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20030, run #503263 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20030, run #503263 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20031, run #503263 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20031, run #503263 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20032, run #503263 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20032, run #503263 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20033, run #503263 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20033, run #503263 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20034, run #503263 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20034, run #503263 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20035, run #503263 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20035, run #503263 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20036, run #503263 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20036, run #503263 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20037, run #503263 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20037, run #503263 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20038, run #503263 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20038, run #503263 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20039, run #503263 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20039, run #503263 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20040, run #503263 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20040, run #503263 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20041, run #503263 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20041, run #503263 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20042, run #503263 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20042, run #503263 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20043, run #503263 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20043, run #503263 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20044, run #503263 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20044, run #503263 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20045, run #503263 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20045, run #503263 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20046, run #503263 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20046, run #503263 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20047, run #503263 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20047, run #503263 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20048, run #503263 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20048, run #503263 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20049, run #503263 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20049, run #503263 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20050, run #503263 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20050, run #503263 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20051, run #503263 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20051, run #503263 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20052, run #503263 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20052, run #503263 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20053, run #503263 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20053, run #503263 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20054, run #503263 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20054, run #503263 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20055, run #503263 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20055, run #503263 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20056, run #503263 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20056, run #503263 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20057, run #503263 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20057, run #503263 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20058, run #503263 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20058, run #503263 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20059, run #503263 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20059, run #503263 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20060, run #503263 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20060, run #503263 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20061, run #503263 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20061, run #503263 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20062, run #503263 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20062, run #503263 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20063, run #503263 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20063, run #503263 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20064, run #503263 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20064, run #503263 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20065, run #503263 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20065, run #503263 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20066, run #503263 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20066, run #503263 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20067, run #503263 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20067, run #503263 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20068, run #503263 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20068, run #503263 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20069, run #503263 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20069, run #503263 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20070, run #503263 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20070, run #503263 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20071, run #503263 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20071, run #503263 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20072, run #503263 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20072, run #503263 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20073, run #503263 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20073, run #503263 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20074, run #503263 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20074, run #503263 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20075, run #503263 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20075, run #503263 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20076, run #503263 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20076, run #503263 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20077, run #503263 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20077, run #503263 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20078, run #503263 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20078, run #503263 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20079, run #503263 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20079, run #503263 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20080, run #503263 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20080, run #503263 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20081, run #503263 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20081, run #503263 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20082, run #503263 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20082, run #503263 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20083, run #503263 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20083, run #503263 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20084, run #503263 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20084, run #503263 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20085, run #503263 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20085, run #503263 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20086, run #503263 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20086, run #503263 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20087, run #503263 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20087, run #503263 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20088, run #503263 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20088, run #503263 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20089, run #503263 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20089, run #503263 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20090, run #503263 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20090, run #503263 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20091, run #503263 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20091, run #503263 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20092, run #503263 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20092, run #503263 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20093, run #503263 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20093, run #503263 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20094, run #503263 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20094, run #503263 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20095, run #503263 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20095, run #503263 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20096, run #503263 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20096, run #503263 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20097, run #503263 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20097, run #503263 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20098, run #503263 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20098, run #503263 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20099, run #503263 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20099, run #503263 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20100, run #503263 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20100, run #503263 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20101, run #503263 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20101, run #503263 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20102, run #503263 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20102, run #503263 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20103, run #503263 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20103, run #503263 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20104, run #503263 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20104, run #503263 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20105, run #503263 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20105, run #503263 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20106, run #503263 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20106, run #503263 106 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20107, run #503263 106 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20107, run #503263 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20108, run #503263 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20108, run #503263 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20109, run #503263 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20109, run #503263 109 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20110, run #503263 109 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20110, run #503263 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20111, run #503263 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20111, run #503263 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20112, run #503263 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20112, run #503263 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20113, run #503263 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20113, run #503263 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20114, run #503263 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20114, run #503263 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20115, run #503263 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20115, run #503263 115 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20116, run #503263 115 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20116, run #503263 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20117, run #503263 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20117, run #503263 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20118, run #503263 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20118, run #503263 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20119, run #503263 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20119, run #503263 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20120, run #503263 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20120, run #503263 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20121, run #503263 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20121, run #503263 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20122, run #503263 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20122, run #503263 122 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20123, run #503263 122 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20123, run #503263 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20124, run #503263 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20124, run #503263 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20125, run #503263 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20125, run #503263 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20126, run #503263 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20126, run #503263 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20127, run #503263 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20127, run #503263 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20128, run #503263 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20128, run #503263 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20129, run #503263 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20129, run #503263 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20130, run #503263 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20130, run #503263 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20131, run #503263 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20131, run #503263 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20132, run #503263 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20132, run #503263 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20133, run #503263 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20133, run #503263 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20134, run #503263 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20134, run #503263 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20135, run #503263 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20135, run #503263 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20136, run #503263 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20136, run #503263 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20137, run #503263 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20137, run #503263 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20138, run #503263 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20138, run #503263 138 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20139, run #503263 138 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20139, run #503263 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20140, run #503263 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20140, run #503263 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20141, run #503263 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20141, run #503263 141 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20142, run #503263 141 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20142, run #503263 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20143, run #503263 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20143, run #503263 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20144, run #503263 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20144, run #503263 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20145, run #503263 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20145, run #503263 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20146, run #503263 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20146, run #503263 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20147, run #503263 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20147, run #503263 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20148, run #503263 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20148, run #503263 148 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20149, run #503263 148 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20149, run #503263 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20150, run #503263 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20150, run #503263 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20151, run #503263 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20151, run #503263 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20152, run #503263 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20152, run #503263 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20153, run #503263 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20153, run #503263 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20154, run #503263 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20154, run #503263 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20155, run #503263 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20155, run #503263 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20156, run #503263 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20156, run #503263 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20157, run #503263 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20157, run #503263 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20158, run #503263 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20158, run #503263 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20159, run #503263 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20159, run #503263 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20160, run #503263 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20160, run #503263 160 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20161, run #503263 160 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20161, run #503263 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20162, run #503263 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20162, run #503263 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20163, run #503263 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20163, run #503263 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20164, run #503263 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20164, run #503263 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20165, run #503263 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20165, run #503263 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20166, run #503263 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20166, run #503263 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20167, run #503263 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20167, run #503263 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20168, run #503263 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20168, run #503263 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20169, run #503263 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20169, run #503263 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20170, run #503263 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20170, run #503263 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20171, run #503263 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20171, run #503263 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20172, run #503263 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20172, run #503263 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20173, run #503263 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20173, run #503263 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20174, run #503263 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20174, run #503263 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20175, run #503263 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20175, run #503263 175 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20176, run #503263 175 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20176, run #503263 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20177, run #503263 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20177, run #503263 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20178, run #503263 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20178, run #503263 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20179, run #503263 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20179, run #503263 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20180, run #503263 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20180, run #503263 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20181, run #503263 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20181, run #503263 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20182, run #503263 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20182, run #503263 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20183, run #503263 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20183, run #503263 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20184, run #503263 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20184, run #503263 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20185, run #503263 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20185, run #503263 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20186, run #503263 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20186, run #503263 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20187, run #503263 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20187, run #503263 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20188, run #503263 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20188, run #503263 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20189, run #503263 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20189, run #503263 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20190, run #503263 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20190, run #503263 190 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20191, run #503263 190 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20191, run #503263 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20192, run #503263 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20192, run #503263 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20193, run #503263 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20193, run #503263 193 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20194, run #503263 193 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20194, run #503263 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20195, run #503263 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20195, run #503263 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20196, run #503263 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20196, run #503263 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20197, run #503263 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20197, run #503263 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20198, run #503263 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20198, run #503263 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20199, run #503263 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20199, run #503263 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20200, run #503263 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20200, run #503263 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20201, run #503263 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20201, run #503263 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20202, run #503263 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20202, run #503263 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20203, run #503263 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20203, run #503263 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20204, run #503263 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20204, run #503263 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20205, run #503263 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20205, run #503263 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20206, run #503263 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20206, run #503263 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20207, run #503263 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20207, run #503263 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20208, run #503263 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20208, run #503263 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20209, run #503263 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20209, run #503263 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20210, run #503263 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20210, run #503263 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20211, run #503263 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20211, run #503263 211 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20212, run #503263 211 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20212, run #503263 212 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20213, run #503263 212 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20213, run #503263 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20214, run #503263 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20214, run #503263 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20215, run #503263 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20215, run #503263 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20216, run #503263 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20216, run #503263 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20217, run #503263 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20217, run #503263 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20218, run #503263 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20218, run #503263 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20219, run #503263 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20219, run #503263 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20220, run #503263 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20220, run #503263 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20221, run #503263 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20221, run #503263 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20222, run #503263 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20222, run #503263 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20223, run #503263 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20223, run #503263 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20224, run #503263 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20224, run #503263 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20225, run #503263 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20225, run #503263 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20226, run #503263 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20226, run #503263 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20227, run #503263 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20227, run #503263 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20228, run #503263 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20228, run #503263 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20229, run #503263 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20229, run #503263 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20230, run #503263 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20230, run #503263 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20231, run #503263 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20231, run #503263 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20232, run #503263 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20232, run #503263 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20233, run #503263 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20233, run #503263 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20234, run #503263 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20234, run #503263 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20235, run #503263 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20235, run #503263 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20236, run #503263 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20236, run #503263 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20237, run #503263 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20237, run #503263 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20238, run #503263 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20238, run #503263 238 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20239, run #503263 238 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20239, run #503263 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20240, run #503263 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20240, run #503263 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20241, run #503263 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20241, run #503263 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20242, run #503263 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20242, run #503263 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20243, run #503263 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20243, run #503263 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20244, run #503263 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20244, run #503263 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20245, run #503263 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20245, run #503263 245 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20246, run #503263 245 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20246, run #503263 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20247, run #503263 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20247, run #503263 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20248, run #503263 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20248, run #503263 248 events processed so far  <<<===
+AthenaEventLoopMgrWARNING INFO message limit (500) reached for AthenaEventLoopMgr. Suppressing further output.
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] 0CF41F02-EE23-7D45-A33A-0B15889915B0
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15224 0.0125407 0.0823745
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00277477 -0.000155015 0.0558659
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156466 0.0127434 0.0814452
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00290369 -0.00015534 0.0534974
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.173316 0.0143231 0.0826417
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00326235 -0.000184868 0.0566671
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147569 0.0126453 0.0856912
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0157623 -0.000837085 0.0531068
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.152512 0.0129554 0.0849469
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00242402 -6.5201e-05 0.0268978
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149962 0.0123214 0.0821633
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00919204 0.000399554 0.0434674
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156868 0.0124787 0.0795489
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0217988 -0.00107902 0.049499
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.146269 0.0117639 0.0804266
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00353523 0.000146803 0.0415256
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.158175 0.0126389 0.0799044
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00795978 -0.00104593 0.131402
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.143233 0.0123119 0.0859573
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00692763 -0.000305407 0.0440853
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149822 0.0118902 0.0793621
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00169576 -8.95705e-05 0.0528202
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156833 0.0131398 0.0837823
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00363426 0.000183769 0.0505659
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.146002 0.0119866 0.0820988
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00564029 -0.00028379 0.0503148
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.12345 0.0100086 0.081074
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00214959 -0.000112793 0.0524718
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156387 0.0133683 0.0854823
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00504515 -0.000205641 0.0407601
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153163 0.0127973 0.0835535
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00673562 -0.000369327 0.0548319
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154802 0.0128143 0.0827788
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0107202 -0.000517681 0.0482901
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.148618 0.0126597 0.0851827
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0114536 -0.000591852 0.0516738
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153484 0.0129951 0.0846678
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0106865 0.000599865 0.0561328
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.142872 0.0123641 0.0865401
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0214593 -0.000863546 0.0402412
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153797 0.0127151 0.0826748
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0102175 -0.00047184 0.0461797
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14787 0.0123604 0.0835894
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00945598 -0.000523884 0.0554023
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.155188 0.0131206 0.0845464
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00729736 0.00030083 0.0412245
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154351 0.0127515 0.0826133
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00238414 -0.00013136 0.0550973
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.168128 0.0125788 0.0748166
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0201867 0.00125931 0.0623833
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15148 0.0123388 0.0814553
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.024586 -0.00125669 0.051114
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151472 0.0125957 0.0831553
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00622311 -0.000335223 0.0538674
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.159839 0.0126921 0.0794055
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00975757 0.000506308 0.0518888
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154188 0.0128666 0.0834478
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00709289 -0.000331202 0.0466949
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.146006 0.0123359 0.0844892
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00633173 0.000401921 0.0634773
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.148628 0.0124882 0.0840232
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00860718 -0.000395727 0.0459763
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.152596 0.0126426 0.08285
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0138458 0.000756626 0.0546465
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.134889 0.0114356 0.0847776
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0219428 -0.00104579 0.0476599
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.168331 0.0135705 0.0806176
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0215091 0.000898556 0.0417756
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14332 0.0119554 0.0834172
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00713639 0.000337988 0.0473612
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149643 0.0122644 0.081958
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00131963 4.03761e-05 0.0305966
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153644 0.0128717 0.0837756
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00411586 0.000191526 0.0465337
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.152669 0.0123426 0.0808455
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00130323 -0.000120522 0.0924797
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150829 0.0123688 0.0820057
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0171605 -0.000927118 0.0540263
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.148928 0.0123206 0.0827285
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00483311 -0.000254095 0.0525737
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149018 0.012276 0.0823792
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00510645 -0.000234759 0.045973
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147241 0.0124635 0.0846474
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00886816 -0.000413835 0.0466653
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154856 0.012577 0.0812177
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00444174 0.000107828 0.0242761
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.159623 0.0128416 0.0804499
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00953335 -0.000376781 0.0395224
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150664 0.0115819 0.076872
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0079078 0.000405861 0.0513241
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156688 0.0127508 0.081377
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00321052 0.000146824 0.0457323
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.155861 0.013192 0.0846396
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00766272 0.000592841 0.0773669
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147493 0.0123631 0.0838218
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00179547 0.000102118 0.0568751
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.145838 0.0121713 0.0834574
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0167892 -0.000689396 0.0410619
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.140879 0.0114533 0.0812988
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0128017 0.000575923 0.0449881
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151414 0.0125061 0.0825952
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00332791 -0.000168204 0.0505435
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153592 0.0126784 0.0825463
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0041108 -0.000201024 0.0489015
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150133 0.0125662 0.0837007
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00244846 0.000109674 0.0447929
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147454 0.0123494 0.0837506
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00126074 5.21388e-05 0.0413556
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149824 0.0124931 0.0833847
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 8.05288e-05 -9.48761e-06 -0.117816
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150515 0.0125445 0.0833439
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 8.22004e-05 -4.90156e-06 -0.0596294
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14822 0.0123847 0.0835561
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -2.43458e-05 -5.49594e-05 2.25745
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151132 0.01253 0.0829077
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000107902 -2.29183e-05 -0.212399
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149599 0.0125216 0.0837009
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -5.11356e-05 -9.42919e-05 1.84396
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.148111 0.0123576 0.0834346
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 8.51082e-05 -1.3458e-05 -0.158128
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150195 0.0125446 0.0835221
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000107455 -2.42653e-05 -0.225819
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149317 0.0124545 0.0834102
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000186785 -3.15219e-05 -0.16876
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150622 0.0125414 0.0832637
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.39215e-05 -1.3439e-06 -0.0249232
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149348 0.0124559 0.083402
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.76857e-05 -2.11797e-05 -0.367156
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156466 0.0127434 0.0814452
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00290369 -0.00015534 0.0534974
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150155 0.012452 0.0829272
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000170304 1.78228e-05 0.104653
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149889 0.0124931 0.0833491
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.53477e-05 -6.43421e-06 -0.116251
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15299 0.0127722 0.083484
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.14439e-05 2.35271e-05 0.457336
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149902 0.0124881 0.0833086
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0010865 0.000172505 0.158772
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149563 0.0124757 0.0834148
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 4.0789e-05 -2.9884e-05 -0.732649
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14897 0.0124366 0.0834837
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 7.16114e-05 -9.20519e-06 -0.128544
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150092 0.0125017 0.0832937
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.000598367 -0.000124963 0.20884
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149763 0.0124828 0.0833498
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 2.87609e-05 -5.11309e-06 -0.177779
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149399 0.0124442 0.0832947
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000122489 1.89346e-06 0.0154582
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150188 0.0125128 0.083314
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.39451e-05 9.77624e-06 0.181226
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150651 0.0125483 0.0832942
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 6.84656e-05 -1.41959e-05 -0.207344
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15003 0.0125081 0.0833705
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000214648 3.95443e-06 0.0184228
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150509 0.0125472 0.0833654
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000142736 -2.97369e-05 -0.208335
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149044 0.0124629 0.083619
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000102312 3.40906e-05 0.333201
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.148135 0.0123785 0.0835624
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000172416 4.51978e-05 0.262144
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149524 0.0124749 0.0834312
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.94689e-05 -3.58139e-05 -0.602229
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149616 0.0124744 0.0833761
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 5.47302e-05 -9.92339e-06 -0.181315
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149677 0.012478 0.0833662
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 1.96344e-05 -2.59115e-06 -0.13197
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149327 0.0124501 0.0833748
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -2.45111e-05 -2.11964e-05 0.864768
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149861 0.0124908 0.0833496
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 3.216e-05 -1.36497e-06 -0.0424432
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149823 0.012495 0.0833984
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000128827 -1.29997e-05 -0.100908
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15242 0.0127031 0.0833428
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00032211 -1.4299e-06 -0.00443915
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147542 0.0122854 0.0832672
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000333033 3.57557e-06 0.0107364
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15224 0.0125407 0.0823745
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00277477 -0.000155015 0.0558659
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.12345 0.0100086 0.081074
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00214959 -0.000112793 0.0524718
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156466 0.0127434 0.0814452
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00290369 -0.00015534 0.0534974
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.138449 0.0112496 0.0812545
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00248814 -0.000131775 0.0529611
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.12345 0.0100086 0.081074
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00214959 -0.000112793 0.0524718
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151207 0.0124491 0.0823316
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00388122 -0.000104961 0.0270432
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149004 0.0123749 0.0830508
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00109533 8.34221e-05 0.0761619
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.148082 0.0122925 0.0830113
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00897793 -0.000469688 0.0523159
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.163487 0.0134641 0.0823558
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00345238 0.000192119 0.0556484
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.164276 0.0135998 0.0827865
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0111676 0.000572473 0.0512617
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.145211 0.0122975 0.084687
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00617796 -0.000434383 0.0703117
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156726 0.012956 0.0826667
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0107035 0.000542315 0.0506669
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.140359 0.0116658 0.0831142
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00416755 -0.000189095 0.045373
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.163561 0.0128871 0.0787905
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0127545 0.000309234 0.0242451
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154199 0.012997 0.0842868
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0109007 -0.000560287 0.0513992
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151755 0.0126277 0.0832114
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0196129 -0.00107655 0.0548901
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.143803 0.0122048 0.084872
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0187672 -0.000941861 0.0501866
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156087 0.0126319 0.0809286
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00168748 0.000104424 -0.0618817
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.158878 0.0129082 0.0812461
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00615961 -0.000333827 0.0541962
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.145582 0.0121712 0.083604
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00582817 -0.000339885 0.0583176
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.157252 0.0124052 0.0788872
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0050438 -0.000468656 0.0929173
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.156226 0.0126733 0.0811219
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00319213 -0.00022849 0.071579
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151994 0.0127321 0.0837666
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00553509 0.000248671 0.0449263
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151893 0.0121296 0.0798563
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00568069 0.000315034 0.0554569
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153793 0.0122596 0.0797152
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0011139 1.01891e-05 0.0091472
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.155484 0.012567 0.0808254
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00781463 -0.000451981 0.0578378
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.163015 0.0130771 0.0802204
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00505152 -0.000665669 0.131776
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153459 0.0130105 0.0847817
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00528689 -0.000318184 0.0601835
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.157372 0.0129845 0.0825085
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000394034 2.58046e-05 0.0654883
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.155674 0.0124116 0.0797282
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00386853 -0.00056927 0.147154
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153754 0.0128794 0.0837661
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00471254 -0.000236748 0.0502379
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154008 0.012197 0.0791972
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0068299 0.000286341 0.0419246
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.150052 0.0124573 0.0830199
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00379736 -0.000177481 0.046738
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.140927 0.0118827 0.0843179
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0154074 -0.000757402 0.0491584
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147691 0.0122559 0.0829837
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00821013 -0.000397404 0.0484041
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154419 0.0126363 0.0818317
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00172176 -0.000131912 0.0766148
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.152023 0.0127467 0.0838471
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0129928 0.000739848 0.056943
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.147798 0.0121737 0.0823671
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00686595 0.000400097 0.0582726
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14637 0.0123049 0.0840671
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00548026 0.000317668 0.0579658
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15539 0.0128178 0.0824884
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.000230559 2.61982e-05 0.113629
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.142101 0.0119316 0.0839658
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.000371347 4.58152e-05 -0.123376
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14602 0.0119783 0.0820321
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0048611 -0.000227602 0.0468211
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14894 0.0122601 0.0823159
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00418426 -0.000165042 0.0394435
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.161326 0.0134925 0.083635
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00416814 0.000244154 0.0585762
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.16138 0.0127878 0.07924
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.000818696 6.22891e-05 -0.0760833
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.163973 0.0132298 0.0806826
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.012384 0.000716602 0.0578653
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.15037 0.0124842 0.0830235
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0143418 -0.000772968 0.053896
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.149724 0.0125775 0.0840042
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.014029 -0.000787023 0.0560999
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.159056 0.012626 0.0793809
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00802477 -0.000453308 0.0564886
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154476 0.0127959 0.0828345
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0145374 0.000768338 0.0528526
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.153009 0.0126603 0.0827422
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00196098 -0.000413965 0.211102
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.144225 0.0120501 0.0835507
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0106671 -0.000545916 0.0511774
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.151245 0.0126077 0.0833597
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.00122791 8.23487e-05 0.067064
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.14274 0.0117534 0.0823411
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.000693764 -8.12425e-05 0.117104
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.146521 0.0121712 0.0830681
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0261832 -0.00133587 0.0510201
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.144726 0.0125123 0.0864549
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0222202 -0.0011292 0.0508186
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.159605 0.012886 0.0807367
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.006991 -0.000401799 0.0574737
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.154938 0.0128206 0.0827466
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.00439298 -0.000246054 0.0560108
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio 0.155108 0.0130603 0.084201
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio -0.0126776 -0.000685848 0.0540992
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ pos weights initial final ratio -1.5224 -0.125407 0.0823745
+
+Rivet.Analysis.WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/: INFO  
+ neg weights initial final ratio 0.0277477 0.00155015 0.0558659
+
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |           10469 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |           55386 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Listing sources of suppressed message: 
+=====================================================
+ Message Source              |   Level |    Count
+-----------------------------+---------+-------------
+ AthenaEventLoopMgr          |    INFO |    20003
+=====================================================
+Py:Athena            INFO leaving with code 0: "successful run"
+From conf found production dec WpZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq//*MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400']
+found possibilities for evnt file ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218480._000002.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/EVNT.23188020._000001.pool.root.1']
+#### will run rivet with athena rivet_job.py -c 'conf="MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq";DOCUT="YES"' --evtMax 10000
+dont do plot from yoda since redoPlots= no and dir /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//rivet-plots/ exists  True
+Cross section in fb for FM5_QUAD_WpZ_llqq: 0.01497
+reading from yoda file  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+have 1d hists to be saved in root: ['/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//aft_cutTag_n_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cutDR_n_fjets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cutDR_n_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cutTag_n_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_m_tag_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_n_fjets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_n_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_nlep', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet1_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet1_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet2_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet2_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_cos_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_cos_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_Tagjet1Tagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_VTagjet1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_VTagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_ZTagjet1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_ZTagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_ZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_Tagjet1Tagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_VTagjet1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_VTagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_ZTagjet1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_ZTagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_ZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_Tagjet1Tagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_VTagjet1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_VTagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_ZTagjet1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_ZTagjet2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_ZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_deltaEta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_deltaPhi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_deltaR_Vhad', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Centrality', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVhad', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityZ', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_fjets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_tagjets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VZ_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VZ_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VZ_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaEta_Z', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaPhi_Z', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaR_Z', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppMerged', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppZ', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton1_cos_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton2_cos_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_Vhad', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_deltaEta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_deltaPhi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_minus_cos_theta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_minus_cos_theta_bis', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_D2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_n', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_leptons_pids', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_DR_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_Deta_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_Dphi_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_lepton_stable', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dphi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dy', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_m', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Centrality', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVhad', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityZ', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets1', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets2', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DeltaPt_sig_jet2_jet3', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_signal_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_tagjets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VZ_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VZ_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VZ_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DR_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaEta_Z', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaPhi_Z', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaR_Z', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Deta_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Dphi_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppRes', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppZ', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppZV', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton1_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton2_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_leptons_pids', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_DR_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_Deta_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_Dphi_tagjet', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_mass_Full', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_mjjj', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_jets', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_lepton_stable', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_pt_Full', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaEta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaPhi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaR', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_mass', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_pt', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dphi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dy', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_eta', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_m', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_phi', '/WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_pt'] in yoda file /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+looking for prefix in counter /WpZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WpZ_llqq/mc16_13TeV.503263.MGPy8EG_aQGCFM5_QUAD_1_WpZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+pos_n_in: 9821, neg_n_in: 179, pos_n_f: 809, neg_n_f: 10 pos_n_f_merged: 651, neg_n_f_merged: 8 pos_n_f_resolved: 158, neg_n_f_resolved: 2
+converting to root hist with name aft_cutTag_n_jets
+converting to root hist with name bef_cutDR_n_fjets
+converting to root hist with name bef_cutDR_n_jets
+converting to root hist with name bef_cutTag_n_jets
+converting to root hist with name bef_cut_m_tag_jets
+converting to root hist with name bef_cut_n_fjets
+converting to root hist with name bef_cut_n_jets
+converting to root hist with name bef_cut_nlep
+converting to root hist with name merged_CS_Tagjet1_phi
+converting to root hist with name merged_CS_Tagjet1_theta
+converting to root hist with name merged_CS_Tagjet2_phi
+converting to root hist with name merged_CS_Tagjet2_theta
+converting to root hist with name merged_CS_V_cos_theta
+converting to root hist with name merged_CS_V_phi
+converting to root hist with name merged_CS_V_pt
+converting to root hist with name merged_CS_Z_cos_theta
+converting to root hist with name merged_CS_Z_phi
+converting to root hist with name merged_CS_Z_pt
+converting to root hist with name merged_CS_deltaEta_Tagjet1Tagjet2
+converting to root hist with name merged_CS_deltaEta_VTagjet1
+converting to root hist with name merged_CS_deltaEta_VTagjet2
+converting to root hist with name merged_CS_deltaEta_ZTagjet1
+converting to root hist with name merged_CS_deltaEta_ZTagjet2
+converting to root hist with name merged_CS_deltaEta_ZV
+converting to root hist with name merged_CS_deltaPhi_Tagjet1Tagjet2
+converting to root hist with name merged_CS_deltaPhi_VTagjet1
+converting to root hist with name merged_CS_deltaPhi_VTagjet2
+converting to root hist with name merged_CS_deltaPhi_ZTagjet1
+converting to root hist with name merged_CS_deltaPhi_ZTagjet2
+converting to root hist with name merged_CS_deltaPhi_ZV
+converting to root hist with name merged_CS_deltaR_Tagjet1Tagjet2
+converting to root hist with name merged_CS_deltaR_VTagjet1
+converting to root hist with name merged_CS_deltaR_VTagjet2
+converting to root hist with name merged_CS_deltaR_ZTagjet1
+converting to root hist with name merged_CS_deltaR_ZTagjet2
+converting to root hist with name merged_CS_deltaR_ZV
+converting to root hist with name merged_CS_lepton_deltaEta
+converting to root hist with name merged_CS_lepton_deltaPhi
+converting to root hist with name merged_CS_lepton_deltaR_Vhad
+converting to root hist with name merged_CS_lepton_pt
+converting to root hist with name merged_Centrality
+converting to root hist with name merged_CentralityVhad
+converting to root hist with name merged_CentralityZ
+converting to root hist with name merged_CentralityZV
+converting to root hist with name merged_Full_mass
+converting to root hist with name merged_Full_pt
+converting to root hist with name merged_Ntrk_fjets
+converting to root hist with name merged_Ntrk_tagjets
+converting to root hist with name merged_VZ_eta
+converting to root hist with name merged_VZ_mass
+converting to root hist with name merged_VZ_pt
+converting to root hist with name merged_Vhad_DeltaEta_Z
+converting to root hist with name merged_Vhad_DeltaPhi_Z
+converting to root hist with name merged_Vhad_DeltaR_Z
+converting to root hist with name merged_ZeppMerged
+converting to root hist with name merged_ZeppV
+converting to root hist with name merged_ZeppZ
+converting to root hist with name merged_ZeppZV
+converting to root hist with name merged_Zrf_Lepton1_cos_theta
+converting to root hist with name merged_Zrf_Lepton2_cos_theta
+converting to root hist with name merged_Zrf_Lepton_Vhad
+converting to root hist with name merged_Zrf_Lepton_deltaEta
+converting to root hist with name merged_Zrf_Lepton_deltaPhi
+converting to root hist with name merged_Zrf_Lepton_minus_cos_theta
+converting to root hist with name merged_Zrf_Lepton_minus_cos_theta_bis
+converting to root hist with name merged_fjet_D2
+converting to root hist with name merged_fjet_DR_lepton
+converting to root hist with name merged_fjet_DR_tagjet
+converting to root hist with name merged_fjet_Deta_tagjet
+converting to root hist with name merged_fjet_Dphi_tagjet
+converting to root hist with name merged_fjet_eta
+converting to root hist with name merged_fjet_mass
+converting to root hist with name merged_fjet_n
+converting to root hist with name merged_fjet_pt
+converting to root hist with name merged_lepton1_pt
+converting to root hist with name merged_lepton2_pt
+converting to root hist with name merged_lepton_delta_eta
+converting to root hist with name merged_lepton_delta_pt
+converting to root hist with name merged_lepton_eta
+converting to root hist with name merged_lepton_pt
+converting to root hist with name merged_leptons_pids
+converting to root hist with name merged_ll_DR_tagjet
+converting to root hist with name merged_ll_Deta_tagjet
+converting to root hist with name merged_ll_Dphi_tagjet
+converting to root hist with name merged_ll_eta
+converting to root hist with name merged_ll_mass
+converting to root hist with name merged_ll_phi
+converting to root hist with name merged_ll_pt
+converting to root hist with name merged_n_jets
+converting to root hist with name merged_n_lepton_stable
+converting to root hist with name merged_tagjet1_eta
+converting to root hist with name merged_tagjet1_pt
+converting to root hist with name merged_tagjet2_eta
+converting to root hist with name merged_tagjet2_pt
+converting to root hist with name merged_tagjets_delta_eta
+converting to root hist with name merged_tagjets_delta_pt
+converting to root hist with name merged_tagjets_dphi
+converting to root hist with name merged_tagjets_dy
+converting to root hist with name merged_tagjets_eta
+converting to root hist with name merged_tagjets_m
+converting to root hist with name merged_tagjets_phi
+converting to root hist with name merged_tagjets_pt
+converting to root hist with name resolved_Centrality
+converting to root hist with name resolved_CentralityVhad
+converting to root hist with name resolved_CentralityZ
+converting to root hist with name resolved_CentralityZV
+converting to root hist with name resolved_DR_min_lepton_sigjets1
+converting to root hist with name resolved_DR_min_lepton_sigjets2
+converting to root hist with name resolved_DR_min_lepton_tagjets1
+converting to root hist with name resolved_DR_min_lepton_tagjets2
+converting to root hist with name resolved_DeltaPt_sig_jet2_jet3
+converting to root hist with name resolved_Ntrk_signal_jets
+converting to root hist with name resolved_Ntrk_tagjets
+converting to root hist with name resolved_VZ_eta
+converting to root hist with name resolved_VZ_mass
+converting to root hist with name resolved_VZ_pt
+converting to root hist with name resolved_Vhad_DR_tagjet
+converting to root hist with name resolved_Vhad_DeltaEta_Z
+converting to root hist with name resolved_Vhad_DeltaPhi_Z
+converting to root hist with name resolved_Vhad_DeltaR_Z
+converting to root hist with name resolved_Vhad_Deta_tagjet
+converting to root hist with name resolved_Vhad_Dphi_tagjet
+converting to root hist with name resolved_ZeppRes
+converting to root hist with name resolved_ZeppV
+converting to root hist with name resolved_ZeppZ
+converting to root hist with name resolved_ZeppZV
+converting to root hist with name resolved_lepton1_pt
+converting to root hist with name resolved_lepton2_pt
+converting to root hist with name resolved_lepton_delta_eta
+converting to root hist with name resolved_lepton_delta_pt
+converting to root hist with name resolved_lepton_eta
+converting to root hist with name resolved_lepton_pt
+converting to root hist with name resolved_leptons_pids
+converting to root hist with name resolved_ll_DR_tagjet
+converting to root hist with name resolved_ll_Deta_tagjet
+converting to root hist with name resolved_ll_Dphi_tagjet
+converting to root hist with name resolved_ll_eta
+converting to root hist with name resolved_ll_mass
+converting to root hist with name resolved_ll_phi
+converting to root hist with name resolved_ll_pt
+converting to root hist with name resolved_mass_Full
+converting to root hist with name resolved_mjjj
+converting to root hist with name resolved_n_jets
+converting to root hist with name resolved_n_lepton_stable
+converting to root hist with name resolved_pt_Full
+converting to root hist with name resolved_signal_jets_DeltaEta
+converting to root hist with name resolved_signal_jets_DeltaPhi
+converting to root hist with name resolved_signal_jets_DeltaR
+converting to root hist with name resolved_signal_jets_eta
+converting to root hist with name resolved_signal_jets_mass
+converting to root hist with name resolved_signal_jets_pt
+converting to root hist with name resolved_tagjet1_eta
+converting to root hist with name resolved_tagjet1_pt
+converting to root hist with name resolved_tagjet2_eta
+converting to root hist with name resolved_tagjet2_pt
+converting to root hist with name resolved_tagjets_delta_eta
+converting to root hist with name resolved_tagjets_delta_pt
+converting to root hist with name resolved_tagjets_dphi
+converting to root hist with name resolved_tagjets_dy
+converting to root hist with name resolved_tagjets_eta
+converting to root hist with name resolved_tagjets_m
+converting to root hist with name resolved_tagjets_phi
+converting to root hist with name resolved_tagjets_pt
+saving cutflow resolved as img
+['WpZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['10000.0', '100', '-', '']
+['Pass', 'have_two_lep', '6280.0', '63', '63']
+['Pass', 'pt_lep1_2', '5974.0', '60', '95']
+['Pass', 'n_jets', '5974.0', '60', '100']
+['Pass', 'found_tag_jets', '4764.0', '48', '80']
+['Pass', 'pt_tagjet1_2', '4591.0', '46', '96']
+['Pass', 'm_tagjets', '4532.0', '45', '99']
+['Pass', 'At_least_one_fjets', '1217.0', '12', '27']
+['Pass', 'fjets_is_W/Z', '659.0', '7', '54']
+['Pass', 'Total_Merged_selec', '659.0', '7', '100']
+['']
+['WpZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['10000.0', '100', '-', '']
+['Pass', 'have_two_lep', '6280.0', '63', '63']
+['Pass', 'pt_lep1_2', '5974.0', '60', '95']
+['Pass', 'n_jets', '5974.0', '60', '100']
+['Pass', 'found_tag_jets', '4764.0', '48', '80']
+['Pass', 'pt_tagjet1_2', '4591.0', '46', '96']
+['Pass', 'm_tagjets', '4532.0', '45', '99']
+['Pass', 'Failed_Merged_selection', '3873.0', '39', '85']
+['Pass', 'At_least_two_signal_jets', '1634.0', '16', '42']
+['Pass', 'signal_jets_pT', '1555.0', '16', '95']
+['Pass', 'signal_mjj', '226.0', '2', '15']
+['Pass', 'M_jjj', '160.0', '2', '71']
+['Pass', 'Total_Resolved_selec', '160.0', '2', '100']
+['']
+['aft_cutTag_n_jets', 'bef_cutDR_n_fjets', 'bef_cutDR_n_jets', 'bef_cutTag_n_jets', 'bef_cut_m_tag_jets', 'bef_cut_n_fjets', 'bef_cut_n_jets', 'bef_cut_nlep', 'merged_CS_Tagjet1_phi', 'merged_CS_Tagjet1_theta', 'merged_CS_Tagjet2_phi', 'merged_CS_Tagjet2_theta', 'merged_CS_V_cos_theta', 'merged_CS_V_phi', 'merged_CS_V_pt', 'merged_CS_Z_cos_theta', 'merged_CS_Z_phi', 'merged_CS_Z_pt', 'merged_CS_deltaEta_Tagjet1Tagjet2', 'merged_CS_deltaEta_VTagjet1', 'merged_CS_deltaEta_VTagjet2', 'merged_CS_deltaEta_ZTagjet1', 'merged_CS_deltaEta_ZTagjet2', 'merged_CS_deltaEta_ZV', 'merged_CS_deltaPhi_Tagjet1Tagjet2', 'merged_CS_deltaPhi_VTagjet1', 'merged_CS_deltaPhi_VTagjet2', 'merged_CS_deltaPhi_ZTagjet1', 'merged_CS_deltaPhi_ZTagjet2', 'merged_CS_deltaPhi_ZV', 'merged_CS_deltaR_Tagjet1Tagjet2', 'merged_CS_deltaR_VTagjet1', 'merged_CS_deltaR_VTagjet2', 'merged_CS_deltaR_ZTagjet1', 'merged_CS_deltaR_ZTagjet2', 'merged_CS_deltaR_ZV', 'merged_CS_lepton_deltaEta', 'merged_CS_lepton_deltaPhi', 'merged_CS_lepton_deltaR_Vhad', 'merged_CS_lepton_pt', 'merged_Centrality', 'merged_CentralityVhad', 'merged_CentralityZ', 'merged_CentralityZV', 'merged_Full_mass', 'merged_Full_pt', 'merged_Ntrk_fjets', 'merged_Ntrk_tagjets', 'merged_VZ_eta', 'merged_VZ_mass', 'merged_VZ_pt', 'merged_Vhad_DeltaEta_Z', 'merged_Vhad_DeltaPhi_Z', 'merged_Vhad_DeltaR_Z', 'merged_ZeppMerged', 'merged_ZeppV', 'merged_ZeppZ', 'merged_ZeppZV', 'merged_Zrf_Lepton1_cos_theta', 'merged_Zrf_Lepton2_cos_theta', 'merged_Zrf_Lepton_Vhad', 'merged_Zrf_Lepton_deltaEta', 'merged_Zrf_Lepton_deltaPhi', 'merged_Zrf_Lepton_minus_cos_theta', 'merged_Zrf_Lepton_minus_cos_theta_bis', 'merged_fjet_D2', 'merged_fjet_DR_lepton', 'merged_fjet_DR_tagjet', 'merged_fjet_Deta_tagjet', 'merged_fjet_Dphi_tagjet', 'merged_fjet_eta', 'merged_fjet_mass', 'merged_fjet_n', 'merged_fjet_pt', 'merged_lepton1_pt', 'merged_lepton2_pt', 'merged_lepton_delta_eta', 'merged_lepton_delta_pt', 'merged_lepton_eta', 'merged_lepton_pt', 'merged_leptons_pids', 'merged_ll_DR_tagjet', 'merged_ll_Deta_tagjet', 'merged_ll_Dphi_tagjet', 'merged_ll_eta', 'merged_ll_mass', 'merged_ll_phi', 'merged_ll_pt', 'merged_n_jets', 'merged_n_lepton_stable', 'merged_tagjet1_eta', 'merged_tagjet1_pt', 'merged_tagjet2_eta', 'merged_tagjet2_pt', 'merged_tagjets_delta_eta', 'merged_tagjets_delta_pt', 'merged_tagjets_dphi', 'merged_tagjets_dy', 'merged_tagjets_eta', 'merged_tagjets_m', 'merged_tagjets_phi', 'merged_tagjets_pt', 'resolved_Centrality', 'resolved_CentralityVhad', 'resolved_CentralityZ', 'resolved_CentralityZV', 'resolved_DR_min_lepton_sigjets1', 'resolved_DR_min_lepton_sigjets2', 'resolved_DR_min_lepton_tagjets1', 'resolved_DR_min_lepton_tagjets2', 'resolved_DeltaPt_sig_jet2_jet3', 'resolved_Ntrk_signal_jets', 'resolved_Ntrk_tagjets', 'resolved_VZ_eta', 'resolved_VZ_mass', 'resolved_VZ_pt', 'resolved_Vhad_DR_tagjet', 'resolved_Vhad_DeltaEta_Z', 'resolved_Vhad_DeltaPhi_Z', 'resolved_Vhad_DeltaR_Z', 'resolved_Vhad_Deta_tagjet', 'resolved_Vhad_Dphi_tagjet', 'resolved_ZeppRes', 'resolved_ZeppV', 'resolved_ZeppZ', 'resolved_ZeppZV', 'resolved_lepton1_pt', 'resolved_lepton2_pt', 'resolved_lepton_delta_eta', 'resolved_lepton_delta_pt', 'resolved_lepton_eta', 'resolved_lepton_pt', 'resolved_leptons_pids', 'resolved_ll_DR_tagjet', 'resolved_ll_Deta_tagjet', 'resolved_ll_Dphi_tagjet', 'resolved_ll_eta', 'resolved_ll_mass', 'resolved_ll_phi', 'resolved_ll_pt', 'resolved_mass_Full', 'resolved_mjjj', 'resolved_n_jets', 'resolved_n_lepton_stable', 'resolved_pt_Full', 'resolved_signal_jets_DeltaEta', 'resolved_signal_jets_DeltaPhi', 'resolved_signal_jets_DeltaR', 'resolved_signal_jets_eta', 'resolved_signal_jets_mass', 'resolved_signal_jets_pt', 'resolved_tagjet1_eta', 'resolved_tagjet1_pt', 'resolved_tagjet2_eta', 'resolved_tagjet2_pt', 'resolved_tagjets_delta_eta', 'resolved_tagjets_delta_pt', 'resolved_tagjets_dphi', 'resolved_tagjets_dy', 'resolved_tagjets_eta', 'resolved_tagjets_m', 'resolved_tagjets_phi', 'resolved_tagjets_pt']
