@@ -120,17 +120,17 @@ def cross_section_fb(EFT_op, EFT_type,  proces, dec):
         return xsection_fb
     else:
         # If the key does not exist, print an error message and return None
-        print(organized_info[key_]['cross_section'][0])
+        #print(organized_info[key_]['cross_section'][0])
         print(f'Error: No datasets found for {key_}')
         return None
 
 
 def take_xsec_fb(EFT_op, EFT_type, proces, dec):
     # Create the key
-    key = f"{EFT_op}_{EFT_type}_{proces}_{dec}"
+    key = f"{proces}_{dec}_{EFT_op}_{EFT_type}"
     
     # Open the text file and read the cross sections
-    with open('VBS_xsection.txt', 'r') as f:
+    with open('VBS_xsection_test.txt', 'r') as f:
         for line in f:
             # Split the line into key and value
             key_file, xsection_fb = line.strip().split(': ')
@@ -140,6 +140,29 @@ def take_xsec_fb(EFT_op, EFT_type, proces, dec):
     
     # If the key was not found in the file, return None
     return None
+
+def take_xsec_fb2(EFT_op, EFT_type, proces, dec):
+    # Create the key
+    key = f"{proces}_{dec}_{EFT_op}_{EFT_type}"
+    
+    # Open the text file and read the cross sections
+    with open('VBS_xsection_test.txt', 'r') as f:
+        for line in f:
+            try:
+                # Split the line into key and value
+                key_file, xsection_fb_str = line.strip().split(': ')
+                # If the key matches the input, attempt to convert the cross section to float
+                if key_file == key:
+                    xsection_fb = float(xsection_fb_str)
+                    return xsection_fb
+            except ValueError:
+                # If conversion to float fails or the line does not conform to expected format
+                print(f"No cross section found for {key_file}.")
+                continue
+    
+    # If the key was not found in the file or the value is not a float, return None
+    print(f"Key '{key}' not found or value is not a float.")
+    
 
 
 def plot_histograms(output_plot,desired_num_bins, file_path, label):
@@ -212,7 +235,19 @@ def plot_histograms(output_plot,desired_num_bins, file_path, label):
         # Save the canvas to a file
         canvas.SaveAs(output_plot+parameter_to_plot + "_hist.png")
         
-        
+def possible_process(proc, decay):
+    
+    valid_combinations = {
+        "WmZ": ["llqq", "lvqq", "vvqq"],
+        "WpZ": ["llqq", "lvqq", "vvqq"],
+        "ZZ": ["llqq", "vvqq"],  # Only ll and vv decays are valid for ZZ
+        "WmWm": ["lvqq"],
+        "WpWm": ["lvqq"],
+        "WpWp": ["lvqq"],
+    } 
+
+    return decay in valid_combinations.get(proc, []) 
+            
 def extract_counts_cutflow(dir_path):
     Efficiency_SR = {}
     Info_err_frac={}
@@ -241,80 +276,91 @@ def extract_counts_cutflow(dir_path):
 
 def merge_cutflows(paths, out_file,process,decay):
     # Initialize a dictionary to hold the total counts
-    total_counts = {}
-
+    
+    Cutflow_type = ["merged", "resolved"]
     # Iterate over each path
-    for path_ in paths:
-        path = path_ + "cutflow_merged.txt"
-        # Open the cutflow file
-        with open(path, 'r') as f:
-            # Skip the first line (header)
-            next(f)
-            next(f)
-            # Read the remaining lines
-            first_line = True
-            # Read the remaining lines
-            for line in f:
-                # Split the line into fields
-                fields = line.split()
-                if not first_line:
-                    
-                    if len(fields) < 2 or not fields[1]:
-                        break
-                    # Get the cut name
-                    cut_name = fields[1]
-                    #print(cut_name)
-                    count = float(fields[2])
-                    #print(count)
+    for cutflow_type in Cutflow_type:
+        total_counts = {}
+        for path_ in paths:
+            path = path_ + f"cutflow_{cutflow_type}.txt"
+            # Open the cutflow file
+            with open(path, 'r') as f:
+                # Skip the first line (header)
+                next(f)
+                next(f)
+                # Read the remaining lines
+                first_line = True
+                # Read the remaining lines
+                for line in f:
+                    # Split the line into fields
+                    fields = line.split()
+                    if not first_line:
+                        
+                        if len(fields) < 2 or not fields[1]:
+                            break
+                        # Get the cut name
+                        cut_name = fields[1]
+                        #print(cut_name)
+                        if fields[2]=="veto":
+                            count = float(fields[3])
+                        else:
+                            count = float(fields[2])
+                        #print(count)
 
-                    # Add the count to the total for this cut
-                    if cut_name in total_counts:
-                        total_counts[cut_name] += count
+                        # Add the count to the total for this cut
+                        if cut_name in total_counts:
+                            total_counts[cut_name] += count
+                        else:
+                            total_counts[cut_name] = count
                     else:
-                        total_counts[cut_name] = count
-                else:
-                    # If this is the first line, just add the count to the total
-                    count = float(fields[0])
-                    if "Total" in total_counts:
-                        total_counts["Total"] += count
-                    else:
-                        total_counts["Total"]=count
+                        # If this is the first line, just add the count to the total
+                        count = float(fields[0])
+                        if "Total" in total_counts:
+                            total_counts["Total"] += count
+                        else:
+                            total_counts["Total"]=count
 
 
-                # Update the flag for the first line
-                first_line = False
+                    # Update the flag for the first line
+                    first_line = False
 
-    # Calculate the total count across all cuts
-    total_count = total_counts["Total"]
+        # Calculate the total count across all cuts
+        total_count = total_counts["Total"]
 
-    # Initialize the list of lines for the output file
-    lines = [f"{process}_{decay}_selections cut-flow:\n"]
-    lines.append("                            Count    A_cumu    A_incr\n")
+        # Initialize the list of lines for the output file
+        lines = [f"{process}_{decay}_selections cut-flow:\n"]
+        if cutflow_type == "merged":
+            lines.append("                            Count    A_cumu    A_incr\n")
+        else:
+            lines.append("                                      Count    A_cumu    A_incr\n")
 
-    # Initialize the previous count for calculating incremental percentages
-    prev_count = total_count
+        # Initialize the previous count for calculating incremental percentages
+        prev_count = total_count
 
-    # For each cut name and total count
-    for cut_name, count in total_counts.items():
-        # Calculate the cumulative and incremental percentages
-        cumu_percent = 100 * count / total_count
-        incr_percent = 100 * count / prev_count
-        
-        cumul_percent = f"{cumu_percent:.1f}%"
-        incre_percent = f"{incr_percent:.1f}%"
+        # For each cut name and total count
+        for cut_name, count in total_counts.items():
+            # Calculate the cumulative and incremental percentages
+            cumu_percent = 100 * count / total_count
+            incr_percent = 100 * count / prev_count
+            
+            cumul_percent = f"{cumu_percent:.1f}%"
+            incre_percent = f"{incr_percent:.1f}%"
 
-        # Add a line to the output list
-        if cut_name == "Total":
-            cut_name = ""
-            incre_percent="-"
-        lines.append(f"Pass {cut_name:<15}\t{count:>9}\t{cumul_percent:>8}\t{incre_percent:>6}\n")
+            # Add a line to the output list
+            if cut_name == "Total":
+                cut_name = ""
+                incre_percent="-"
+            if cutflow_type == "merged":
+                lines.append(f"Pass {cut_name:<15}\t{count:>9}\t{cumul_percent:>8}\t{incre_percent:>6}\n")
+            else:
+                lines.append(f"Pass {cut_name:<25}\t{count:>9}\t{cumul_percent:>8}\t{incre_percent:>6}\n")
 
-        # Update the previous count
-        prev_count = count
-    out_file_ = out_file + "cutflow_merged_total.txt"
-    # Write the lines to the output file
-    with open(out_file_, 'w') as f:
-        f.writelines(lines)
+            # Update the previous count
+            prev_count = count
+        out_file_ = out_file + f"cutflow_{cutflow_type}_total.txt"
+        # Write the lines to the output file
+        with open(out_file_, 'w') as f:
+            f.writelines(lines)
         
         
         
@@ -454,8 +500,35 @@ def path_ntuple(dir_details,Processes,Decays,Operators):
                     print(f"For process {proc_dec}, the path does not exist.")
     return Path
 
+def path_ntuple_bis(dir_details,Processes,Decays,Operators):
+    Path= {}
+    for process in Processes:
+        for decay in Decays:
+            for op in Operators:
+                proc_dec = f"{process}_{decay}"
+                base_dir= f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/{proc_dec}/"
+                if op=="SM":
+                    base_dir=f"/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/{proc_dec}/"
+                    conf_= f"MGPy8EG_aQGCFM0_SM_1_{process}_{decay}"
+                else:
+                    conf_= f"user.osalin.MadGraph_{process}_{decay}_{op}_QUAD*" 
+                conf_dir= find_conf_dir(base_dir,conf_)
+
+                path_ = conf_dir + f"/DOCUT_YES/{dir_details}/"
+                if op=="SM":
+                    path_ntuple = path_ + "/combined"
+                    #path_ntuple = base_dir + f"mc16_13TeV.503172.MGPy8EG_aQGCFM0_SM_1_ZZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/Tables/BDT_ntuple_01/combined/ntuple_rivet.root"
+                else:  
+                    path_ntuple = path_ 
+                     
+                if os.path.exists(path_ntuple):
+                    Path[f"{process}_{decay}_{op}"] = path_ntuple
+                else:
+                    print(f"For process {proc_dec}, the path does not exist.")
+    return Path
+
 def write_xsex_merged(dir_details,Processes,Decays,Operators,output_dir):
-    Paths = path_ntuple(dir_details,Processes,Decays,Operators)
+    Paths = path_ntuple_bis(dir_details,Processes,Decays,Operators)
     with open(output_dir + "VBS_xsection_merged_fb.txt", "w") as f:
         for process in Processes:
             for decay in Decays:
@@ -508,6 +581,59 @@ def write_xsex_merged(dir_details,Processes,Decays,Operators,output_dir):
 def combine_ntuples(dir_details, Processes, Decays, Operators,output_dir,truth=False):
     # Get the paths of the ntuple files
     paths = path_ntuple(dir_details, Processes, Decays, Operators)
+
+    # Define the directory where the files will be combined
+    combined_dir = output_dir
+    individual_dir = output_dir + "individual/"
+
+
+    for process in Processes:
+        for decay in Decays:
+            proc_decay= f"{process}_{decay}"
+            
+            # Create the combined directory if it doesn't exist
+            if not os.path.exists(combined_dir):
+                os.makedirs(combined_dir)
+
+            # Combine the ntuple files using hadd
+            ntuple_files = [value + "/ntuple_rivet.root" for key, value in paths.items() if proc_decay in key]
+            subprocess.run(["hadd", "-f", combined_dir + f"/{proc_decay}_ntuple_rivet.root"] + ntuple_files)
+
+            if not os.path.exists(individual_dir):
+                os.makedirs(individual_dir)
+                
+            for op in Operators:
+                for key, value in paths.items():
+                    if f"{proc_decay}_{op}" in key:
+                        src_file = value + "/ntuple_rivet.root"
+                        dest_file = individual_dir + f"/{proc_decay}_{op}_ntuple_rivet.root"
+                        shutil.copy(src_file, dest_file)
+
+            if truth:
+                ntuple_truth_files = [value + "/ntuple_truth.root" for key, value in paths.items() if proc_decay in key and os.path.isfile(value + "/ntuple_truth.root")]
+                if ntuple_truth_files:
+                    subprocess.run(["hadd", "-f", combined_dir + f"/{proc_decay}_ntuple_truth.root"] + ntuple_truth_files)
+                else:
+                    print(f"No ntuple_truth.root files found for {proc_decay}")
+
+            # Write the paths to a text file
+            with open(combined_dir + f"/{proc_decay}_paths.txt", "w") as file:
+                for path in ntuple_files:
+                    file.write(path + "\n")
+
+            print(f"All ntuple files have been combined in the directory: {combined_dir}")
+    
+    
+    ntuple_files_all = [values + "/ntuple_rivet.root" for values in paths.values()]
+    subprocess.run(["hadd", "-f", combined_dir + f"/All_ntuple_rivet.root"] + ntuple_files_all)
+    
+    with open(combined_dir + f"/All_paths.txt", "w") as file:
+        for path in ntuple_files_all:
+            file.write(path + "\n")
+            
+def combine_ntuples_bis(dir_details, Processes, Decays, Operators,output_dir,truth=False):
+    # Get the paths of the ntuple files
+    paths = path_ntuple_bis(dir_details, Processes, Decays, Operators)
 
     # Define the directory where the files will be combined
     combined_dir = output_dir

@@ -1,0 +1,17 @@
+RCXX = /cvmfs/sft.cern.ch/lcg/releases/gcc/11.3.0-ad0f5/x86_64-centos7/bin/g++
+
+RCXXFLAGS = -shared -fPIC  -pedantic -Wall -Wno-long-long -Wno-format -Werror=uninitialized -Werror=delete-non-virtual-dtor -fopenmp -O2 
+
+RCPPFLAGS =  -I/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/MCGenerators/rivet/3.1.9-735a3/x86_64-centos7-gcc11-opt/include -I/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/hepmc3/3.2.7-022e9/x86_64-centos7-gcc11-opt/include  -DENABLE_HEPMC_3=true -I/usr/include -I/usr/include -I/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/MCGenerators/yoda/1.9.9-000f4/x86_64-centos7-gcc11-opt/include -I/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/fastjet/3.4.1-5af57/x86_64-centos7-gcc11-opt/include -I/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/fjcontrib/1.052-fb6f5/x86_64-centos7-gcc11-opt/include
+
+RLDFLAGS = -Wl,--no-as-needed  -L/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/MCGenerators/rivet/3.1.9-735a3/x86_64-centos7-gcc11-opt/lib -L/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/hepmc3/3.2.7-022e9/x86_64-centos7-gcc11-opt/lib64 -L/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/MCGenerators/yoda/1.9.9-000f4/x86_64-centos7-gcc11-opt/lib -L/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/fastjet/3.4.1-5af57/x86_64-centos7-gcc11-opt/lib -lfastjettools -lfastjet -lm -lfastjetplugins -lsiscone_spherical -lsiscone -L/cvmfs/sft.cern.ch/lcg/releases/gcc/11.3.0-ad0f5/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/11.3.0 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/11.3.0-ad0f5/x86_64-centos7/bin/../lib/gcc -L/cvmfs/sft.cern.ch/lcg/releases/gcc/11.3.0-ad0f5/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/11.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/cvmfs/sft.cern.ch/lcg/releases/gcc/11.3.0-ad0f5/x86_64-centos7/bin/../lib/gcc/x86_64-pc-linux-gnu/11.3.0/../../.. -lgfortran -lm -lquadmath -L/cvmfs/atlas.cern.ch/repo/sw/software/23.6/sw/lcg/releases/fjcontrib/1.052-fb6f5/x86_64-centos7-gcc11-opt/lib -lfastjetcontribfragile -lfastjettools 
+
+RLIBS = -lRivet
+
+RUSERFLAGS =  -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/
+
+RivetWpZ_llqq.so : tmp.jXDoeTs7.o
+	@$(RCXX) $^  $(RCXXFLAGS) $(CXXFLAGS) $(LDFLAGS) $(RLDFLAGS) $(RLIBS) $(LIBS) -o $@ $(RUSERFLAGS)
+
+%.o : %.cc
+	@$(RCXX) $(RCXXFLAGS) $(CXXFLAGS) $(CPPFLAGS) $(RCPPFLAGS) -c -o $@ $^ $(RUSERFLAGS)

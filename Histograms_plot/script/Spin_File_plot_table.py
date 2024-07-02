@@ -9,16 +9,16 @@ import re
 all_ops = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
-all_ops_cat = ["SM","FM0","FM2","FS1","FT1","FT5"]
+all_ops_cat = ["FM0","FM2","FS1","FT1","FT5"]
 all_ops_SM = ["FM0"]
-processes=["WpZ","ZZ"]
-processes=["WpZ"]
+processes=["WpZ","ZZ","WmZ"]
+#processes=["WpZ"]
 decays=["llqq"]
 
 
 
 def file_for_table(mydir,op):
-    run_dir = mydir + "Tables/Spin/Polar/"
+    run_dir = mydir + "Tables/Spin/Polarization/"
     #run_dir = mydir + "Tables/BDT_sample/BDT_sample_40000/"
     os.makedirs(run_dir, exist_ok=True)
 

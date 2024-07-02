@@ -2,6 +2,7 @@ import pyAMI.client
 import pyAMI.atlas.api as AtlasAPI
 
 import subprocess
+import os
 import re
 
 
@@ -28,6 +29,22 @@ Processes = ["WmZ","WpZ","WmWm","WpWm","WmWp","WpWp"]
 Decay = ["vvqq"]
 Decay = ["lvqq"]
 
+Processes = ["WmZ","WpZ","ZZ","WmWm","WpWm","WpWp"]
+Decay = ["llqq",'lvqq','vvqq']
+
+def possible_process(proc, decay):
+    
+    valid_combinations = {
+        "WmZ": ["llqq", "lvqq", "vvqq"],
+        "WpZ": ["llqq", "lvqq", "vvqq"],
+        "ZZ": ["llqq", "vvqq"],  # Only ll and vv decays are valid for ZZ
+        "WmWm": ["lvqq"],
+        "WpWm": ["lvqq"],
+        "WpWp": ["lvqq"],
+    } 
+
+    return decay in valid_combinations.get(proc, [])
+
 def get_datasets(process, decay):
     pattern = f"%%MGPy8EG_aQGCF%%_{process}_{decay}%%"
     #print(pattern)
@@ -42,13 +59,14 @@ def organize_datasets(datasets):
         if operator:
             for process in Processes:
                 for decay in Decay:
-                    if process in dataset['ldn'] and decay in dataset['ldn']:
-                        key = f"{operator}_{process}_{decay}"
-                        if key not in organized_info:
-                            organized_info[key] = {'name': [], 'cross_section': [], 'dataset_number': []}
-                        organized_info[key]['name'].append(dataset['ldn'])
-                        organized_info[key]['cross_section'].append(dataset['cross_section'])
-                        organized_info[key]['dataset_number'].append(dataset['dataset_number'])
+                    if possible_process(process, decay):
+                        if process in dataset['ldn'] and decay in dataset['ldn']:
+                            key = f"{operator}_{process}_{decay}"
+                            if key not in organized_info:
+                                organized_info[key] = {'name': [], 'cross_section': [], 'dataset_number': []}
+                            organized_info[key]['name'].append(dataset['ldn'])
+                            organized_info[key]['cross_section'].append(dataset['cross_section'])
+                            organized_info[key]['dataset_number'].append(dataset['dataset_number'])
     return organized_info
 
 def get_first_dataset_numbers_and_names(organized_info):
@@ -57,12 +75,13 @@ def get_first_dataset_numbers_and_names(organized_info):
     for op in all_ops_:
         for process in Processes:
             for decay in Decay:
-                key = f'{op}_{process}_{decay}'
-                if key in organized_info:
-                    dataset_numbers.append(organized_info[key]['dataset_number'][0])
-                    names.append(organized_info[key]['name'][0])
-                else:
-                    print(f"Warning: No datasets found for {key}")
+                if possible_process(process, decay):
+                    key = f'{op}_{process}_{decay}'
+                    if key in organized_info:
+                        dataset_numbers.append(organized_info[key]['dataset_number'][0])
+                        names.append(organized_info[key]['name'][0])
+                    else:
+                        print(f"Warning: No datasets found for {key}")
     return dataset_numbers, names
 
 
@@ -76,7 +95,7 @@ organized_info = organize_datasets([dataset for datasets in List_info.values() f
 dataset_numbers, names = get_first_dataset_numbers_and_names(organized_info)
 
 #print(dataset_numbers)
-print(names)
+#print(names)
 name_test = names[6]
 
 #example command : rucio add-rule --lifetime 2592000 mc16_13TeV.364852.MGPy8EvtGen_NNPDF30NLO_A14NNPDF23LO_WZjj_llqq_EW6.merge.EVNT.e7827_e7400_tid22682503_00 1 spacetoken=ATLASSCRATCHDISK&cloud=FR --skip-duplicates
@@ -91,6 +110,8 @@ def run_rucio_command(dataset_name,lifetime,rse):
         print(f"Command output: {stdout.decode('utf-8')}")  
 
 def download_rucio_command(dataset_name, directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     command = ["rucio", "download", dataset_name, "--dir", directory]
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
@@ -100,7 +121,18 @@ def download_rucio_command(dataset_name, directory):
     else:
         print(f"Command output: {stdout.decode('utf-8')}") 
         
-for name in names:        
-    print(name)
-    run_rucio_command(name,lifetime,rse)
-    #download_rucio_command(name, "/exp/atlas/salin/ATLAS/VBS_mc/test-ami/0Lepton")
+        
+for process in Processes:
+    for decay in Decay:
+        if possible_process(process,decay):
+            key=f'{process}_{decay}'
+            print(key)
+            output_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/{process}_{decay}/"
+            print(output_plot)
+            if not os.path.exists(output_plot):
+                os.makedirs(output_plot)
+            for name in names:
+                if key in name:
+                    print(name)
+                    #run_rucio_command(name,lifetime,rse)
+                    download_rucio_command(name, output_plot)

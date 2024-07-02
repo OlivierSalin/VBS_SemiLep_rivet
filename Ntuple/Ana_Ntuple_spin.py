@@ -49,7 +49,7 @@ categories_bis = {
     "FM5": [ROOT.kYellow-9,4],
     "FT0": [ROOT.kBlue-9,1],
     "FT1": [ROOT.kViolet-9,9],
-    "FT1": [ROOT.kAzure,1],
+    #"FT1": [ROOT.kAzure,1],
     "FT2": [ROOT.kViolet-6,7],
     "FT5": [ROOT.kAzure,1],
     "FT6": [ROOT.kAzure+7,9],
@@ -191,11 +191,12 @@ all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
-all_ops_cat = ["SM","FM0","FM2","FS1","FT1"]
-
+all_ops_cat = ["FM0","FM2","FS1","FT1","FT5"]
+processes=["WpZ","ZZ","WmZ"]
+decays=["llqq"]
 #all_ops_cat = ["SM"]
 
-Complement_path="/Spin/Polar/"
+Complement_path="/Spin/Polarization/"
 #Complement_path="/Spin/NoSpin/"
 
 if not opts.linear:
@@ -204,10 +205,10 @@ else:
     base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin2/{Complement_path}/linear/bins_{opts.bins}/"
 
 
-for process in ["WpZ"]:
+for process in processes:
     Root_paths = {}
 
-    for decay in ["llqq"]:
+    for decay in decays:
         if opts.Full_op:
             all_op_plot = all_ops_SM
         else:
