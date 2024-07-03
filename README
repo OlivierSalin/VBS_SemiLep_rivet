@@ -1,12 +1,33 @@
+## Overview and usage
 Code is a branch of the original code from Oleskii: https://github.com/oleksii165/vbs_cross_terms_study
 
 rivet-build RivetWpZ_llqq.so WpZ_llqq.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/   
 
-Sample can be generated from Madgraph and then downloaded from panda with rucio:
+Sample can be generated from Madgraph and then downloaded from panda with rucio using this template:
 python run_rivet.py --evtMax 100 --conf "user.osalin.Magraph_WmZ_llqq_FM0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
 
 Sample can also be directly downloaded from the grid if already produce by the Run 2 analysis (check on AMI): 
 python run_rivet.py --evtMax 100 --conf "MGPy8EG_aQGCFM4_QUAD_1_WpZ_llqq" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
+
+## Change needed: 
+Path are hard coded in lib_utils.py and utils_funtions.py need to be changed
+Expected pattern for name of files need to be changed as well
+
+## Rivet routine
+One rivet routine per Semi Leptonic production
+Code are exactely for each processes of each decay channel: example code for WmZ_llqq is the same as WpZ_llqq except name
+
+## Booking of histogram for rivet are made in json files in folder called Hists_bis/ 
+  - Histograms needs to be booked exactly to be stored in YODA.
+  - Histogram are booked separetely for both the merged and resolved region 
+  - Common histogram: jets
+  - Histogram booked for each decay channel
+
+## Cuts
+All cuts are defined in json file Cuts_def.json
+
+
+
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
