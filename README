@@ -1,6 +1,6 @@
 Code is a branch of the original code from Oleskii: https://github.com/oleksii165/vbs_cross_terms_study
 
-rivet-build RivetWpZ_llqq.so WpZ_llqq.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/   
+rivet-build RivetWpZ_llqq.so WpZ_llqq.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/ `root-config --cflags --libs`   
 
 Sample that has been be generated from Madgraph and then downloaded from panda with rucio:
 python run_rivet.py --evtMax 100 --conf "user.osalin.Magraph_WmZ_llqq_FM0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "no"
