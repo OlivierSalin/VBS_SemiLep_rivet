@@ -218,7 +218,7 @@ if os.path.exists(dir_plot_):
     # Delete the directory
     shutil.rmtree(dir_plot_)
     
-uf.plot_histograms(output_plot=dir_plot_ , desired_num_bins=200, file_path=mydir + "/hists.root", label=label_plot)
+#uf.plot_histograms(output_plot=dir_plot_ , desired_num_bins=200, file_path=mydir + "/hists.root", label=label_plot)
 
 #uf.plot_histograms(output_plot=dir_plot_2 , desired_num_bins=200, file_path=mydir + "/ntuple_rivet.root", label=label_plot)
 

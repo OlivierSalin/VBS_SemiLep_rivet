@@ -24,9 +24,9 @@ all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
 Complement_path="/Spin/NoSpin/"
 
 if not opts.linear:
-    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin2/{Complement_path}/bins_{opts.bins}/"
+    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin3/{Complement_path}/bins_{opts.bins}/"
 else:
-    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin2/{Complement_path}/linear/bins_{opts.bins}/"
+    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin3/{Complement_path}/linear/bins_{opts.bins}/"
 
 categories = {
     "cat1": ["FM0", "FM1", "FM7", ROOT.kRed-2, ROOT.kPink+6],
@@ -40,7 +40,7 @@ categories = {
 
 categories_bis = {
     "FM0": [ROOT.kMagenta-4,1],
-    #"FM0": [ROOT.kPink+1,9],
+    "FM0": [ROOT.kRed+1,1],
     "FM1": [ROOT.kPink+1,9],
     "FM7": [ROOT.kPink+6,7],
     "FM2": [ROOT.kRed+1,1],
@@ -186,23 +186,25 @@ def plot_histograms2(desired_num_bins, root_files_info, output_plot,tree_name="M
 # Call the function with Root_paths as argument
 
 base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files/"
+base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/"
 
 all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
 all_ops_cat = ["FM0","FM2","FS1","FT1","FT5"]
+all_ops_cat = ["FM0","FS1","FT1","FT5"]
 processes=["WpZ","ZZ","WmZ"]
 decays=["llqq"]
 #all_ops_cat = ["SM"]
 
 Complement_path="/Spin/Polarization/"
-#Complement_path="/Spin/NoSpin/"
+Complement_path="/Spin/NoSpin/"
 
 if not opts.linear:
-    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin2/{Complement_path}/bins_{opts.bins}/"
+    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin3/{Complement_path}/bins_{opts.bins}/"
 else:
-    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin2/{Complement_path}/linear/bins_{opts.bins}/"
+    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots/Plot_stat_spin3/{Complement_path}/linear/bins_{opts.bins}/"
 
 
 for process in processes:
@@ -215,10 +217,11 @@ for process in processes:
             all_op_plot = all_ops_cat
         for op in all_op_plot:
             if op=="SM":
-                #path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGCFM0_{op}_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/BDT_ntuple_Binary_bis01/combined/ntuple_rivet.root")
-                path = os.path.join(base_dir, f"{process}_{decay}/user.osalin.MadGraph_{process}_{decay}_FM0_SM_EXT0/DOCUT_YES/Tables/{Complement_path}/ntuple_rivet.root")
+                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGCFM0_{op}_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/All_channel/Stats/combined/ntuple_rivet.root")
+                #path = os.path.join(base_dir, f"{process}_{decay}/user.osalin.MadGraph_{process}_{decay}_FM0_SM_EXT0/DOCUT_YES/Tables/{Complement_path}/ntuple_rivet.root")
             else:
-                path = os.path.join(base_dir, f"{process}_{decay}/user.osalin.MadGraph_{process}_{decay}_{op}_QUAD_EXT0/DOCUT_YES/Tables/{Complement_path}/ntuple_rivet.root")
+                path = os.path.join(base_dir, f"{process}_{decay}/mc16_13TeV.*.MGPy8EG_aQGC{op}_QUAD_1_{process}_{decay}.merge.EVNT.*/DOCUT_YES/Tables/All_channel/Stats/ntuple_rivet.root")
+                #path = os.path.join(base_dir, f"{process}_{decay}/user.osalin.MadGraph_{process}_{decay}_{op}_QUAD_EXT0/DOCUT_YES/Tables/{Complement_path}/ntuple_rivet.root")
             matches = glob.glob(path)
             #print(matches)
             if not matches:
@@ -236,7 +239,7 @@ for process in processes:
         output_plot = f"{base_dir_plot}/full_op/{process}/"
     else:   
         output_plot = f"{base_dir_plot}/fewer_few_only_op/{process}/"
-        output_plot = f"{base_dir_plot}/only_op_FT_FS_FM/{process}/"
+        #output_plot = f"{base_dir_plot}/only_op_FT_FS_FM/{process}/"
         #output_plot = f"{base_dir_plot}/fewer_op_less/{process}/"
         #output_plot = f"{base_dir_plot}/SM_only/{process}/"
 

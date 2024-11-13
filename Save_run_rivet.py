@@ -29,6 +29,10 @@ all_ops_cat = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
            "FS02","FS1",
            "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
+all_ops_cat=["FM0","FM2","FS1","FT1","FT5"]
+
+base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files/"
+
 
 if opts.All_channel:
     processes = ["WmZ","WpZ","ZZ","WmWm","WpWm","WpWp"]
@@ -48,13 +52,13 @@ else:
 
 def file_for_table(mydir, op,process,decay):
     key= f"{process}_{decay}"
-    bases = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/"
-    run_dir = mydir + f"Tables/All_channel/{opts.Name}/"
+    bases = base_dir
+    run_dir = mydir + f"Tables/Vhad_first1/{opts.Name}/"
     if op == "SM":
         operator= "FM0_SM"
     else: 
         operator = f"{op}_QUAD"
-    run_dir2 = bases + f"Tables/All_channel/{opts.Name}/{opts.nb_lep}Lepton/{key}/{operator}/"
+    run_dir2 = bases + f"Tables/Vhad_first1/{opts.Name}/{opts.nb_lep}Lepton/{key}/{operator}/"
     os.makedirs(run_dir, exist_ok=True)
     os.makedirs(run_dir2, exist_ok=True)
 
@@ -135,7 +139,7 @@ def file_for_table(mydir, op,process,decay):
                 shutil.copytree(my_dir_comb, combined_dir2)
             except FileNotFoundError:
                 print(f"Warning: {my_dir_comb} not found, skipping.")
-base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/"
+#base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/"
 
 for process in processes:
     for decay in decays:

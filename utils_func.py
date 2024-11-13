@@ -527,6 +527,8 @@ def path_ntuple_bis(dir_details,Processes,Decays,Operators):
                     print(f"For process {proc_dec}, the path does not exist.")
     return Path
 
+
+
 def write_xsex_merged(dir_details,Processes,Decays,Operators,output_dir):
     Paths = path_ntuple_bis(dir_details,Processes,Decays,Operators)
     with open(output_dir + "VBS_xsection_merged_fb.txt", "w") as f:
@@ -668,6 +670,71 @@ def combine_ntuples_bis(dir_details, Processes, Decays, Operators,output_dir,tru
                     subprocess.run(["hadd", "-f", combined_dir + f"/{proc_decay}_ntuple_truth.root"] + ntuple_truth_files)
                 else:
                     print(f"No ntuple_truth.root files found for {proc_decay}")
+
+            # Write the paths to a text file
+            with open(combined_dir + f"/{proc_decay}_paths.txt", "w") as file:
+                for path in ntuple_files:
+                    file.write(path + "\n")
+
+            print(f"All ntuple files have been combined in the directory: {combined_dir}")
+    
+    
+    ntuple_files_all = [values + "/ntuple_rivet.root" for values in paths.values()]
+    subprocess.run(["hadd", "-f", combined_dir + f"/All_ntuple_rivet.root"] + ntuple_files_all)
+    
+    with open(combined_dir + f"/All_paths.txt", "w") as file:
+        for path in ntuple_files_all:
+            file.write(path + "\n")
+            
+def path_ntuple_jetAlgo(dir_details,Processes,Decays,Operators):
+    Path= {}
+    base_dir= f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/{dir_details}/"
+    for process in Processes:
+        for decay in Decays:
+            for op in Operators:
+                proc_dec = f"{process}_{decay}"
+                run_dir= base_dir + f"{proc_dec}/"
+                if op=="SM":
+                    path_ntuple =run_dir + f"/FM0_SM/"
+                else:
+                    path_ntuple =run_dir + f"/{op}_QUAD/"
+                     
+                if os.path.exists(path_ntuple):
+                    Path[f"{process}_{decay}_{op}"] = path_ntuple
+                else:
+                    print(f"For process {proc_dec}, the path does not exist.")
+    return Path
+            
+def combine_ntuples_jetAlgo(dir_details, Processes, Decays, Operators,output_dir,truth=False):
+    # Get the paths of the ntuple files
+    paths = path_ntuple_bis(dir_details, Processes, Decays, Operators)
+
+    # Define the directory where the files will be combined
+    combined_dir = output_dir
+    individual_dir = output_dir + "individual/"
+
+    for process in Processes:
+        for decay in Decays:
+            proc_decay= f"{process}_{decay}"
+            
+            # Create the combined directory if it doesn't exist
+            if not os.path.exists(combined_dir):
+                os.makedirs(combined_dir)
+
+            # Combine the ntuple files using hadd
+            ntuple_files = [value + "/ntuple_rivet.root" for key, value in paths.items() if proc_decay in key]
+            subprocess.run(["hadd", "-f", combined_dir + f"/{proc_decay}_ntuple_rivet.root"] + ntuple_files)
+
+            if not os.path.exists(individual_dir):
+                os.makedirs(individual_dir)
+                
+            for op in Operators:
+                for key, value in paths.items():
+                    if f"{proc_decay}_{op}" in key:
+                        src_file = value + "/ntuple_rivet.root"
+                        dest_file = individual_dir + f"/{proc_decay}_{op}_ntuple_rivet.root"
+                        shutil.copy(src_file, dest_file)
+
 
             # Write the paths to a text file
             with open(combined_dir + f"/{proc_decay}_paths.txt", "w") as file:

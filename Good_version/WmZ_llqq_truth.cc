@@ -397,7 +397,7 @@ namespace Rivet {
         if (out_dir.find("DOCUT_YES") != string::npos) _docut = 1;
         std::cout << "++++++received outidir" << out_dir << "meaning _docut is " << _docut << "\n";
 
-        std::string jsonfilestr =  txt_dir + "WpZ_llqq_cuts.json"; 
+        std::string jsonfilestr =  txt_dir + "Cuts_def.json"; 
         std::cout << "++++++assume .json for this WpZ_llqq" << " is " << jsonfilestr << "\n";
         std::ifstream json_file(jsonfilestr);
         

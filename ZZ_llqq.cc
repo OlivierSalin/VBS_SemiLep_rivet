@@ -78,6 +78,310 @@ namespace Rivet {
 
     }
 
+    const bool DescendantsWithParticle(const Particle& p, const Particle& q) 
+    {
+        for (const Particle& descendant : p.allDescendants()) {
+            //printf("Func Descendant PID: %d and Descendant Status: %d\n", descendant.pid(), descendant.genParticle()->status());
+            if (descendant.genParticle() == q.genParticle()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    const bool AncestorWithParticle(const Particle& p, const Particle& q) 
+    {
+        //printf("Ancestor size: %d\n", p.ancestors(Cuts::OPEN, false).size());
+        for (const Particle& ancestor : p.ancestors(Cuts::OPEN, false)) {
+            
+            //printf("Ancestor PID: %d and Ancestor Status: %d\n", ancestor.pid(), ancestor.genParticle()->status());
+            if (ancestor.genParticle() == q.genParticle()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    double MatchingJet(const Jet& jet, const Particle& particle) {
+        int matchingParticles = 0;
+        int totalParticles = 0;
+
+        // Loop over all particles in the jet
+        for(const Particle& jet_particle : jet.particles()){
+            totalParticles++;
+
+            // Check if the particle in the jet is a descendant of the given particle
+            if(DescendantsWithParticle(particle, jet_particle)){
+                matchingParticles++;
+            }
+        }
+        double fraction = static_cast<double>(matchingParticles) / totalParticles;
+        // Calculate and return the fraction of particles in the jet that are descendants of the given particle
+        return fraction;
+    }
+
+    std::vector<Particle> ValidQuark_W(const Particle& W_boson){
+        std::vector<Particle> valid_descendants;
+        //printf("W boson PID: %d and Status: %d\n", W_boson.pid(), W_boson.genParticle()->status());
+
+        if (!W_boson.genParticle() || (abs(W_boson.pid()) != 23) || W_boson.pT() == 0) {
+            // If W_boson is not valid, return an empty vector immediately
+            return valid_descendants;
+        }  
+
+        for(const Particle& descendant : W_boson.allDescendants()){
+            int descendant_status = descendant.genParticle()->status();
+            if(descendant.abspid() < 7 && descendant_status > 30){
+                //printf("W descendant quarks PID: %d and Status: %d\n", descendant.pid(), descendant_status);
+                valid_descendants.push_back(descendant);
+            }
+        }
+        while(valid_descendants.size() > 2){
+            bool erased = false;
+            for(int i = 0; i < valid_descendants.size(); i++){
+                for(int j = i + 1; j < valid_descendants.size(); j++){
+                    if(valid_descendants[i].pid() == -valid_descendants[j].pid()){
+                        bool found = false;
+                        for(const Particle& ancestor_i : valid_descendants[i].ancestors(Cuts::OPEN, false)){
+                            if(ancestor_i.pid()==21 && ancestor_i.genParticle()->status() == 51){
+                                if(AncestorWithParticle(valid_descendants[j],ancestor_i)){
+                                    found = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(found){
+                            valid_descendants.erase(std::remove_if(valid_descendants.begin(), valid_descendants.end(), [&](const Particle& p){
+                                return p.genParticle() == valid_descendants[i].genParticle() || p.genParticle() == valid_descendants[j].genParticle();
+                            }), valid_descendants.end());
+                            erased = true;
+                            break;
+                        }
+                    } 
+                }
+                if(erased) break;
+            }
+            if(!erased){
+                valid_descendants.clear();
+                break;
+            }  // If no elements were erased in this iteration, break the loop to avoid infinite loop reutrn empty vector
+        }
+
+        return valid_descendants;
+    }
+
+    std::vector<Particle> Tagging_quarks(const Particles& all_particles){
+        std::vector<Particle> tagging_quarks;
+        bool found_ = false;
+        for(const Particle& p : all_particles){
+            if (found_) break;
+            ConstGenParticlePtr p_ = p.genParticle();
+            int status = p_->status();
+            if (abs(status) == 21){
+                found_ = true;
+                for(const Particle& child : p.children()){
+                    if(child.abspid() < 7 && child.genParticle()->status() == 23){
+                        if(child.children().size() == 1){
+                            for(const Particle& grandchild : child.children()) {
+                                tagging_quarks.push_back(grandchild);
+                            }} }    
+                }}}
+        if(tagging_quarks.size() != 2){
+            tagging_quarks.clear(); // Clear the vector if it doesn't contain exactly two particles
+        }
+        return tagging_quarks;
+    }
+
+    bool Check_VBS_event(const std::vector<Particle>& all_particles){
+        int W_boson_count = 0;
+        int Z_boson_count = 0;
+        int H_boson_count = 0;
+
+        for(const Particle& p : all_particles){
+            ConstGenParticlePtr p_ = p.genParticle(); // Get the underlying GenParticle
+            int status = p_->status(); // Get the status of the particle
+
+            if (status == 21){
+                for(const Particle& child : p.children()){
+                    ConstGenParticlePtr child_ = child.genParticle();
+                    if(child.abspid() == 24){
+                        W_boson_count++;
+
+                    }
+                    else if(child.abspid() == 23){
+                        Z_boson_count++;
+                    }
+                    else if(child.abspid() == 25){
+                        H_boson_count++;
+                    }
+                }
+                break;
+            }
+        }
+
+        if(W_boson_count != 0 || Z_boson_count != 2 || H_boson_count != 0 || Tagging_quarks(all_particles).size() != 2){
+            return false;
+        }
+
+        return true;
+    }
+
+    const Particle GetWboson(const std::vector<Particle>& all_particles){
+        Particle W_boson;
+        int W_boson_count = 0;
+
+        for(const Particle& p : all_particles){
+            ConstGenParticlePtr p_ = p.genParticle(); // Get the underlying GenParticle
+            int status = p_->status(); // Get the status of the particle
+
+            if (status == 21){
+                for(const Particle& child : p.children()){
+                    ConstGenParticlePtr child_ = child.genParticle();
+                    if(child.abspid() == 23){
+                        W_boson = child;
+                        W_boson_count++;
+                    }
+                }
+                if(W_boson_count == 1) break; // Break the loop if exactly one W boson has been found
+            }
+        }
+
+        return W_boson;
+    }
+
+    std::vector<double> Truth_q_minDR_jets(const std::vector<Particle>& all_particles, const std::vector<Jet>& jets, bool merged = false){
+        std::vector<double> minDeltaRs;
+        int W_boson_count = 0;
+        Particle W_boson;
+
+        for(const Particle& p : all_particles){
+            ConstGenParticlePtr p_ = p.genParticle(); // Get the underlying GenParticle
+            int status = p_->status(); // Get the status of the particle
+
+            if (status == 21){
+                for(const Particle& child : p.children()){
+                    ConstGenParticlePtr child_ = child.genParticle();
+                    if(child.abspid() == 23){
+                        W_boson = child;
+                        W_boson_count++;
+                    }
+                }
+                break;
+            }
+        }
+
+        if(W_boson_count != 1) return std::vector<double>(); // Return an empty vector if there isn't exactly one W boson
+
+        if(merged){
+            double minDeltaR = std::numeric_limits<double>::max();
+            for(const Jet& jet : jets){
+                const double dR = deltaR(W_boson, jet);
+                if(dR < minDeltaR) minDeltaR = dR;
+            }
+            minDeltaRs.push_back(minDeltaR);
+        } else {
+            std::vector<Particle> valid_quarks = ValidQuark_W(W_boson);
+            for(const Particle& descendant : ValidQuark_W(W_boson)){
+                double minDeltaR = std::numeric_limits<double>::max();
+                for(const Jet& jet : jets){
+                    const double dR = deltaR(descendant, jet);
+                    if(dR < minDeltaR) minDeltaR = dR;
+                }
+                minDeltaRs.push_back(minDeltaR);
+            }
+        }                   
+
+        return minDeltaRs;
+    }
+
+    int IsTruthTagJet(const std::vector<Particle>& all_particles, const Jet& tag_jet, double dR_cut = 0.4){
+        std::vector<Particle> taggingQuarks = Tagging_quarks(all_particles);
+        if(taggingQuarks.size() != 2) return -1; // Return -1 if the size of taggingQuarks is not 2
+
+        for(const Particle& taggingQuark : taggingQuarks){
+            const double dR = deltaR(taggingQuark, tag_jet);
+            if(dR < dR_cut) return 1; // Return 1 if the jet matches a tagging quark
+        }
+        
+        return 0; // Return 0 if the jet does not match any tagging quark
+    }
+
+    int NbTagJetMisID(const std::vector<Particle>& all_particles, const std::vector<Jet>& tag_jets, double dR_cut = 0.4){
+        int tag_jet_misID = 0;
+        std::vector<Particle> taggingQuarks = Tagging_quarks(all_particles);
+        if(taggingQuarks.size() != 2){
+            tag_jet_misID = -1; // Set to -1 to indicate a bad event
+        } else {
+            for(const Jet& jet : tag_jets){
+                bool truth_DRmatch = false;
+                for(const Particle& taggingQuark : taggingQuarks){
+                    const double dR = deltaR(taggingQuark, jet);
+                    if(dR < dR_cut) {
+                        truth_DRmatch = true;
+                        break;
+                    }
+                }
+                if(!truth_DRmatch) tag_jet_misID++;
+            }
+        }
+        return tag_jet_misID;
+    }   
+
+    int NbTagJetMatched(const std::vector<Particle>& all_particles, const std::vector<Jet>& tag_jets, double dR_cut = 0.4){
+        int tag_jet_matched = 0; // Initialize to 0 to count matched jets
+        std::vector<Particle> taggingQuarks = Tagging_quarks(all_particles);
+        if(taggingQuarks.size() != 2){
+            return -1; // Return -1 to indicate a bad event
+        } else {
+            for(const Jet& jet : tag_jets){
+                for(const Particle& taggingQuark : taggingQuarks){
+                    const double dR = deltaR(taggingQuark, jet);
+                    if(dR < dR_cut) {
+                        tag_jet_matched++; // Increment if a jet is matched
+                        break; // Break to avoid double counting the same jet
+                    }
+                }
+            }
+        }
+        return tag_jet_matched;
+    }
+
+    int IsTrueWboson(const std::vector<Particle>& all_particles, const Jet& jet, double dR_cut = 0.4, bool merged = false){
+        int W_boson_count = 0;
+        Particle W_boson;
+
+        for(const Particle& p : all_particles){
+            ConstGenParticlePtr p_ = p.genParticle(); // Get the underlying GenParticle
+            int status = p_->status(); // Get the status of the particle
+
+            if (status == 21){
+                for(const Particle& child : p.children()){
+                    ConstGenParticlePtr child_ = child.genParticle();
+                    if(child.abspid() == 23){
+                        W_boson = child;
+                        W_boson_count++;
+                    }
+                }
+                break; // Break the loop to avoid looking at the 2nd parton
+            }
+        }
+
+        if(W_boson_count != 1) return -1; // Return -1 if there isn't exactly one W boson
+
+        if(merged){
+            const double dR = deltaR(W_boson, jet);
+            if(dR < dR_cut) return 1; // Return 1 if the jet matches the W boson
+        } else {
+            std::vector<Particle> valid_quarks = ValidQuark_W(W_boson);
+            for(const Particle& descendant : valid_quarks){
+                const double dR = deltaR(descendant, jet);
+                if(dR < dR_cut) return 1; // Return 1 if the jet matches a valid quark from the W boson
+            }
+        }                   
+
+        return 0; // Return 0 if the jet does not match the W boson or any valid quark from the W boson
+    }
+
 
     /// @name Analysis methods
     /// @{
@@ -89,6 +393,8 @@ namespace Rivet {
         std::string out_dir = getOption("OUTDIR");
 
         std::cout << "out_dir Rivet: " << getOption("OUTDIR") << std::endl;
+
+
 
         //cross_section_fb = crossSection()/femtobarn;
 
@@ -205,24 +511,365 @@ namespace Rivet {
 
 
         _tf = make_unique<TFile>(getOption("ROOTFILE", ntuple_dir+ "ntuple_rivet.root").c_str(), "RECREATE");
-        _tt = make_unique<TTree>("Merged", "Rivet_physics");
-        _tt->Branch("EventNumber", &merged_EventNumber);
-        _tt->Branch("EventWeight", &merged_EventWeight);
-        _tt->Branch("Label", &_label);
-        _tt->Branch("Label_binary", &_label_binary);
+        _tt_merged = make_unique<TTree>("Merged", "Rivet_physics");
+        _tt_merged->Branch("EventNumber", &merged_EventNumber);
+        _tt_merged->Branch("EventWeight", &merged_EventWeight);
+        _tt_merged->Branch("Label", &_label);
+        _tt_merged->Branch("Label_binary", &_label_binary);
         for (auto& var_ : varMap) {
-            _tt->Branch(var_.first.c_str(), var_.second);
-            //std::cout << "Variable name: " << var_.first << ", Variable value: " << var_.second << std::endl;
+            _tt_merged->Branch(var_.first.c_str(), var_.second);
         }
         for (auto& var_ : varMapInt) {
-            _tt->Branch(var_.first.c_str(), var_.second);
-            //std::cout << "Variable name: " << var_.first << ", Variable value: " << var_.second << std::endl;
+            _tt_merged->Branch(var_.first.c_str(), var_.second);
         }
-        
+
+        _tt_resolved = make_unique<TTree>("Resolved", "Rivet_physics");
+        _tt_resolved->Branch("EventNumber", &merged_EventNumber);
+        _tt_resolved->Branch("EventWeight", &merged_EventWeight);
+        _tt_resolved->Branch("Label", &_label);
+        _tt_resolved->Branch("Label_binary", &_label_binary);
+        for (auto& var_ : varMap_resolved) {
+            _tt_resolved->Branch(var_.first.c_str(), var_.second);
+        }
+
+
+        _tt_bef_cut = make_unique<TTree>("Bef_cut", "Rivet_physics");
+        _tt_bef_cut->Branch("EventNumber", &EventNumber);
+        _tt_bef_cut->Branch("VBS_event", &VBS_event);
+        _tt_bef_cut->Branch("Label", &_label);
+
+        _tt_aft_lep_cut = make_unique<TTree>("Lep_cut", "Rivet_physics");
+        _tt_aft_lep_cut->Branch("EventNumber", &EventNumber);
+        _tt_aft_lep_cut->Branch("VBS_event", &VBS_event);
+        _tt_aft_lep_cut->Branch("Label", &_label);
+        _tt_aft_lep_cut->Branch("pass_merged_truth", &pass_merged_truth);
+        _tt_aft_lep_cut->Branch("quark_VBS_matched_all_jet", &quark_VBS_matched_all_jet);
+        _tt_aft_lep_cut->Branch("n_jets", &n_jets);
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_aft_lep_cut->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_bef_tag_jet = make_unique<TTree>("Tagjet_bef_cut", "Rivet_physics");
+        _tt_bef_tag_jet->Branch("EventNumber", &EventNumber);
+        _tt_bef_tag_jet->Branch("VBS_event", &VBS_event);
+        _tt_bef_tag_jet->Branch("Label", &_label);
+        _tt_bef_tag_jet->Branch("n_jets", &n_jets);
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_bef_tag_jet->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_bef_tag_jet->Branch(var_.first.c_str(), var_.second);
+        }
+
+        // TRUTH TREEE
+
+        _tt_truth = make_unique<TTree>("Truth", "Rivet_physics");
+        _tt_truth->Branch("EventNumber", &EventNumber);
+        _tt_truth->Branch("VBS_event", &VBS_event);
+        _tt_truth->Branch("Label", &_label);
+        _tt_truth->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth->Branch(var_.first.c_str(), var_.second);
+        }   
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth->Branch(var_.first.c_str(), var_.second);
+        }
+
+
+        _tt_truth_mismatch = make_unique<TTree>("Truth_mismatch", "Rivet_physics");
+        _tt_truth_mismatch->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch->Branch("Label", &_label);
+        _tt_truth_mismatch->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch->Branch(var.first.c_str(), var.second);
+        }   
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_truth_mismatch_n3 = make_unique<TTree>("Truth_mismatch_n3", "Rivet_physics");
+        _tt_truth_mismatch_n3->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_n3->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_n3->Branch("Label", &_label);
+        _tt_truth_mismatch_n3->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_n3->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_n3->Branch(var.first.c_str(), var.second);
+        }   
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_n3->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_n3->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_n3->Branch(var_.first.c_str(), var_.second);}
+
+        _tt_truth_mismatch_noVhad_n3 = make_unique<TTree>("Truth_mismatch_noVhad_n3", "Rivet_physics");
+        _tt_truth_mismatch_noVhad_n3->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_noVhad_n3->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_noVhad_n3->Branch("Label", &_label);
+        _tt_truth_mismatch_noVhad_n3->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_noVhad_n3->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_noVhad_n3->Branch(var.first.c_str(), var.second);
+        }   
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_noVhad_n3->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_noVhad_n3->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_noVhad_n3->Branch(var_.first.c_str(), var_.second);
+        }
+
+
+        _tt_truth_mismatch_noVhad = make_unique<TTree>("Truth_mismatch_noVhad", "Rivet_physics");
+        _tt_truth_mismatch_noVhad->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_noVhad->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_noVhad->Branch("Label", &_label);
+        _tt_truth_mismatch_noVhad->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_noVhad->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_noVhad->Branch(var.first.c_str(), var.second);
+        }    
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_noVhad->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_noVhad->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_noVhad->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_truth_mismatch_Vhad = make_unique<TTree>("Truth_mismatch_Vhad", "Rivet_physics");
+        _tt_truth_mismatch_Vhad->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_Vhad->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_Vhad->Branch("Label", &_label);
+        _tt_truth_mismatch_Vhad->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_Vhad->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_Vhad->Branch(var.first.c_str(), var.second);
+        }    
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_Vhad->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_Vhad->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_Vhad->Branch(var_.first.c_str(), var_.second);
+        }
+
+
+        // VBS jet pair
+
+        _tt_truth_mismatch_VBS_notfound = make_unique<TTree>("Truth_mismatch_VBS_notfound", "Rivet_physics");
+        _tt_truth_mismatch_VBS_notfound->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_VBS_notfound->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_VBS_notfound->Branch("Label", &_label);
+        _tt_truth_mismatch_VBS_notfound->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_VBS_notfound->Branch(var.first.c_str(), var.second);
+        }    
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_truth_mismatch_noVhad_VBS_notfound = make_unique<TTree>("Truth_mismatch_noVhad_VBS_notfound", "Rivet_physics");
+        _tt_truth_mismatch_noVhad_VBS_notfound->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_noVhad_VBS_notfound->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_noVhad_VBS_notfound->Branch("Label", &_label);
+        _tt_truth_mismatch_noVhad_VBS_notfound->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_noVhad_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_noVhad_VBS_notfound->Branch(var.first.c_str(), var.second);
+        }    
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_noVhad_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_noVhad_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_noVhad_VBS_notfound->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_truth_mismatch_noVhad_VBS_found = make_unique<TTree>("Truth_mismatch_noVhad_VBS_found", "Rivet_physics");
+        _tt_truth_mismatch_noVhad_VBS_found->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_noVhad_VBS_found->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_noVhad_VBS_found->Branch("Label", &_label);
+        _tt_truth_mismatch_noVhad_VBS_found->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var.first.c_str(), var.second);
+        }    
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMap_VBS_jet_pair) {
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+        for (auto& var_ : varMapInt_criteria) {
+            _tt_truth_mismatch_noVhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_truth_mismatch_Vhad_VBS_found = make_unique<TTree>("Truth_mismatch_Vhad_VBS_found", "Rivet_physics");
+        _tt_truth_mismatch_Vhad_VBS_found->Branch("EventNumber", &EventNumber);
+        _tt_truth_mismatch_Vhad_VBS_found->Branch("VBS_event", &VBS_event);
+        _tt_truth_mismatch_Vhad_VBS_found->Branch("Label", &_label);
+        _tt_truth_mismatch_Vhad_VBS_found->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }   
+        for (const auto& var : varMap_truth_mismatch) {
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var.first.c_str(), var.second);
+        }    
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMap_VBS_jet_pair) {
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+        for (auto& var_ : varMapInt_criteria) {
+            _tt_truth_mismatch_Vhad_VBS_found->Branch(var_.first.c_str(), var_.second);
+        }
+
+        _tt_truth_matched = make_unique<TTree>("Truth_matched", "Rivet_physics");
+        _tt_truth_matched->Branch("EventNumber", &EventNumber);
+        _tt_truth_matched->Branch("VBS_event", &VBS_event);
+        _tt_truth_matched->Branch("Label", &_label);
+        _tt_truth_matched->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_matched->Branch(var_.first.c_str(), var_.second);
+        }   
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_matched->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_matched->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_matched->Branch(var_.first.c_str(), var_.second);
+        }
+
+
+        _tt_truth_merged = make_unique<TTree>("Truth_Merged", "Rivet_physics");
+        _tt_truth_merged->Branch("EventNumber", &EventNumber);
+        _tt_truth_merged->Branch("VBS_event", &VBS_event);
+        _tt_truth_merged->Branch("Label", &_label);
+        _tt_truth_merged->Branch("n_jets", &n_jets);
+        for (auto& var_ : varMapDouble_Tagjets_truth) {
+            _tt_truth_merged->Branch(var_.first.c_str(), var_.second);
+        }   
+
+        for(auto& var_ : varMapDouble_VBS_q_truth){
+            _tt_truth_merged->Branch(var_.first.c_str(), var_.second);
+        }
+        for(auto& var_ : varMapDouble_Vhadboson_truth){
+            _tt_truth_merged->Branch(var_.first.c_str(), var_.second);
+        }
+
+        for (auto& var_ : varMapVectorDouble_truth) {
+            _tt_truth_merged->Branch(var_.first.c_str(), var_.second);
+        }
+
+
+
         _tt_angle = make_unique<TTree>("Angle", "Rivet_physics");
         _tt_angle->Branch("EventWeight", &Angle_EventWeight);
         _tt_angle->Branch("Label", &_label);
         _tt_angle->Branch("cos_theta_star", &cos_theta_star);
+
+        _tt_fjet = make_unique<TTree>("Fjet_def", "Rivet_physics");
+        _tt_fjet->Branch("EventWeight", &Angle_EventWeight);
+        _tt_fjet->Branch("Label", &_label);
+        _tt_fjet->Branch("Leading_fjet_pt", &Leading_fjet_pt);
+        _tt_fjet->Branch("Leading_fjet_eta", &Leading_fjet_eta);
+        _tt_fjet->Branch("Leading_fjet_mass", &Leading_fjet_mass);
+        _tt_fjet->Branch("Leading_fjet_TrueWboson", &Leading_fjet_TrueWboson);
+
+        _tt_fjet->Branch("SubLeading_fjet_pt", &SubLeading_fjet_pt);
+        _tt_fjet->Branch("SubLeading_fjet_eta", &SubLeading_fjet_eta);
+        _tt_fjet->Branch("SubLeading_fjet_mass", &SubLeading_fjet_mass);
+        _tt_fjet->Branch("SubLeading_fjet_TrueWboson", &SubLeading_fjet_TrueWboson);
+        _tt_fjet->Branch("Delta_R_fjets", &Delta_R_fjets);
+        _tt_fjet->Branch("Delta_M_fjets", &Delta_M_fjets);
+
 
         //counter for efficiency
         book(_c["pos_w_initial"],"pos_w_initial");
@@ -237,16 +884,19 @@ namespace Rivet {
 
         // Cut-flows merged region
         _cutflows_merged.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
-                            "n_jets","found_tag_jets","pt_tagjet1_2","m_tagjets",
+                            "n_jets","found_tag_jets","m_tagjets",
                             "At_least_one_fjets","fjets_is_W/Z","Total_Merged_selec",});
         // Cut-flows resolved region
         _cutflows_resolved.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
-                            "n_jets","found_tag_jets","pt_tagjet1_2","m_tagjets",
+                            "n_jets","found_tag_jets","m_tagjets",
                             "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","M_jjj","Total_Resolved_selec",});
 
     }
 
-
+    int Nb_Events_pre_VBS_jet = 0;
+    int Nb_Events_post_VBS_jet = 0;
+    int Nb_Events_VBS_jet_pure = 0;
+    int Nb_pure_tag_quarks = 0;
     /// Perform the per-event analysis
 
     void analyze(const Event& event) {
@@ -262,7 +912,18 @@ namespace Rivet {
         else {_c["neg_w_initial"]->fill();}
 
         const Particles all_particles = event.allParticles();
-        // Fill the truth histograms
+        double Vhad_mass= 80.4;
+
+        if(Check_VBS_event(all_particles)){
+            VBS_event = 1;
+        } else {
+            VBS_event = 0;
+        }
+
+        _tt_bef_cut->Fill();
+
+
+        const double cutof_DR = 0.4;
 
 
         _cutflows_merged.fillinit();
@@ -304,6 +965,27 @@ namespace Rivet {
         if (_docut==1 && (leptons[0].pT()<_jcuts["pt_lepton1"] || leptons[1].pT()<_jcuts["pt_lepton2"])) vetoEvent;
         _cutflows_merged.fillnext();
         _cutflows_resolved.fillnext();
+
+        const Particle W_bson_ = GetWboson(all_particles);
+        W_pT = W_bson_.pT();
+        FourMomentum W_fourvec_truth = W_bson_.mom();
+        W_eta = W_bson_.eta();
+        W_phi = W_bson_.phi();
+/*         if(W_pT > 0) {
+            std::vector<Particle> W_quarks_= ValidQuark_W(W_bson_);
+            if (W_quarks_.size() >= 2) {
+                W_Quark1_pT = W_quarks_[0].pT();
+                W_Quark1_eta = W_quarks_[0].eta();
+                W_Quark1_mass = W_quarks_[0].mom().mass();
+
+                W_Quark2_pT = W_quarks_[1].pT();
+                W_Quark2_eta = W_quarks_[1].eta();
+                W_Quark2_mass = W_quarks_[1].mom().mass();
+
+                W_Quarks_delta_Eta = abs(W_quarks_[0].eta() - W_quarks_[1].eta());
+            }
+            _tt_aft_lep_cut->Fill();
+        } */
         
 
         //const FourMomentum fourvec_Vlep = lep1.mom() + lep2.mom();
@@ -312,28 +994,98 @@ namespace Rivet {
 
 
 
+
         // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
         Jets jets = apply<FastJets>(event, "jets").jetsByPt(_jet_pt20_eta_cut_1 || _jet_pt30_eta_cut_2);
         idiscardIfAnyDeltaRLess(jets, leptons, 0.2);
 
 
-        int n_jets = jets.size();
+        n_jets = jets.size();
         if (n_jets < _jcuts["n_jets"])  vetoEvent;  
         _cutflows_merged.fillnext();
         _cutflows_resolved.fillnext(); 
 
-        // Retrive VBS tagging jets : look in opposite hemispheres and pair should have highest mjj
+
+        FourMomentum fourvec_truth_VZ = fourvec_Vlep + W_fourvec_truth;
+        std::vector<Particle> taggingQuarks_ = Tagging_quarks(all_particles);
+        if(taggingQuarks_.size() == 2 && W_pT > 0){
+
+            VBS_Quarks_truth_Delta_Eta = abs(taggingQuarks_[0].eta() - taggingQuarks_[1].eta());
+            VBS_Quarks_truth_Delta_Phi = abs(taggingQuarks_[0].phi() - taggingQuarks_[1].phi());
+            VBS_Quarks_truth_mass= (taggingQuarks_[0].mom() + taggingQuarks_[1].mom()).mass();
+
+            VBS_Quark1_truth_pT = taggingQuarks_[0].pT();
+            VBS_Quark1_truth_eta = taggingQuarks_[0].eta();
+            VBS_Quark1_truth_mass = taggingQuarks_[0].mom().mass();
+
+            VBS_Quark2_truth_pT = taggingQuarks_[1].pT();
+            VBS_Quark2_truth_eta = taggingQuarks_[1].eta();
+            VBS_Quark2_truth_mass = taggingQuarks_[1].mom().mass();
+
+            const FourMomentum VBS_q_mom = taggingQuarks_[0].mom() + taggingQuarks_[1].mom();
+
+            VBS_Quarks_truth_pT= (VBS_q_mom).pT();
+            VBS_Quarks_truth_eta= (VBS_q_mom).eta();
+            VBS_Quarks_truth_eta_prod= taggingQuarks_[0].eta()*taggingQuarks_[1].eta();
+            VBS_Quarks_truth_mass= (VBS_q_mom).mass();
+
+            Truth_Delta_Eta_VBS_q_VZ = abs((VBS_q_mom).eta() - fourvec_truth_VZ.eta());
+            Truth_Delta_Phi_VBS_q_VZ = abs((VBS_q_mom).phi() - fourvec_truth_VZ.phi());
+
+            Delta_Phi_VBS_q_Vlep = abs((VBS_q_mom).phi() - fourvec_Vlep.phi());
+            _tt_bef_tag_jet->Fill();
+        }
+
+        quark_VBS_matched_all_jet = 0;
+        for (const auto& jet : jets) {
+            if (IsTruthTagJet(all_particles, jet, cutof_DR)) {
+                quark_VBS_matched_all_jet++;
+            }
+        }
+
+        pass_merged_truth=0;
+        if(W_pT > 0) {
+            std::vector<Particle> W_quarks_= ValidQuark_W(W_bson_);
+            if (W_quarks_.size() >= 2) {
+                W_Quark1_pT = W_quarks_[0].pT();
+                W_Quark1_eta = W_quarks_[0].eta();
+                W_Quark1_mass = W_quarks_[0].mom().mass();
+
+                W_Quark2_pT = W_quarks_[1].pT();
+                W_Quark2_eta = W_quarks_[1].eta();
+                W_Quark2_mass = W_quarks_[1].mom().mass();
+
+                W_Quarks_delta_Eta = abs(W_quarks_[0].eta() - W_quarks_[1].eta());
+            }
+            if(taggingQuarks_.size() == 2 && W_pT > 200 && VBS_Quarks_truth_Delta_Eta > 2.0 && VBS_Quarks_truth_mass > 250 && W_quarks_.size() >= 2
+                && taggingQuarks_[0].pT()> 30 && taggingQuarks_[1].pT()> 30 && abs(taggingQuarks_[0].eta())< 4.5 && abs(taggingQuarks_[1].eta())< 4.5 && quark_VBS_matched_all_jet==2){
+                pass_merged_truth=1;
+                }
+
+
+            _tt_aft_lep_cut->Fill();
+        }
+
+
+
+        // SELECTION TAG JETS FIRST
 
         Jets tag_jets;
-
+        Nb_Events_pre_VBS_jet++;
         bool foundVBSJetPair = false; 
         double max_m_tag_jj = 0;
+        double max_eta_jj = 0;
+        double max_eta_mTag = 0;
         int tag1_jet_index = -1 ,tag2_jet_index = -1;
-        for (int i = 0; i < n_jets; i++) {
+
+
+/*         for (int i = 0; i < n_jets; i++) {
             const Jet& i_jet = jets[i];
             for (int j = i + 1; j < n_jets; j++) {
                 const Jet& j_jet = jets[j];
+                if(i_jet.pT() < _jcuts["pt_tagjet1"] || j_jet.pT() < _jcuts["pt_tagjet2"]) continue;
                 const double m_tag_jj = (i_jet.mom() + j_jet.mom()).mass()/GeV;
+                const double eta_jj = abs(i_jet.eta()-j_jet.eta());
                 const double eta_prod = i_jet.eta()*j_jet.eta();
                 if  (eta_prod < 0.0 && m_tag_jj>max_m_tag_jj){
                     max_m_tag_jj = m_tag_jj;
@@ -342,7 +1094,27 @@ namespace Rivet {
                     tag2_jet_index = j;
                 }
             }
+        } */
+
+
+        // MAX ETA
+        for (int i = 0; i < n_jets; i++) {
+            const Jet& i_jet = jets[i];
+            for (int j = i + 1; j < n_jets; j++) {
+                const Jet& j_jet = jets[j];
+                if(i_jet.pT() < _jcuts["pt_tagjet1"] || j_jet.pT() < _jcuts["pt_tagjet2"]) continue;
+                const double m_tag_jj = (i_jet.mom() + j_jet.mom()).mass()/GeV;
+                const double eta_jj = abs(i_jet.eta()-j_jet.eta());
+                const double eta_prod = i_jet.eta()*j_jet.eta();
+                if  (eta_prod < 0.0 && eta_jj>max_eta_jj && m_tag_jj > 300){
+                    max_eta_jj = eta_jj;
+                    foundVBSJetPair = true;
+                    tag1_jet_index = i;
+                    tag2_jet_index = j;
+                }
+            }
         }
+
         if (tag2_jet_index < tag1_jet_index) swap(tag1_jet_index, tag2_jet_index); // organize tag jets by pt  
         if (!foundVBSJetPair)  vetoEvent;
         _cutflows_merged.fillnext();
@@ -354,28 +1126,24 @@ namespace Rivet {
 
         const FourMomentum tag1_jet = jets[tag1_jet_index].mom();
         const FourMomentum tag2_jet = jets[tag2_jet_index].mom();
-
-        if (_docut==1 && (tag1_jet.pT()<dbl(_jcuts["pt_tagjet1"]) || tag2_jet.pT()<dbl(_jcuts["pt_tagjet2"]))) vetoEvent; 
-        _cutflows_merged.fillnext();
-        _cutflows_resolved.fillnext();
-
-
-
         const FourMomentum fourvec_tag_jj = tag1_jet+tag2_jet;
+
+        Jets jets_without_tag_jets;
+        for (size_t i = 0; i < jets.size(); ++i) {
+            if (i != tag1_jet_index && i != tag2_jet_index) {
+                jets_without_tag_jets.push_back(jets[i]);
+            }
+        }
+
 
         const double m_tagjets = (fourvec_tag_jj).mass()/GeV;
         if (_docut==1 && m_tagjets<_jcuts["m_tagjets"]) vetoEvent;
+        Nb_Events_post_VBS_jet++;
         _cutflows_merged.fillnext();
         _cutflows_resolved.fillnext();
 
         const double dy_tagjets = fabs(tag1_jet.rap() - tag2_jet.rap());
 
-         
-
-
-        // // Retrieve clustered small R jets, sorted by pT, with a minimum pT cut
-
-        //printf("Size n_fjets after: %d\n", fjets.size());
 
         Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt(Cuts::pT > 200*GeV && Cuts::abseta < 2.0);
         //Jets fjets_ = apply<FastJets>(event, "fjets").jetsByPt();
@@ -393,10 +1161,252 @@ namespace Rivet {
         }
 
         //printf("\nSize n_fjets: %d\n", fjets.size());
-        idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4);
         idiscardIfAnyDeltaRLess(fjets, leptons, 1.0);
-        //printf("Size n_fjets after: %d\n", fjets.size());
-        int n_fjets = fjets.size();
+        idiscardIfAnyDeltaRLess(fjets, tag_jets, 1.4);
+        int n_fjets = fjets.size(); 
+
+        // Define truth variables to study the VBS signal region
+        //std::vector<Particle> taggingQuarks_ = Tagging_quarks(all_particles);
+        const FourMomentum tag_jets_mom = tag_jets[0].mom() + tag_jets[1].mom();
+        
+        if(Check_VBS_event(all_particles)){
+            if(taggingQuarks_.size() == 2 && W_pT > 200 && n_jets > 2 ){
+                Tagging_Jets_VZ_truth_Delta_Phi = abs(tag_jets_mom.phi() - fourvec_truth_VZ.phi());
+                VBS_Quarks_truth_Delta_Eta = abs(taggingQuarks_[0].eta() - taggingQuarks_[1].eta());
+                VBS_Quarks_truth_Delta_Phi = abs(taggingQuarks_[0].phi() - taggingQuarks_[1].phi());
+                VBS_Quarks_truth_mass= (taggingQuarks_[0].mom() + taggingQuarks_[1].mom()).mass();
+                std::vector<Particle> W_quarks_= ValidQuark_W(W_bson_);
+                if(VBS_Quarks_truth_Delta_Eta > 1.0 && VBS_Quarks_truth_mass > 250 && W_quarks_.size() >= 2
+                && taggingQuarks_[0].pT()> 30 && taggingQuarks_[1].pT()> 30 && abs(taggingQuarks_[0].eta())< 4.5 && abs(taggingQuarks_[1].eta())< 4.5){
+                    Nb_pure_tag_quarks++;
+
+                    Tagging_Jet1_pT = tag_jets[0].pT();
+                    Tagging_Jet1_eta = tag_jets[0].eta();
+                    Tagging_Jet1_mass = tag_jets[0].mom().mass();
+
+                    Tagging_Jet2_pT = tag_jets[1].pT();
+                    Tagging_Jet2_eta = tag_jets[1].eta();
+                    Tagging_Jet2_mass = tag_jets[1].mom().mass();
+
+                    
+                    Tagging_Jets_mass = (tag1_jet + tag2_jet).mass();
+                    Tagging_Jets_delta_Eta = abs(tag1_jet.eta() - tag2_jet.eta());
+
+                    FourMomentum tag_quarks=taggingQuarks_[0].mom() + taggingQuarks_[1].mom();
+
+                    absDelta_Eta_Tagging_jets_VBS_q_truth = abs(tag_quarks.eta() - tag_jets_mom.eta());
+                    absDelta_pT_Tagging_jets_VBS_q_truth = abs(tag_quarks.pT() - tag_jets_mom.pT());
+                    absDelta_Mass_Tagging_jets_VBS_q_truth = abs(tag_quarks.mass() - tag_jets_mom.mass());
+
+                    Delta_Eta_Tagging_jets_VBS_q_truth = tag_jets_mom.eta()- tag_quarks.eta();
+                    Delta_Mass_Tagging_jets_VBS_q_truth = tag_jets_mom.mass() - tag_quarks.mass();
+                    Delta_pT_Tagging_jets_VBS_q_truth =  tag_jets_mom.pT()- tag_quarks.pT();
+
+
+
+                    
+                    //W_bson_= GetWboson(all_particles);
+                    
+                    Delta_Eta_TaggingQuark1_Wquarks.clear();
+                    Delta_Eta_TaggingQuark2_Wquarks.clear();
+                    for (auto& W_quark : W_quarks_) {
+                        Delta_Eta_TaggingQuark1_Wquarks.push_back(abs(taggingQuarks_[0].eta() - W_quark.eta()));
+                        Delta_Eta_TaggingQuark2_Wquarks.push_back(abs(taggingQuarks_[1].eta() - W_quark.eta()));
+                    }
+
+                    Delta_eta_Tagging_Jet1_VBS_q = std::min(abs(tag_jets[0].eta() - taggingQuarks_[0].eta()), abs(tag_jets[0].eta() - taggingQuarks_[1].eta()));
+                    Delta_eta_Tagging_Jet2_VBS_q = std::min(abs(tag_jets[1].eta() - taggingQuarks_[0].eta()), abs(tag_jets[1].eta() - taggingQuarks_[1].eta()));
+
+                    Delta_Phi_Tagging_Jet1_VBS_q = std::min(abs(tag_jets[0].phi() - taggingQuarks_[0].phi()), abs(tag_jets[0].phi() - taggingQuarks_[1].phi()));
+                    Delta_Phi_Tagging_Jet2_VBS_q = std::min(abs(tag_jets[1].phi() - taggingQuarks_[0].phi()), abs(tag_jets[1].phi() - taggingQuarks_[1].phi()));
+
+                    
+
+
+                    tag_jets_matched = NbTagJetMatched(all_particles, tag_jets, cutof_DR);
+                    tag_jet1_matched = IsTruthTagJet(all_particles, tag_jets[0], cutof_DR);
+                    tag_jet2_matched = IsTruthTagJet(all_particles, tag_jets[1], cutof_DR);
+                    VBS_q_matched_Jet = NbTagJetMatched(all_particles, jets, cutof_DR); 
+
+
+                    if(tag_jets_matched ==1) {
+                        FourMomentum mismatch_tag_jets;
+                        
+                        if(tag_jet1_matched == 0) {
+                            mismatch_tag_jets=tag_jets[0].mom();
+                        }
+                        else {
+                            mismatch_tag_jets=tag_jets[1].mom();
+                        }
+                        Mismatch_Tagjet_pT = mismatch_tag_jets.pT();
+                        Mismatch_Tagjet_eta = mismatch_tag_jets.eta();
+                        Mismatch_Tagjet_mass = mismatch_tag_jets.mass();
+                        Delta_eta_Mismatch_Tagjet_VBS_q = std::min(abs(mismatch_tag_jets.eta() - taggingQuarks_[0].eta()), abs(mismatch_tag_jets.eta() - taggingQuarks_[1].eta()));                            
+                        Delta_R_Mismatch_Tagjet_VBS_q = std::min(deltaR(mismatch_tag_jets, taggingQuarks_[0]), deltaR(mismatch_tag_jets, taggingQuarks_[1]));
+                        Delta_Phi_Mismatch_Tagjet_VBS_q = std::min(abs(mismatch_tag_jets.phi() - taggingQuarks_[0].phi()), abs(mismatch_tag_jets.phi() - taggingQuarks_[1].phi()));
+                        Delta_eta_Mismatch_Tagjet_Wboson= std::min(abs(mismatch_tag_jets.eta() - W_quarks_[0].eta()), abs(mismatch_tag_jets.eta() - W_quarks_[1].eta()));
+
+
+                        Jet mismatch_tag_jet;
+                        Jet matched_tag_jet;
+                        tag_jet_mismatched_fromVhad = 0;
+                        if (tag_jet1_matched == 0) {
+                            tag_jet_mismatched_fromVhad=IsTrueWboson(all_particles, tag_jets[0], cutof_DR);
+                            mismatch_tag_jet = tag_jets[0];
+                            matched_tag_jet = tag_jets[1];
+                        }
+                        if (tag_jet2_matched == 0) {
+                            tag_jet_mismatched_fromVhad=IsTrueWboson(all_particles, tag_jets[1], cutof_DR);
+                            mismatch_tag_jet = tag_jets[1];
+                            matched_tag_jet = tag_jets[0];
+                        }
+                        Particle NotMatched_VBS_q;
+                        Particle Matched_VBS_q;
+                        if(abs(matched_tag_jet.eta() - taggingQuarks_[0].eta()) > abs(matched_tag_jet.eta() - taggingQuarks_[1].eta())){
+                            NotMatched_VBS_q = taggingQuarks_[0];
+                            Matched_VBS_q = taggingQuarks_[1];
+                        }
+                        else{
+                            NotMatched_VBS_q = taggingQuarks_[1];
+                            Matched_VBS_q = taggingQuarks_[0];
+                        }
+
+                        Matched_Tagjet_pT = matched_tag_jet.pT();
+                        Matched_Tagjet_eta = matched_tag_jet.eta();
+                        Matched_Tagjet_mass = matched_tag_jet.mom().mass();
+
+                        Matched_VBS_q_pT = Matched_VBS_q.pT();
+                        Matched_VBS_q_eta = Matched_VBS_q.eta();
+                        Matched_VBS_q_mass = Matched_VBS_q.mom().mass();
+
+                        NotMatched_VBS_q_pT = NotMatched_VBS_q.pT();
+                        NotMatched_VBS_q_eta = NotMatched_VBS_q.eta();
+                        NotMatched_VBS_q_mass = NotMatched_VBS_q.mom().mass();
+
+                        Delta_eta_Matched_Tagjet_Matched_VBS_q = abs(Matched_Tagjet_eta - Matched_VBS_q_eta);
+                        Delta_R_Matched_Tagjet_Matched_VBS_q = deltaR(matched_tag_jet, Matched_VBS_q);
+                        Delta_phi_Matched_Tagjet_Matched_VBS_q = abs(matched_tag_jet.phi() - Matched_VBS_q.phi());
+                        Delta_pT_Matched_Tagjet_Matched_VBS_q = abs(Matched_Tagjet_pT - Matched_VBS_q_pT);
+
+                        Delta_eta_Mismatched_Tagjet_Matched_VBS_q = abs(Mismatch_Tagjet_eta - Matched_VBS_q_eta);
+                        Delta_R_Mismatched_Tagjet_Matched_VBS_q = deltaR(mismatch_tag_jet, Matched_VBS_q);
+                        Delta_phi_Mismatched_Tagjet_Matched_VBS_q = abs(mismatch_tag_jet.phi() - Matched_VBS_q.phi());
+                        Delta_pT_Mismatched_Tagjet_Matched_VBS_q = abs(Mismatch_Tagjet_pT - Matched_VBS_q_pT);
+
+                        Delta_eta_Matched_Tagjet_NotMatched_VBS_q = abs(Matched_Tagjet_eta - NotMatched_VBS_q_eta);
+                        Delta_R_Matched_Tagjet_NotMatched_VBS_q = deltaR(matched_tag_jet, NotMatched_VBS_q);
+                        Delta_phi_Matched_Tagjet_NotMatched_VBS_q = abs(matched_tag_jet.phi() - NotMatched_VBS_q.phi());
+                        Delta_pT_Matched_Tagjet_NotMatched_VBS_q = abs(Matched_Tagjet_pT - NotMatched_VBS_q_pT);
+
+
+                        if(tag_jet_mismatched_fromVhad == 0) {
+                           //printf("\n No Vhad mismatch found\n");
+                            _tt_truth_mismatch_noVhad->Fill();
+                            if(n_jets > 3) {
+                               //printf("No Vhad mismatch found with more than 3 jets\n");
+                                _tt_truth_mismatch_noVhad_n3->Fill();
+                            }
+                            //printf("\n No Vhad mismatch found\n");
+                        }
+                        else {
+                            _tt_truth_mismatch_Vhad->Fill();
+                        }
+                        bool found_vbs_no_tag = false;
+                        int nb_vbs_no_tag = 0;
+                        Jets jets_VBS_no_tag;
+                        
+                        for (const auto& jet : jets_without_tag_jets) {
+                            if (IsTruthTagJet(all_particles, jet, cutof_DR)) {
+                                found_vbs_no_tag = true;
+                                jets_VBS_no_tag.push_back(jet);
+                                nb_vbs_no_tag++;
+                                //printf("\n VBS quarks matched with jet that is not a tag jets");
+                                
+                            }
+                        }
+
+                        //if(!found_vbs_no_tag && tag_jet_mismatched_fromVhad == 0) {
+                        if(!found_vbs_no_tag) {
+                            _tt_truth_mismatch_VBS_notfound->Fill();
+                            if(tag_jet_mismatched_fromVhad==0){
+                               _tt_truth_mismatch_noVhad_VBS_notfound->Fill(); 
+                            }
+                            //printf("\n No VBS jet no tag found\n");
+                        }
+                        //printf("\n number of VBS quarks matched with jet that is not a tag jets: %d", nb_vbs_no_tag);
+                        //if(found_vbs_no_tag && tag_jet_mismatched_fromVhad == 0) {
+                        if(found_vbs_no_tag) {
+                            //std::cout << "Size of the VBS jets no tag: " << jets_VBS_no_tag.size() << '\n';
+                            FourMomentum VBS_jet_pair=  jets_VBS_no_tag[0].mom() + matched_tag_jet.mom();
+
+                            VBS_jet_noTag_pT = jets_VBS_no_tag[0].pT();
+                            VBS_jet_noTag_eta = jets_VBS_no_tag[0].eta();
+                            VBS_jet_noTag_mass = jets_VBS_no_tag[0].mass();
+
+
+                            VBS_jet_pair_mass = VBS_jet_pair.mass();
+                            VBS_jet_pair_eta = VBS_jet_pair.eta();
+                            VBS_jet_pair_pT = VBS_jet_pair.pT();
+                            VBS_jet_pair_delta_eta = abs(jets_VBS_no_tag[0].eta() - matched_tag_jet.eta());
+                            VBS_jet_pair_eta_product = jets_VBS_no_tag[0].eta() * matched_tag_jet.eta();
+
+                            Delta_Eta_Mismatch_tagJet_VBSjet= mismatch_tag_jet.eta() - jets_VBS_no_tag[0].eta();
+                            Delta_Phi_Mismatch_tagJet_VBSjet= mismatch_tag_jet.phi() - jets_VBS_no_tag[0].phi();
+                            Delta_R_Mismatch_tagJet_VBSjet= deltaR(mismatch_tag_jet, jets_VBS_no_tag[0]);
+                            Delta_Mass_Mismatch_tagJet_VBSjet= mismatch_tag_jet.mass() - jets_VBS_no_tag[0].mass();
+                            Delta_pT_Mismatch_tagJet_VBSjet= mismatch_tag_jet.pT() - jets_VBS_no_tag[0].pT();
+
+
+                            Lower_mass_TagJet_vs_VBS_pair = 0;
+                            Lower_eta_TagJet_vs_VBS_pair = 0;
+                            Eta_product_positif_VBS_pair = 0;
+                            Mass_lower_300_VBS_pair = 0;
+                            pT_lower_30_OtherVBSjet = 0;
+                            
+
+                            if(Tagging_Jets_mass < VBS_jet_pair_mass) {
+                                Lower_mass_TagJet_vs_VBS_pair = 1;
+                            }
+                            if(Tagging_Jets_delta_Eta < VBS_jet_pair_delta_eta) {
+                                Lower_eta_TagJet_vs_VBS_pair = 1;
+                            }
+                            if(VBS_jet_pair_eta_product > 0) {
+                                Eta_product_positif_VBS_pair = 1;
+                            }
+                            if(VBS_jet_pair_mass < 300) {
+                                Mass_lower_300_VBS_pair = 1;
+                            }
+                            if(jets_VBS_no_tag[0].pT() < 30) {
+                                pT_lower_30_OtherVBSjet = 1;
+                            }
+
+                            if(tag_jet_mismatched_fromVhad==0){
+                                _tt_truth_mismatch_noVhad_VBS_found->Fill();
+                            }
+                            else {
+                                _tt_truth_mismatch_Vhad_VBS_found->Fill();
+                            }
+
+
+                        }
+
+                        _tt_truth_mismatch->Fill();
+                        if(n_jets > 3) {
+                            _tt_truth_mismatch_n3->Fill();
+                        }
+                    }
+                    if(tag_jets_matched == 2) {
+                        _tt_truth_matched->Fill();
+                        Nb_Events_VBS_jet_pure++;
+                    }
+
+                    _tt_truth->Fill();
+
+                }
+
+            }
+        }
+            
 
         // Create a new Jets object for the signal jets
         Jets sjets_sig;
@@ -428,11 +1438,12 @@ namespace Rivet {
         Angle_EventWeight = ev_nominal_weight;
         _tt_angle->Fill();
 
-            
+          
         // Check if we are in the Merged signal region
         if (n_fjets > 0) {
             _cutflows_merged.fillnext();
-
+            Leading_fjet_eta = fjets[0].eta(); Leading_fjet_mass = fjets[0].mass(); Leading_fjet_pt = fjets[0].pt();
+            Leading_fjet_TrueWboson = IsTrueWboson(all_particles, fjets[0], 0.4, true);
             const double beta = 1;
             const fastjet::PseudoJet &LJet= tr_ljets[0];
             fastjet::contrib::EnergyCorrelator ECF3(3,beta,fastjet::contrib::EnergyCorrelator::pt_R);
@@ -447,6 +1458,7 @@ namespace Rivet {
             const FourMomentum fourvec_fjets = fjets[0].mom();
             if ((_docut==1 && (fourvec_fjets.mass() >= _jcuts["m_fjet_WZ"][0] && fourvec_fjets.mass() <= _jcuts["m_fjet_WZ"][1]))||_docut==0) {
                 _cutflows_merged.fillnext();
+               //printf("\nMerged region\n");
                 
                 // Total cutflow of the merged region
                 _cutflows_merged.fillnext();
@@ -496,161 +1508,99 @@ namespace Rivet {
                 if (n_fjets > 1) {
                     const FourMomentum fourvec_fjets2 = fjets[1].mom();
                     ZeppMerged = abs(fourvec_fjets2.eta() - eta_tag_jet_mean);
+                    SubLeading_fjet_eta = fjets[1].eta(); SubLeading_fjet_mass = fjets[1].mass(); SubLeading_fjet_pt = fjets[1].pt();
+                    SubLeading_fjet_TrueWboson = IsTrueWboson(all_particles, fjets[1], 0.4, true);
+                    Delta_R_fjets = deltaR(fjets[0], fjets[1]);
+                    Delta_M_fjets = abs(fjets[0].mass()- fjets[1].mass());
+
+                    _tt_fjet->Fill();
                     //_h["merged_ZeppMerged"]->fill(ZeppMerged);
                 }
 
                 // We are in the Merged signal region
                 // Fill in the histogram of the merged region
                 merged_n_jets = n_jets;
-                _h["merged_n_jets"]->fill(merged_n_jets);
                 merged_tagjet1_pt = tag1_jet.pt();
-                _h["merged_tagjet1_pt"]->fill(merged_tagjet1_pt);
-                merged_tagjet2_pt = tag2_jet.pt();
-                _h["merged_tagjet2_pt"]->fill(merged_tagjet2_pt);
-                merged_tagjets_pt = fourvec_tag_jj.pT();
-                _h["merged_tagjets_pt"]->fill(merged_tagjets_pt);
-                merged_tagjets_delta_pt = abs(tag1_jet.pt()-tag2_jet.pt());
-                _h["merged_tagjets_delta_pt"]->fill(merged_tagjets_delta_pt);
 
-                _h["merged_tagjets_eta"]->fill(tag1_jet.eta()); _h["merged_tagjets_eta"]->fill(tag2_jet.eta());
+                merged_tagjet2_pt = tag2_jet.pt();
+
+                merged_tagjets_pt = fourvec_tag_jj.pT();
+                merged_tagjets_delta_pt = abs(tag1_jet.pt()-tag2_jet.pt());
                 merged_tagjets_delta_eta = abs(tag1_jet.eta()-tag2_jet.eta());
-                _h["merged_tagjets_delta_eta"]->fill(merged_tagjets_delta_eta);
                 merged_tagjet1_eta = tag1_jet.eta();
-                _h["merged_tagjet1_eta"]->fill(merged_tagjet1_eta);
                 merged_tagjet2_eta = tag2_jet.eta();
-                _h["merged_tagjet2_eta"]->fill(merged_tagjet2_eta);                
-                _h["merged_tagjets_phi"]->fill(tag1_jet.phi()); _h["merged_tagjets_phi"]->fill(tag2_jet.phi());
                 merged_tagjet1_phi = tag1_jet.phi(); merged_tagjet2_phi = tag2_jet.phi();
-                _h["merged_tagjet1_phi"]->fill(tag1_jet.phi()); _h["merged_tagjet2_phi"]->fill(tag2_jet.phi());
                 merged_tagjets_m = m_tagjets;
-                _h["merged_tagjets_m"]->fill(merged_tagjets_m);
                 merged_tagjets_eta = fourvec_tag_jj.eta();
-                _h["merged_tagjets_eta"]->fill(merged_tagjets_eta);
                 merged_tagjets_dy = dy_tagjets;
-                _h["merged_tagjets_dy"]->fill(merged_tagjets_dy);
                 merged_tagjets_dphi = deltaPhi(tag1_jet,tag2_jet);
-                _h["merged_tagjets_dphi"]->fill(merged_tagjets_dphi);
                 //lepton plots
                 merged_n_lepton_stable = nlep;
-                _h["merged_n_lepton_stable"]->fill(merged_n_lepton_stable);
-                _h["merged_lepton_pt"]->fill(lep1.pT()); _h["merged_lepton_pt"]->fill(lep2.pT()); 
                 merged_lepton_delta_pt = abs(lep1.pT()-lep2.pT());
-                _h["merged_lepton_delta_pt"]->fill(merged_lepton_delta_pt);
                 merged_lepton1_pt = lep1.pT();
-                _h["merged_lepton1_pt"]->fill(merged_lepton1_pt);
                 merged_lepton2_pt = lep2.pT();
-                _h["merged_lepton2_pt"]->fill(merged_lepton2_pt); 
-                _h["merged_lepton_eta"]->fill(lep1.eta()); _h["merged_lepton_eta"]->fill(lep2.eta()); 
                 merged_lepton1_eta = lep1.eta();
                 merged_lepton2_eta = lep2.eta();
-                _h["merged_lepton1_eta"]->fill(merged_lepton1_eta); _h["merged_lepton2_eta"]->fill(merged_lepton2_eta);
-                    
                 merged_lepton_delta_eta = abs(lep1.eta()-lep2.eta());
-                _h["merged_lepton_delta_eta"]->fill(merged_lepton_delta_eta);  
-
                 merged_lepton_delta_phi = deltaPhi(lep1, lep2);
-                _h["merged_lepton_delta_phi"]->fill(merged_lepton_delta_phi);   
                 //ana-specific
                 merged_Vlep_mass = m_Vlep;
-                _h["merged_Vlep_mass"]->fill(merged_Vlep_mass);
                 merged_Vlep_pt = fourvec_Vlep.pT();
-                _h["merged_Vlep_pt"]->fill(merged_Vlep_pt);
                 merged_Vlep_eta = fourvec_Vlep.eta();
-                _h["merged_Vlep_eta"]->fill(merged_Vlep_eta);
                 merged_Vlep_phi = fourvec_Vlep.phi();
-                _h["merged_Vlep_phi"]->fill(merged_Vlep_phi);
                 merged_Vlep_DR_tagjet1 = deltaR(fourvec_Vlep, tag1_jet);
-                _h["merged_Vlep_DR_tagjet"]->fill(merged_Vlep_DR_tagjet1);
                 merged_Vlep_DR_tagjet2 = deltaR(fourvec_Vlep, tag2_jet);
-                _h["merged_Vlep_DR_tagjet"]->fill(merged_Vlep_DR_tagjet2);
                 merged_Vlep_Dphi_tagjet1 = deltaPhi(fourvec_Vlep, tag1_jet);
-                _h["merged_Vlep_Dphi_tagjet"]->fill(merged_Vlep_Dphi_tagjet1);
                 merged_Vlep_Dphi_tagjet2 = deltaPhi(fourvec_Vlep, tag2_jet);
-                _h["merged_Vlep_Dphi_tagjet"]->fill(merged_Vlep_Dphi_tagjet2);
                 merged_Vlep_Deta_tagjet1 = abs(fourvec_Vlep.eta() - tag1_jet.eta());
-                _h["merged_Vlep_Deta_tagjet"]->fill(merged_Vlep_Deta_tagjet1);
                 merged_Vlep_Deta_tagjet2 = abs(fourvec_Vlep.eta() - tag2_jet.eta());
-                _h["merged_Vlep_Deta_tagjet"]->fill(merged_Vlep_Deta_tagjet2);
                 merged_lepton1_pids = lep1.pid();
-                _h["merged_leptons_pids"]->fill(merged_lepton1_pids);
                 merged_lepton2_pids = lep2.pid();
-                _h["merged_leptons_pids"]->fill(merged_lepton2_pids);
-
-
                 merged_fjet_eta = fourvec_fjets.eta();
-                _h["merged_fjet_eta"]->fill(merged_fjet_eta);
                 merged_fjet_pt = fourvec_fjets.pT();
-                _h["merged_fjet_pt"]->fill(merged_fjet_pt);
                 merged_fjet_D2 = d2_fjets;
-                _h["merged_fjet_D2"]->fill(merged_fjet_D2);
                 merged_fjet_n = n_fjets;
-                _h["merged_fjet_n"]->fill(merged_fjet_n);
                 merged_fjet_DR_lepton1 = deltaR(fourvec_fjets, lep1);
                 merged_fjet_DR_lepton2 = deltaR(fourvec_fjets, lep2);
-                _h["merged_fjet_DR_lepton1"]->fill(merged_fjet_DR_lepton1);
-                _h["merged_fjet_DR_lepton2"]->fill(merged_fjet_DR_lepton2);
                 merged_fjet_DR_tagjet1 = deltaR(fourvec_fjets, tag1_jet);
-                _h["merged_fjet_DR_tagjet1"]->fill(merged_fjet_DR_tagjet1);
                 merged_fjet_DR_tagjet2 = deltaR(fourvec_fjets, tag2_jet);
-                _h["merged_fjet_DR_tagjet2"]->fill(merged_fjet_DR_tagjet2);
                 merged_fjet_Dphi_tagjet1 = deltaPhi(fourvec_fjets, tag1_jet);
-                _h["merged_fjet_Dphi_tagjet1"]->fill(merged_fjet_Dphi_tagjet1);
                 merged_fjet_Dphi_tagjet2 = deltaPhi(fourvec_fjets, tag2_jet);
-                _h["merged_fjet_Dphi_tagjet2"]->fill(merged_fjet_Dphi_tagjet2);
                 merged_fjet_Deta_tagjet1 = abs(fourvec_fjets.eta() - tag1_jet.eta());
-                _h["merged_fjet_Deta_tagjet1"]->fill(merged_fjet_Deta_tagjet1);
                 merged_fjet_Deta_tagjet2 = abs(fourvec_fjets.eta() - tag2_jet.eta());
-                _h["merged_fjet_Deta_tagjet2"]->fill(merged_fjet_Deta_tagjet2);
                 merged_Vhad_DeltaR_Vlep = deltaR(fourvec_fjets, fourvec_Vlep);
-                _h["merged_Vhad_DeltaR_Vlep"]->fill(merged_Vhad_DeltaR_Vlep);
                 merged_Vhad_DeltaPhi_Vlep = deltaPhi(fourvec_fjets, fourvec_Vlep);
-                _h["merged_Vhad_DeltaPhi_Vlep"]->fill(merged_Vhad_DeltaPhi_Vlep);
                 merged_Vhad_DeltaEta_Vlep = abs(fourvec_fjets.eta() - fourvec_Vlep.eta());
-                _h["merged_Vhad_DeltaEta_Vlep"]->fill(merged_Vhad_DeltaEta_Vlep);
                 merged_fjet_mass = fourvec_fjets.mass();
-                _h["merged_fjet_mass"]->fill(merged_fjet_mass);
                 merged_VlepVhad_mass = fourvec_fjets_Vlep.mass();
-                _h["merged_VlepVhad_mass"]->fill(merged_VlepVhad_mass);
                 merged_VlepVhad_pt = fourvec_fjets_Vlep.pt();
-                _h["merged_VlepVhad_pt"]->fill(merged_VlepVhad_pt);
                 merged_VlepVhad_eta = fourvec_fjets_Vlep.eta();
-                _h["merged_VlepVhad_eta"]->fill(merged_VlepVhad_eta);
+                merged_VlepVhad_Deta_tagjets = abs(fourvec_fjets_Vlep.eta() - fourvec_tag_jj.eta());
+                merged_VlepVhad_Dphi_tagjets = deltaPhi(fourvec_fjets_Vlep, fourvec_tag_jj);
                 merged_Full_mass = fourvec_fjets_full.mass();
-                _h["merged_Full_mass"]->fill(merged_Full_mass);
                 merged_Full_pt = fourvec_fjets_full.pt();
-                _h["merged_Full_pt"]->fill(merged_Full_pt);
+
  
                 // Centrality variables
                 merged_Centrality = Centrality(tag_jets, fourvec_Vlep, fourvec_fjets);
                 merged_CentralityVhad = Centrality(tag_jets, fourvec_fjets, fourvec_fjets);
                 merged_CentralityVlep = Centrality(tag_jets, fourvec_Vlep,fourvec_Vlep);
                 merged_CentralityVlepVhad = Centrality(tag_jets, fourvec_fjets_Vlep, fourvec_fjets_Vlep);
-                _h["merged_Centrality"]->fill(merged_Centrality);
-                _h["merged_CentralityVhad"]->fill(merged_CentralityVhad);
-                _h["merged_CentralityVlep"]->fill(merged_CentralityVlep);
-                _h["merged_CentralityVlepVhad"]->fill(merged_CentralityVlepVhad);
 
                 // Zeppenfeld variables
                 merged_ZeppVlep = abs(fourvec_Vlep.eta() - eta_tag_jet_mean);
                 merged_ZeppVhad = abs(fourvec_fjets.eta() - eta_tag_jet_mean);
-                merged_ZeppVhadVlep = abs(fourvec_fjets_Vlep.eta() - eta_tag_jet_mean);
-                _h["merged_ZeppVlep"]->fill(merged_ZeppVlep);
-                _h["merged_ZeppVhad"]->fill(merged_ZeppVhad);
-                _h["merged_ZeppVhadVlep"]->fill(merged_ZeppVhadVlep);
-                
+                merged_ZeppVhadVlep = abs(fourvec_fjets_Vlep.eta() - eta_tag_jet_mean);                
                 //_h["merged_ZeppMerged"]->fill(ZeppMerged);
                 merged_Ntrk_tagjets1 = CountChargedTracks(tag_jets[0]);
-                _h["merged_Ntrk_tagjets"]->fill(merged_Ntrk_tagjets1);
                 merged_Ntrk_tagjets2 = CountChargedTracks(tag_jets[1]);
-                _h["merged_Ntrk_tagjets"]->fill(merged_Ntrk_tagjets2);
                 merged_Ntrk_fjets = CountChargedTracks(fjets_[0]);
-                _h["merged_Ntrk_fjets"]->fill(merged_Ntrk_fjets);
-
 
                 merged_EventNumber = EventNumber;
                 merged_EventWeight = ev_nominal_weight;
 
-                _tt->Fill();
+                _tt_merged->Fill();
+                _tt_truth_merged->Fill();
 
                 if (ev_nominal_weight>=0){_c["pos_w_final_merged"]->fill();}
                 else {_c["neg_w_final_merged"]->fill();}             
@@ -745,85 +1695,88 @@ namespace Rivet {
             _cutflows_resolved.fillnext();
             // Fill in the histograms for the resolved region
             //jet plots
-            _h["resolved_n_jets"]->fill(n_jets);
-            _h["resolved_tagjet1_pt"]->fill(tag1_jet.pt());
-            _h["resolved_tagjet2_pt"]->fill(tag2_jet.pt());
-            _h["resolved_tagjets_pt"]->fill(fourvec_tag_jj.pT());
-            _h["resolved_tagjets_delta_pt"]->fill(abs(tag1_jet.pt()-tag2_jet.pt()));
-            _h["resolved_tagjets_eta"]->fill(tag1_jet.eta()); _h["resolved_tagjets_eta"]->fill(tag2_jet.eta());
-            _h["resolved_tagjets_delta_eta"]->fill(abs(tag1_jet.eta()-tag2_jet.eta()));
-            _h["resolved_tagjet1_eta"]->fill(tag1_jet.eta()); _h["resolved_tagjet2_eta"]->fill(tag2_jet.eta());
-            _h["resolved_tagjets_phi"]->fill(tag1_jet.phi()); _h["resolved_tagjets_phi"]->fill(tag2_jet.phi());
-            _h["resolved_tagjets_m"]->fill(m_tagjets);
+            resolved_n_jets = n_jets;
+            resolved_tagjet1_pt = tag1_jet.pt();
+            resolved_tagjet2_pt = tag2_jet.pt();
+            resolved_tagjets_pt = fourvec_tag_jj.pT();
+            resolved_tagjets_delta_pt = abs(tag1_jet.pt() - tag2_jet.pt());
+            resolved_tagjet1_eta = tag1_jet.eta();
+            resolved_tagjet2_eta = tag2_jet.eta();
+            resolved_tagjets_delta_eta = abs(tag1_jet.eta() - tag2_jet.eta());
+            resolved_tagjet1_phi = tag1_jet.phi();
+            resolved_tagjet2_phi = tag2_jet.phi();
+            resolved_tagjets_m = m_tagjets;
+            resolved_tagjets_eta = fourvec_tag_jj.eta();
+            resolved_tagjets_dy = dy_tagjets;
+            resolved_tagjets_dphi = deltaPhi(tag1_jet, tag2_jet);
+            resolved_n_lepton_stable = nlep;
+            resolved_lepton1_pt = lep1.pT();
+            resolved_lepton2_pt = lep2.pT();
+            resolved_lepton_delta_pt = abs(lep1.pT() - lep2.pT());
+            resolved_lepton1_eta = lep1.eta();
+            resolved_lepton2_eta = lep2.eta();
+            resolved_lepton_delta_eta = abs(lep1.eta() - lep2.eta());
+            resolved_Vlep_mass = m_Vlep;
+            resolved_Vlep_pt = fourvec_Vlep.pT();
+            resolved_Vlep_eta = fourvec_Vlep.eta();
+            resolved_Vlep_phi = fourvec_Vlep.phi();
+            resolved_Vlep_DR_tagjet1 = deltaR(fourvec_Vlep, tag1_jet);
+            resolved_Vlep_DR_tagjet2 = deltaR(fourvec_Vlep, tag2_jet);
+            resolved_Vlep_Dphi_tagjet1 = deltaPhi(fourvec_Vlep, tag1_jet);
+            resolved_Vlep_Dphi_tagjet2 = deltaPhi(fourvec_Vlep, tag2_jet);
+            resolved_Vlep_Deta_tagjet1 = abs(fourvec_Vlep.eta() - tag1_jet.eta());
+            resolved_Vlep_Deta_tagjet2 = abs(fourvec_Vlep.eta() - tag2_jet.eta());
+            resolved_DR_min_lepton_tagjets1 = std::min(deltaR(lep1, tag1_jet), deltaR(lep2, tag1_jet));
+            resolved_DR_min_lepton_tagjets2 = std::min(deltaR(lep1, tag2_jet), deltaR(lep2, tag2_jet));
+            resolved_DR_min_lepton_sigjets1 = std::min(deltaR(signal_jet1, lep1), deltaR(signal_jet1, lep2));
+            resolved_DR_min_lepton_sigjets2 = std::min(deltaR(signal_jet2, lep1), deltaR(signal_jet2, lep2));
+            resolved_signal_jets_pt1 = signal_jet1.pT();
+            resolved_signal_jets_pt2 = signal_jet2.pT();
+            resolved_signal_jets_eta1 = signal_jet1.eta();
+            resolved_signal_jets_eta2 = signal_jet2.eta();
+            resolved_signal_jets_DeltaEta = abs(signal_jet1.eta() - signal_jet2.eta());
+            resolved_signal_jets_DeltaR = deltaR(signal_jet2, signal_jet1);
+            resolved_signal_jets_DeltaPhi = deltaPhi(signal_jet2, signal_jet1);
+            resolved_signal_jets_mass = signal_mjj;
+            resolved_Vhad_DR_tagjet1 = deltaR(fourvec_Vhad, tag1_jet);
+            resolved_Vhad_DR_tagjet2 = deltaR(fourvec_Vhad, tag2_jet);
+            resolved_Vhad_Dphi_tagjet1 = deltaPhi(fourvec_Vhad, tag1_jet);
+            resolved_Vhad_Dphi_tagjet2 = deltaPhi(fourvec_Vhad, tag2_jet);
+            resolved_Vhad_Deta_tagjet1 = abs(fourvec_Vhad.eta() - tag1_jet.eta());
+            resolved_Vhad_Deta_tagjet2 = abs(fourvec_Vhad.eta() - tag2_jet.eta());
+            resolved_Vhad_DeltaR_Vlep = deltaR(fourvec_Vhad, fourvec_Vlep);
+            resolved_Vhad_DeltaPhi_Vlep = deltaPhi(fourvec_Vhad, fourvec_Vlep);
+            resolved_Vhad_DeltaEta_Vlep = abs(fourvec_Vhad.eta() - fourvec_Vlep.eta());
+            resolved_VlepVhad_mass = fourvec_signal_jets_Vlep.mass();
+            resolved_VlepVhad_pt = fourvec_signal_jets_Vlep.pt();
+            resolved_VlepVhad_eta = fourvec_signal_jets_Vlep.eta();
+            resolved_Full_mass = fourvec_signal_jets_full.mass();
+            resolved_Full_pt = fourvec_signal_jets_full.pt();
+            resolved_Centrality = Centrality_resolved;
+            resolved_CentralityVhad = CentralityVhad_resolved;
+            resolved_CentralityVlep = CentralityVlep_resolved;
+            resolved_CentralityVlepVhad = CentralityVlepVhad_resolved;
+            resolved_ZeppVlep = ZeppVlep_resolved;
+            resolved_ZeppVhad = ZeppVhad_resolved;
+            resolved_ZeppVhadVlep = ZeppVhadVlep_resolved;
+            resolved_Ntrk_tagjets1 = CountChargedTracks(tag_jets[0]);
+            resolved_Ntrk_tagjets2 = CountChargedTracks(tag_jets[1]);
+            resolved_Ntrk_signal_jets1 = CountChargedTracks(sjets_sig[0]);
+            resolved_Ntrk_signal_jets2 = CountChargedTracks(sjets_sig[1]);
+            resolved_mjjj = fourvec_signal_jjj.mass();
 
-            _h["resolved_tagjets_eta"]->fill(fourvec_tag_jj.eta());
-            _h["resolved_tagjets_dy"]->fill(dy_tagjets);
-            _h["resolved_tagjets_dphi"]->fill(deltaPhi(tag1_jet,tag2_jet));
-            //lepton plots
-            _h["resolved_n_lepton_stable"]->fill(nlep);
-            _h["resolved_lepton_pt"]->fill(lep1.pT()); _h["resolved_lepton_pt"]->fill(lep2.pT()); 
-            _h["resolved_lepton_delta_pt"]->fill(abs(lep1.pT()-lep2.pT()));
-            _h["resolved_lepton1_pt"]->fill(lep1.pT()); _h["resolved_lepton2_pt"]->fill(lep2.pT()); 
-            _h["resolved_lepton_eta"]->fill(lep1.eta()); _h["resolved_lepton_eta"]->fill(lep2.eta());
-            _h["resolved_lepton_delta_eta"]->fill(abs(lep1.eta()-lep2.eta()));    
-            //ana-specific
-            _h["resolved_Vlep_mass"]->fill(m_Vlep);
-            _h["resolved_Vlep_pt"]->fill(fourvec_Vlep.pT());
-            _h["resolved_Vlep_eta"]->fill(fourvec_Vlep.eta());
-            _h["resolved_Vlep_phi"]->fill(fourvec_Vlep.phi());
-            _h["resolved_Vlep_DR_tagjet"]->fill(deltaR(fourvec_Vlep, tag1_jet));_h["resolved_Vlep_DR_tagjet"]->fill(deltaR(fourvec_Vlep, tag2_jet));
-            _h["resolved_Vlep_Dphi_tagjet"]->fill(deltaPhi(fourvec_Vlep, tag1_jet));_h["resolved_Vlep_Dphi_tagjet"]->fill(deltaPhi(fourvec_Vlep, tag2_jet));
-            _h["resolved_Vlep_Deta_tagjet"]->fill(abs(fourvec_Vlep.eta() - tag1_jet.eta()));_h["resolved_Vlep_Deta_tagjet"]->fill(abs(fourvec_Vlep.eta() - tag2_jet.eta()));
-            _h["resolved_leptons_pids"]->fill(lep1.pid());_h["resolved_leptons_pids"]->fill(lep2.pid());
-
-            _h["resolved_DR_min_lepton_tagjets1"]->fill(std::min(deltaR(lep1, tag1_jet), deltaR(lep2, tag1_jet)));
-            _h["resolved_DR_min_lepton_tagjets2"]->fill(std::min(deltaR(lep1, tag2_jet), deltaR(lep2, tag2_jet)));
-            _h["resolved_DR_min_lepton_sigjets1"]->fill(std::min(deltaR(signal_jet1, lep1),deltaR(signal_jet1, lep2)));
-            _h["resolved_DR_min_lepton_sigjets2"]->fill(std::min(deltaR(signal_jet2, lep1),deltaR(signal_jet2, lep2)));
-
-            
-            _h["resolved_signal_jets_pt"]->fill(signal_jet1.pT());_h["resolved_signal_jets_pt"]->fill(signal_jet2.pT());
-            _h["resolved_signal_jets_eta"]->fill(signal_jet1.eta());_h["resolved_signal_jets_eta"]->fill(signal_jet2.eta());
-            _h["resolved_signal_jets_DeltaEta"]->fill(abs(signal_jet1.eta()-signal_jet2.eta()));
-            _h["resolved_signal_jets_DeltaR"]->fill(deltaR(signal_jet2, signal_jet1));
-            _h["resolved_signal_jets_DeltaPhi"]->fill(deltaPhi(signal_jet2, signal_jet1));
-            _h["resolved_signal_jets_mass"]->fill(signal_mjj);
-
-            _h["resolved_Vhad_DR_tagjet"]->fill(deltaR(fourvec_Vhad, tag1_jet));_h["resolved_Vhad_DR_tagjet"]->fill(deltaR(fourvec_Vhad, tag2_jet));
-            _h["resolved_Vhad_Dphi_tagjet"]->fill(deltaPhi(fourvec_Vhad, tag1_jet));_h["resolved_Vhad_Deta_tagjet"]->fill(deltaPhi(fourvec_Vhad, tag2_jet));
-            _h["resolved_Vhad_Deta_tagjet"]->fill(abs(fourvec_Vhad.eta() - tag1_jet.eta()));_h["resolved_Vhad_DR_tagjet"]->fill(abs(fourvec_Vhad.eta() - tag2_jet.eta()));
+            _tt_resolved->Fill();
+            // Fill the histograms using the variables
 
 
-            _h["resolved_Vhad_DeltaR_Vlep"]->fill(deltaR(fourvec_Vhad, fourvec_Vlep));
-            _h["resolved_Vhad_DeltaPhi_Vlep"]->fill(deltaPhi(fourvec_Vhad, fourvec_Vlep));
-            _h["resolved_Vhad_DeltaEta_Vlep"]->fill(abs(fourvec_Vhad.eta() - fourvec_Vlep.eta()));
-
-            _h["resolved_VlepVhad_mass"]->fill(fourvec_signal_jets_Vlep.mass());                
-            _h["resolved_VlepVhad_pt"]->fill(fourvec_signal_jets_Vlep.pt());                
-            _h["resolved_VlepVhad_eta"]->fill(fourvec_signal_jets_Vlep.eta());                
-            _h["resolved_Full_mass"]->fill(fourvec_signal_jets_full.mass());                
-            _h["resolved_Full_pt"]->fill(fourvec_signal_jets_full.pt());  
-            _h["resolved_Centrality"]->fill(Centrality_resolved);
-            _h["resolved_CentralityVhad"]->fill(CentralityVhad_resolved);
-            _h["resolved_CentralityVlep"]->fill(CentralityVlep_resolved);
-            _h["resolved_CentralityVlepVhad"]->fill(CentralityVlepVhad_resolved);
-            _h["resolved_ZeppVlep"]->fill(ZeppVlep_resolved);
-            _h["resolved_ZeppVhad"]->fill(ZeppVhad_resolved);
-            _h["resolved_ZeppVhadVlep"]->fill(ZeppVhadVlep_resolved);
-            
-            _h["resolved_Ntrk_tagjets"]->fill(CountChargedTracks(tag_jets[0])); _h["resolved_Ntrk_tagjets"]->fill(CountChargedTracks(tag_jets[1]));
-            _h["resolved_Ntrk_signal_jets"]->fill(CountChargedTracks(sjets_sig[0])); _h["resolved_Ntrk_signal_jets"]->fill(CountChargedTracks(sjets_sig[1]));
-            _h["resolved_mjjj"]->fill(fourvec_signal_jjj.mass());
-        
             // More than 2 signal jets candidates
-            if (sjets_sig.size() > 2){
-                _h["resolved_DeltaPt_sig_jet2_jet3"]-> fill(abs(signal_jet2.pT() - sjets_sig[2].mom().pT()));   
-                
-                _h["resolved_ZeppRes"]->fill(ZeppRes);
-            }
 
-            if (ev_nominal_weight>=0){_c["pos_w_final_resolved"]->fill();}
-            else {_c["neg_w_final_resolved"]->fill();}
+            if (ev_nominal_weight >= 0) {
+                _c["pos_w_final_resolved"]->fill();
+            } else {
+                _c["neg_w_final_resolved"]->fill();
+            }
+                
 
         } 
  
@@ -841,7 +1794,6 @@ namespace Rivet {
             //cout << "Number of systematics: " << nsys << endl;
             std::string cut_merged_str = _cutflows_merged.str();
             std::string cutflow_merged_file = getOption("OUTDIR") + "/cutflow_merged.txt";
-
             std::ofstream ofs_merged (cutflow_merged_file, std::ofstream::out); 
             ofs_merged << cut_merged_str;
             ofs_merged.close();
@@ -853,23 +1805,30 @@ namespace Rivet {
             ofs_resolved << cut_resolved_str;
             ofs_resolved.close();
 
- /*            double pos_w_sum_initial = dbl(*_c["pos_w_initial"]); // from which also number of entries can be obtained
-            double neg_w_sum_initial = dbl(*_c["neg_w_initial"]);
+            double VBS_jet_efficiency = static_cast<double>(Nb_Events_post_VBS_jet) / Nb_Events_pre_VBS_jet;
+            std::string VBS_jet_efficiency_str = std::to_string(VBS_jet_efficiency);
+            std::string VBS_jet_efficiency_file = getOption("OUTDIR") + "/VBS_jet_efficiency.txt";
+            std::ofstream ofs_VBS_jet_efficiency (VBS_jet_efficiency_file, std::ofstream::out); 
+            ofs_VBS_jet_efficiency << VBS_jet_efficiency_str;
+            ofs_VBS_jet_efficiency.close();
 
-            double pos_w_sum_final_merged = dbl(*_c["pos_w_final_merged"]);
-            double neg_w_sum_final_merged = dbl(*_c["neg_w_final_merged"]);
-            double pos_w_sum_final_resolved = dbl(*_c["pos_w_final_resolved"]);
-            double neg_w_sum_final_resolved = dbl(*_c["neg_w_final_resolved"]); */
+            if (Nb_Events_post_VBS_jet > 0){
+                double VBS_jet_purity = static_cast<double>(Nb_Events_VBS_jet_pure) / Nb_Events_post_VBS_jet;
+                std::string VBS_jet_purity_str = std::to_string(VBS_jet_purity);
+                std::string VBS_jet_purity_file = getOption("OUTDIR") + "/VBS_jet_purity.txt";
+                std::ofstream ofs_VBS_jet_purity (VBS_jet_purity_file, std::ofstream::out); 
+                ofs_VBS_jet_purity << VBS_jet_purity_str;
+                ofs_VBS_jet_purity.close();
+            }
 
-
-            // normalize all to 1 since in case of mostly negative weights not clear what it will do
-/*             const double total_weight_initial = pos_w_sum_initial + neg_w_sum_initial;
-            const double weight_merged = pos_w_sum_final_merged + neg_w_sum_final_merged;
-            const double weight_resolved = pos_w_sum_final_resolved + neg_w_sum_final_resolved;
-
-
-            const double xs = crossSection()/femtobarn;
-            const double lumi= 139.0; // fb-1 */
+            if (Nb_pure_tag_quarks > 0){
+                double VBS_jet_purity_bis = static_cast<double>(Nb_Events_VBS_jet_pure) / Nb_pure_tag_quarks;
+                std::string VBS_jet_purity_bis_str = std::to_string(VBS_jet_purity_bis);
+                std::string VBS_jet_purity_bis_file = getOption("OUTDIR") + "/VBS_jet_purity_bis.txt";
+                std::ofstream ofs_VBS_jet_purity_bis (VBS_jet_purity_bis_file, std::ofstream::out); 
+                ofs_VBS_jet_purity_bis << VBS_jet_purity_bis_str;
+                ofs_VBS_jet_purity_bis.close();
+            }
 
             for (auto & i_name : _hist_names){ 
                 //std::cout << "normalizeing hist " << i_name <<" to 1; " ;
@@ -911,10 +1870,75 @@ namespace Rivet {
     double cross_section_fb;
 
     unique_ptr<TFile> _tf;
-    unique_ptr<TTree> _tt;
+    unique_ptr<TTree> _tt_merged;
+    unique_ptr<TTree> _tt_resolved;
+    unique_ptr<TTree> _tt_bef_cut;
+    unique_ptr<TTree> _tt_aft_lep_cut;
+    unique_ptr<TTree> _tt_bef_tag_jet;
+    unique_ptr<TTree> _tt_truth;
+    unique_ptr<TTree> _tt_truth_merged;
+    unique_ptr<TTree> _tt_truth_mismatch;
+    unique_ptr<TTree> _tt_truth_mismatch_n3;
+    unique_ptr<TTree> _tt_truth_mismatch_noVhad;
+    unique_ptr<TTree> _tt_truth_mismatch_Vhad;
+    unique_ptr<TTree> _tt_truth_mismatch_noVhad_n3;
+    unique_ptr<TTree> _tt_truth_mismatch_VBS_notfound;
+    unique_ptr<TTree> _tt_truth_mismatch_noVhad_VBS_notfound;
+    unique_ptr<TTree> _tt_truth_mismatch_noVhad_VBS_found;
+    unique_ptr<TTree> _tt_truth_mismatch_Vhad_VBS_found;
+    unique_ptr<TTree> _tt_truth_matched;
     unique_ptr<TTree> _tt_angle;
+    unique_ptr<TTree> _tt_fjet;
 
     double cos_theta_star, Angle_EventWeight;
+
+    int VBS_event,n_jets;
+
+    double Leading_fjet_pt,Leading_fjet_eta,Leading_fjet_mass,Leading_fjet_TrueWboson;
+    double SubLeading_fjet_pt,SubLeading_fjet_eta,SubLeading_fjet_mass,SubLeading_fjet_TrueWboson,Delta_R_fjets,Delta_M_fjets;
+
+
+    double Pass_VBS_jet,pass_merged_truth,quark_VBS_matched_all_jet;
+
+    double VBS_Quark1_truth_pT, VBS_Quark1_truth_eta, VBS_Quark1_truth_mass;
+    double VBS_Quark2_truth_pT, VBS_Quark2_truth_eta, VBS_Quark2_truth_mass;
+    double VBS_Quarks_truth_pT, VBS_Quarks_truth_eta,VBS_Quarks_truth_eta_prod, VBS_Quarks_truth_mass, VBS_Quarks_truth_Delta_Eta, VBS_Quarks_truth_Delta_Phi;
+    double Truth_Delta_Eta_VBS_q_VZ, Truth_Delta_Phi_VBS_q_VZ,Delta_Phi_VBS_q_Vlep;
+
+    double W_pT,W_eta,W_phi,W_Quark1_pT, W_Quark1_eta, W_Quark1_mass;
+    double W_Quark2_pT, W_Quark2_eta, W_Quark2_mass;
+    double W_Quarks_delta_Eta;
+
+    double Tagging_Jet1_pT, Tagging_Jet1_eta, Tagging_Jet1_mass;
+    double Mismatch_Tagjet_pT, Mismatch_Tagjet_eta, Mismatch_Tagjet_mass;
+    double Tagging_Jet2_pT, Tagging_Jet2_eta, Tagging_Jet2_mass;
+    double Tagging_Jets_mass,Tagging_Jets_delta_Eta;
+    double Tagging_Jets_VZ_truth_Delta_Phi;
+
+    double Matched_Tagjet_pT, Matched_Tagjet_eta, Matched_Tagjet_mass;
+    double Matched_VBS_q_pT, Matched_VBS_q_eta, Matched_VBS_q_mass;
+    double NotMatched_VBS_q_pT, NotMatched_VBS_q_eta, NotMatched_VBS_q_mass;
+    double Delta_eta_Matched_Tagjet_Matched_VBS_q,Delta_R_Matched_Tagjet_Matched_VBS_q, Delta_phi_Matched_Tagjet_Matched_VBS_q, Delta_pT_Matched_Tagjet_Matched_VBS_q;
+    double Delta_eta_Mismatched_Tagjet_Matched_VBS_q,Delta_R_Mismatched_Tagjet_Matched_VBS_q, Delta_phi_Mismatched_Tagjet_Matched_VBS_q, Delta_pT_Mismatched_Tagjet_Matched_VBS_q;
+    double Delta_eta_Matched_Tagjet_NotMatched_VBS_q,Delta_R_Matched_Tagjet_NotMatched_VBS_q, Delta_phi_Matched_Tagjet_NotMatched_VBS_q, Delta_pT_Matched_Tagjet_NotMatched_VBS_q;
+
+    double VBS_jet_noTag_pT, VBS_jet_noTag_eta, VBS_jet_noTag_mass;
+    double VBS_jet_pair_mass, VBS_jet_pair_pT, VBS_jet_pair_eta, VBS_jet_pair_delta_eta, VBS_jet_pair_eta_product;
+    double Delta_Eta_Mismatch_tagJet_VBSjet, Delta_R_Mismatch_tagJet_VBSjet, Delta_Phi_Mismatch_tagJet_VBSjet;
+    double Delta_Mass_Mismatch_tagJet_VBSjet, Delta_pT_Mismatch_tagJet_VBSjet;
+
+    int Lower_mass_TagJet_vs_VBS_pair,Lower_eta_TagJet_vs_VBS_pair,Eta_product_positif_VBS_pair,Mass_lower_300_VBS_pair, pT_lower_30_OtherVBSjet;
+
+    double Delta_Eta_Tagging_jets_VBS_q_truth, Delta_Mass_Tagging_jets_VBS_q_truth, Delta_pT_Tagging_jets_VBS_q_truth;
+    double absDelta_Eta_Tagging_jets_VBS_q_truth, absDelta_Mass_Tagging_jets_VBS_q_truth, absDelta_pT_Tagging_jets_VBS_q_truth;
+    double Delta_eta_Tagging_Jet1_VBS_q,Delta_eta_Tagging_Jet2_VBS_q,Delta_eta_Mismatch_Tagjet_VBS_q,Delta_R_Mismatch_Tagjet_VBS_q;
+    double Delta_Phi_Tagging_Jet1_VBS_q,Delta_Phi_Tagging_Jet2_VBS_q,Delta_Phi_Mismatch_Tagjet_VBS_q,Delta_eta_Mismatch_Tagjet_Wboson;
+
+    double tag_jets_matched, tag_jet1_matched, tag_jet2_matched;
+    double VBS_q_matched_Jet;
+    std::vector<double> Min_DR_Wq_jets, Min_DR_q_Tagjets,Delta_Eta_TaggingQuark1_Wquarks,Delta_Eta_TaggingQuark2_Wquarks;
+
+    double tag_jet_mismatched_fromVhad;
 
     double merged_CS_V_cos_theta,merged_cos_theta_star;
 
@@ -927,11 +1951,173 @@ namespace Rivet {
     double merged_fjet_eta,merged_fjet_pt,merged_fjet_D2,merged_fjet_DR_lepton1;
     double merged_fjet_DR_lepton2,merged_fjet_DR_tagjet1,merged_fjet_DR_tagjet2,merged_fjet_Dphi_tagjet1,merged_fjet_Dphi_tagjet2;
     double merged_fjet_Deta_tagjet1,merged_fjet_Deta_tagjet2,merged_Vhad_DeltaR_Vlep,merged_Vhad_DeltaPhi_Vlep,merged_Vhad_DeltaEta_Vlep;
-    double merged_fjet_mass,merged_VlepVhad_mass,merged_VlepVhad_pt,merged_VlepVhad_eta,merged_Full_mass;
+    double merged_fjet_mass,merged_VlepVhad_mass,merged_VlepVhad_pt,merged_VlepVhad_eta,merged_VlepVhad_Deta_tagjets,merged_VlepVhad_Dphi_tagjets,merged_Full_mass;
     double merged_Full_pt,merged_Centrality,merged_CentralityVhad,merged_CentralityVlep,merged_CentralityVlepVhad,merged_ZeppVlep,merged_ZeppVhad,merged_ZeppVhadVlep;
     int merged_n_jets,merged_n_lepton_stable,merged_fjet_n,merged_lepton1_pids,merged_lepton2_pids;
     int merged_Ntrk_tagjets1,merged_Ntrk_tagjets2,merged_Ntrk_tagjets,merged_Ntrk_fjets;
+
+    double resolved_n_jets, resolved_tagjet1_pt, resolved_tagjet2_pt, resolved_tagjets_pt, resolved_tagjets_delta_pt;
+    double resolved_tagjet1_eta, resolved_tagjet2_eta, resolved_tagjets_delta_eta, resolved_tagjet1_phi, resolved_tagjet2_phi;
+    double resolved_tagjets_m, resolved_tagjets_eta, resolved_tagjets_dy, resolved_tagjets_dphi;
+    double resolved_n_lepton_stable, resolved_lepton1_pt, resolved_lepton2_pt, resolved_lepton_delta_pt;
+    double resolved_lepton1_eta, resolved_lepton2_eta, resolved_lepton_delta_eta, resolved_Vlep_mass;
+    double resolved_Vlep_pt, resolved_Vlep_eta, resolved_Vlep_phi, resolved_Vlep_DR_tagjet1, resolved_Vlep_DR_tagjet2;
+    double resolved_Vlep_Dphi_tagjet1, resolved_Vlep_Dphi_tagjet2, resolved_Vlep_Deta_tagjet1, resolved_Vlep_Deta_tagjet2;
+    double resolved_DR_min_lepton_tagjets1, resolved_DR_min_lepton_tagjets2, resolved_DR_min_lepton_sigjets1, resolved_DR_min_lepton_sigjets2;
+    double resolved_signal_jets_pt1, resolved_signal_jets_pt2, resolved_signal_jets_eta1, resolved_signal_jets_eta2;
+    double resolved_signal_jets_DeltaEta, resolved_signal_jets_DeltaR, resolved_signal_jets_DeltaPhi, resolved_signal_jets_mass;
+    double resolved_Vhad_DR_tagjet1, resolved_Vhad_DR_tagjet2, resolved_Vhad_Dphi_tagjet1, resolved_Vhad_Dphi_tagjet2;
+    double resolved_Vhad_Deta_tagjet1, resolved_Vhad_Deta_tagjet2, resolved_Vhad_DeltaR_Vlep, resolved_Vhad_DeltaPhi_Vlep, resolved_Vhad_DeltaEta_Vlep;
+    double resolved_VlepVhad_mass, resolved_VlepVhad_pt, resolved_VlepVhad_eta, resolved_Full_mass, resolved_Full_pt;
+    double resolved_Centrality, resolved_CentralityVhad, resolved_CentralityVlep, resolved_CentralityVlepVhad;
+    double resolved_ZeppVlep, resolved_ZeppVhad, resolved_ZeppVhadVlep;
+    double resolved_Ntrk_tagjets1, resolved_Ntrk_tagjets2, resolved_Ntrk_signal_jets1, resolved_Ntrk_signal_jets2;
+    double resolved_mjjj, resolved_ZeppRes;
+
+
     /// @}
+
+
+    std::map<std::string, double*> varMapDouble_Tagjets_truth = {
+
+
+        {"Tagging_Jet1_pT", &Tagging_Jet1_pT},
+        {"Tagging_Jet1_eta", &Tagging_Jet1_eta},
+        {"Tagging_Jet1_mass", &Tagging_Jet1_mass},
+
+        {"Tagging_Jet2_pT", &Tagging_Jet2_pT},
+        {"Tagging_Jet2_eta", &Tagging_Jet2_eta},
+        {"Tagging_Jet2_mass", &Tagging_Jet2_mass},
+        {"Tagging_Jets_mass", &Tagging_Jets_mass},
+        {"Tagging_Jets_delta_Eta", &Tagging_Jets_delta_Eta},
+
+        {"Tagging_Jets_VZ_truth_Delta_Phi", &Tagging_Jets_VZ_truth_Delta_Phi},
+
+
+        {"Delta_Eta_Tagging_jets_VBS_q_truth", &Delta_Eta_Tagging_jets_VBS_q_truth},
+        {"Delta_Mass_Tagging_jets_VBS_q_truth", &Delta_Mass_Tagging_jets_VBS_q_truth},
+        {"Delta_pT_Tagging_jets_VBS_q_truth", &Delta_pT_Tagging_jets_VBS_q_truth},
+
+        {"absDelta_Eta_Tagging_jets_VBS_q_truth", &absDelta_Eta_Tagging_jets_VBS_q_truth},
+        {"absDelta_Mass_Tagging_jets_VBS_q_truth", &absDelta_Mass_Tagging_jets_VBS_q_truth},
+        {"absDelta_pT_Tagging_jets_VBS_q_truth", &absDelta_pT_Tagging_jets_VBS_q_truth},
+
+        {"Delta_eta_Tagging_Jet1_VBS_q", &Delta_eta_Tagging_Jet1_VBS_q},
+        {"Delta_eta_Tagging_Jet2_VBS_q", &Delta_eta_Tagging_Jet2_VBS_q},
+
+        {"tag_jets_matched", &tag_jets_matched},
+        {"tag_jet1_matched", &tag_jet1_matched},
+        {"tag_jet2_matched", &tag_jet2_matched},
+        {"VBS_q_matched_Jet", &VBS_q_matched_Jet},
+        {"Pass_VBS_jet", &Pass_VBS_jet},
+
+
+    };
+
+    std::map<std::string, double*> varMap_truth_mismatch = {
+        {"Mismatch_Tagjet_pT", &Mismatch_Tagjet_pT},
+        {"Mismatch_Tagjet_eta", &Mismatch_Tagjet_eta},
+        {"Mismatch_Tagjet_mass", &Mismatch_Tagjet_mass},
+        {"Delta_eta_Mismatch_Tagjet_VBS_q", &Delta_eta_Mismatch_Tagjet_VBS_q},
+        {"Delta_R_Mismatch_Tagjet_VBS_q", &Delta_R_Mismatch_Tagjet_VBS_q},
+        {"Delta_Phi_Mismatch_Tagjet_VBS_q", &Delta_Phi_Mismatch_Tagjet_VBS_q},
+        {"Delta_eta_Mismatch_Tagjet_Wboson", &Delta_eta_Mismatch_Tagjet_Wboson},
+        {"tag_jet_mismatched_fromVhad", &tag_jet_mismatched_fromVhad},
+
+        {"Matched_Tagjet_pT", &Matched_Tagjet_pT},
+        {"Matched_Tagjet_eta", &Matched_Tagjet_eta},
+        {"Matched_Tagjet_mass", &Matched_Tagjet_mass},
+        {"Matched_VBS_q_pT", &Matched_VBS_q_pT},
+        {"Matched_VBS_q_eta", &Matched_VBS_q_eta},
+        {"Matched_VBS_q_mass", &Matched_VBS_q_mass},
+        {"NotMatched_VBS_q_pT", &NotMatched_VBS_q_pT},
+        {"NotMatched_VBS_q_eta", &NotMatched_VBS_q_eta},
+        {"NotMatched_VBS_q_mass", &NotMatched_VBS_q_mass},
+        {"Delta_eta_Matched_Tagjet_Matched_VBS_q", &Delta_eta_Matched_Tagjet_Matched_VBS_q},
+        {"Delta_R_Matched_Tagjet_Matched_VBS_q", &Delta_R_Matched_Tagjet_Matched_VBS_q},
+        {"Delta_phi_Matched_Tagjet_Matched_VBS_q", &Delta_phi_Matched_Tagjet_Matched_VBS_q},
+        {"Delta_pT_Matched_Tagjet_Matched_VBS_q", &Delta_pT_Matched_Tagjet_Matched_VBS_q},
+        {"Delta_eta_Mismatched_Tagjet_Matched_VBS_q", &Delta_eta_Mismatched_Tagjet_Matched_VBS_q},
+        {"Delta_R_Mismatched_Tagjet_Matched_VBS_q", &Delta_R_Mismatched_Tagjet_Matched_VBS_q},
+        {"Delta_phi_Mismatched_Tagjet_Matched_VBS_q", &Delta_phi_Mismatched_Tagjet_Matched_VBS_q},
+        {"Delta_pT_Mismatched_Tagjet_Matched_VBS_q", &Delta_pT_Mismatched_Tagjet_Matched_VBS_q},
+        {"Delta_eta_Matched_Tagjet_NotMatched_VBS_q", &Delta_eta_Matched_Tagjet_NotMatched_VBS_q},
+        {"Delta_R_Matched_Tagjet_NotMatched_VBS_q", &Delta_R_Matched_Tagjet_NotMatched_VBS_q},
+        {"Delta_phi_Matched_Tagjet_NotMatched_VBS_q", &Delta_phi_Matched_Tagjet_NotMatched_VBS_q},
+        {"Delta_pT_Matched_Tagjet_NotMatched_VBS_q", &Delta_pT_Matched_Tagjet_NotMatched_VBS_q}
+    };
+
+    std::map<std::string, int*> varMapInt_criteria = {
+        {"Lower_mass_TagJet_vs_VBS_pair", &Lower_mass_TagJet_vs_VBS_pair},
+        {"Lower_eta_TagJet_vs_VBS_pair", &Lower_eta_TagJet_vs_VBS_pair},
+        {"Eta_product_positif_VBS_pair", &Eta_product_positif_VBS_pair},
+        {"Mass_lower_300_VBS_pair", &Mass_lower_300_VBS_pair},
+        {"pT_lower_30_OtherVBSjet", &pT_lower_30_OtherVBSjet}
+    };
+
+    std::map<std::string, double*> varMap_VBS_jet_pair = {
+        {"VBS_jet_noTag_pT", &VBS_jet_noTag_pT},
+        {"VBS_jet_noTag_eta", &VBS_jet_noTag_eta},
+        {"VBS_jet_noTag_mass", &VBS_jet_noTag_mass},
+        {"VBS_jet_pair_mass", &VBS_jet_pair_mass},
+        {"VBS_jet_pair_pT", &VBS_jet_pair_pT},
+        {"VBS_jet_pair_eta", &VBS_jet_pair_eta},
+        {"VBS_jet_pair_delta_eta", &VBS_jet_pair_delta_eta},
+        {"VBS_jet_pair_eta_product", &VBS_jet_pair_eta_product},
+        {"Delta_Eta_Mismatch_tagJet_VBSjet", &Delta_Eta_Mismatch_tagJet_VBSjet},
+        {"Delta_R_Mismatch_tagJet_VBSjet", &Delta_R_Mismatch_tagJet_VBSjet},
+        {"Delta_Phi_Mismatch_tagJet_VBSjet", &Delta_Phi_Mismatch_tagJet_VBSjet},
+        {"Delta_Mass_Mismatch_tagJet_VBSjet", &Delta_Mass_Mismatch_tagJet_VBSjet},
+        {"Delta_pT_Mismatch_tagJet_VBSjet", &Delta_pT_Mismatch_tagJet_VBSjet}
+    };
+
+
+    std::map<std::string, double*> varMapDouble_VBS_q_truth = {
+        {"VBS_Quarks_truth_Delta_Eta", &VBS_Quarks_truth_Delta_Eta},
+        {"VBS_Quarks_truth_Delta_Phi", &VBS_Quarks_truth_Delta_Phi},
+        {"VBS_Quark1_truth_pT", &VBS_Quark1_truth_pT},
+        {"VBS_Quark1_truth_eta", &VBS_Quark1_truth_eta},
+        {"VBS_Quark1_truth_mass", &VBS_Quark1_truth_mass},
+        {"VBS_Quark2_truth_pT", &VBS_Quark2_truth_pT},
+        {"VBS_Quark2_truth_eta", &VBS_Quark2_truth_eta},
+        {"VBS_Quark2_truth_mass", &VBS_Quark2_truth_mass},
+
+        {"VBS_Quarks_truth_pT", &VBS_Quarks_truth_pT},
+        {"VBS_Quarks_truth_eta", &VBS_Quarks_truth_eta},
+        {"VBS_Quarks_truth_eta_prod", &VBS_Quarks_truth_eta_prod},
+
+        {"VBS_Quarks_truth_mass", &VBS_Quarks_truth_mass},
+        {"Truth_Delta_Eta_VBS_q_VZ", &Truth_Delta_Eta_VBS_q_VZ},
+        {"Truth_Delta_Phi_VBS_q_VZ", &Truth_Delta_Phi_VBS_q_VZ},
+
+        {"Delta_Phi_VBS_q_Vlep", &Delta_Phi_VBS_q_Vlep},
+        {"quark_VBS_matched_all_jet", &quark_VBS_matched_all_jet},
+        {"pass_merged_truth", &pass_merged_truth},
+
+    };
+
+
+
+    std::map<std::string, double*> varMapDouble_Vhadboson_truth = {
+        {"W_Quark1_pT", &W_Quark1_pT},
+        {"W_pT", &W_pT},
+        {"W_eta", &W_eta},
+        {"W_phi", &W_phi},
+        {"W_Quark1_eta", &W_Quark1_eta},
+        {"W_Quark1_mass", &W_Quark1_mass},
+        {"W_Quark2_pT", &W_Quark2_pT},
+        {"W_Quark2_eta", &W_Quark2_eta},
+        {"W_Quark2_mass", &W_Quark2_mass},
+        {"W_Quarks_delta_Eta", &W_Quarks_delta_Eta},
+
+    };
+
+    std::map<std::string, std::vector<double>*> varMapVectorDouble_truth = {
+        {"Delta_Eta_TaggingQuark1_Wquarks", &Delta_Eta_TaggingQuark1_Wquarks},
+        {"Delta_Eta_TaggingQuark2_Wquarks", &Delta_Eta_TaggingQuark2_Wquarks},
+    };
+
+
     std::map<std::string, double*> varMap = {
         {"merged_CS_V_cos_theta", &merged_CS_V_cos_theta},
         {"merged_cos_theta_star", &merged_cos_theta_star},
@@ -983,6 +2169,8 @@ namespace Rivet {
         {"merged_VlepVhad_mass", &merged_VlepVhad_mass},
         {"merged_VlepVhad_pt", &merged_VlepVhad_pt},
         {"merged_VlepVhad_eta", &merged_VlepVhad_eta},
+        {"merged_VlepVhad_Deta_tagjets", &merged_VlepVhad_Deta_tagjets},
+        {"merged_VlepVhad_Dphi_tagjets", &merged_VlepVhad_Dphi_tagjets},
         {"merged_Full_mass", &merged_Full_mass},
         {"merged_Full_pt", &merged_Full_pt},
         {"merged_Centrality", &merged_Centrality},
@@ -1003,6 +2191,79 @@ namespace Rivet {
         {"merged_Ntrk_tagjets2", &merged_Ntrk_tagjets2},
         {"merged_Ntrk_tagjets", &merged_Ntrk_tagjets},
         {"merged_Ntrk_fjets", &merged_Ntrk_fjets},
+    };
+
+    std::map<std::string, double*> varMap_resolved = {
+        {"resolved_n_jets", &resolved_n_jets},
+        {"resolved_tagjet1_pt", &resolved_tagjet1_pt},
+        {"resolved_tagjet2_pt", &resolved_tagjet2_pt},
+        {"resolved_tagjets_pt", &resolved_tagjets_pt},
+        {"resolved_tagjets_delta_pt", &resolved_tagjets_delta_pt},
+        {"resolved_tagjet1_eta", &resolved_tagjet1_eta},
+        {"resolved_tagjet2_eta", &resolved_tagjet2_eta},
+        {"resolved_tagjets_delta_eta", &resolved_tagjets_delta_eta},
+        {"resolved_tagjet1_phi", &resolved_tagjet1_phi},
+        {"resolved_tagjet2_phi", &resolved_tagjet2_phi},
+        {"resolved_tagjets_m", &resolved_tagjets_m},
+        {"resolved_tagjets_eta", &resolved_tagjets_eta},
+        {"resolved_tagjets_dy", &resolved_tagjets_dy},
+        {"resolved_tagjets_dphi", &resolved_tagjets_dphi},
+        {"resolved_n_lepton_stable", &resolved_n_lepton_stable},
+        {"resolved_lepton1_pt", &resolved_lepton1_pt},
+        {"resolved_lepton2_pt", &resolved_lepton2_pt},
+        {"resolved_lepton_delta_pt", &resolved_lepton_delta_pt},
+        {"resolved_lepton1_eta", &resolved_lepton1_eta},
+        {"resolved_lepton2_eta", &resolved_lepton2_eta},
+        {"resolved_lepton_delta_eta", &resolved_lepton_delta_eta},
+        {"resolved_Vlep_mass", &resolved_Vlep_mass},
+        {"resolved_Vlep_pt", &resolved_Vlep_pt},
+        {"resolved_Vlep_eta", &resolved_Vlep_eta},
+        {"resolved_Vlep_phi", &resolved_Vlep_phi},
+        {"resolved_Vlep_DR_tagjet1", &resolved_Vlep_DR_tagjet1},
+        {"resolved_Vlep_DR_tagjet2", &resolved_Vlep_DR_tagjet2},
+        {"resolved_Vlep_Dphi_tagjet1", &resolved_Vlep_Dphi_tagjet1},
+        {"resolved_Vlep_Dphi_tagjet2", &resolved_Vlep_Dphi_tagjet2},
+        {"resolved_Vlep_Deta_tagjet1", &resolved_Vlep_Deta_tagjet1},
+        {"resolved_Vlep_Deta_tagjet2", &resolved_Vlep_Deta_tagjet2},
+        {"resolved_DR_min_lepton_tagjets1", &resolved_DR_min_lepton_tagjets1},
+        {"resolved_DR_min_lepton_tagjets2", &resolved_DR_min_lepton_tagjets2},
+        {"resolved_DR_min_lepton_sigjets1", &resolved_DR_min_lepton_sigjets1},
+        {"resolved_DR_min_lepton_sigjets2", &resolved_DR_min_lepton_sigjets2},
+        {"resolved_signal_jets_pt1", &resolved_signal_jets_pt1},
+        {"resolved_signal_jets_pt2", &resolved_signal_jets_pt2},
+        {"resolved_signal_jets_eta1", &resolved_signal_jets_eta1},
+        {"resolved_signal_jets_eta2", &resolved_signal_jets_eta2},
+        {"resolved_signal_jets_DeltaEta", &resolved_signal_jets_DeltaEta},
+        {"resolved_signal_jets_DeltaR", &resolved_signal_jets_DeltaR},
+        {"resolved_signal_jets_DeltaPhi", &resolved_signal_jets_DeltaPhi},
+        {"resolved_signal_jets_mass", &resolved_signal_jets_mass},
+        {"resolved_Vhad_DR_tagjet1", &resolved_Vhad_DR_tagjet1},
+        {"resolved_Vhad_DR_tagjet2", &resolved_Vhad_DR_tagjet2},
+        {"resolved_Vhad_Dphi_tagjet1", &resolved_Vhad_Dphi_tagjet1},
+        {"resolved_Vhad_Dphi_tagjet2", &resolved_Vhad_Dphi_tagjet2},
+        {"resolved_Vhad_Deta_tagjet1", &resolved_Vhad_Deta_tagjet1},
+        {"resolved_Vhad_Deta_tagjet2", &resolved_Vhad_Deta_tagjet2},
+        {"resolved_Vhad_DeltaR_Vlep", &resolved_Vhad_DeltaR_Vlep},
+        {"resolved_Vhad_DeltaPhi_Vlep", &resolved_Vhad_DeltaPhi_Vlep},
+        {"resolved_Vhad_DeltaEta_Vlep", &resolved_Vhad_DeltaEta_Vlep},
+        {"resolved_VlepVhad_mass", &resolved_VlepVhad_mass},
+        {"resolved_VlepVhad_pt", &resolved_VlepVhad_pt},
+        {"resolved_VlepVhad_eta", &resolved_VlepVhad_eta},
+        {"resolved_Full_mass", &resolved_Full_mass},
+        {"resolved_Full_pt", &resolved_Full_pt},
+        {"resolved_Centrality", &resolved_Centrality},
+        {"resolved_CentralityVhad", &resolved_CentralityVhad},
+        {"resolved_CentralityVlep", &resolved_CentralityVlep},
+        {"resolved_CentralityVlepVhad", &resolved_CentralityVlepVhad},
+        {"resolved_ZeppVlep", &resolved_ZeppVlep},
+        {"resolved_ZeppVhad", &resolved_ZeppVhad},
+        {"resolved_ZeppVhadVlep", &resolved_ZeppVhadVlep},
+        {"resolved_Ntrk_tagjets1", &resolved_Ntrk_tagjets1},
+        {"resolved_Ntrk_tagjets2", &resolved_Ntrk_tagjets2},
+        {"resolved_Ntrk_signal_jets1", &resolved_Ntrk_signal_jets1},
+        {"resolved_Ntrk_signal_jets2", &resolved_Ntrk_signal_jets2},
+        {"resolved_mjjj", &resolved_mjjj},
+        {"resolved_ZeppRes", &resolved_ZeppRes}
     };
 
     };

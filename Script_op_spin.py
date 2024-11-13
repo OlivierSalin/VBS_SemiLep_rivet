@@ -3,9 +3,12 @@ from multiprocessing import Pool
 import itertools
 
 all_ops = ["SM","FM0", "FM1", "FM2", "FM3", "FM4", "FM5", "FM7", "FS02", "FS1", "FT0", "FT1", "FT2", "FT5", "FT6", "FT7"]
-all_ops_cat=["FM0","FM2","FS1","FT1","FT5"]
-processes = ["WpZ","ZZ","WmZ"]
+all_ops_cat=["SM","FM0","FM2","FS1","FT1","FT5"]
+processes = ["WpZ","WmZ"]
 decays = ["llqq"]
+name_run = "VBS_mismatch"
+
+
 
 path_build_command = "-I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/ `root-config --cflags --libs`"
 for process in processes:
@@ -17,9 +20,9 @@ def run_command(proc_op_tuple):
     process, op = proc_op_tuple
     for decay in decays:
         if op == "SM":
-            command = ["python", "run_rivet.py", "--evtMax", "50000", "--conf", f"user.osalin.MadGraph_{process}_{decay}_FM0_SM", "--DOCUT", "YES", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", "Spin"]
+            command = ["python", "run_rivet.py", "--evtMax", "5000", "--conf", f"user.osalin.MadGraph_{process}_{decay}_FM0_SM", "--DOCUT", "YES", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", f"{name_run}"]
         else:
-            command = ["python", "run_rivet.py", "--evtMax", "60000", "--conf", f"user.osalin.MadGraph_{process}_{decay}_{op}_QUAD", "--DOCUT", "YES", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", "Spin"]
+            command = ["python", "run_rivet.py", "--evtMax", "5000", "--conf", f"user.osalin.MadGraph_{process}_{decay}_{op}_QUAD", "--DOCUT", "YES", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", f"{name_run}"]
         subprocess.run(command)
 
 """ all_ops_SM=["FM0"]
