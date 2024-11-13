@@ -1,0 +1,3098 @@
+Wed Oct 16 13:04:16 CEST 2024
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq";DOCUT="YES";Part="""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+#####received conf from cmd through -c 'conf=X;DOCUT=Y;Part=Z':   MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq YES 
+From conf found production dec WmZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq//*MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400']
+conf_cut_dir:  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23181681._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23204335._000002.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000002.pool.root.1']
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Wed Oct 16 13:04:32 2024
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://atlasbpfrontier.cern.ch:3127)(proxyurl=http://atlasbpfrontier.fnal.gov:3127) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1 File version:60806
+ClassIDSvc           INFO getRegistryEntries: read 1842 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/plotting
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/' for WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1 File version:60806
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 503164    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20001, run #503164 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+++++++received outidir/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this WmZ_llqq is /exp/atlas/salin/ATLAS/VBS_mc/plotting/Cuts_def.json
+++++++ to check json 1 var got photon pt min 400.1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20001, run #503164 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20002, run #503164 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20002, run #503164 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20003, run #503164 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20003, run #503164 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20004, run #503164 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20004, run #503164 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20005, run #503164 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20005, run #503164 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20006, run #503164 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20006, run #503164 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20007, run #503164 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20007, run #503164 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20008, run #503164 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20008, run #503164 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20009, run #503164 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20009, run #503164 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20010, run #503164 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20010, run #503164 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20011, run #503164 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20011, run #503164 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20012, run #503164 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20012, run #503164 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20013, run #503164 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20013, run #503164 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20014, run #503164 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20014, run #503164 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20015, run #503164 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20015, run #503164 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20016, run #503164 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20016, run #503164 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20017, run #503164 16 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: 1072716364, mass: 543646068
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20017, run #503164 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20018, run #503164 17 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20018, run #503164 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20019, run #503164 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20019, run #503164 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20020, run #503164 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20020, run #503164 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20021, run #503164 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20021, run #503164 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20022, run #503164 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20022, run #503164 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20023, run #503164 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20023, run #503164 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20024, run #503164 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20024, run #503164 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20025, run #503164 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20025, run #503164 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20026, run #503164 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20026, run #503164 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20027, run #503164 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20027, run #503164 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20028, run #503164 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20028, run #503164 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20029, run #503164 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20029, run #503164 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20030, run #503164 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20030, run #503164 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20031, run #503164 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20031, run #503164 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20032, run #503164 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20032, run #503164 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20033, run #503164 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20033, run #503164 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20034, run #503164 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20034, run #503164 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20035, run #503164 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20035, run #503164 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20036, run #503164 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20036, run #503164 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20037, run #503164 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20037, run #503164 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20038, run #503164 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20038, run #503164 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20039, run #503164 38 events processed so far  <<<===
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20039, run #503164 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20040, run #503164 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20040, run #503164 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20041, run #503164 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20041, run #503164 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20042, run #503164 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20042, run #503164 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20043, run #503164 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20043, run #503164 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20044, run #503164 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20044, run #503164 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20045, run #503164 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20045, run #503164 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20046, run #503164 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20046, run #503164 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20047, run #503164 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20047, run #503164 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20048, run #503164 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20048, run #503164 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20049, run #503164 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20049, run #503164 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20050, run #503164 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20050, run #503164 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20051, run #503164 50 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20051, run #503164 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20052, run #503164 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20052, run #503164 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20053, run #503164 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20053, run #503164 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20054, run #503164 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20054, run #503164 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20055, run #503164 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20055, run #503164 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20056, run #503164 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20056, run #503164 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20057, run #503164 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20057, run #503164 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20058, run #503164 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20058, run #503164 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20059, run #503164 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20059, run #503164 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20060, run #503164 59 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20060, run #503164 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20061, run #503164 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20061, run #503164 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20062, run #503164 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20062, run #503164 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20063, run #503164 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20063, run #503164 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20064, run #503164 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20064, run #503164 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20065, run #503164 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20065, run #503164 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20066, run #503164 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20066, run #503164 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20067, run #503164 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20067, run #503164 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20068, run #503164 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20068, run #503164 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20069, run #503164 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20069, run #503164 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20070, run #503164 69 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20070, run #503164 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20071, run #503164 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20071, run #503164 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20072, run #503164 71 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20072, run #503164 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20073, run #503164 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20073, run #503164 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20074, run #503164 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20074, run #503164 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20075, run #503164 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20075, run #503164 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20076, run #503164 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20076, run #503164 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20077, run #503164 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20077, run #503164 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20078, run #503164 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20078, run #503164 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20079, run #503164 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20079, run #503164 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20080, run #503164 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20080, run #503164 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20081, run #503164 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20081, run #503164 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20082, run #503164 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20082, run #503164 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20083, run #503164 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20083, run #503164 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20084, run #503164 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20084, run #503164 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20085, run #503164 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20085, run #503164 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20086, run #503164 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20086, run #503164 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20087, run #503164 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20087, run #503164 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20088, run #503164 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20088, run #503164 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20089, run #503164 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20089, run #503164 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20090, run #503164 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20090, run #503164 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20091, run #503164 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20091, run #503164 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20092, run #503164 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20092, run #503164 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20093, run #503164 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20093, run #503164 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20094, run #503164 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20094, run #503164 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20095, run #503164 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20095, run #503164 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20096, run #503164 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20096, run #503164 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20097, run #503164 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20097, run #503164 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20098, run #503164 97 events processed so far  <<<===
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20098, run #503164 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20099, run #503164 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20099, run #503164 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20100, run #503164 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20100, run #503164 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20101, run #503164 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20101, run #503164 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20102, run #503164 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20102, run #503164 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20103, run #503164 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20103, run #503164 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20104, run #503164 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20104, run #503164 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20105, run #503164 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20105, run #503164 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20106, run #503164 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20106, run #503164 106 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20107, run #503164 106 events processed so far  <<<===
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20107, run #503164 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20108, run #503164 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20108, run #503164 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20109, run #503164 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20109, run #503164 109 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20110, run #503164 109 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20110, run #503164 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20111, run #503164 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20111, run #503164 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20112, run #503164 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20112, run #503164 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20113, run #503164 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20113, run #503164 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20114, run #503164 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20114, run #503164 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20115, run #503164 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20115, run #503164 115 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20116, run #503164 115 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20116, run #503164 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20117, run #503164 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20117, run #503164 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20118, run #503164 117 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20118, run #503164 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20119, run #503164 118 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20119, run #503164 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20120, run #503164 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20120, run #503164 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20121, run #503164 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20121, run #503164 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20122, run #503164 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20122, run #503164 122 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20123, run #503164 122 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20123, run #503164 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20124, run #503164 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20124, run #503164 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20125, run #503164 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20125, run #503164 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20126, run #503164 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20126, run #503164 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20127, run #503164 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20127, run #503164 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20128, run #503164 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20128, run #503164 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20129, run #503164 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20129, run #503164 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20130, run #503164 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20130, run #503164 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20131, run #503164 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20131, run #503164 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20132, run #503164 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20132, run #503164 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20133, run #503164 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20133, run #503164 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20134, run #503164 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20134, run #503164 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20135, run #503164 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20135, run #503164 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20136, run #503164 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20136, run #503164 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20137, run #503164 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20137, run #503164 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20138, run #503164 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20138, run #503164 138 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20139, run #503164 138 events processed so far  <<<===
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20139, run #503164 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20140, run #503164 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20140, run #503164 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20141, run #503164 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20141, run #503164 141 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20142, run #503164 141 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20142, run #503164 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20143, run #503164 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20143, run #503164 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20144, run #503164 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20144, run #503164 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20145, run #503164 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20145, run #503164 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20146, run #503164 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20146, run #503164 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20147, run #503164 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20147, run #503164 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20148, run #503164 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20148, run #503164 148 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20149, run #503164 148 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20149, run #503164 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20150, run #503164 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20150, run #503164 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20151, run #503164 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20151, run #503164 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20152, run #503164 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20152, run #503164 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20153, run #503164 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20153, run #503164 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20154, run #503164 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20154, run #503164 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20155, run #503164 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20155, run #503164 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20156, run #503164 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20156, run #503164 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20157, run #503164 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20157, run #503164 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20158, run #503164 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20158, run #503164 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20159, run #503164 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20159, run #503164 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20160, run #503164 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20160, run #503164 160 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20161, run #503164 160 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20161, run #503164 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20162, run #503164 161 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20162, run #503164 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20163, run #503164 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20163, run #503164 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20164, run #503164 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20164, run #503164 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20165, run #503164 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20165, run #503164 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20166, run #503164 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20166, run #503164 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20167, run #503164 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20167, run #503164 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20168, run #503164 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20168, run #503164 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20169, run #503164 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20169, run #503164 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20170, run #503164 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20170, run #503164 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20171, run #503164 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20171, run #503164 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20172, run #503164 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20172, run #503164 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20173, run #503164 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20173, run #503164 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20174, run #503164 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20174, run #503164 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20175, run #503164 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20175, run #503164 175 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20176, run #503164 175 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20176, run #503164 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20177, run #503164 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20177, run #503164 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20178, run #503164 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20178, run #503164 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20179, run #503164 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20179, run #503164 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20180, run #503164 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20180, run #503164 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20181, run #503164 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20181, run #503164 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20182, run #503164 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20182, run #503164 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20183, run #503164 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20183, run #503164 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20184, run #503164 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20184, run #503164 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20185, run #503164 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20185, run #503164 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20186, run #503164 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20186, run #503164 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20187, run #503164 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20187, run #503164 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20188, run #503164 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20188, run #503164 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20189, run #503164 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20189, run #503164 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20190, run #503164 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20190, run #503164 190 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20191, run #503164 190 events processed so far  <<<===
+
+ No Vhad mismatch found
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20191, run #503164 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20192, run #503164 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20192, run #503164 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20193, run #503164 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20193, run #503164 193 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20194, run #503164 193 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20194, run #503164 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20195, run #503164 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20195, run #503164 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20196, run #503164 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20196, run #503164 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20197, run #503164 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20197, run #503164 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20198, run #503164 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20198, run #503164 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20199, run #503164 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20199, run #503164 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20200, run #503164 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20200, run #503164 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20201, run #503164 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20201, run #503164 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20202, run #503164 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20202, run #503164 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20203, run #503164 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20203, run #503164 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20204, run #503164 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20204, run #503164 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20205, run #503164 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20205, run #503164 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20206, run #503164 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20206, run #503164 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20207, run #503164 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20207, run #503164 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20208, run #503164 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20208, run #503164 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20209, run #503164 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20209, run #503164 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20210, run #503164 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20210, run #503164 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20211, run #503164 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20211, run #503164 211 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20212, run #503164 211 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20212, run #503164 212 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20213, run #503164 212 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20213, run #503164 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20214, run #503164 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20214, run #503164 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20215, run #503164 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20215, run #503164 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20216, run #503164 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20216, run #503164 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20217, run #503164 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20217, run #503164 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20218, run #503164 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20218, run #503164 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20219, run #503164 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20219, run #503164 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20220, run #503164 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20220, run #503164 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20221, run #503164 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20221, run #503164 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20222, run #503164 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20222, run #503164 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20223, run #503164 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20223, run #503164 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20224, run #503164 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20224, run #503164 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20225, run #503164 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20225, run #503164 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20226, run #503164 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20226, run #503164 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20227, run #503164 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20227, run #503164 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20228, run #503164 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20228, run #503164 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20229, run #503164 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20229, run #503164 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20230, run #503164 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20230, run #503164 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20231, run #503164 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20231, run #503164 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20232, run #503164 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20232, run #503164 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20233, run #503164 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20233, run #503164 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20234, run #503164 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20234, run #503164 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20235, run #503164 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20235, run #503164 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20236, run #503164 235 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20236, run #503164 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20237, run #503164 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20237, run #503164 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20238, run #503164 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20238, run #503164 238 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20239, run #503164 238 events processed so far  <<<===
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20239, run #503164 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20240, run #503164 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20240, run #503164 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20241, run #503164 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20241, run #503164 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20242, run #503164 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20242, run #503164 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20243, run #503164 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20243, run #503164 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20244, run #503164 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20244, run #503164 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20245, run #503164 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20245, run #503164 245 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20246, run #503164 245 events processed so far  <<<===
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20246, run #503164 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20247, run #503164 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20247, run #503164 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20248, run #503164 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20248, run #503164 248 events processed so far  <<<===
+AthenaEventLoopMgrWARNING INFO message limit (500) reached for AthenaEventLoopMgr. Suppressing further output.
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: 1072719246, mass: -282948160
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: 1072722314, mass: -282948160
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: 1072720380, mass: -282948160
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 2
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ No Vhad mismatch found
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+
+ No Vhad mismatch found
+
+ number of VBS quarks matched with jet that is not a tag jets: 0
+
+ VBS quarks matched with jet that is not a tag jets
+
+ number of VBS quarks matched with jet that is not a tag jets: 1
+
+ VBS q matched with jet outside tag jets
+Matched tag jet pT: 0, eta: -298378360, mass: -298372568
+Mismatched tag jet pT: 0, eta: -298378360, mass: -298372568
+Matched jet outside tag jets pT: 0, eta: -298378360, mass: -298372568
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |            1700 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |            8240 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Listing sources of suppressed message: 
+=====================================================
+ Message Source              |   Level |    Count
+-----------------------------+---------+-------------
+ AthenaEventLoopMgr          |    INFO |     6003
+=====================================================
+Py:Athena            INFO leaving with code 0: "successful run"
+From conf found production dec WmZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq//*MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400']
+#### will run rivet with athena rivet_job.py -c 'conf="MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq";DOCUT="YES";Part=""' --evtMax 3000
+dont do plot from yoda since redoPlots= no and dir /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//rivet-plots/ exists  True
+Cross section in fb for FM0_QUAD_WmZ_llqq: 0.011073
+reading from yoda file  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+have 1d hists to be saved in root: ['/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Centrality', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVlepVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_fjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaEta_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaPhi_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaR_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VlepVhad_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VlepVhad_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VlepVhad_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppMerged', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppVhadVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_cos_theta_star', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_D2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_n', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_leptons_pids', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_lepton_stable', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dphi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dy', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_m', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Centrality', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVlepVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DeltaPt_sig_jet2_jet3', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Full_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Full_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_signal_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaEta_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaPhi_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaR_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VlepVhad_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VlepVhad_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VlepVhad_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppRes', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppVhadVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_leptons_pids', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_mjjj', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_lepton_stable', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaEta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaPhi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaR', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dphi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dy', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_m', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_pt'] in yoda file /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+looking for prefix in counter /WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+pos_n_in: 2969, neg_n_in: 31, pos_n_f: 509, neg_n_f: 2 pos_n_f_merged: 475, neg_n_f_merged: 2 pos_n_f_resolved: 34, neg_n_f_resolved: 0
+converting to root hist with name merged_CS_V_cos_theta
+converting to root hist with name merged_Centrality
+converting to root hist with name merged_CentralityVhad
+converting to root hist with name merged_CentralityVlep
+converting to root hist with name merged_CentralityVlepVhad
+converting to root hist with name merged_Full_mass
+converting to root hist with name merged_Full_pt
+converting to root hist with name merged_Ntrk_fjets
+converting to root hist with name merged_Ntrk_tagjets
+converting to root hist with name merged_Vhad_DeltaEta_Vlep
+converting to root hist with name merged_Vhad_DeltaPhi_Vlep
+converting to root hist with name merged_Vhad_DeltaR_Vlep
+converting to root hist with name merged_VlepVhad_eta
+converting to root hist with name merged_VlepVhad_mass
+converting to root hist with name merged_VlepVhad_pt
+converting to root hist with name merged_Vlep_DR_tagjet
+converting to root hist with name merged_Vlep_Deta_tagjet
+converting to root hist with name merged_Vlep_Dphi_tagjet
+converting to root hist with name merged_Vlep_eta
+converting to root hist with name merged_Vlep_mass
+converting to root hist with name merged_Vlep_phi
+converting to root hist with name merged_Vlep_pt
+converting to root hist with name merged_ZeppMerged
+converting to root hist with name merged_ZeppVhad
+converting to root hist with name merged_ZeppVhadVlep
+converting to root hist with name merged_ZeppVlep
+converting to root hist with name merged_cos_theta_star
+converting to root hist with name merged_fjet_D2
+converting to root hist with name merged_fjet_DR_lepton1
+converting to root hist with name merged_fjet_DR_lepton2
+converting to root hist with name merged_fjet_DR_tagjet1
+converting to root hist with name merged_fjet_DR_tagjet2
+converting to root hist with name merged_fjet_Deta_tagjet1
+converting to root hist with name merged_fjet_Deta_tagjet2
+converting to root hist with name merged_fjet_Dphi_tagjet1
+converting to root hist with name merged_fjet_Dphi_tagjet2
+converting to root hist with name merged_fjet_eta
+converting to root hist with name merged_fjet_mass
+converting to root hist with name merged_fjet_n
+converting to root hist with name merged_fjet_pt
+converting to root hist with name merged_lepton1_eta
+converting to root hist with name merged_lepton1_pt
+converting to root hist with name merged_lepton2_eta
+converting to root hist with name merged_lepton2_pt
+converting to root hist with name merged_lepton_delta_eta
+converting to root hist with name merged_lepton_delta_phi
+converting to root hist with name merged_lepton_delta_pt
+converting to root hist with name merged_lepton_eta
+converting to root hist with name merged_lepton_pt
+converting to root hist with name merged_leptons_pids
+converting to root hist with name merged_n_jets
+converting to root hist with name merged_n_lepton_stable
+converting to root hist with name merged_tagjet1_eta
+converting to root hist with name merged_tagjet1_phi
+converting to root hist with name merged_tagjet1_pt
+converting to root hist with name merged_tagjet2_eta
+converting to root hist with name merged_tagjet2_phi
+converting to root hist with name merged_tagjet2_pt
+converting to root hist with name merged_tagjets_delta_eta
+converting to root hist with name merged_tagjets_delta_pt
+converting to root hist with name merged_tagjets_dphi
+converting to root hist with name merged_tagjets_dy
+converting to root hist with name merged_tagjets_eta
+converting to root hist with name merged_tagjets_m
+converting to root hist with name merged_tagjets_phi
+converting to root hist with name merged_tagjets_pt
+converting to root hist with name resolved_Centrality
+converting to root hist with name resolved_CentralityVhad
+converting to root hist with name resolved_CentralityVlep
+converting to root hist with name resolved_CentralityVlepVhad
+converting to root hist with name resolved_DR_min_lepton_sigjets1
+converting to root hist with name resolved_DR_min_lepton_sigjets2
+converting to root hist with name resolved_DR_min_lepton_tagjets1
+converting to root hist with name resolved_DR_min_lepton_tagjets2
+converting to root hist with name resolved_DeltaPt_sig_jet2_jet3
+converting to root hist with name resolved_Full_mass
+converting to root hist with name resolved_Full_pt
+converting to root hist with name resolved_Ntrk_signal_jets
+converting to root hist with name resolved_Ntrk_tagjets
+converting to root hist with name resolved_Vhad_DR_tagjet
+converting to root hist with name resolved_Vhad_DeltaEta_Vlep
+converting to root hist with name resolved_Vhad_DeltaPhi_Vlep
+converting to root hist with name resolved_Vhad_DeltaR_Vlep
+converting to root hist with name resolved_Vhad_Deta_tagjet
+converting to root hist with name resolved_Vhad_Dphi_tagjet
+converting to root hist with name resolved_VlepVhad_eta
+converting to root hist with name resolved_VlepVhad_mass
+converting to root hist with name resolved_VlepVhad_pt
+converting to root hist with name resolved_Vlep_DR_tagjet
+converting to root hist with name resolved_Vlep_Deta_tagjet
+converting to root hist with name resolved_Vlep_Dphi_tagjet
+converting to root hist with name resolved_Vlep_eta
+converting to root hist with name resolved_Vlep_mass
+converting to root hist with name resolved_Vlep_phi
+converting to root hist with name resolved_Vlep_pt
+converting to root hist with name resolved_ZeppRes
+converting to root hist with name resolved_ZeppVhad
+converting to root hist with name resolved_ZeppVhadVlep
+converting to root hist with name resolved_ZeppVlep
+converting to root hist with name resolved_lepton1_eta
+converting to root hist with name resolved_lepton1_pt
+converting to root hist with name resolved_lepton2_eta
+converting to root hist with name resolved_lepton2_pt
+converting to root hist with name resolved_lepton_delta_eta
+converting to root hist with name resolved_lepton_delta_phi
+converting to root hist with name resolved_lepton_delta_pt
+converting to root hist with name resolved_lepton_eta
+converting to root hist with name resolved_lepton_pt
+converting to root hist with name resolved_leptons_pids
+converting to root hist with name resolved_mjjj
+converting to root hist with name resolved_n_jets
+converting to root hist with name resolved_n_lepton_stable
+converting to root hist with name resolved_signal_jets_DeltaEta
+converting to root hist with name resolved_signal_jets_DeltaPhi
+converting to root hist with name resolved_signal_jets_DeltaR
+converting to root hist with name resolved_signal_jets_eta
+converting to root hist with name resolved_signal_jets_mass
+converting to root hist with name resolved_signal_jets_pt
+converting to root hist with name resolved_tagjet1_eta
+converting to root hist with name resolved_tagjet1_pt
+converting to root hist with name resolved_tagjet2_eta
+converting to root hist with name resolved_tagjet2_pt
+converting to root hist with name resolved_tagjets_delta_eta
+converting to root hist with name resolved_tagjets_delta_pt
+converting to root hist with name resolved_tagjets_dphi
+converting to root hist with name resolved_tagjets_dy
+converting to root hist with name resolved_tagjets_eta
+converting to root hist with name resolved_tagjets_m
+converting to root hist with name resolved_tagjets_phi
+converting to root hist with name resolved_tagjets_pt
+saving cutflow resolved as img
+['WmZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['3000.0', '100', '-', '']
+['Pass', 'have_two_lep', '1841.0', '61', '61']
+['Pass', 'pt_lep1_2', '1709.0', '57', '93']
+['Pass', 'n_jets', '1709.0', '57', '100']
+['Pass', 'found_tag_jets', '1280.0', '43', '75']
+['Pass', 'm_tagjets', '1225.0', '41', '96']
+['Pass', 'At_least_one_fjets', '623.0', '21', '51']
+['Pass', 'fjets_is_W/Z', '477.0', '16', '77']
+['Pass', 'Total_Merged_selec', '477.0', '16', '100']
+['']
+['WmZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['3000.0', '100', '-', '']
+['Pass', 'have_two_lep', '1841.0', '61', '61']
+['Pass', 'pt_lep1_2', '1709.0', '57', '93']
+['Pass', 'n_jets', '1709.0', '57', '100']
+['Pass', 'found_tag_jets', '1280.0', '43', '75']
+['Pass', 'm_tagjets', '1225.0', '41', '96']
+['Pass', 'Failed_Merged_selection', '748.0', '25', '61']
+['Pass', 'At_least_two_signal_jets', '283.0', '9', '38']
+['Pass', 'signal_jets_pT', '265.0', '9', '94']
+['Pass', 'signal_mjj', '54.0', '2', '20']
+['Pass', 'M_jjj', '34.0', '1', '63']
+['Pass', 'Total_Resolved_selec', '34.0', '1', '100']
+['']

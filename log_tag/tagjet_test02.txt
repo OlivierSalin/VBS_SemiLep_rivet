@@ -1,0 +1,1439 @@
+Wed Oct  2 15:32:21 CEST 2024
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq";DOCUT="YES";Part="""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+#####received conf from cmd through -c 'conf=X;DOCUT=Y;Part=Z':   MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq YES 
+From conf found production dec WmZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq//*MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400']
+conf_cut_dir:  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218219._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218219._000002.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23182067._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23204423._000001.pool.root.1']
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Wed Oct  2 15:32:31 2024
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://atlasbpfrontier.cern.ch:3127)(proxyurl=http://atlasbpfrontier.fnal.gov:3127) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] 6E6C01F0-6FFD-8544-BFA5-802CCC81E11E
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218219._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218219._000001.pool.root.1 File version:60806
+ClassIDSvc           INFO getRegistryEntries: read 1842 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/plotting
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/' for WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] 6E6C01F0-6FFD-8544-BFA5-802CCC81E11E
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] 6E6C01F0-6FFD-8544-BFA5-802CCC81E11E
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218219._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23218219._000001.pool.root.1 File version:60806
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 503186    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20001, run #503186 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+++++++received outidir/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this WpZ_llqq is /exp/atlas/salin/ATLAS/VBS_mc/plotting/Cuts_def.json
+++++++ to check json 1 var got photon pt min 400.1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20001, run #503186 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20002, run #503186 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20002, run #503186 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20003, run #503186 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20003, run #503186 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20004, run #503186 3 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet12.22045e-16
+DR fjets tagjet21.33253
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20004, run #503186 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20005, run #503186 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20005, run #503186 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20006, run #503186 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20006, run #503186 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20007, run #503186 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20007, run #503186 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20008, run #503186 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20008, run #503186 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20009, run #503186 8 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet12.22045e-16
+DR fjets tagjet22.06453
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20009, run #503186 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20010, run #503186 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20010, run #503186 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20011, run #503186 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20011, run #503186 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20012, run #503186 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20012, run #503186 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20013, run #503186 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20013, run #503186 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20014, run #503186 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20014, run #503186 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20015, run #503186 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20015, run #503186 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20016, run #503186 15 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet12.15106e-16
+DR fjets tagjet21.8917
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20016, run #503186 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20017, run #503186 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20017, run #503186 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20018, run #503186 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20018, run #503186 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20019, run #503186 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20019, run #503186 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20020, run #503186 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20020, run #503186 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20021, run #503186 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20021, run #503186 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20022, run #503186 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20022, run #503186 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20023, run #503186 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20023, run #503186 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20024, run #503186 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20024, run #503186 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20025, run #503186 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20025, run #503186 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20026, run #503186 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20026, run #503186 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20027, run #503186 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20027, run #503186 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20028, run #503186 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20028, run #503186 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20029, run #503186 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20029, run #503186 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20030, run #503186 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20030, run #503186 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20031, run #503186 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20031, run #503186 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20032, run #503186 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20032, run #503186 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20033, run #503186 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20033, run #503186 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20034, run #503186 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20034, run #503186 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20035, run #503186 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20035, run #503186 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20036, run #503186 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20036, run #503186 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20037, run #503186 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20037, run #503186 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20038, run #503186 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20038, run #503186 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20039, run #503186 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20039, run #503186 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20040, run #503186 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20040, run #503186 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20041, run #503186 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20041, run #503186 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20042, run #503186 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20042, run #503186 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20043, run #503186 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20043, run #503186 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20044, run #503186 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20044, run #503186 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20045, run #503186 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20045, run #503186 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20046, run #503186 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20046, run #503186 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20047, run #503186 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20047, run #503186 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20048, run #503186 47 events processed so far  <<<===
+fjet is W/Z boson: -1
+DR fjets tagjet16.98894e-05
+DR fjets tagjet22.94851
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20048, run #503186 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20049, run #503186 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20049, run #503186 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20050, run #503186 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20050, run #503186 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20051, run #503186 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20051, run #503186 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20052, run #503186 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20052, run #503186 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20053, run #503186 52 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.00114628
+DR fjets tagjet22.39154
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20053, run #503186 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20054, run #503186 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20054, run #503186 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20055, run #503186 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20055, run #503186 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20056, run #503186 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20056, run #503186 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20057, run #503186 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20057, run #503186 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20058, run #503186 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20058, run #503186 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20059, run #503186 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20059, run #503186 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20060, run #503186 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20060, run #503186 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20061, run #503186 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20061, run #503186 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20062, run #503186 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20062, run #503186 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20063, run #503186 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20063, run #503186 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20064, run #503186 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20064, run #503186 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20065, run #503186 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20065, run #503186 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20066, run #503186 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20066, run #503186 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20067, run #503186 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20067, run #503186 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20068, run #503186 67 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet11.94289e-16
+DR fjets tagjet23.06856
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20068, run #503186 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20069, run #503186 68 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.0106132
+DR fjets tagjet21.91014
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20069, run #503186 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20070, run #503186 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20070, run #503186 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20071, run #503186 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20071, run #503186 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20072, run #503186 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20072, run #503186 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20073, run #503186 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20073, run #503186 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20074, run #503186 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20074, run #503186 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20075, run #503186 74 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.00170029
+DR fjets tagjet21.64467
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20075, run #503186 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20076, run #503186 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20076, run #503186 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20077, run #503186 76 events processed so far  <<<===
+fjet is W/Z boson: 0
+DR fjets tagjet10.000492353
+DR fjets tagjet23.26189
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20077, run #503186 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20078, run #503186 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20078, run #503186 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20079, run #503186 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20079, run #503186 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20080, run #503186 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20080, run #503186 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20081, run #503186 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20081, run #503186 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20082, run #503186 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20082, run #503186 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20083, run #503186 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20083, run #503186 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20084, run #503186 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20084, run #503186 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20085, run #503186 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20085, run #503186 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20086, run #503186 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20086, run #503186 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20087, run #503186 86 events processed so far  <<<===
+fjet is W/Z boson: -1
+DR fjets tagjet11.66533e-16
+DR fjets tagjet22.35497
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20087, run #503186 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20088, run #503186 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20088, run #503186 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20089, run #503186 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20089, run #503186 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20090, run #503186 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20090, run #503186 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20091, run #503186 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20091, run #503186 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20092, run #503186 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20092, run #503186 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20093, run #503186 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20093, run #503186 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20094, run #503186 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20094, run #503186 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20095, run #503186 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20095, run #503186 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20096, run #503186 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20096, run #503186 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20097, run #503186 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20097, run #503186 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20098, run #503186 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20098, run #503186 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20099, run #503186 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20099, run #503186 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20100, run #503186 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20100, run #503186 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20101, run #503186 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20101, run #503186 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20102, run #503186 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20102, run #503186 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20103, run #503186 102 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet17.53831e-05
+DR fjets tagjet24.59767
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20103, run #503186 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20104, run #503186 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20104, run #503186 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20105, run #503186 104 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet16.39299e-05
+DR fjets tagjet23.1055
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20105, run #503186 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20106, run #503186 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20106, run #503186 106 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20107, run #503186 106 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20107, run #503186 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20108, run #503186 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20108, run #503186 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20109, run #503186 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20109, run #503186 109 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20110, run #503186 109 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet12.08167e-16
+DR fjets tagjet23.8005
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20110, run #503186 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20111, run #503186 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20111, run #503186 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20112, run #503186 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20112, run #503186 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20113, run #503186 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20113, run #503186 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20114, run #503186 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20114, run #503186 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20115, run #503186 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20115, run #503186 115 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20116, run #503186 115 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20116, run #503186 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20117, run #503186 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20117, run #503186 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20118, run #503186 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20118, run #503186 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20119, run #503186 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20119, run #503186 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20120, run #503186 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20120, run #503186 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20121, run #503186 120 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet18.21806e-05
+DR fjets tagjet23.39963
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20121, run #503186 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20122, run #503186 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20122, run #503186 122 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20123, run #503186 122 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.00036473
+DR fjets tagjet23.61459
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20123, run #503186 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20124, run #503186 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20124, run #503186 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20125, run #503186 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20125, run #503186 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20126, run #503186 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20126, run #503186 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20127, run #503186 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20127, run #503186 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20128, run #503186 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20128, run #503186 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20129, run #503186 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20129, run #503186 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20130, run #503186 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20130, run #503186 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20131, run #503186 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20131, run #503186 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20132, run #503186 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20132, run #503186 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20133, run #503186 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20133, run #503186 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20134, run #503186 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20134, run #503186 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20135, run #503186 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20135, run #503186 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20136, run #503186 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20136, run #503186 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20137, run #503186 136 events processed so far  <<<===
+fjet is W/Z boson: 0
+DR fjets tagjet10.000724007
+DR fjets tagjet22.19057
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20137, run #503186 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20138, run #503186 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20138, run #503186 138 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20139, run #503186 138 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20139, run #503186 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20140, run #503186 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20140, run #503186 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20141, run #503186 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20141, run #503186 141 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20142, run #503186 141 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet21.79213
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20142, run #503186 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20143, run #503186 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20143, run #503186 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20144, run #503186 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20144, run #503186 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20145, run #503186 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20145, run #503186 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20146, run #503186 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20146, run #503186 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20147, run #503186 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20147, run #503186 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20148, run #503186 147 events processed so far  <<<===
+fjet is W/Z boson: -1
+DR fjets tagjet10.00318138
+DR fjets tagjet22.27663
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20148, run #503186 148 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20149, run #503186 148 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet14.02456e-16
+DR fjets tagjet22.51147
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20149, run #503186 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20150, run #503186 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20150, run #503186 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20151, run #503186 150 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet23.11125
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20151, run #503186 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20152, run #503186 151 events processed so far  <<<===
+fjet is W/Z boson: -1
+DR fjets tagjet12.4133e-07
+DR fjets tagjet22.65591
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20152, run #503186 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20153, run #503186 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20153, run #503186 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20154, run #503186 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20154, run #503186 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20155, run #503186 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20155, run #503186 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20156, run #503186 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20156, run #503186 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20157, run #503186 156 events processed so far  <<<===
+fjet is W/Z boson: 0
+DR fjets tagjet10.000101907
+DR fjets tagjet23.20069
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20157, run #503186 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20158, run #503186 157 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.00188281
+DR fjets tagjet21.83255
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20158, run #503186 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20159, run #503186 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20159, run #503186 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20160, run #503186 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20160, run #503186 160 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20161, run #503186 160 events processed so far  <<<===
+fjet is W/Z boson: 0
+DR fjets tagjet10.00549953
+DR fjets tagjet22.66591
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20161, run #503186 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20162, run #503186 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20162, run #503186 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20163, run #503186 162 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.000390129
+DR fjets tagjet21.73435
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20163, run #503186 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20164, run #503186 163 events processed so far  <<<===
+fjet is W/Z boson: -1
+DR fjets tagjet10.000262769
+DR fjets tagjet23.19156
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20164, run #503186 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20165, run #503186 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20165, run #503186 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20166, run #503186 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20166, run #503186 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20167, run #503186 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20167, run #503186 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20168, run #503186 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20168, run #503186 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20169, run #503186 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20169, run #503186 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20170, run #503186 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20170, run #503186 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20171, run #503186 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20171, run #503186 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20172, run #503186 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20172, run #503186 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20173, run #503186 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20173, run #503186 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20174, run #503186 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20174, run #503186 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20175, run #503186 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20175, run #503186 175 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20176, run #503186 175 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet22.33215
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20176, run #503186 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20177, run #503186 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20177, run #503186 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20178, run #503186 177 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet21.98485
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20178, run #503186 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20179, run #503186 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20179, run #503186 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20180, run #503186 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20180, run #503186 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20181, run #503186 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20181, run #503186 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20182, run #503186 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20182, run #503186 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20183, run #503186 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20183, run #503186 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20184, run #503186 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20184, run #503186 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20185, run #503186 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20185, run #503186 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20186, run #503186 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20186, run #503186 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20187, run #503186 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20187, run #503186 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20188, run #503186 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20188, run #503186 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20189, run #503186 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20189, run #503186 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20190, run #503186 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20190, run #503186 190 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20191, run #503186 190 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.00130021
+DR fjets tagjet21.95384
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20191, run #503186 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20192, run #503186 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20192, run #503186 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20193, run #503186 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20193, run #503186 193 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20194, run #503186 193 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.000863834
+DR fjets tagjet23.9181
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20194, run #503186 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20195, run #503186 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20195, run #503186 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20196, run #503186 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20196, run #503186 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20197, run #503186 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20197, run #503186 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20198, run #503186 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20198, run #503186 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20199, run #503186 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20199, run #503186 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20200, run #503186 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20200, run #503186 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20201, run #503186 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20201, run #503186 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20202, run #503186 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20202, run #503186 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20203, run #503186 202 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.000102425
+DR fjets tagjet22.92689
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20203, run #503186 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20204, run #503186 203 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet12.77556e-16
+DR fjets tagjet22.8409
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20204, run #503186 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20205, run #503186 204 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet16.14153e-05
+DR fjets tagjet24.52485
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20205, run #503186 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20206, run #503186 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20206, run #503186 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20207, run #503186 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20207, run #503186 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20208, run #503186 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20208, run #503186 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20209, run #503186 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20209, run #503186 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20210, run #503186 209 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet11.94289e-16
+DR fjets tagjet23.30033
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20210, run #503186 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20211, run #503186 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20211, run #503186 211 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20212, run #503186 211 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.000117643
+DR fjets tagjet23.6427
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20212, run #503186 212 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20213, run #503186 212 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet18.05425e-05
+DR fjets tagjet22.15521
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20213, run #503186 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20214, run #503186 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20214, run #503186 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20215, run #503186 214 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.000173666
+DR fjets tagjet24.55254
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20215, run #503186 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20216, run #503186 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20216, run #503186 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20217, run #503186 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20217, run #503186 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20218, run #503186 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20218, run #503186 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20219, run #503186 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20219, run #503186 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20220, run #503186 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20220, run #503186 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20221, run #503186 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20221, run #503186 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20222, run #503186 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20222, run #503186 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20223, run #503186 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20223, run #503186 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20224, run #503186 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20224, run #503186 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20225, run #503186 224 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet15.12362e-05
+DR fjets tagjet22.60756
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20225, run #503186 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20226, run #503186 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20226, run #503186 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20227, run #503186 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20227, run #503186 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20228, run #503186 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20228, run #503186 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20229, run #503186 228 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.00207797
+DR fjets tagjet22.29502
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20229, run #503186 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20230, run #503186 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20230, run #503186 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20231, run #503186 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20231, run #503186 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20232, run #503186 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20232, run #503186 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20233, run #503186 232 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet23.26789
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20233, run #503186 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20234, run #503186 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20234, run #503186 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20235, run #503186 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20235, run #503186 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20236, run #503186 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20236, run #503186 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20237, run #503186 236 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.0380974
+DR fjets tagjet25.45661
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20237, run #503186 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20238, run #503186 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20238, run #503186 238 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20239, run #503186 238 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20239, run #503186 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20240, run #503186 239 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet24.57791
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20240, run #503186 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20241, run #503186 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20241, run #503186 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20242, run #503186 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20242, run #503186 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20243, run #503186 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20243, run #503186 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20244, run #503186 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20244, run #503186 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20245, run #503186 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20245, run #503186 245 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20246, run #503186 245 events processed so far  <<<===
+fjet is W/Z boson: 1
+DR fjets tagjet10.000232369
+DR fjets tagjet22.76612
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20246, run #503186 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20247, run #503186 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20247, run #503186 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20248, run #503186 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20248, run #503186 248 events processed so far  <<<===
+AthenaEventLoopMgrWARNING INFO message limit (500) reached for AthenaEventLoopMgr. Suppressing further output.
+fjet is W/Z boson: 1
+DR fjets tagjet10.00103755
+DR fjets tagjet22.70941
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10.000178072
+DR fjets tagjet21.78666
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet10.000274304
+DR fjets tagjet21.98149
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet10.000146197
+DR fjets tagjet23.44207
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet10.00012813
+DR fjets tagjet23.30648
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet10.000429693
+DR fjets tagjet23.12402
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 0
+fjet is W/Z boson: 1
+DR fjets tagjet10.000146485
+DR fjets tagjet22.03403
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet12.33851e-05
+DR fjets tagjet21.49058
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet12.15171
+DR fjets tagjet20.186175
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: 1
+tag2_jet is Tagging jet: 0
+fjet is W/Z boson: 1
+DR fjets tagjet11.11022e-16
+DR fjets tagjet21.44565
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10.000856012
+DR fjets tagjet23.23005
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 0
+fjet is W/Z boson: 1
+DR fjets tagjet10.000994019
+DR fjets tagjet22.29121
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet25.09822
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10.0248772
+DR fjets tagjet22.94545
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10.000976034
+DR fjets tagjet22.73592
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet12.15106e-16
+DR fjets tagjet23.44334
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet23.0605
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet19.5175e-05
+DR fjets tagjet23.2629
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet10
+DR fjets tagjet22.32254
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet13.33067e-16
+DR fjets tagjet22.74313
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10.00283528
+DR fjets tagjet22.81056
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet23.63767
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 0
+DR fjets tagjet10.000117611
+DR fjets tagjet21.89014
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet12.22045e-16
+DR fjets tagjet21.5393
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet22.81921
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet10.000541345
+DR fjets tagjet23.54538
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet12.22045e-16
+DR fjets tagjet22.53102
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet18.46167e-05
+DR fjets tagjet22.32791
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 0
+DR fjets tagjet10.140838
+DR fjets tagjet23.27578
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet12.22045e-16
+DR fjets tagjet22.67161
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 0
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet21.74816
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet10
+DR fjets tagjet23.82765
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: -1
+DR fjets tagjet10.000271139
+DR fjets tagjet22.26095
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet12.22045e-16
+DR fjets tagjet23.83418
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10.00620383
+DR fjets tagjet22.42519
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet10.000357574
+DR fjets tagjet23.20903
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet14.44089e-16
+DR fjets tagjet22.11846
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet11.44288
+DR fjets tagjet25.65559
+tag1_jet is W/Z boson: 0
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 1
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: -1
+DR fjets tagjet12.23113
+DR fjets tagjet23.75628
+tag1_jet is W/Z boson: -1
+tag2_jet is W/Z boson: -1
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+fjet is W/Z boson: 1
+DR fjets tagjet15.25884e-05
+DR fjets tagjet24.29845
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: 0
+tag2_jet is Tagging jet: 1
+fjet is W/Z boson: 1
+DR fjets tagjet10
+DR fjets tagjet22.28396
+tag1_jet is W/Z boson: 1
+tag2_jet is W/Z boson: 0
+tag1_jet is Tagging jet: -1
+tag2_jet is Tagging jet: -1
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] 6E6C01F0-6FFD-8544-BFA5-802CCC81E11E
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |             304 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |            1430 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Listing sources of suppressed message: 
+=====================================================
+ Message Source              |   Level |    Count
+-----------------------------+---------+-------------
+ AthenaEventLoopMgr          |    INFO |     1003
+=====================================================
+Py:Athena            INFO leaving with code 0: "successful run"
+From conf found production dec WmZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq//*MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400']
+#### will run rivet with athena rivet_job.py -c 'conf="MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq";DOCUT="YES";Part=""' --evtMax 500
+dont do plot from yoda since redoPlots= no and dir /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//rivet-plots/ exists  True
+Cross section in fb for FM1_QUAD_WmZ_llqq: 0.0043448
+reading from yoda file  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+have 1d hists to be saved in root: ['/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//Delta_R_tagging_quark', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//FromTruth_W_q_misIDtagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//FromTruth_W_q_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//Min_DR_VBSq_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//Min_DR_Wq_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//Min_DR_q_Tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//aft_cutTag_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cutDR_n_fjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cutDR_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cutTag_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_Is_VBS_event', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_m_tag_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_n_fjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//bef_cut_nlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet1_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet1_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet2_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Tagjet2_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_Z_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_Tagjet1Tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_VTagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_VTagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_ZTagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_ZTagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaEta_ZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_Tagjet1Tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_VTagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_VTagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_ZTagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_ZTagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaPhi_ZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_Tagjet1Tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_VTagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_VTagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_ZTagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_ZTagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_deltaR_ZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_deltaEta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_deltaPhi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_deltaR_Vhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Centrality', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityZ', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_fjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VZ_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VZ_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VZ_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaEta_Z', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaPhi_Z', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaR_Z', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppMerged', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppZ', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton1_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton2_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_deltaEta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_deltaPhi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_deltaPhi_Vhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_minus_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_minus_cos_theta_VZrf_Zlab_axis', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_minus_cos_theta_Zlab_axis', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_minus_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Zrf_Lepton_tanh_deltaEta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_D2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_FromTruth_W_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_n', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjetmisID_FromTruth_Tagjet_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_leptons_pids', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ll_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_min_DR_Wq_fjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_misID_tag_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_lepton_stable', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dphi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dy', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_m', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//misID_tag_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Centrality', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityZ', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DeltaPt_sig_jet2_jet3', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_signal_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VZ_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VZ_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VZ_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaEta_Z', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaPhi_Z', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaR_Z', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppRes', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppZ', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppZV', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_leptons_pids', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ll_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_mass_Full', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_min_DR_Wq_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_misID_tag_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_mjjj', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_lepton_stable', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_pt_Full', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaEta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaPhi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaR', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_sjet1_FromTruth_W_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_sjet2_FromTruth_W_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_sjet3_FromTruth_W_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_sjets_FromTruth_W_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_sjetsmisID_FromTruth_Tagjet_q', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dphi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dy', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_m', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_pt'] in yoda file /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+looking for prefix in counter /WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503186.MGPy8EG_aQGCFM1_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+pos_n_in: 493, neg_n_in: 7, pos_n_f: 88, neg_n_f: 0 pos_n_f_merged: 84, neg_n_f_merged: 0 pos_n_f_resolved: 4, neg_n_f_resolved: 0
+converting to root hist with name Delta_R_tagging_quark
+converting to root hist with name FromTruth_W_q_misIDtagjets
+converting to root hist with name FromTruth_W_q_tagjets
+converting to root hist with name Min_DR_VBSq_jets
+converting to root hist with name Min_DR_Wq_jets
+converting to root hist with name Min_DR_q_Tagjets
+converting to root hist with name aft_cutTag_n_jets
+converting to root hist with name bef_cutDR_n_fjets
+converting to root hist with name bef_cutDR_n_jets
+converting to root hist with name bef_cutTag_n_jets
+converting to root hist with name bef_cut_Is_VBS_event
+converting to root hist with name bef_cut_m_tag_jets
+converting to root hist with name bef_cut_n_fjets
+converting to root hist with name bef_cut_n_jets
+converting to root hist with name bef_cut_nlep
+converting to root hist with name merged_CS_Tagjet1_phi
+converting to root hist with name merged_CS_Tagjet1_theta
+converting to root hist with name merged_CS_Tagjet2_phi
+converting to root hist with name merged_CS_Tagjet2_theta
+converting to root hist with name merged_CS_V_cos_theta
+converting to root hist with name merged_CS_V_eta
+converting to root hist with name merged_CS_V_phi
+converting to root hist with name merged_CS_V_pt
+converting to root hist with name merged_CS_Z_cos_theta
+converting to root hist with name merged_CS_Z_eta
+converting to root hist with name merged_CS_Z_phi
+converting to root hist with name merged_CS_Z_pt
+converting to root hist with name merged_CS_deltaEta_Tagjet1Tagjet2
+converting to root hist with name merged_CS_deltaEta_VTagjet1
+converting to root hist with name merged_CS_deltaEta_VTagjet2
+converting to root hist with name merged_CS_deltaEta_ZTagjet1
+converting to root hist with name merged_CS_deltaEta_ZTagjet2
+converting to root hist with name merged_CS_deltaEta_ZV
+converting to root hist with name merged_CS_deltaPhi_Tagjet1Tagjet2
+converting to root hist with name merged_CS_deltaPhi_VTagjet1
+converting to root hist with name merged_CS_deltaPhi_VTagjet2
+converting to root hist with name merged_CS_deltaPhi_ZTagjet1
+converting to root hist with name merged_CS_deltaPhi_ZTagjet2
+converting to root hist with name merged_CS_deltaPhi_ZV
+converting to root hist with name merged_CS_deltaR_Tagjet1Tagjet2
+converting to root hist with name merged_CS_deltaR_VTagjet1
+converting to root hist with name merged_CS_deltaR_VTagjet2
+converting to root hist with name merged_CS_deltaR_ZTagjet1
+converting to root hist with name merged_CS_deltaR_ZTagjet2
+converting to root hist with name merged_CS_deltaR_ZV
+converting to root hist with name merged_CS_lepton_deltaEta
+converting to root hist with name merged_CS_lepton_deltaPhi
+converting to root hist with name merged_CS_lepton_deltaR_Vhad
+converting to root hist with name merged_CS_lepton_pt
+converting to root hist with name merged_Centrality
+converting to root hist with name merged_CentralityVhad
+converting to root hist with name merged_CentralityZ
+converting to root hist with name merged_CentralityZV
+converting to root hist with name merged_Full_mass
+converting to root hist with name merged_Full_pt
+converting to root hist with name merged_Ntrk_fjets
+converting to root hist with name merged_Ntrk_tagjets
+converting to root hist with name merged_VZ_eta
+converting to root hist with name merged_VZ_mass
+converting to root hist with name merged_VZ_pt
+converting to root hist with name merged_Vhad_DeltaEta_Z
+converting to root hist with name merged_Vhad_DeltaPhi_Z
+converting to root hist with name merged_Vhad_DeltaR_Z
+converting to root hist with name merged_ZeppMerged
+converting to root hist with name merged_ZeppV
+converting to root hist with name merged_ZeppZ
+converting to root hist with name merged_ZeppZV
+converting to root hist with name merged_Zrf_Lepton1_cos_theta
+converting to root hist with name merged_Zrf_Lepton1_pt
+converting to root hist with name merged_Zrf_Lepton2_cos_theta
+converting to root hist with name merged_Zrf_Lepton2_pt
+converting to root hist with name merged_Zrf_Lepton_deltaEta
+converting to root hist with name merged_Zrf_Lepton_deltaPhi
+converting to root hist with name merged_Zrf_Lepton_deltaPhi_Vhad
+converting to root hist with name merged_Zrf_Lepton_minus_cos_theta
+converting to root hist with name merged_Zrf_Lepton_minus_cos_theta_VZrf_Zlab_axis
+converting to root hist with name merged_Zrf_Lepton_minus_cos_theta_Zlab_axis
+converting to root hist with name merged_Zrf_Lepton_minus_eta
+converting to root hist with name merged_Zrf_Lepton_pt
+converting to root hist with name merged_Zrf_Lepton_tanh_deltaEta
+converting to root hist with name merged_fjet_D2
+converting to root hist with name merged_fjet_DR_lepton1
+converting to root hist with name merged_fjet_DR_lepton2
+converting to root hist with name merged_fjet_DR_tagjet1
+converting to root hist with name merged_fjet_DR_tagjet2
+converting to root hist with name merged_fjet_Deta_tagjet1
+converting to root hist with name merged_fjet_Deta_tagjet2
+converting to root hist with name merged_fjet_Dphi_tagjet1
+converting to root hist with name merged_fjet_Dphi_tagjet2
+converting to root hist with name merged_fjet_FromTruth_W_q
+converting to root hist with name merged_fjet_eta
+converting to root hist with name merged_fjet_mass
+converting to root hist with name merged_fjet_n
+converting to root hist with name merged_fjet_pt
+converting to root hist with name merged_fjetmisID_FromTruth_Tagjet_q
+converting to root hist with name merged_lepton1_eta
+converting to root hist with name merged_lepton1_pt
+converting to root hist with name merged_lepton2_eta
+converting to root hist with name merged_lepton2_pt
+converting to root hist with name merged_lepton_delta_eta
+converting to root hist with name merged_lepton_delta_pt
+converting to root hist with name merged_lepton_eta
+converting to root hist with name merged_lepton_pt
+converting to root hist with name merged_leptons_pids
+converting to root hist with name merged_ll_DR_tagjet
+converting to root hist with name merged_ll_Deta_tagjet
+converting to root hist with name merged_ll_Dphi_tagjet
+converting to root hist with name merged_ll_eta
+converting to root hist with name merged_ll_mass
+converting to root hist with name merged_ll_phi
+converting to root hist with name merged_ll_pt
+converting to root hist with name merged_min_DR_Wq_fjets
+converting to root hist with name merged_misID_tag_jets
+converting to root hist with name merged_n_jets
+converting to root hist with name merged_n_lepton_stable
+converting to root hist with name merged_tagjet1_eta
+converting to root hist with name merged_tagjet1_phi
+converting to root hist with name merged_tagjet1_pt
+converting to root hist with name merged_tagjet2_eta
+converting to root hist with name merged_tagjet2_phi
+converting to root hist with name merged_tagjet2_pt
+converting to root hist with name merged_tagjets_delta_eta
+converting to root hist with name merged_tagjets_delta_pt
+converting to root hist with name merged_tagjets_dphi
+converting to root hist with name merged_tagjets_dy
+converting to root hist with name merged_tagjets_eta
+converting to root hist with name merged_tagjets_m
+converting to root hist with name merged_tagjets_phi
+converting to root hist with name merged_tagjets_pt
+converting to root hist with name misID_tag_jets
+converting to root hist with name resolved_Centrality
+converting to root hist with name resolved_CentralityVhad
+converting to root hist with name resolved_CentralityZ
+converting to root hist with name resolved_CentralityZV
+converting to root hist with name resolved_DR_min_lepton_sigjets1
+converting to root hist with name resolved_DR_min_lepton_sigjets2
+converting to root hist with name resolved_DR_min_lepton_tagjets1
+converting to root hist with name resolved_DR_min_lepton_tagjets2
+converting to root hist with name resolved_DeltaPt_sig_jet2_jet3
+converting to root hist with name resolved_Ntrk_signal_jets
+converting to root hist with name resolved_Ntrk_tagjets
+converting to root hist with name resolved_VZ_eta
+converting to root hist with name resolved_VZ_mass
+converting to root hist with name resolved_VZ_pt
+converting to root hist with name resolved_Vhad_DR_tagjet
+converting to root hist with name resolved_Vhad_DeltaEta_Z
+converting to root hist with name resolved_Vhad_DeltaPhi_Z
+converting to root hist with name resolved_Vhad_DeltaR_Z
+converting to root hist with name resolved_Vhad_Deta_tagjet
+converting to root hist with name resolved_Vhad_Dphi_tagjet
+converting to root hist with name resolved_ZeppRes
+converting to root hist with name resolved_ZeppV
+converting to root hist with name resolved_ZeppZ
+converting to root hist with name resolved_ZeppZV
+converting to root hist with name resolved_lepton1_pt
+converting to root hist with name resolved_lepton2_pt
+converting to root hist with name resolved_lepton_delta_eta
+converting to root hist with name resolved_lepton_delta_pt
+converting to root hist with name resolved_lepton_eta
+converting to root hist with name resolved_lepton_pt
+converting to root hist with name resolved_leptons_pids
+converting to root hist with name resolved_ll_DR_tagjet
+converting to root hist with name resolved_ll_Deta_tagjet
+converting to root hist with name resolved_ll_Dphi_tagjet
+converting to root hist with name resolved_ll_eta
+converting to root hist with name resolved_ll_mass
+converting to root hist with name resolved_ll_phi
+converting to root hist with name resolved_ll_pt
+converting to root hist with name resolved_mass_Full
+converting to root hist with name resolved_min_DR_Wq_jets
+converting to root hist with name resolved_misID_tag_jets
+converting to root hist with name resolved_mjjj
+converting to root hist with name resolved_n_jets
+converting to root hist with name resolved_n_lepton_stable
+converting to root hist with name resolved_pt_Full
+converting to root hist with name resolved_signal_jets_DeltaEta
+converting to root hist with name resolved_signal_jets_DeltaPhi
+converting to root hist with name resolved_signal_jets_DeltaR
+converting to root hist with name resolved_signal_jets_eta
+converting to root hist with name resolved_signal_jets_mass
+converting to root hist with name resolved_signal_jets_pt
+converting to root hist with name resolved_sjet1_FromTruth_W_q
+converting to root hist with name resolved_sjet2_FromTruth_W_q
+converting to root hist with name resolved_sjet3_FromTruth_W_q
+converting to root hist with name resolved_sjets_FromTruth_W_q
+converting to root hist with name resolved_sjetsmisID_FromTruth_Tagjet_q
+converting to root hist with name resolved_tagjet1_eta
+converting to root hist with name resolved_tagjet1_pt
+converting to root hist with name resolved_tagjet2_eta
+converting to root hist with name resolved_tagjet2_pt
+converting to root hist with name resolved_tagjets_delta_eta
+converting to root hist with name resolved_tagjets_delta_pt
+converting to root hist with name resolved_tagjets_dphi
+converting to root hist with name resolved_tagjets_dy
+converting to root hist with name resolved_tagjets_eta
+converting to root hist with name resolved_tagjets_m
+converting to root hist with name resolved_tagjets_phi
+converting to root hist with name resolved_tagjets_pt
+saving cutflow resolved as img
+['WmZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['500.0', '100', '-', '']
+['Pass', 'have_two_lep', '300.0', '60', '60']
+['Pass', 'pt_lep1_2', '280.0', '56', '93']
+['Pass', 'n_jets', '280.0', '56', '100']
+['Pass', 'At_least_one_fjets', '278.0', '56', '99']
+['Pass', 'fjets_is_W/Z', '264.0', '53', '95']
+['Pass', 'found_tag_jets', '146.0', '29', '55']
+['Pass', 'pt_tagjet1_2', '138.0', '28', '95']
+['Pass', 'm_tagjets', '84.0', '17', '61']
+['Pass', 'Total_Merged_selec', '84.0', '17', '100']
+['']
+['WmZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['500.0', '100', '-', '']
+['Pass', 'have_two_lep', '300.0', '60', '60']
+['Pass', 'pt_lep1_2', '280.0', '56', '93']
+['Pass', 'n_jets', '280.0', '56', '100']
+['Pass', 'found_tag_jets', '148.0', '30', '53']
+['Pass', 'pt_tagjet1_2', '146.0', '29', '99']
+['Pass', 'm_tagjets', '139.0', '28', '95']
+['Pass', 'Failed_Merged_selection', '55.0', '11', '40']
+['Pass', 'At_least_two_signal_jets', '30.0', '6', '55']
+['Pass', 'signal_jets_pT', '28.0', '6', '93']
+['Pass', 'signal_mjj', '5.0', '1', '18']
+['Pass', 'M_jjj', '4.0', '1', '80']
+['Pass', 'Total_Resolved_selec', '4.0', '1', '100']
+['']
+['Delta_R_tagging_quark', 'FromTruth_W_q_misIDtagjets', 'FromTruth_W_q_tagjets', 'Min_DR_VBSq_jets', 'Min_DR_Wq_jets', 'Min_DR_q_Tagjets', 'aft_cutTag_n_jets', 'bef_cutDR_n_fjets', 'bef_cutDR_n_jets', 'bef_cutTag_n_jets', 'bef_cut_Is_VBS_event', 'bef_cut_m_tag_jets', 'bef_cut_n_fjets', 'bef_cut_n_jets', 'bef_cut_nlep', 'merged_CS_Tagjet1_phi', 'merged_CS_Tagjet1_theta', 'merged_CS_Tagjet2_phi', 'merged_CS_Tagjet2_theta', 'merged_CS_V_cos_theta', 'merged_CS_V_eta', 'merged_CS_V_phi', 'merged_CS_V_pt', 'merged_CS_Z_cos_theta', 'merged_CS_Z_eta', 'merged_CS_Z_phi', 'merged_CS_Z_pt', 'merged_CS_deltaEta_Tagjet1Tagjet2', 'merged_CS_deltaEta_VTagjet1', 'merged_CS_deltaEta_VTagjet2', 'merged_CS_deltaEta_ZTagjet1', 'merged_CS_deltaEta_ZTagjet2', 'merged_CS_deltaEta_ZV', 'merged_CS_deltaPhi_Tagjet1Tagjet2', 'merged_CS_deltaPhi_VTagjet1', 'merged_CS_deltaPhi_VTagjet2', 'merged_CS_deltaPhi_ZTagjet1', 'merged_CS_deltaPhi_ZTagjet2', 'merged_CS_deltaPhi_ZV', 'merged_CS_deltaR_Tagjet1Tagjet2', 'merged_CS_deltaR_VTagjet1', 'merged_CS_deltaR_VTagjet2', 'merged_CS_deltaR_ZTagjet1', 'merged_CS_deltaR_ZTagjet2', 'merged_CS_deltaR_ZV', 'merged_CS_lepton_deltaEta', 'merged_CS_lepton_deltaPhi', 'merged_CS_lepton_deltaR_Vhad', 'merged_CS_lepton_pt', 'merged_Centrality', 'merged_CentralityVhad', 'merged_CentralityZ', 'merged_CentralityZV', 'merged_Full_mass', 'merged_Full_pt', 'merged_Ntrk_fjets', 'merged_Ntrk_tagjets', 'merged_VZ_eta', 'merged_VZ_mass', 'merged_VZ_pt', 'merged_Vhad_DeltaEta_Z', 'merged_Vhad_DeltaPhi_Z', 'merged_Vhad_DeltaR_Z', 'merged_ZeppMerged', 'merged_ZeppV', 'merged_ZeppZ', 'merged_ZeppZV', 'merged_Zrf_Lepton1_cos_theta', 'merged_Zrf_Lepton1_pt', 'merged_Zrf_Lepton2_cos_theta', 'merged_Zrf_Lepton2_pt', 'merged_Zrf_Lepton_deltaEta', 'merged_Zrf_Lepton_deltaPhi', 'merged_Zrf_Lepton_deltaPhi_Vhad', 'merged_Zrf_Lepton_minus_cos_theta', 'merged_Zrf_Lepton_minus_cos_theta_VZrf_Zlab_axis', 'merged_Zrf_Lepton_minus_cos_theta_Zlab_axis', 'merged_Zrf_Lepton_minus_eta', 'merged_Zrf_Lepton_pt', 'merged_Zrf_Lepton_tanh_deltaEta', 'merged_fjet_D2', 'merged_fjet_DR_lepton1', 'merged_fjet_DR_lepton2', 'merged_fjet_DR_tagjet1', 'merged_fjet_DR_tagjet2', 'merged_fjet_Deta_tagjet1', 'merged_fjet_Deta_tagjet2', 'merged_fjet_Dphi_tagjet1', 'merged_fjet_Dphi_tagjet2', 'merged_fjet_FromTruth_W_q', 'merged_fjet_eta', 'merged_fjet_mass', 'merged_fjet_n', 'merged_fjet_pt', 'merged_fjetmisID_FromTruth_Tagjet_q', 'merged_lepton1_eta', 'merged_lepton1_pt', 'merged_lepton2_eta', 'merged_lepton2_pt', 'merged_lepton_delta_eta', 'merged_lepton_delta_pt', 'merged_lepton_eta', 'merged_lepton_pt', 'merged_leptons_pids', 'merged_ll_DR_tagjet', 'merged_ll_Deta_tagjet', 'merged_ll_Dphi_tagjet', 'merged_ll_eta', 'merged_ll_mass', 'merged_ll_phi', 'merged_ll_pt', 'merged_min_DR_Wq_fjets', 'merged_misID_tag_jets', 'merged_n_jets', 'merged_n_lepton_stable', 'merged_tagjet1_eta', 'merged_tagjet1_phi', 'merged_tagjet1_pt', 'merged_tagjet2_eta', 'merged_tagjet2_phi', 'merged_tagjet2_pt', 'merged_tagjets_delta_eta', 'merged_tagjets_delta_pt', 'merged_tagjets_dphi', 'merged_tagjets_dy', 'merged_tagjets_eta', 'merged_tagjets_m', 'merged_tagjets_phi', 'merged_tagjets_pt', 'misID_tag_jets', 'resolved_Centrality', 'resolved_CentralityVhad', 'resolved_CentralityZ', 'resolved_CentralityZV', 'resolved_DR_min_lepton_sigjets1', 'resolved_DR_min_lepton_sigjets2', 'resolved_DR_min_lepton_tagjets1', 'resolved_DR_min_lepton_tagjets2', 'resolved_DeltaPt_sig_jet2_jet3', 'resolved_Ntrk_signal_jets', 'resolved_Ntrk_tagjets', 'resolved_VZ_eta', 'resolved_VZ_mass', 'resolved_VZ_pt', 'resolved_Vhad_DR_tagjet', 'resolved_Vhad_DeltaEta_Z', 'resolved_Vhad_DeltaPhi_Z', 'resolved_Vhad_DeltaR_Z', 'resolved_Vhad_Deta_tagjet', 'resolved_Vhad_Dphi_tagjet', 'resolved_ZeppRes', 'resolved_ZeppV', 'resolved_ZeppZ', 'resolved_ZeppZV', 'resolved_lepton1_pt', 'resolved_lepton2_pt', 'resolved_lepton_delta_eta', 'resolved_lepton_delta_pt', 'resolved_lepton_eta', 'resolved_lepton_pt', 'resolved_leptons_pids', 'resolved_ll_DR_tagjet', 'resolved_ll_Deta_tagjet', 'resolved_ll_Dphi_tagjet', 'resolved_ll_eta', 'resolved_ll_mass', 'resolved_ll_phi', 'resolved_ll_pt', 'resolved_mass_Full', 'resolved_min_DR_Wq_jets', 'resolved_misID_tag_jets', 'resolved_mjjj', 'resolved_n_jets', 'resolved_n_lepton_stable', 'resolved_pt_Full', 'resolved_signal_jets_DeltaEta', 'resolved_signal_jets_DeltaPhi', 'resolved_signal_jets_DeltaR', 'resolved_signal_jets_eta', 'resolved_signal_jets_mass', 'resolved_signal_jets_pt', 'resolved_sjet1_FromTruth_W_q', 'resolved_sjet2_FromTruth_W_q', 'resolved_sjet3_FromTruth_W_q', 'resolved_sjets_FromTruth_W_q', 'resolved_sjetsmisID_FromTruth_Tagjet_q', 'resolved_tagjet1_eta', 'resolved_tagjet1_pt', 'resolved_tagjet2_eta', 'resolved_tagjet2_pt', 'resolved_tagjets_delta_eta', 'resolved_tagjets_delta_pt', 'resolved_tagjets_dphi', 'resolved_tagjets_dy', 'resolved_tagjets_eta', 'resolved_tagjets_m', 'resolved_tagjets_phi', 'resolved_tagjets_pt']

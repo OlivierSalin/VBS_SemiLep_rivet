@@ -1,0 +1,2186 @@
+Tue Oct 22 12:21:58 CEST 2024
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq";DOCUT="YES";Part="""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+#####received conf from cmd through -c 'conf=X;DOCUT=Y;Part=Z':   MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq YES 
+From conf found production dec WmZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq//*MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400']
+conf_cut_dir:  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23181681._000001.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23204335._000002.pool.root.1', '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000002.pool.root.1']
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Tue Oct 22 12:22:07 2024
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://atlasbpfrontier.cern.ch:3127)(proxyurl=http://atlasbpfrontier.fnal.gov:3127) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1 File version:60806
+ClassIDSvc           INFO getRegistryEntries: read 1842 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/plotting
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/' for WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+Domain[ROOT_All]     INFO                           /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1
+RootDatabase.open    INFO /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/EVNT.23217486._000001.pool.root.1 File version:60806
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 503164    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20001, run #503164 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+++++++received outidir/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this WmZ_llqq is /exp/atlas/salin/ATLAS/VBS_mc/plotting/Cuts_def.json
+++++++ to check json 1 var got photon pt min 400.1
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20001, run #503164 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20002, run #503164 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20002, run #503164 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20003, run #503164 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20003, run #503164 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20004, run #503164 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20004, run #503164 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20005, run #503164 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20005, run #503164 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20006, run #503164 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20006, run #503164 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20007, run #503164 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20007, run #503164 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20008, run #503164 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20008, run #503164 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20009, run #503164 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20009, run #503164 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20010, run #503164 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20010, run #503164 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20011, run #503164 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20011, run #503164 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20012, run #503164 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20012, run #503164 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20013, run #503164 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20013, run #503164 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20014, run #503164 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20014, run #503164 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20015, run #503164 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20015, run #503164 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20016, run #503164 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20016, run #503164 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20017, run #503164 16 events processed so far  <<<===
+Mismatched tag jet pT: 202.855, eta: 0.021806, phi: 2.19459, mass: 0.480124
+Matched tag jet pT: 281.705, eta: -2.63802, phi: 4.57091
+Matched jet no tag pT: 108.924, eta: -1.54782, phi: 3.11165
+Tagging quarks 1 pT: 119.304, eta: -1.47565, phi: 3.18259
+Tagging quarks 2 pT: 282.17, eta: -2.63801, phi: 4.573172570
+Tagging jet pair pT: 195.147, eta: -3.00022, DeltaEta: 2.65983, Eta product: -0.0575248, Mass: 950.532
+VBS jet true pair pT: 313.134, eta: -2.64968, DeltaEta: 1.0902, Eta product: 4.08319, Mass: 314.618
+VBS quarks pair pT: 325.455, eta: -2.61418, DeltaEta: 1.16236, Eta product: 3.89277, Mass: 325.7592570AthenaEventLoopMgr   INFO   ===>>>  done processing event #20017, run #503164 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20018, run #503164 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20018, run #503164 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20019, run #503164 18 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20019, run #503164 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20020, run #503164 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20020, run #503164 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20021, run #503164 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20021, run #503164 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20022, run #503164 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20022, run #503164 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20023, run #503164 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20023, run #503164 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20024, run #503164 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20024, run #503164 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20025, run #503164 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20025, run #503164 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20026, run #503164 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20026, run #503164 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20027, run #503164 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20027, run #503164 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20028, run #503164 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20028, run #503164 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20029, run #503164 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20029, run #503164 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20030, run #503164 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20030, run #503164 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20031, run #503164 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20031, run #503164 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20032, run #503164 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20032, run #503164 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20033, run #503164 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20033, run #503164 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20034, run #503164 33 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20034, run #503164 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20035, run #503164 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20035, run #503164 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20036, run #503164 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20036, run #503164 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20037, run #503164 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20037, run #503164 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20038, run #503164 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20038, run #503164 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20039, run #503164 38 events processed so far  <<<===
+Mismatched tag jet pT: 2047.93, eta: -1.23903, phi: 1.56545, mass: 81.5119
+Matched tag jet pT: 34.5667, eta: 3.35543, phi: 0.392039
+Matched jet no tag pT: 1239.52, eta: -0.379631, phi: 4.06108
+Tagging quarks 1 pT: 1487.04, eta: -0.365086, phi: 4.07533
+Tagging quarks 2 pT: 43.4017, eta: 3.35897, phi: 0.3409422570
+Tagging jet pair pT: 2061.55, eta: -1.09714, DeltaEta: 4.59446, Eta product: -4.15748, Mass: 2637.68
+VBS jet true pair pT: 1209.78, eta: 0.0105448, DeltaEta: 3.73506, Eta product: -1.27382, Mass: 1379.41
+VBS quarks pair pT: 1451.25, eta: 0.0470527, DeltaEta: 3.72405, Eta product: -1.22631, Mass: 1668.122570AthenaEventLoopMgr   INFO   ===>>>  done processing event #20039, run #503164 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20040, run #503164 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20040, run #503164 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20041, run #503164 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20041, run #503164 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20042, run #503164 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20042, run #503164 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20043, run #503164 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20043, run #503164 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20044, run #503164 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20044, run #503164 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20045, run #503164 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20045, run #503164 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20046, run #503164 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20046, run #503164 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20047, run #503164 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20047, run #503164 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20048, run #503164 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20048, run #503164 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20049, run #503164 48 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20049, run #503164 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20050, run #503164 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20050, run #503164 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20051, run #503164 50 events processed so far  <<<===
+Mismatched tag jet pT: 56.9754, eta: 2.71186, phi: 4.29331, mass: 8.7025
+Matched tag jet pT: 109.247, eta: -1.76124, phi: 1.12689
+Matched jet no tag pT: 1286.71, eta: 0.117933, phi: 3.67271
+Tagging quarks 1 pT: 121.76, eta: -1.7981, phi: 1.18101
+Tagging quarks 2 pT: 1296.67, eta: 0.103714, phi: 3.680662570
+Tagging jet pair pT: 52.3078, eta: 1.55684, DeltaEta: 4.4731, Eta product: -4.77624, Mass: 747.18
+VBS jet true pair pT: 1197.85, eta: -0.130201, DeltaEta: 1.87917, Eta product: -0.207709, Mass: 1086.81
+VBS quarks pair pT: 1201.36, eta: -0.184404, DeltaEta: 1.90181, Eta product: -0.186488, Mass: 1154.982570
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20051, run #503164 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20052, run #503164 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20052, run #503164 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20053, run #503164 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20053, run #503164 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20054, run #503164 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20054, run #503164 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20055, run #503164 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20055, run #503164 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20056, run #503164 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20056, run #503164 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20057, run #503164 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20057, run #503164 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20058, run #503164 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20058, run #503164 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20059, run #503164 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20059, run #503164 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20060, run #503164 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20060, run #503164 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20061, run #503164 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20061, run #503164 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20062, run #503164 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20062, run #503164 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20063, run #503164 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20063, run #503164 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20064, run #503164 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20064, run #503164 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20065, run #503164 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20065, run #503164 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20066, run #503164 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20066, run #503164 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20067, run #503164 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20067, run #503164 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20068, run #503164 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20068, run #503164 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20069, run #503164 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20069, run #503164 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20070, run #503164 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20070, run #503164 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20071, run #503164 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20071, run #503164 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20072, run #503164 71 events processed so far  <<<===
+Mismatched tag jet pT: 82.2715, eta: 2.24516, phi: 1.66776, mass: 13.9786
+Matched tag jet pT: 158.673, eta: -3.35751, phi: 3.43921
+Matched jet no tag pT: 79.5357, eta: 1.2346, phi: 5.5422
+Tagging quarks 1 pT: 85.8904, eta: 1.19963, phi: 5.50917
+Tagging quarks 2 pT: 164.536, eta: -3.33102, phi: 3.455492570
+Tagging jet pair pT: 163.53, eta: -3.14316, DeltaEta: 5.60267, Eta product: -7.53814, Mass: 1883.46
+VBS jet true pair pT: 136.732, eta: -3.44958, DeltaEta: 4.59211, Eta product: -4.14518, Mass: 1122.78
+VBS quarks pair pT: 146.032, eta: -3.39213, DeltaEta: 4.53065, Eta product: -3.996, Mass: 1151.12570
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20072, run #503164 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20073, run #503164 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20073, run #503164 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20074, run #503164 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20074, run #503164 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20075, run #503164 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20075, run #503164 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20076, run #503164 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20076, run #503164 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20077, run #503164 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20077, run #503164 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20078, run #503164 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20078, run #503164 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20079, run #503164 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20079, run #503164 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20080, run #503164 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20080, run #503164 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20081, run #503164 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20081, run #503164 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20082, run #503164 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20082, run #503164 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20083, run #503164 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20083, run #503164 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20084, run #503164 83 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20084, run #503164 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20085, run #503164 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20085, run #503164 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20086, run #503164 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20086, run #503164 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20087, run #503164 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20087, run #503164 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20088, run #503164 87 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20088, run #503164 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20089, run #503164 88 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20089, run #503164 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20090, run #503164 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20090, run #503164 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20091, run #503164 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20091, run #503164 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20092, run #503164 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20092, run #503164 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20093, run #503164 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20093, run #503164 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20094, run #503164 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20094, run #503164 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20095, run #503164 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20095, run #503164 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20096, run #503164 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20096, run #503164 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20097, run #503164 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20097, run #503164 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20098, run #503164 97 events processed so far  <<<===
+Mismatched tag jet pT: 1249.63, eta: -1.01145, phi: 1.01185, mass: 80.781
+Matched tag jet pT: 52.6873, eta: 3.92248, phi: 4.22229
+Matched jet no tag pT: 287.881, eta: -0.293883, phi: 4.7332
+Tagging quarks 1 pT: 327.178, eta: -0.28737, phi: 4.73039
+Tagging quarks 2 pT: 53.2759, eta: 3.89662, phi: 4.221362570
+Tagging jet pair pT: 1197.07, eta: -0.133455, DeltaEta: 4.93392, Eta product: -3.96738, Mass: 3047.89
+VBS jet true pair pT: 334.833, eta: 2.02377, DeltaEta: 4.21636, Eta product: -1.15275, Mass: 1002.81
+VBS quarks pair pT: 374.6, eta: 1.89328, DeltaEta: 4.18399, Eta product: -1.11977, Mass: 1055.352570AthenaEventLoopMgr   INFO   ===>>>  done processing event #20098, run #503164 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20099, run #503164 98 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20099, run #503164 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20100, run #503164 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20100, run #503164 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20101, run #503164 100 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20101, run #503164 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20102, run #503164 101 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20102, run #503164 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20103, run #503164 102 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20103, run #503164 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20104, run #503164 103 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20104, run #503164 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20105, run #503164 104 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20105, run #503164 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20106, run #503164 105 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20106, run #503164 106 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20107, run #503164 106 events processed so far  <<<===
+Mismatched tag jet pT: 465.385, eta: -1.8726, phi: 4.43532, mass: 19.5984
+Matched tag jet pT: 124.026, eta: 1.19142, phi: 1.05404
+Matched jet no tag pT: 80.6223, eta: -1.56163, phi: 2.58017
+Tagging quarks 1 pT: 83.8525, eta: -1.51427, phi: 2.61304
+Tagging quarks 2 pT: 128.647, eta: 1.20283, phi: 1.076422570
+Tagging jet pair pT: 346.159, eta: -2.02816, DeltaEta: 3.06402, Eta product: -2.23105, Mass: 1162.78
+VBS jet true pair pT: 150.915, eta: 0.0106177, DeltaEta: 2.75305, Eta product: -1.86056, Mass: 396.666
+VBS quarks pair pT: 155.944, eta: 0.0862617, DeltaEta: 2.7171, Eta product: -1.82141, Mass: 404.0522570AthenaEventLoopMgr   INFO   ===>>>  done processing event #20107, run #503164 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20108, run #503164 107 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20108, run #503164 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20109, run #503164 108 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20109, run #503164 109 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20110, run #503164 109 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20110, run #503164 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20111, run #503164 110 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20111, run #503164 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20112, run #503164 111 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20112, run #503164 112 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20113, run #503164 112 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20113, run #503164 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20114, run #503164 113 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20114, run #503164 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20115, run #503164 114 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20115, run #503164 115 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20116, run #503164 115 events processed so far  <<<===
+Mismatched tag jet pT: 280.264, eta: 1.21952, phi: 5.15664, mass: 40.3523
+Matched tag jet pT: 43.0639, eta: -3.4472, phi: 2.65738
+Matched jet no tag pT: 402.743, eta: -0.263771, phi: 2.97425
+Tagging quarks 1 pT: 48.5777, eta: -3.44649, phi: 2.60013
+Tagging quarks 2 pT: 406.972, eta: -0.263055, phi: 2.973342570
+Tagging jet pair pT: 247.133, eta: -0.868482, DeltaEta: 4.66671, Eta product: -4.20392, Mass: 1143.15
+VBS jet true pair pT: 443.866, eta: -1.33301, DeltaEta: 3.18342, Eta product: 0.909271, Mass: 621.84
+VBS quarks pair pT: 452.552, eta: -1.40835, DeltaEta: 3.18344, Eta product: 0.906615, Mass: 664.1112570
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20116, run #503164 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20117, run #503164 116 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20117, run #503164 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20118, run #503164 117 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20118, run #503164 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20119, run #503164 118 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20119, run #503164 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20120, run #503164 119 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20120, run #503164 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20121, run #503164 120 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20121, run #503164 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20122, run #503164 121 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20122, run #503164 122 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20123, run #503164 122 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20123, run #503164 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20124, run #503164 123 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20124, run #503164 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20125, run #503164 124 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20125, run #503164 125 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20126, run #503164 125 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20126, run #503164 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20127, run #503164 126 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20127, run #503164 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20128, run #503164 127 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20128, run #503164 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20129, run #503164 128 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20129, run #503164 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20130, run #503164 129 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20130, run #503164 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20131, run #503164 130 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20131, run #503164 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20132, run #503164 131 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20132, run #503164 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20133, run #503164 132 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20133, run #503164 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20134, run #503164 133 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20134, run #503164 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20135, run #503164 134 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20135, run #503164 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20136, run #503164 135 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20136, run #503164 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20137, run #503164 136 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20137, run #503164 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20138, run #503164 137 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20138, run #503164 138 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20139, run #503164 138 events processed so far  <<<===
+Mismatched tag jet pT: 518.347, eta: -2.59476, phi: 2.29575, mass: 14.8674
+Matched tag jet pT: 685.042, eta: 1.93053, phi: 4.08865
+Matched jet no tag pT: 25.5395, eta: -2.46843, phi: 3.02362
+Tagging quarks 1 pT: 26.8212, eta: -2.34002, phi: 2.82029
+Tagging quarks 2 pT: 582.688, eta: 1.91131, phi: 4.08052570
+Tagging jet pair pT: 762.576, eta: -1.19232, DeltaEta: 4.52529, Eta product: -5.00925, Mass: 5739.94
+VBS jet true pair pT: 697.772, eta: 1.84899, DeltaEta: 4.39895, Eta product: -4.76536, Mass: 1186.76
+VBS quarks pair pT: 591.436, eta: 1.82629, DeltaEta: 4.25133, Eta product: -4.4725, Mass: 1042.962570AthenaEventLoopMgr   INFO   ===>>>  done processing event #20139, run #503164 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20140, run #503164 139 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20140, run #503164 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20141, run #503164 140 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20141, run #503164 141 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20142, run #503164 141 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20142, run #503164 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20143, run #503164 142 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20143, run #503164 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20144, run #503164 143 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20144, run #503164 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20145, run #503164 144 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20145, run #503164 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20146, run #503164 145 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20146, run #503164 146 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20147, run #503164 146 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20147, run #503164 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20148, run #503164 147 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20148, run #503164 148 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20149, run #503164 148 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20149, run #503164 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20150, run #503164 149 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20150, run #503164 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20151, run #503164 150 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20151, run #503164 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20152, run #503164 151 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20152, run #503164 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20153, run #503164 152 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20153, run #503164 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20154, run #503164 153 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20154, run #503164 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20155, run #503164 154 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20155, run #503164 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20156, run #503164 155 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20156, run #503164 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20157, run #503164 156 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20157, run #503164 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20158, run #503164 157 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20158, run #503164 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20159, run #503164 158 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20159, run #503164 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20160, run #503164 159 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20160, run #503164 160 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20161, run #503164 160 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20161, run #503164 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20162, run #503164 161 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20162, run #503164 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20163, run #503164 162 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20163, run #503164 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20164, run #503164 163 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20164, run #503164 164 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20165, run #503164 164 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20165, run #503164 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20166, run #503164 165 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20166, run #503164 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20167, run #503164 166 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20167, run #503164 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20168, run #503164 167 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20168, run #503164 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20169, run #503164 168 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20169, run #503164 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20170, run #503164 169 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20170, run #503164 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20171, run #503164 170 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20171, run #503164 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20172, run #503164 171 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20172, run #503164 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20173, run #503164 172 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20173, run #503164 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20174, run #503164 173 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20174, run #503164 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20175, run #503164 174 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20175, run #503164 175 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20176, run #503164 175 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20176, run #503164 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20177, run #503164 176 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20177, run #503164 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20178, run #503164 177 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20178, run #503164 178 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20179, run #503164 178 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20179, run #503164 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20180, run #503164 179 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20180, run #503164 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20181, run #503164 180 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20181, run #503164 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20182, run #503164 181 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20182, run #503164 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20183, run #503164 182 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20183, run #503164 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20184, run #503164 183 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20184, run #503164 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20185, run #503164 184 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20185, run #503164 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20186, run #503164 185 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20186, run #503164 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20187, run #503164 186 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20187, run #503164 187 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20188, run #503164 187 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20188, run #503164 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20189, run #503164 188 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20189, run #503164 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20190, run #503164 189 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20190, run #503164 190 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20191, run #503164 190 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20191, run #503164 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20192, run #503164 191 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20192, run #503164 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20193, run #503164 192 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20193, run #503164 193 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20194, run #503164 193 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20194, run #503164 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20195, run #503164 194 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20195, run #503164 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20196, run #503164 195 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20196, run #503164 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20197, run #503164 196 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20197, run #503164 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20198, run #503164 197 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20198, run #503164 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20199, run #503164 198 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20199, run #503164 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20200, run #503164 199 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20200, run #503164 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20201, run #503164 200 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20201, run #503164 201 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20202, run #503164 201 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20202, run #503164 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20203, run #503164 202 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20203, run #503164 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20204, run #503164 203 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20204, run #503164 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20205, run #503164 204 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20205, run #503164 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20206, run #503164 205 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20206, run #503164 206 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20207, run #503164 206 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20207, run #503164 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20208, run #503164 207 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20208, run #503164 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20209, run #503164 208 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20209, run #503164 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20210, run #503164 209 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20210, run #503164 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20211, run #503164 210 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20211, run #503164 211 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20212, run #503164 211 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20212, run #503164 212 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20213, run #503164 212 events processed so far  <<<===
+Mismatched tag jet pT: 82.7443, eta: -3.19783, phi: 3.33439, mass: 2.64104
+Matched tag jet pT: 120.663, eta: 2.6501, phi: 1.39721
+Matched jet no tag pT: 533.345, eta: -0.898812, phi: 2.57701
+Tagging quarks 1 pT: 126.375, eta: 2.5635, phi: 1.38694
+Tagging quarks 2 pT: 572.408, eta: -0.908254, phi: 2.62422570
+Tagging jet pair pT: 119.385, eta: -1.10931, DeltaEta: 5.84794, Eta product: -8.47459, Mass: 1862.06
+VBS jet true pair pT: 589.973, eta: 0.493598, DeltaEta: 3.54891, Eta product: -2.38194, Mass: 1480.81
+VBS quarks pair pT: 625.289, eta: 0.346469, DeltaEta: 3.47175, Eta product: -2.32831, Mass: 1511.182570
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20213, run #503164 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20214, run #503164 213 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20214, run #503164 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20215, run #503164 214 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20215, run #503164 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20216, run #503164 215 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20216, run #503164 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20217, run #503164 216 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20217, run #503164 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20218, run #503164 217 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20218, run #503164 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20219, run #503164 218 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20219, run #503164 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20220, run #503164 219 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20220, run #503164 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20221, run #503164 220 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20221, run #503164 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20222, run #503164 221 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20222, run #503164 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20223, run #503164 222 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20223, run #503164 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20224, run #503164 223 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20224, run #503164 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20225, run #503164 224 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20225, run #503164 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20226, run #503164 225 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20226, run #503164 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20227, run #503164 226 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20227, run #503164 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20228, run #503164 227 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20228, run #503164 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20229, run #503164 228 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20229, run #503164 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20230, run #503164 229 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20230, run #503164 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20231, run #503164 230 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20231, run #503164 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20232, run #503164 231 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20232, run #503164 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20233, run #503164 232 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20233, run #503164 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20234, run #503164 233 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20234, run #503164 234 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20235, run #503164 234 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20235, run #503164 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20236, run #503164 235 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20236, run #503164 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20237, run #503164 236 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20237, run #503164 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20238, run #503164 237 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20238, run #503164 238 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20239, run #503164 238 events processed so far  <<<===
+Mismatched tag jet pT: 908.67, eta: 1.81184, phi: 3.70816, mass: 80.8741
+Matched tag jet pT: 43.2493, eta: -3.73575, phi: 4.95106
+Matched jet no tag pT: 45.2947, eta: 1.68543, phi: 3.1655
+Tagging quarks 1 pT: 49.741, eta: -3.75682, phi: 4.89691
+Tagging quarks 2 pT: 45.9035, eta: 1.6929, phi: 3.163682570
+Tagging jet pair pT: 923.507, eta: 1.42118, DeltaEta: 5.54758, Eta product: -6.76856, Mass: 3173.08
+VBS jet true pair pT: 55.5622, eta: -3.34638, DeltaEta: 5.42117, Eta product: -6.29632, Mass: 666.402
+VBS quarks pair pT: 61.9904, eta: -3.417, DeltaEta: 5.44972, Eta product: -6.35993, Mass: 729.422570AthenaEventLoopMgr   INFO   ===>>>  done processing event #20239, run #503164 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20240, run #503164 239 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20240, run #503164 240 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20241, run #503164 240 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20241, run #503164 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20242, run #503164 241 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20242, run #503164 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20243, run #503164 242 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20243, run #503164 243 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20244, run #503164 243 events processed so far  <<<===
+
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20244, run #503164 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20245, run #503164 244 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20245, run #503164 245 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20246, run #503164 245 events processed so far  <<<===
+Mismatched tag jet pT: 158.032, eta: 1.54289, phi: 5.44925, mass: 13.3068
+Matched tag jet pT: 110.454, eta: -1.91408, phi: 1.36817
+Matched jet no tag pT: 879.182, eta: 0.337154, phi: 4.62601
+Tagging quarks 1 pT: 896.022, eta: 0.221311, phi: 4.6402
+Tagging quarks 2 pT: 118.232, eta: -1.93903, phi: 1.319242570
+Tagging jet pair pT: 128.724, eta: -0.105321, DeltaEta: 3.45697, Eta product: -2.95321, Mass: 758.616
+VBS jet true pair pT: 769.58, eta: -0.0834112, DeltaEta: 2.25123, Eta product: -0.64534, Mass: 1062.96
+VBS quarks pair pT: 779.972, eta: -0.256855, DeltaEta: 2.16034, Eta product: -0.429129, Mass: 1067.532570
+Merged region
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20246, run #503164 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20247, run #503164 246 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20247, run #503164 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20248, run #503164 247 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20248, run #503164 248 events processed so far  <<<===
+AthenaEventLoopMgrWARNING INFO message limit (500) reached for AthenaEventLoopMgr. Suppressing further output.
+
+Merged region
+Mismatched tag jet pT: 1641.28, eta: -1.02218, phi: 0.147989, mass: 83.6906
+Matched tag jet pT: 578.543, eta: 1.55908, phi: 4.18832
+Matched jet no tag pT: 428.707, eta: -0.446412, phi: 1.09391
+Tagging quarks 1 pT: 582.457, eta: 1.55676, phi: 4.18778
+Tagging quarks 2 pT: 451.144, eta: -0.443876, phi: 1.092332570
+Tagging jet pair pT: 1358.73, eta: -0.475713, DeltaEta: 2.58126, Eta product: -1.59367, Mass: 3716.71
+VBS jet true pair pT: 151.667, eta: 2.69415, DeltaEta: 2.00549, Eta product: -0.695991, Mass: 1540.89
+VBS quarks pair pT: 133.425, eta: 2.81811, DeltaEta: 2.00063, Eta product: -0.691007, Mass: 1582.212570
+Merged region
+Mismatched tag jet pT: 104.009, eta: -2.3175, phi: 1.66464, mass: 9.65469
+Matched tag jet pT: 45.4312, eta: 2.27846, phi: 2.42945
+Matched jet no tag pT: 117.495, eta: 1.93595, phi: 2.12444
+Tagging quarks 1 pT: 92.5218, eta: -0.0303018, phi: 4.37245
+Tagging quarks 2 pT: 167.126, eta: 1.99571, phi: 2.199192570
+Tagging jet pair pT: 140.359, eta: -1.51342, DeltaEta: 4.59596, Eta product: -5.28033, Mass: 679.47
+VBS jet true pair pT: 161.407, eta: 2.05249, DeltaEta: 0.342516, Eta product: 4.41099, Mass: 41.3119
+VBS quarks pair pT: 137.72, eta: 2.17883, DeltaEta: 2.02601, Eta product: -0.0604738, Mass: 369.9062570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1661.86, eta: 0.925827, phi: 6.06331, mass: 85.3638
+Matched tag jet pT: 162.609, eta: -2.15619, phi: 1.51603
+Matched jet no tag pT: 26.2162, eta: 2.11399, phi: 5.16819
+Tagging quarks 1 pT: 160.95, eta: -2.15407, phi: 1.51794
+Tagging quarks 2 pT: 28.1428, eta: 2.14076, phi: 5.16842570
+Tagging jet pair pT: 1642.98, eta: 0.614874, DeltaEta: 3.08202, Eta product: -1.99626, Mass: 2450.12
+VBS jet true pair pT: 140.323, eta: -2.13647, DeltaEta: 4.27018, Eta product: -4.55817, Mass: 559.182
+VBS quarks pair pT: 137.06, eta: -2.12621, DeltaEta: 4.29483, Eta product: -4.61135, Mass: 583.1642570Mismatched tag jet pT: 313.584, eta: 1.90299, phi: 2.27284, mass: 21.2322
+Matched tag jet pT: 78.8301, eta: -3.42968, phi: 0.625794
+Matched jet no tag pT: 41.5582, eta: 0.0622856, phi: 6.06778
+Tagging quarks 1 pT: 81.5822, eta: -3.42087, phi: 0.633124
+Tagging quarks 2 pT: 52.6057, eta: 0.0618615, phi: 6.088142570
+Tagging jet pair pT: 317.463, eta: -0.560202, DeltaEta: 5.33267, Eta product: -6.52664, Mass: 2263.11
+VBS jet true pair pT: 110.944, eta: -3.08685, DeltaEta: 3.49197, Eta product: -0.21362, Mass: 328.949
+VBS quarks pair pT: 123.399, eta: -3.00582, DeltaEta: 3.48273, Eta product: -0.21162, Mass: 366.1572570Mismatched tag jet pT: 91.9809, eta: 2.71169, phi: 5.56472, mass: 5.58523
+Matched tag jet pT: 62.1589, eta: -3.18389, phi: 5.82422
+Matched jet no tag pT: 350.217, eta: 1.60521, phi: 4.69054
+Tagging quarks 1 pT: 70.8649, eta: -3.18311, phi: 5.84091
+Tagging quarks 2 pT: 348.1, eta: 1.57354, phi: 4.684022570
+Tagging jet pair pT: 152.893, eta: -0.380998, DeltaEta: 5.89558, Eta product: -8.63372, Mass: 1437.74
+VBS jet true pair pT: 380.718, eta: 0.228333, DeltaEta: 4.7891, Eta product: -5.11081, Mass: 1612.59
+VBS quarks pair pT: 382.15, eta: -0.129787, DeltaEta: 4.75666, Eta product: -5.00877, Mass: 1688.392570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 143.239, eta: 2.72492, phi: 4.83751, mass: 16.1331
+Matched tag jet pT: 119.885, eta: -2.39012, phi: 2.01932
+Matched jet no tag pT: 190.079, eta: 2.13385, phi: 3.99794
+Tagging quarks 1 pT: 117.931, eta: -2.39788, phi: 2.00981
+Tagging quarks 2 pT: 192.088, eta: 2.09495, phi: 3.966282570
+Tagging jet pair pT: 48.2258, eta: 2.905, DeltaEta: 5.11504, Eta product: -6.51289, Mass: 1700.85
+VBS jet true pair pT: 180.074, eta: 0.727251, DeltaEta: 4.52397, Eta product: -5.10016, Mass: 1456.11
+VBS quarks pair pT: 183.744, eta: 0.63775, DeltaEta: 4.49283, Eta product: -5.02345, Mass: 1428.952570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 208.334, eta: -1.57074, phi: 1.04642, mass: 16.0617
+Matched tag jet pT: 61.7267, eta: 4.07623, phi: 1.0777
+Matched jet no tag pT: 1821.05, eta: -0.365224, phi: 3.03871
+Tagging quarks 1 pT: 24.4797, eta: -0.136312, phi: 3.01684
+Tagging quarks 2 pT: 63.2378, eta: 4.04485, phi: 1.017342570
+Tagging jet pair pT: 270.037, eta: 2.30401, DeltaEta: 5.64697, Eta product: -6.4027, Mass: 1902.73
+VBS jet true pair pT: 1798.48, eta: 0.59674, DeltaEta: 4.44146, Eta product: -1.48874, Mass: 3106.27
+VBS quarks pair pT: 57.5435, eta: 4.13731, DeltaEta: 4.18117, Eta product: -0.551362, Mass: 320.3442570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 64.9501, eta: 1.47914, phi: 5.4412, mass: 10.0252
+Matched tag jet pT: 69.1105, eta: -2.60283, phi: 1.49251
+Matched jet no tag pT: 153.792, eta: 1.40611, phi: 3.27266
+Tagging quarks 1 pT: 167.074, eta: 1.39603, phi: 3.27418
+Tagging quarks 2 pT: 67.5594, eta: -2.60933, phi: 1.522232570
+Tagging jet pair pT: 52.7823, eta: -2.529, DeltaEta: 4.08197, Eta product: -3.84994, Mass: 522.284
+VBS jet true pair pT: 154.953, eta: -0.944532, DeltaEta: 4.00894, Eta product: -3.65986, Mass: 769.419
+VBS quarks pair pT: 168.556, eta: -0.755653, DeltaEta: 4.00536, Eta product: -3.64271, Mass: 789.8472570
+Merged region
+Mismatched tag jet pT: 218.63, eta: 1.62582, phi: 2.6069, mass: 30.5546
+Matched tag jet pT: 166.063, eta: -2.17984, phi: 6.21305
+Matched jet no tag pT: 104.271, eta: 1.28144, phi: 2.93711
+Tagging quarks 1 pT: 155.266, eta: -2.08357, phi: 6.2698
+Tagging quarks 2 pT: 139.792, eta: 1.33604, phi: 2.946792570
+Tagging jet pair pT: 102.268, eta: -1.38246, DeltaEta: 3.80566, Eta product: -3.54403, Mass: 1304.12
+VBS jet true pair pT: 64.2676, eta: -2.84649, DeltaEta: 3.46128, Eta product: -2.79333, Mass: 766.568
+VBS quarks pair pT: 30.8524, eta: -3.1696, DeltaEta: 3.4196, Eta product: -2.78372, Mass: 840.6262570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 37.6124, eta: 2.43224, phi: 3.07526, mass: 3.04423
+Matched tag jet pT: 33.5792, eta: -2.99898, phi: 5.60372
+Matched jet no tag pT: 146.009, eta: 2.24533, phi: 1.72191
+Tagging quarks 1 pT: 147.743, eta: 2.24905, phi: 1.71482
+Tagging quarks 2 pT: 34.4803, eta: -3.05529, phi: 5.577262570
+Tagging jet pair pT: 21.8261, eta: -2.43483, DeltaEta: 5.43123, Eta product: -7.29426, Mass: 539.144
+VBS jet true pair pT: 123.314, eta: 1.75421, DeltaEta: 5.24431, Eta product: -6.7337, Mass: 967.854
+VBS quarks pair pT: 123.947, eta: 1.69812, DeltaEta: 5.30434, Eta product: -6.8715, Mass: 1016.212570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 121.176, eta: 1.86121, phi: 5.27437, mass: 18.9091
+Matched tag jet pT: 38.6806, eta: -4.18137, phi: 5.8934
+Matched jet no tag pT: 299.702, eta: 0.498493, phi: 4.56777
+Tagging quarks 1 pT: 534.431, eta: 0.325974, phi: 4.7849
+Tagging quarks 2 pT: 47.0984, eta: -4.14894, phi: 5.82522570
+Tagging jet pair pT: 154.32, eta: -2.44764, DeltaEta: 6.04258, Eta product: -7.78242, Mass: 1402.58
+VBS jet true pair pT: 311.36, eta: -1.98339, DeltaEta: 4.67986, Eta product: -2.08438, Mass: 1117.03
+VBS quarks pair pT: 559.738, eta: -1.58945, DeltaEta: 4.47491, Eta product: -1.35245, Mass: 14782570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 672.02, eta: 1.85248, phi: 0.415455, mass: 81.7188
+Matched tag jet pT: 42.1615, eta: -3.424, phi: 1.06355
+Matched jet no tag pT: 290.93, eta: 0.911375, phi: 4.72303
+Tagging quarks 1 pT: 231.707, eta: 0.835034, phi: 4.66815
+Tagging quarks 2 pT: 43.2261, eta: -3.39464, phi: 1.059832570
+Tagging jet pair pT: 706.092, eta: 1.46314, DeltaEta: 5.27648, Eta product: -6.34291, Mass: 2346.96
+VBS jet true pair pT: 255.152, eta: -1.10498, DeltaEta: 4.33538, Eta product: -3.12055, Mass: 982.06
+VBS quarks pair pT: 194.081, eta: -1.52898, DeltaEta: 4.22967, Eta product: -2.83464, Mass: 840.2782570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 95.1912, eta: 1.70828, phi: 3.83889, mass: 19.3342
+Matched tag jet pT: 111.455, eta: -2.69129, phi: 5.27836
+Matched jet no tag pT: 509.141, eta: 1.53062, phi: 5.10372
+Tagging quarks 1 pT: 119.351, eta: -2.67416, phi: 5.28923
+Tagging quarks 2 pT: 533.089, eta: 1.5195, phi: 5.128752570
+Tagging jet pair pT: 155.763, eta: -1.99868, DeltaEta: 4.39956, Eta product: -4.59746, Mass: 928.952
+VBS jet true pair pT: 619.204, eta: 0.471727, DeltaEta: 4.2219, Eta product: -4.11932, Mass: 1941.41
+VBS quarks pair pT: 651.186, eta: 0.443804, DeltaEta: 4.19366, Eta product: -4.06338, Mass: 2022.732570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 54.9414, eta: -2.44606, phi: 2.77461, mass: 10.5401
+Matched tag jet pT: 100.291, eta: 2.10892, phi: 4.92336
+Matched jet no tag pT: 188.857, eta: -1.80671, phi: 4.25097
+Tagging quarks 1 pT: 103.913, eta: 2.1213, phi: 4.94278
+Tagging quarks 2 pT: 188.798, eta: -1.79214, phi: 4.263172570
+Tagging jet pair pT: 84.0021, eta: 0.950088, DeltaEta: 4.55499, Eta product: -5.15856, Mass: 728.326
+VBS jet true pair pT: 274.52, eta: -0.530379, DeltaEta: 3.91563, Eta product: -3.81021, Mass: 960.473
+VBS quarks pair pT: 277.42, eta: -0.432278, DeltaEta: 3.91344, Eta product: -3.80167, Mass: 975.8072570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 205.834, eta: 2.32989, phi: 1.91761, mass: 26.136
+Matched tag jet pT: 45.6345, eta: -3.43906, phi: 3.65395
+Matched jet no tag pT: 402.811, eta: 0.167468, phi: 0.522015
+Tagging quarks 1 pT: 44.6654, eta: -3.45505, phi: 3.68707
+Tagging quarks 2 pT: 1031.69, eta: 0.279409, phi: 0.6927122570
+Tagging jet pair pT: 203.358, eta: 1.28004, DeltaEta: 5.76895, Eta product: -8.01264, Mass: 1735.53
+VBS jet true pair pT: 357.179, eta: -1.34977, DeltaEta: 3.60653, Eta product: -0.575933, Mass: 849.015
+VBS quarks pair pT: 987.525, eta: -0.408129, DeltaEta: 3.73446, Eta product: -0.965373, Mass: 1421.782570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 961.938, eta: 1.70255, phi: 5.11011, mass: 106.513
+Matched tag jet pT: 71.1283, eta: -3.09324, phi: 2.21965
+Matched jet no tag pT: 240.688, eta: 1.27626, phi: 5.20852
+Tagging quarks 1 pT: 256.933, eta: 1.27686, phi: 5.21203
+Tagging quarks 2 pT: 74.2768, eta: -3.10223, phi: 2.201792570
+Tagging jet pair pT: 893.216, eta: 1.43505, DeltaEta: 4.79578, Eta product: -5.26638, Mass: 2902.95
+VBS jet true pair pT: 170.731, eta: -1.55191, DeltaEta: 4.36949, Eta product: -3.94776, Mass: 1177.95
+VBS quarks pair pT: 183.554, eta: -1.52055, DeltaEta: 4.37909, Eta product: -3.96113, Mass: 1249.142570
+Merged region
+Mismatched tag jet pT: 63.6966, eta: -1.0471, phi: 4.39928, mass: 11.2646
+Matched tag jet pT: 93.0526, eta: 3.09179, phi: 3.41166
+Matched jet no tag pT: 497.031, eta: -0.400186, phi: 5.37275
+Tagging quarks 1 pT: 550.71, eta: -0.397872, phi: 5.38529
+Tagging quarks 2 pT: 93.3228, eta: 3.08344, phi: 3.415842570
+Tagging jet pair pT: 138.722, eta: 2.61475, DeltaEta: 4.13889, Eta product: -3.23741, Mass: 605.711
+VBS jet true pair pT: 469.58, eta: 1.32188, DeltaEta: 3.49198, Eta product: -1.23729, Mass: 1250.44
+VBS quarks pair pT: 521.623, eta: 1.20458, DeltaEta: 3.48131, Eta product: -1.22682, Mass: 1308.42570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 76.5665, eta: 2.00254, phi: 4.07276, mass: 11.78
+Matched tag jet pT: 96.274, eta: -3.73525, phi: 2.65005
+Matched jet no tag pT: 358.171, eta: 1.36151, phi: 0.0812808
+Tagging quarks 1 pT: 120.507, eta: -3.52157, phi: 2.54292
+Tagging quarks 2 pT: 384.243, eta: 1.42583, phi: 0.04297252570
+Tagging jet pair pT: 131.554, eta: -3.27524, DeltaEta: 5.73779, Eta product: -7.47999, Mass: 1512.27
+VBS jet true pair pT: 282.132, eta: -2.27862, DeltaEta: 5.09676, Eta product: -5.08558, Mass: 2388.34
+VBS quarks pair pT: 296.606, eta: -2.17135, DeltaEta: 4.9474, Eta product: -5.02116, Mass: 2567.972570
+Merged region
+Mismatched tag jet pT: 734.057, eta: -0.666124, phi: 4.14245, mass: 80.399
+Matched tag jet pT: 104.356, eta: 3.12187, phi: 1.55294
+Matched jet no tag pT: 25.7002, eta: -2.3737, phi: 0.833798
+Tagging quarks 1 pT: 58.3849, eta: -2.60211, phi: 1.07575
+Tagging quarks 2 pT: 126.562, eta: 3.13079, phi: 1.550992570
+Tagging jet pair pT: 647.522, eta: 0.890177, DeltaEta: 3.788, Eta product: -2.07955, Mass: 1879.01
+VBS jet true pair pT: 124.845, eta: 2.82119, DeltaEta: 5.49557, Eta product: -7.41039, Mass: 805.989
+VBS quarks pair pT: 180.465, eta: 2.46536, DeltaEta: 5.73289, Eta product: -8.14664, Mass: 1506.372570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1126.99, eta: -1.08911, phi: 3.30762, mass: 84.5807
+Matched tag jet pT: 62.3151, eta: 3.3513, phi: 1.38702
+Matched jet no tag pT: 272.159, eta: -0.4081, phi: 2.27285
+Tagging quarks 1 pT: 61.8678, eta: 3.37225, phi: 1.39541
+Tagging quarks 2 pT: 282.632, eta: -0.403002, phi: 2.266982570
+Tagging jet pair pT: 1107.18, eta: -0.515781, DeltaEta: 4.44041, Eta product: -3.64993, Mass: 2452.72
+VBS jet true pair pT: 315.298, eta: 1.63028, DeltaEta: 3.7594, Eta product: -1.36767, Mass: 841.706
+VBS quarks pair pT: 325.91, eta: 1.61095, DeltaEta: 3.77525, Eta product: -1.35902, Mass: 860.4772570
+Merged region
+Mismatched tag jet pT: 30.6411, eta: 3.0939, phi: 5.98633, mass: 8.8608
+Matched tag jet pT: 77.698, eta: -3.43129, phi: 4.79182
+Matched jet no tag pT: 89.7096, eta: 0.430421, phi: 0.839795
+Tagging quarks 1 pT: 76.4334, eta: -3.42449, phi: 4.79495
+Tagging quarks 2 pT: 123.185, eta: 0.53739, phi: 0.6937882570
+Tagging jet pair pT: 93.4108, eta: -2.91889, DeltaEta: 6.52519, Eta product: -10.6161, Mass: 1273.84
+VBS jet true pair pT: 66.912, eta: -3.54678, DeltaEta: 3.86171, Eta product: -1.4769, Mass: 586.918
+VBS quarks pair pT: 101.045, eta: -3.08533, DeltaEta: 3.96188, Eta product: -1.84029, Mass: 711.2132570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 37.8872, eta: 3.19803, phi: 4.2474, mass: 3.3157
+Matched tag jet pT: 42.704, eta: -3.28783, phi: 1.41336
+Matched jet no tag pT: 140.746, eta: 1.13108, phi: 5.40785
+Tagging quarks 1 pT: 163.194, eta: 1.12232, phi: 5.40695
+Tagging quarks 2 pT: 43.0211, eta: -3.28139, phi: 1.425692570
+Tagging jet pair pT: 13.2301, eta: -2.79709, DeltaEta: 6.48586, Eta product: -10.5146, Mass: 1031.59
+VBS jet true pair pT: 117.157, eta: -1.88198, DeltaEta: 4.41892, Eta product: -3.71882, Mass: 712.177
+VBS quarks pair pT: 138.23, eta: -1.65252, DeltaEta: 4.40371, Eta product: -3.68277, Mass: 763.8352570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 315.131, eta: -2.21843, phi: 3.79746, mass: 26.7028
+Matched tag jet pT: 46.096, eta: 3.29185, phi: 6.02704
+Matched jet no tag pT: 142.4, eta: -1.9294, phi: 4.91336
+Tagging quarks 1 pT: 186.54, eta: -1.97419, phi: 4.92606
+Tagging quarks 2 pT: 53.7363, eta: 3.33599, phi: 5.96922570
+Tagging jet pair pT: 289.22, eta: -1.75621, DeltaEta: 5.51027, Eta product: -7.30272, Mass: 1900.03
+VBS jet true pair pT: 167.919, eta: 0.754494, DeltaEta: 5.22124, Eta product: -6.35128, Mass: 1100.35
+VBS quarks pair pT: 218.585, eta: 0.424272, DeltaEta: 5.31018, Eta product: -6.58587, Mass: 1420.82570Mismatched tag jet pT: 1624.16, eta: -0.954481, phi: 4.55758, mass: 81.2899
+Matched tag jet pT: 41.3024, eta: 3.3994, phi: 0.986354
+Matched jet no tag pT: 138.248, eta: -0.933754, phi: 0.0369881
+Tagging quarks 1 pT: 140.537, eta: -0.930096, phi: 0.0490607
+Tagging quarks 2 pT: 38.2786, eta: 3.19185, phi: 0.7658142570
+Tagging jet pair pT: 1586.7, eta: -0.687496, DeltaEta: 4.35388, Eta product: -3.24466, Mass: 2312.78
+VBS jet true pair pT: 165.732, eta: 1.76333, DeltaEta: 4.33315, Eta product: -3.1742, Mass: 655.09
+VBS quarks pair pT: 171.253, eta: 1.36814, DeltaEta: 4.12195, Eta product: -2.96873, Mass: 569.022570
+Merged region
+Mismatched tag jet pT: 210.739, eta: -1.94764, phi: 1.65227, mass: 32.7502
+Matched tag jet pT: 40.0491, eta: 2.73224, phi: 4.65735
+Matched jet no tag pT: 1356.13, eta: -1.15161, phi: 3.77476
+Tagging quarks 1 pT: 1052.61, eta: -1.1612, phi: 3.77006
+Tagging quarks 2 pT: 46.863, eta: 2.73868, phi: 4.470952570
+Tagging jet pair pT: 171.149, eta: -1.62431, DeltaEta: 4.67988, Eta product: -5.32143, Mass: 963.226
+VBS jet true pair pT: 1381.92, eta: -1.00005, DeltaEta: 3.88385, Eta product: -3.14647, Mass: 1604.71
+VBS quarks pair pT: 1088.85, eta: -0.923825, DeltaEta: 3.89988, Eta product: -3.18016, Mass: 1536.972570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 51.6525, eta: 2.46334, phi: 3.77388, mass: 9.50725
+Matched tag jet pT: 30.5828, eta: -4.00738, phi: 5.14942
+Matched jet no tag pT: 83.6722, eta: 2.25134, phi: 1.71959
+Tagging quarks 1 pT: 32.5502, eta: -3.99647, phi: 5.16005
+Tagging quarks 2 pT: 94.3816, eta: 2.26151, phi: 1.699612570
+Tagging jet pair pT: 64.9326, eta: -2.81437, DeltaEta: 6.47072, Eta product: -9.87154, Mass: 1010.03
+VBS jet true pair pT: 55.042, eta: -2.79299, DeltaEta: 6.25871, Eta product: -9.02196, Mass: 1158.66
+VBS quarks pair pT: 64.2869, eta: -2.61545, DeltaEta: 6.25798, Eta product: -9.03806, Mass: 1268.862570
+Merged region
+Mismatched tag jet pT: 32.8264, eta: 2.32616, phi: 5.21921, mass: 8.89413
+Matched tag jet pT: 70.3663, eta: -3.53992, phi: 4.63217
+Matched jet no tag pT: 115.096, eta: 1.8344, phi: 4.7387
+Tagging quarks 1 pT: 93.7672, eta: 1.76771, phi: 4.65326
+Tagging quarks 2 pT: 101.659, eta: -3.37997, phi: 4.473652570
+Tagging jet pair pT: 99.3747, eta: -3.04837, DeltaEta: 5.86608, Eta product: -8.23443, Mass: 901.069
+VBS jet true pair pT: 185.215, eta: -2.24042, DeltaEta: 5.37432, Eta product: -6.49363, Mass: 1316.82
+VBS quarks pair pT: 194.64, eta: -2.53856, DeltaEta: 5.14768, Eta product: -5.97481, Mass: 1273.252570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 118.982, eta: -2.80578, phi: 5.08532, mass: 18.5704
+Matched tag jet pT: 84.4546, eta: 3.61172, phi: 2.08849
+Matched jet no tag pT: 932.142, eta: 0.661756, phi: 1.43431
+Tagging quarks 1 pT: 84.8449, eta: 3.60844, phi: 2.10344
+Tagging quarks 2 pT: 1106.76, eta: 0.660653, phi: 1.428552570
+Tagging jet pair pT: 37.4485, eta: 3.43794, DeltaEta: 6.4175, Eta product: -10.1337, Mass: 2485.04
+VBS jet true pair pT: 1000.48, eta: 1.53968, DeltaEta: 2.94997, Eta product: 2.39008, Mass: 1177.36
+VBS quarks pair pT: 1174.2, eta: 1.4443, DeltaEta: 2.94779, Eta product: 2.38393, Mass: 1283.912570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 43.3608, eta: 1.76969, phi: 5.50215, mass: 2.80034
+Matched tag jet pT: 33.24, eta: -4.39348, phi: 1.55816
+Matched jet no tag pT: 206.91, eta: 1.27899, phi: 4.43751
+Tagging quarks 1 pT: 33.5972, eta: -4.31976, phi: 1.47806
+Tagging quarks 2 pT: 170.963, eta: 1.29232, phi: 4.464322570
+Tagging jet pair pT: 31.3318, eta: -4.35623, DeltaEta: 6.16317, Eta product: -7.77511, Mass: 828.633
+VBS jet true pair pT: 175.019, eta: -2.44534, DeltaEta: 5.67247, Eta product: -5.61922, Mass: 1419.55
+VBS quarks pair pT: 137.868, eta: -2.65401, DeltaEta: 5.61208, Eta product: -5.5825, Mass: 1258.392570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1245.99, eta: -0.824934, phi: 5.78543, mass: 80.399
+Matched tag jet pT: 905.99, eta: 1.26334, phi: 2.44234
+Matched jet no tag pT: 29.4764, eta: -2.41873, phi: 1.6568
+Tagging quarks 1 pT: 390.574, eta: 1.43764, phi: 2.44189
+Tagging quarks 2 pT: 30.6237, eta: -2.25631, phi: 1.455252570
+Tagging jet pair pT: 401.602, eta: 0.741425, DeltaEta: 2.08827, Eta product: -1.04217, Mass: 3394.5
+VBS jet true pair pT: 927.064, eta: 1.14558, DeltaEta: 3.68206, Eta product: -3.05567, Mass: 1024.71
+VBS quarks pair pT: 408.263, eta: 1.22022, DeltaEta: 3.69395, Eta product: -3.24376, Mass: 684.0832570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 54.9595, eta: -0.412372, phi: 0.0242334, mass: 12.411
+Matched tag jet pT: 135.771, eta: 2.91867, phi: 4.84914
+Matched jet no tag pT: 96.691, eta: -0.383204, phi: 4.10105
+Tagging quarks 1 pT: 137.868, eta: 2.89885, phi: 4.85316
+Tagging quarks 2 pT: 102.561, eta: -0.372897, phi: 4.107632570
+Tagging jet pair pT: 152.085, eta: 2.7873, DeltaEta: 3.33104, Eta product: -1.20358, Mass: 459.344
+VBS jet true pair pT: 216.859, eta: 2.42458, DeltaEta: 3.30188, Eta product: -1.11845, Mass: 583.731
+VBS quarks pair pT: 224.286, eta: 2.38582, DeltaEta: 3.27175, Eta product: -1.08097, Mass: 593.6722570
+Merged region
+Mismatched tag jet pT: 1678.16, eta: 1.10781, phi: 5.53259, mass: 80.3988
+Matched tag jet pT: 35.9866, eta: -1.47519, phi: 0.198108
+Matched jet no tag pT: 998.417, eta: 0.707572, phi: 4.66197
+Tagging quarks 1 pT: 42.9374, eta: -1.37357, phi: 6.25694
+Tagging quarks 2 pT: 651.246, eta: 0.668796, phi: 4.622882570
+Tagging jet pair pT: 1699.38, eta: 1.07112, DeltaEta: 2.58301, Eta product: -1.63424, Mass: 860.628
+VBS jet true pair pT: 990.18, eta: 0.65202, DeltaEta: 2.18277, Eta product: -1.04381, Mass: 590.335
+VBS quarks pair pT: 649.945, eta: 0.568077, DeltaEta: 2.04237, Eta product: -0.918639, Mass: 471.9872570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 57.8526, eta: -2.73132, phi: 1.62444, mass: 10.7275
+Matched tag jet pT: 47.9065, eta: 1.76576, phi: 5.74263
+Matched jet no tag pT: 160.682, eta: -2.16128, phi: 2.75636
+Tagging quarks 1 pT: 159.916, eta: -2.14234, phi: 2.79524
+Tagging quarks 2 pT: 47.9432, eta: 1.74954, phi: 5.8162570
+Tagging jet pair pT: 50.3857, eta: -2.50468, DeltaEta: 4.49709, Eta product: -4.82287, Mass: 502.182
+VBS jet true pair pT: 113.594, eta: -2.28511, DeltaEta: 3.92704, Eta product: -3.8163, Mass: 637.571
+VBS quarks pair pT: 112.471, eta: -2.26922, DeltaEta: 3.89188, Eta product: -3.74811, Mass: 625.3632570
+Merged region
+Mismatched tag jet pT: 41.2762, eta: -3.03939, phi: 5.13193, mass: 8.58454
+Matched tag jet pT: 38.9853, eta: 3.57387, phi: 4.20809
+Matched jet no tag pT: 387.445, eta: -0.799036, phi: 3.65466
+Tagging quarks 1 pT: 389.753, eta: -0.796491, phi: 3.65377
+Tagging quarks 2 pT: 39.3231, eta: 3.58173, phi: 4.162432570
+Tagging jet pair pT: 71.8573, eta: 2.0134, DeltaEta: 6.61326, Eta product: -10.8624, Mass: 1094.05
+VBS jet true pair pT: 421.11, eta: 0.758368, DeltaEta: 4.37291, Eta product: -2.85566, Mass: 1082.92
+VBS quarks pair pT: 424.53, eta: 0.772748, DeltaEta: 4.37823, Eta product: -2.85282, Mass: 1093.12570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 44.6766, eta: 2.55559, phi: 1.49855, mass: 4.66912
+Matched tag jet pT: 366.636, eta: -2.00516, phi: 1.34695
+Matched jet no tag pT: 504.835, eta: 1.58063, phi: 2.66676
+Tagging quarks 1 pT: 365.525, eta: -1.96957, phi: 1.3515
+Tagging quarks 2 pT: 496.841, eta: 1.57834, phi: 2.672112570
+Tagging jet pair pT: 410.855, eta: -1.66851, DeltaEta: 4.56075, Eta product: -5.12436, Mass: 1240.85
+VBS jet true pair pT: 693.698, eta: -0.232284, DeltaEta: 3.58579, Eta product: -3.16941, Mass: 2569.32
+VBS quarks pair pT: 685.845, eta: -0.190797, DeltaEta: 3.54791, Eta product: -3.10865, Mass: 2494.892570Mismatched tag jet pT: 492.244, eta: -2.30351, phi: 3.36121, mass: 78.0825
+Matched tag jet pT: 52.0655, eta: 3.66246, phi: 4.85504
+Matched jet no tag pT: 145.923, eta: -1.7628, phi: 0.782133
+Tagging quarks 1 pT: 152.907, eta: -1.74272, phi: 0.791406
+Tagging quarks 2 pT: 53.4793, eta: 3.71152, phi: 4.873532570
+Tagging jet pair pT: 498.954, eta: -1.77217, DeltaEta: 5.96597, Eta product: -8.43652, Mass: 3162.05
+VBS jet true pair pT: 122.214, eta: 2.29572, DeltaEta: 5.42525, Eta product: -6.45616, Mass: 1317.18
+VBS quarks pair pT: 128.848, eta: 2.35097, DeltaEta: 5.45424, Eta product: -6.46813, Mass: 1386.042570
+Merged region
+Mismatched tag jet pT: 819.735, eta: 1.58409, phi: 5.74709, mass: 80.9012
+Matched tag jet pT: 92.6955, eta: -3.96286, phi: 5.38062
+Matched jet no tag pT: 103.026, eta: 0.720525, phi: 2.46448
+Tagging quarks 1 pT: 92.3928, eta: -3.94633, phi: 5.37085
+Tagging quarks 2 pT: 102.823, eta: 0.723744, phi: 2.466912570
+Tagging jet pair pT: 906.884, eta: -0.549126, DeltaEta: 5.54696, Eta product: -6.27754, Mass: 4400
+VBS jet true pair pT: 24.2918, eta: -5.26799, DeltaEta: 4.68339, Eta product: -2.85534, Mass: 1025.81
+VBS quarks pair pT: 25.3539, eta: -5.20458, DeltaEta: 4.67008, Eta product: -2.85613, Mass: 1016.012570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1658.63, eta: -0.337972, phi: 5.36444, mass: 81.0818
+Matched tag jet pT: 70.8217, eta: 3.59329, phi: 4.31394
+Matched jet no tag pT: 1873.93, eta: 0.499902, phi: 1.61687
+Tagging quarks 1 pT: 1876.33, eta: 0.500341, phi: 1.61654
+Tagging quarks 2 pT: 74.9082, eta: 3.59702, phi: 4.284052570
+Tagging jet pair pT: 1694.95, eta: 0.410256, DeltaEta: 3.93126, Eta product: -1.21443, Mass: 2425.86
+VBS jet true pair pT: 1810.25, eta: 1.04753, DeltaEta: 3.09339, Eta product: 1.79629, Mass: 1782.89
+VBS quarks pair pT: 1810, eta: 1.07545, DeltaEta: 3.09668, Eta product: 1.79974, Mass: 1834.692570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 2145.53, eta: 0.8755, phi: 4.95426, mass: 55.0381
+Matched tag jet pT: 72.7924, eta: -2.17486, phi: 1.73466
+Matched jet no tag pT: 21.2315, eta: 1.60848, phi: 3.83551
+Tagging quarks 1 pT: 22.3613, eta: 1.54709, phi: 3.78229
+Tagging quarks 2 pT: 76.4111, eta: -2.18005, phi: 1.730782570
+Tagging jet pair pT: 2072.97, eta: 0.789339, DeltaEta: 3.05036, Eta product: -1.90409, Mass: 1903.05
+VBS jet true pair pT: 64.7052, eta: -2.11865, DeltaEta: 3.78334, Eta product: -3.49822, Mass: 264.332
+VBS quarks pair pT: 68.9818, eta: -2.12111, DeltaEta: 3.72715, Eta product: -3.37274, Mass: 269.5062570Mismatched tag jet pT: 60.7578, eta: 2.49142, phi: 6.0343, mass: 8.47786
+Matched tag jet pT: 106.614, eta: -2.6479, phi: 2.48142
+Matched jet no tag pT: 279.15, eta: 0.476661, phi: 3.89612
+Tagging quarks 1 pT: 280.935, eta: 0.477116, phi: 3.90339
+Tagging quarks 2 pT: 109.158, eta: -2.62649, phi: 2.484732570
+Tagging jet pair pT: 56.4195, eta: -2.61822, DeltaEta: 5.13931, Eta product: -6.59701, Mass: 1057.03
+VBS jet true pair pT: 313.918, eta: -1.41938, DeltaEta: 3.12456, Eta product: -1.26215, Mass: 818.963
+VBS quarks pair pT: 316.441, eta: -1.4129, DeltaEta: 3.1036, Eta product: -1.25314, Mass: 821.7472570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 941.635, eta: 1.41539, phi: 5.84693, mass: 83.9875
+Matched tag jet pT: 47.0456, eta: -2.2921, phi: 0.353053
+Matched jet no tag pT: 901.585, eta: 1.09939, phi: 0.209773
+Tagging quarks 1 pT: 63.9917, eta: -2.42295, phi: 0.397956
+Tagging quarks 2 pT: 341.905, eta: 1.0712, phi: 0.3293842570
+Tagging jet pair pT: 975.342, eta: 1.26709, DeltaEta: 3.70749, Eta product: -3.24421, Mass: 1323.75
+VBS jet true pair pT: 948.172, eta: 0.899682, DeltaEta: 3.39149, Eta product: -2.51991, Mass: 1090.27
+VBS quarks pair pT: 405.77, eta: 0.201635, DeltaEta: 3.49415, Eta product: -2.59546, Mass: 822.9982570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 65.1928, eta: 2.58664, phi: 4.92847, mass: 15.2314
+Matched tag jet pT: 113.159, eta: -3.03619, phi: 5.13507
+Matched jet no tag pT: 622.593, eta: -0.739563, phi: 3.12478
+Tagging quarks 1 pT: 118.334, eta: -3.04485, phi: 5.14515
+Tagging quarks 2 pT: 636.048, eta: -0.727561, phi: 3.136472570
+Tagging jet pair pT: 177.47, eta: -2.14163, DeltaEta: 5.62283, Eta product: -7.85354, Mass: 1423.98
+VBS jet true pair pT: 583.503, eta: -1.77907, DeltaEta: 2.29663, Eta product: 2.24545, Mass: 880.552
+VBS quarks pair pT: 595.593, eta: -1.79591, DeltaEta: 2.31729, Eta product: 2.21532, Mass: 913.8152570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 671.769, eta: 2.28998, phi: 0.783739, mass: 80.4898
+Matched tag jet pT: 40.4601, eta: -4.29204, phi: 2.91505
+Matched jet no tag pT: 135.493, eta: 0.0244919, phi: 5.0347
+Tagging quarks 1 pT: 41.7855, eta: -4.30828, phi: 2.92534
+Tagging quarks 2 pT: 138.761, eta: 0.0228897, phi: 5.036722570
+Tagging jet pair pT: 651.162, eta: 1.7432, DeltaEta: 6.58202, Eta product: -9.82871, Mass: 4434.2
+VBS jet true pair pT: 119.48, eta: -3.20841, DeltaEta: 4.31653, Eta product: -0.10512, Mass: 646.297
+VBS quarks pair pT: 122.609, eta: -3.23117, DeltaEta: 4.33117, Eta product: -0.0986154, Mass: 668.5072570
+Merged region
+Mismatched tag jet pT: 90.5236, eta: 1.90434, phi: 4.96163, mass: 16.3181
+Matched tag jet pT: 41.0309, eta: -4.03565, phi: 2.10533
+Matched jet no tag pT: 144.023, eta: -1.00846, phi: 0.0927277
+Tagging quarks 1 pT: 40.4555, eta: -3.91244, phi: 2.06797
+Tagging quarks 2 pT: 145.567, eta: -1.01038, phi: 0.08350232570
+Tagging jet pair pT: 52.4386, eta: -3.49508, DeltaEta: 5.93999, Eta product: -7.68524, Mass: 1191.49
+VBS jet true pair pT: 131.806, eta: -3.00835, DeltaEta: 3.02719, Eta product: 4.06979, Mass: 359.517
+VBS quarks pair pT: 134.506, eta: -2.87209, DeltaEta: 2.90206, Eta product: 3.95304, Mass: 335.122570
+Merged region
+Mismatched tag jet pT: 1019.52, eta: 1.63675, phi: 0.734535, mass: 81.2464
+Matched tag jet pT: 57.2083, eta: -4.32893, phi: 2.7594
+Matched jet no tag pT: 66.1411, eta: 1.26531, phi: 4.08007
+Tagging quarks 1 pT: 51.5666, eta: -4.30867, phi: 2.80101
+Tagging quarks 2 pT: 68.1839, eta: 1.25705, phi: 4.079862570
+Tagging jet pair pT: 995.756, eta: 0.345153, DeltaEta: 5.96568, Eta product: -7.08538, Mass: 4774.87
+VBS jet true pair pT: 97.5736, eta: -3.74441, DeltaEta: 5.59424, Eta product: -5.47745, Mass: 1008.72
+VBS quarks pair pT: 96.6025, eta: -3.62229, DeltaEta: 5.56573, Eta product: -5.41623, Mass: 957.4842570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 43.6548, eta: 3.54661, phi: 2.67275, mass: 6.04297
+Matched tag jet pT: 60.1015, eta: -4.16939, phi: 5.15665
+Matched jet no tag pT: 188.812, eta: 1.90982, phi: 5.34427
+Tagging quarks 1 pT: 69.0702, eta: -4.23338, phi: 5.20367
+Tagging quarks 2 pT: 192.51, eta: 1.89547, phi: 5.362872570
+Tagging jet pair pT: 36.947, eta: -4.1626, DeltaEta: 7.716, Eta product: -14.7872, Mass: 2427.32
+VBS jet true pair pT: 248.112, eta: -2.37312, DeltaEta: 6.07921, Eta product: -7.96279, Mass: 2221.59
+VBS quarks pair pT: 260.937, eta: -2.6043, DeltaEta: 6.12885, Eta product: -8.02426, Mass: 2464.92570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 32.5827, eta: -1.86644, phi: 4.77908, mass: 5.87056
+Matched tag jet pT: 39.6921, eta: 3.20194, phi: 1.65984
+Matched jet no tag pT: 960.21, eta: -1.05918, phi: 3.18187
+Tagging quarks 1 pT: 39.0167, eta: 3.16825, phi: 1.58923
+Tagging quarks 2 pT: 1006.14, eta: -1.05863, phi: 3.184222570
+Tagging jet pair pT: 7.15475, eta: 4.67663, DeltaEta: 5.06838, Eta product: -5.97624, Mass: 456.508
+VBS jet true pair pT: 962.961, eta: -0.700547, DeltaEta: 4.26113, Eta product: -3.39145, Mass: 1644.2
+VBS quarks pair pT: 1005.95, eta: -0.738831, DeltaEta: 4.22688, Eta product: -3.35401, Mass: 1640.622570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 503.057, eta: -1.06541, phi: 5.80094, mass: 81.9703
+Matched tag jet pT: 62.2947, eta: 1.92357, phi: 3.31477
+Matched jet no tag pT: 28.5815, eta: -2.3123, phi: 3.83354
+Tagging quarks 1 pT: 70.905, eta: 1.93767, phi: 3.32771
+Tagging quarks 2 pT: 29.0126, eta: -2.28822, phi: 3.824462570
+Tagging jet pair pT: 455.257, eta: -0.84893, DeltaEta: 2.98898, Eta product: -2.04939, Mass: 826.314
+VBS jet true pair pT: 88.2608, eta: 0.68936, DeltaEta: 4.23587, Eta product: -4.44788, Mass: 346.695
+VBS quarks pair pT: 97.3974, eta: 0.896576, DeltaEta: 4.22589, Eta product: -4.43383, Mass: 370.3982570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 748.146, eta: 0.597998, phi: 1.2226, mass: 29.7439
+Matched tag jet pT: 78.553, eta: -2.74356, phi: 0.735861
+Matched jet no tag pT: 1002.79, eta: -0.444445, phi: 3.57089
+Tagging quarks 1 pT: 721.575, eta: -0.433115, phi: 3.58083
+Tagging quarks 2 pT: 80.364, eta: -2.70216, phi: 0.721742570
+Tagging jet pair pT: 818.401, eta: -0.162267, DeltaEta: 3.34156, Eta product: -1.64064, Mass: 1249.54
+VBS jet true pair pT: 928.204, eta: -0.984264, DeltaEta: 2.29912, Eta product: 1.21936, Mass: 972.506
+VBS quarks pair pT: 644.785, eta: -1.15249, DeltaEta: 2.26905, Eta product: 1.17035, Mass: 823.4912570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 456.277, eta: -2.156, phi: 5.69265, mass: 32.0315
+Matched tag jet pT: 215.767, eta: 1.86385, phi: 4.26098
+Matched jet no tag pT: 201.025, eta: -1.67796, phi: 5.14612
+Tagging quarks 1 pT: 218.569, eta: 1.856, phi: 4.24173
+Tagging quarks 2 pT: 210.849, eta: -1.67304, phi: 5.151242570
+Tagging jet pair pT: 531.084, eta: -1.60242, DeltaEta: 4.01985, Eta product: -4.01847, Mass: 2336.65
+VBS jet true pair pT: 376.689, eta: 0.411759, DeltaEta: 3.54182, Eta product: -3.12747, Mass: 1202.09
+VBS quarks pair pT: 385.792, eta: 0.355794, DeltaEta: 3.52904, Eta product: -3.10516, Mass: 1231.22570Mismatched tag jet pT: 37.9618, eta: 3.65792, phi: 5.64458, mass: 7.79334
+Matched tag jet pT: 130.485, eta: -1.84068, phi: 6.01976
+Matched jet no tag pT: 403.995, eta: -0.0475012, phi: 2.3987
+Tagging quarks 1 pT: 148.211, eta: -1.91572, phi: 5.99762
+Tagging quarks 2 pT: 594.219, eta: -0.0466, phi: 2.395932570
+Tagging jet pair pT: 166.389, eta: 1.44926, DeltaEta: 5.4986, Eta product: -6.73307, Mass: 1096.12
+VBS jet true pair pT: 294.442, eta: -1.1531, DeltaEta: 1.79318, Eta product: 0.0874346, Mass: 648.289
+VBS quarks pair pT: 466.09, eta: -0.96099, DeltaEta: 1.86912, Eta product: 0.0892727, Mass: 861.5862570
+Merged region
+Mismatched tag jet pT: 1175.95, eta: 0.250565, phi: 1.12532, mass: 80.399
+Matched tag jet pT: 135.538, eta: -2.78718, phi: 0.669026
+Matched jet no tag pT: 271.805, eta: -0.207015, phi: 4.94186
+Tagging quarks 1 pT: 139.673, eta: -2.76888, phi: 0.630629
+Tagging quarks 2 pT: 275.852, eta: -0.204468, phi: 4.945712570
+Tagging jet pair pT: 1298.99, eta: -0.581282, DeltaEta: 3.03775, Eta product: -0.698371, Mass: 1748.84
+VBS jet true pair pT: 246.77, eta: -2.24585, DeltaEta: 2.58017, Eta product: 0.576989, Mass: 722.106
+VBS quarks pair pT: 256.488, eta: -2.219, DeltaEta: 2.56441, Eta product: 0.566147, Mass: 730.3342570Mismatched tag jet pT: 280.884, eta: 2.66301, phi: 1.60495, mass: 23.0218
+Matched tag jet pT: 159.923, eta: -2.385, phi: 3.04575
+Matched jet no tag pT: 897.366, eta: 0.276536, phi: 3.61255
+Tagging quarks 1 pT: 170.935, eta: -2.39938, phi: 3.06551
+Tagging quarks 2 pT: 940.52, eta: 0.174398, phi: 3.718022570
+Tagging jet pair pT: 340.759, eta: 1.92499, DeltaEta: 5.04801, Eta product: -6.35129, Mass: 2642.78
+VBS jet true pair pT: 1035.85, eta: -0.558957, DeltaEta: 2.66154, Eta product: -0.65954, Mass: 1351.58
+VBS quarks pair pT: 1081.33, eta: -0.661727, DeltaEta: 2.57378, Eta product: -0.418448, Mass: 1365.762570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 42.746, eta: 2.10027, phi: 4.53179, mass: 8.23738
+Matched tag jet pT: 130.335, eta: -2.48463, phi: 2.3736
+Matched jet no tag pT: 80.6812, eta: 0.0477157, phi: 5.30207
+Tagging quarks 1 pT: 135.136, eta: -2.48631, phi: 2.35412
+Tagging quarks 2 pT: 98.249, eta: 0.107439, phi: 5.449062570
+Tagging jet pair pT: 112.425, eta: -2.38363, DeltaEta: 4.5849, Eta product: -5.2184, Mass: 743.394
+VBS jet true pair pT: 54.2338, eta: -3.35072, DeltaEta: 2.53235, Eta product: -0.118556, Mass: 394.381
+VBS quarks pair pT: 37.2768, eta: -3.75462, DeltaEta: 2.59375, Eta product: -0.267127, Mass: 452.9482570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 459.8, eta: -2.39551, phi: 5.58807, mass: 80.1251
+Matched tag jet pT: 51.0586, eta: 2.80288, phi: 0.28972
+Matched jet no tag pT: 963.454, eta: -1.57235, phi: 3.40954
+Tagging quarks 1 pT: 51.413, eta: 2.7155, phi: 0.276193
+Tagging quarks 2 pT: 958.346, eta: -1.57399, phi: 3.409472570
+Tagging jet pair pT: 489.886, eta: -2.15383, DeltaEta: 5.19839, Eta product: -6.71433, Mass: 2056.88
+VBS jet true pair pT: 912.408, eta: -1.43213, DeltaEta: 4.37523, Eta product: -4.40711, Mass: 2002.57
+VBS quarks pair pT: 906.935, eta: -1.44978, DeltaEta: 4.28949, Eta product: -4.27417, Mass: 1921.62570Mismatched tag jet pT: 55.278, eta: 1.74955, phi: 4.90208, mass: 7.14942
+Matched tag jet pT: 34.5217, eta: -3.52111, phi: 3.07258
+Matched jet no tag pT: 107.473, eta: 1.22509, phi: 4.09174
+Tagging quarks 1 pT: 122.418, eta: 1.22446, phi: 4.08468
+Tagging quarks 2 pT: 34.6338, eta: -3.32386, phi: 3.246432570
+Tagging jet pair pT: 57.1928, eta: -2.71284, DeltaEta: 5.27066, Eta product: -6.16035, Mass: 610.312
+VBS jet true pair pT: 128.961, eta: -1.8878, DeltaEta: 4.7462, Eta product: -4.31369, Mass: 651.191
+VBS quarks pair pT: 147.839, eta: -1.42619, DeltaEta: 4.54831, Eta product: -4.06992, Mass: 628.4262570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 647.38, eta: 1.75025, phi: 4.79395, mass: 79.3077
+Matched tag jet pT: 85.7459, eta: -2.31267, phi: 6.10909
+Matched jet no tag pT: 984.7, eta: 1.07773, phi: 0.867848
+Tagging quarks 1 pT: 519.657, eta: 1.10446, phi: 0.88132
+Tagging quarks 2 pT: 89.2711, eta: -2.29753, phi: 6.106332570
+Tagging jet pair pT: 674.187, eta: 1.46318, DeltaEta: 4.06292, Eta product: -4.04775, Mass: 1791.25
+VBS jet true pair pT: 1030.62, eta: 0.751953, DeltaEta: 3.3904, Eta product: -2.49243, Mass: 1559
+VBS quarks pair pT: 568.786, eta: 0.439869, DeltaEta: 3.40199, Eta product: -2.53754, Mass: 1161.42570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 66.6413, eta: 1.35591, phi: 0.398525, mass: 9.9465
+Matched tag jet pT: 90.7467, eta: -2.84025, phi: 0.236759
+Matched jet no tag pT: 26.631, eta: 0.759535, phi: 0.598109
+Tagging quarks 1 pT: 95.1711, eta: -2.82661, phi: 0.247254
+Tagging quarks 2 pT: 24.0946, eta: 0.68149, phi: 0.5609522570
+Tagging jet pair pT: 156.886, eta: -2.13399, DeltaEta: 4.19616, Eta product: -3.85111, Mass: 625.07
+VBS jet true pair pT: 116.04, eta: -2.56773, DeltaEta: 3.59979, Eta product: -2.15727, Mass: 292.353
+VBS quarks pair pT: 118.324, eta: -2.58863, DeltaEta: 3.5081, Eta product: -1.92631, Mass: 270.0032570Mismatched tag jet pT: 53.2142, eta: -3.50368, phi: 5.12782, mass: 4.77599
+Matched tag jet pT: 77.1978, eta: 2.45791, phi: 3.13982
+Matched jet no tag pT: 284.513, eta: -2.73094, phi: 4.47397
+Tagging quarks 1 pT: 101.573, eta: 2.36088, phi: 3.13064
+Tagging quarks 2 pT: 289.089, eta: -2.73397, phi: 4.468772570
+Tagging jet pair pT: 73.9057, eta: -2.47514, DeltaEta: 5.96159, Eta product: -8.61174, Mass: 1264.29
+VBS jet true pair pT: 311.779, eta: -2.41273, DeltaEta: 5.18885, Eta product: -6.71241, Mass: 1981.86
+VBS quarks pair pT: 327.766, eta: -2.33803, DeltaEta: 5.09484, Eta product: -6.45456, Mass: 2185.92570
+Merged region
+Mismatched tag jet pT: 123.349, eta: 1.17815, phi: 1.67897, mass: 17.192
+Matched tag jet pT: 48.448, eta: -2.96548, phi: 5.39986
+Matched jet no tag pT: 31.3126, eta: 1.07109, phi: 2.72223
+Tagging quarks 1 pT: 48.5136, eta: -2.93789, phi: 5.44122
+Tagging quarks 2 pT: 39.9003, eta: 1.04147, phi: 2.685582570
+Tagging jet pair pT: 86.9494, eta: -1.91096, DeltaEta: 4.14363, Eta product: -3.49378, Mass: 622.683
+VBS jet true pair pT: 24.7864, eta: -3.54389, DeltaEta: 4.03656, Eta product: -3.17628, Mass: 298.133
+VBS quarks pair pT: 18.9467, eta: -3.76112, DeltaEta: 3.97936, Eta product: -3.05973, Mass: 327.3372570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 53.7866, eta: 1.91729, phi: 3.73262, mass: 10.8786
+Matched tag jet pT: 37.9864, eta: -3.01739, phi: 2.4353
+Matched jet no tag pT: 266.89, eta: 0.521243, phi: 3.45433
+Tagging quarks 1 pT: 278.056, eta: 0.512234, phi: 3.48686
+Tagging quarks 2 pT: 41.467, eta: -2.99324, phi: 2.436642570
+Tagging jet pair pT: 73.7538, eta: -1.76118, DeltaEta: 4.93468, Eta product: -5.78521, Mass: 532.385
+VBS jet true pair pT: 288.621, eta: -0.761764, DeltaEta: 3.53863, Eta product: -1.57279, Mass: 582.496
+VBS quarks pair pT: 300.839, eta: -0.791726, DeltaEta: 3.50547, Eta product: -1.53324, Mass: 610.5712570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 41.7196, eta: -3.36206, phi: 3.29132, mass: 10.0597
+Matched tag jet pT: 247.727, eta: 2.277, phi: 5.00147
+Matched jet no tag pT: 85.6591, eta: -1.50981, phi: 2.37346
+Tagging quarks 1 pT: 261.752, eta: 2.19766, phi: 4.98588
+Tagging quarks 2 pT: 103.202, eta: -1.56289, phi: 2.235572570
+Tagging jet pair pT: 245.434, eta: 1.61654, DeltaEta: 5.63906, Eta product: -7.65542, Mass: 1705.76
+VBS jet true pair pT: 178.161, eta: 2.43612, DeltaEta: 3.78681, Eta product: -3.43783, Mass: 987.484
+VBS quarks pair pT: 170.942, eta: 2.39366, DeltaEta: 3.76055, Eta product: -3.43471, Mass: 1100.642570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 44.659, eta: -3.39809, phi: 1.95251, mass: 9.59884
+Matched tag jet pT: 30.8391, eta: 3.72298, phi: 3.06786
+Matched jet no tag pT: 515.425, eta: -1.04307, phi: 6.18564
+Tagging quarks 1 pT: 525.346, eta: -1.04104, phi: 6.18753
+Tagging quarks 2 pT: 23.7535, eta: 3.70631, phi: 3.065492570
+Tagging jet pair pT: 64.4754, eta: -0.439483, DeltaEta: 7.12108, Eta product: -12.651, Mass: 1305.29
+VBS jet true pair pT: 484.596, eta: -0.00567647, DeltaEta: 4.76605, Eta product: -3.88333, Mass: 1378.45
+VBS quarks pair pT: 501.597, eta: -0.329066, DeltaEta: 4.74736, Eta product: -3.85843, Mass: 1209.82570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 736.487, eta: -0.603282, phi: 0.874587, mass: 81.4805
+Matched tag jet pT: 107.696, eta: 3.43618, phi: 5.07376
+Matched jet no tag pT: 478.494, eta: -0.186343, phi: 4.42377
+Tagging quarks 1 pT: 112.51, eta: 3.46771, phi: 5.0705
+Tagging quarks 2 pT: 480.224, eta: -0.185516, phi: 4.420492570
+Tagging jet pair pT: 690.018, eta: 1.32008, DeltaEta: 4.03946, Eta product: -2.07298, Mass: 2145.61
+VBS jet true pair pT: 567.982, eta: 1.748, DeltaEta: 3.62252, Eta product: -0.640306, Mass: 1360.39
+VBS quarks pair pT: 573.844, eta: 1.81338, DeltaEta: 3.65323, Eta product: -0.643315, Mass: 1414.522570
+Merged region
+Mismatched tag jet pT: 40.9342, eta: -1.07346, phi: 5.48791, mass: 3.68714
+Matched tag jet pT: 138.506, eta: 2.4842, phi: 1.26801
+Matched jet no tag pT: 152.214, eta: -0.272009, phi: 2.90049
+Tagging quarks 1 pT: 160.013, eta: 2.28144, phi: 1.53416
+Tagging quarks 2 pT: 211.853, eta: -0.29466, phi: 2.858532570
+Tagging jet pair pT: 124.492, eta: 2.52407, DeltaEta: 3.55766, Eta product: -2.66669, Mass: 452.35
+VBS jet true pair pT: 199.384, eta: 2.07658, DeltaEta: 2.75621, Eta product: -0.675724, Mass: 583.235
+VBS quarks pair pT: 294.999, eta: 1.61441, DeltaEta: 2.5761, Eta product: -0.672249, Mass: 657.0252570Mismatched tag jet pT: 45.5828, eta: -2.90389, phi: 3.60051, mass: 10.8104
+Matched tag jet pT: 62.3547, eta: 3.14724, phi: 5.93801
+Matched jet no tag pT: 157.653, eta: -1.89934, phi: 5.52736
+Tagging quarks 1 pT: 162.31, eta: -1.86119, phi: 5.54244
+Tagging quarks 2 pT: 59.2586, eta: 3.03098, phi: 5.994872570
+Tagging jet pair pT: 44.968, eta: 2.62782, DeltaEta: 6.05114, Eta product: -9.13925, Mass: 1100.53
+VBS jet true pair pT: 216.261, eta: 0.85854, DeltaEta: 5.04659, Eta product: -5.9777, Mass: 1229.17
+VBS quarks pair pT: 217.157, eta: 0.458516, DeltaEta: 4.89217, Eta product: -5.64123, Mass: 1124.422570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 307.879, eta: 1.8738, phi: 3.44112, mass: 39.063
+Matched tag jet pT: 91.4694, eta: -3.30918, phi: 4.61464
+Matched jet no tag pT: 606.35, eta: 1.05415, phi: 1.53691
+Tagging quarks 1 pT: 626.881, eta: 1.07752, phi: 1.51759
+Tagging quarks 2 pT: 89.9517, eta: -3.33057, phi: 4.626952570
+Tagging jet pair pT: 353.479, eta: -0.70594, DeltaEta: 5.18299, Eta product: -6.20076, Mass: 2236.24
+VBS jet true pair pT: 515.1, eta: -0.840058, DeltaEta: 4.36334, Eta product: -3.48839, Mass: 2117.04
+VBS quarks pair pT: 536.984, eta: -0.750143, DeltaEta: 4.4081, Eta product: -3.58877, Mass: 21782570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1912.88, eta: -0.733607, phi: 5.5037, mass: 80.399
+Matched tag jet pT: 98.6247, eta: 4.18552, phi: 3.36458
+Matched jet no tag pT: 487.488, eta: 0.0864878, phi: 2.19849
+Tagging quarks 1 pT: 490.868, eta: 0.0902669, phi: 2.19691
+Tagging quarks 2 pT: 101.515, eta: 4.21833, phi: 3.371882570
+Tagging jet pair pT: 1861.65, eta: 0.821731, DeltaEta: 4.91913, Eta product: -3.07053, Mass: 5103.29
+VBS jet true pair pT: 534.072, eta: 2.51558, DeltaEta: 4.09904, Eta product: 0.361997, Mass: 1692.45
+VBS quarks pair pT: 538.222, eta: 2.56872, DeltaEta: 4.12806, Eta product: 0.380775, Mass: 1747.782570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 32.3159, eta: -2.58837, phi: 4.32371, mass: 2.26024
+Matched tag jet pT: 73.9495, eta: 4.23329, phi: 0.788243
+Matched jet no tag pT: 75.3833, eta: -2.23425, phi: 4.78332
+Tagging quarks 1 pT: 74.4496, eta: 4.24002, phi: 0.793762
+Tagging quarks 2 pT: 74.8666, eta: -2.24118, phi: 4.802942570
+Tagging jet pair pT: 45.8183, eta: 4.62425, DeltaEta: 6.82165, Eta product: -10.9573, Mass: 1482.27
+VBS jet true pair pT: 61.8237, eta: 4.26557, DeltaEta: 6.46753, Eta product: -9.45821, Mass: 1896.63
+VBS quarks pair pT: 62.7613, eta: 4.26607, DeltaEta: 6.4812, Eta product: -9.50266, Mass: 1909.332570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 860.959, eta: -1.70677, phi: 0.758639, mass: 76.0233
+Matched tag jet pT: 57.6157, eta: 2.50841, phi: 4.49144
+Matched jet no tag pT: 333.75, eta: 0.0507152, phi: 3.77684
+Tagging quarks 1 pT: 69.5129, eta: 2.4701, phi: 4.68512
+Tagging quarks 2 pT: 365.239, eta: 0.0518362, phi: 3.767912570
+Tagging jet pair pT: 813.756, eta: -1.60457, DeltaEta: 4.21518, Eta product: -4.28127, Mass: 1857.06
+VBS jet true pair pT: 379.155, eta: 0.861368, DeltaEta: 2.45769, Eta product: 0.127214, Mass: 446.311
+VBS quarks pair pT: 411.226, eta: 0.908154, DeltaEta: 2.41827, Eta product: 0.128041, Mass: 506.372570Mismatched tag jet pT: 36.0166, eta: 2.98128, phi: 1.31669, mass: 13.1398
+Matched tag jet pT: 72.578, eta: -3.00549, phi: 0.768618
+Matched jet no tag pT: 691.32, eta: 1.56807, phi: 1.2892
+Tagging quarks 1 pT: 68.654, eta: -2.91123, phi: 0.67356
+Tagging quarks 2 pT: 697.376, eta: 1.55871, phi: 1.287662570
+Tagging jet pair pT: 105.01, eta: -1.99024, DeltaEta: 5.98677, Eta product: -8.96021, Mass: 1018.23
+VBS jet true pair pT: 755.147, eta: 0.971945, DeltaEta: 4.57356, Eta product: -4.71281, Mass: 2186.38
+VBS quarks pair pT: 754.524, eta: 1.05719, DeltaEta: 4.46994, Eta product: -4.53776, Mass: 2025.952570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 49.2541, eta: -1.98149, phi: 4.2376, mass: 4.01919
+Matched tag jet pT: 102.93, eta: 2.81076, phi: 5.87266
+Matched jet no tag pT: 167.324, eta: -1.32181, phi: 2.79884
+Tagging quarks 1 pT: 106.753, eta: 2.77696, phi: 5.89135
+Tagging quarks 2 pT: 150.792, eta: -1.33321, phi: 2.791262570
+Tagging jet pair pT: 111.218, eta: 2.50622, DeltaEta: 4.79225, Eta product: -5.5695, Mass: 782.583
+VBS jet true pair pT: 65.0057, eta: 2.85163, DeltaEta: 4.13257, Eta product: -3.71529, Mass: 1053.68
+VBS quarks pair pT: 44.353, eta: 3.27967, DeltaEta: 4.11016, Eta product: -3.70226, Mass: 1006.822570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 36.3714, eta: -1.68686, phi: 1.51673, mass: 5.90168
+Matched tag jet pT: 449.618, eta: 1.08486, phi: 3.10658
+Matched jet no tag pT: 101.005, eta: -1.14187, phi: 1.52059
+Tagging quarks 1 pT: 458.094, eta: 1.09257, phi: 3.11909
+Tagging quarks 2 pT: 110.56, eta: -0.949453, phi: 1.504422570
+Tagging jet pair pT: 450.396, eta: 0.948743, DeltaEta: 2.77172, Eta product: -1.83001, Mass: 514.213
+VBS jet true pair pT: 459.324, eta: 0.862521, DeltaEta: 2.22674, Eta product: -1.23878, Mass: 656.941
+VBS quarks pair pT: 466.51, eta: 0.908707, DeltaEta: 2.04202, Eta product: -1.03734, Mass: 633.52570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 31.4221, eta: -3.32352, phi: 4.32166, mass: 5.06074
+Matched tag jet pT: 69.701, eta: 4.0123, phi: 5.8472
+Matched jet no tag pT: 206.349, eta: -1.57858, phi: 2.53981
+Tagging quarks 1 pT: 207.435, eta: -1.56459, phi: 2.54563
+Tagging quarks 2 pT: 71.7501, eta: 4.02093, phi: 5.844732570
+Tagging jet pair pT: 77.7414, eta: 3.64708, DeltaEta: 7.33582, Eta product: -13.335, Mass: 1833.11
+VBS jet true pair pT: 138.083, eta: 3.04465, DeltaEta: 5.59089, Eta product: -6.33375, Mass: 1970.97
+VBS quarks pair pT: 137.036, eta: 3.10489, DeltaEta: 5.58552, Eta product: -6.29111, Mass: 1999.122570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 756.646, eta: -2.1426, phi: 3.05014, mass: 81.7845
+Matched tag jet pT: 121.364, eta: 2.25838, phi: 3.59515
+Matched jet no tag pT: 70.8679, eta: -1.04521, phi: 1.97605
+Tagging quarks 1 pT: 50.7587, eta: 2.13602, phi: 3.77921
+Tagging quarks 2 pT: 71.6423, eta: -1.04802, phi: 2.033232570
+Tagging jet pair pT: 862.725, eta: -1.82469, DeltaEta: 4.40098, Eta product: -4.8388, Mass: 2709.83
+VBS jet true pair pT: 137.553, eta: 1.97464, DeltaEta: 3.30359, Eta product: -2.36048, Mass: 486.321
+VBS quarks pair pT: 80.2585, eta: 1.20759, DeltaEta: 3.18404, Eta product: -2.2386, Mass: 298.6942570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1064.72, eta: -1.56046, phi: 2.07596, mass: 81.1633
+Matched tag jet pT: 85.8676, eta: 3.9327, phi: 3.83258
+Matched jet no tag pT: 154.062, eta: -0.829747, phi: 2.92104
+Tagging quarks 1 pT: 90.6849, eta: 3.89249, phi: 3.85241
+Tagging quarks 2 pT: 178.892, eta: -0.862519, phi: 2.921832570
+Tagging jet pair pT: 1052.24, eta: -0.218797, DeltaEta: 5.49316, Eta product: -6.13683, Mass: 4718.6
+VBS jet true pair pT: 217.519, eta: 2.93813, DeltaEta: 4.76244, Eta product: -3.26314, Mass: 1239.17
+VBS quarks pair pT: 244.148, eta: 2.82362, DeltaEta: 4.75501, Eta product: -3.35735, Mass: 1365.762570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 44.2465, eta: -1.47166, phi: 0.445221, mass: 8.24579
+Matched tag jet pT: 57.6563, eta: 2.89631, phi: 1.64024
+Matched jet no tag pT: 29.9429, eta: -0.820695, phi: 0.474797
+Tagging quarks 1 pT: 69.8702, eta: 2.9215, phi: 1.74686
+Tagging quarks 2 pT: 27.5129, eta: -0.796764, phi: 0.4735222570
+Tagging jet pair pT: 84.5843, eta: 2.32667, DeltaEta: 4.36797, Eta product: -4.26239, Mass: 447.046
+VBS jet true pair pT: 74.7156, eta: 2.58562, DeltaEta: 3.717, Eta product: -2.37699, Mass: 265.023
+VBS quarks pair pT: 82.2536, eta: 2.72144, DeltaEta: 3.71826, Eta product: -2.32774, Mass: 279.4742570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1099.02, eta: -1.11517, phi: 5.20398, mass: 79.1775
+Matched tag jet pT: 102.282, eta: 2.23544, phi: 2.5744
+Matched jet no tag pT: 338.129, eta: -1.09649, phi: 2.22489
+Tagging quarks 1 pT: 101.59, eta: 2.21753, phi: 2.55355
+Tagging quarks 2 pT: 342.685, eta: -1.09869, phi: 2.227522570
+Tagging jet pair pT: 1011.1, eta: -0.889786, DeltaEta: 3.35061, Eta product: -2.4929, Mass: 1848.04
+VBS jet true pair pT: 435.637, eta: 0.0529725, DeltaEta: 3.33193, Eta product: -2.45113, Mass: 951.712
+VBS quarks pair pT: 440.128, eta: 0.00918939, DeltaEta: 3.31621, Eta product: -2.43637, Mass: 945.842570
+Merged region
+Mismatched tag jet pT: 95.8485, eta: 1.99286, phi: 5.96701, mass: 13.1321
+Matched tag jet pT: 181.706, eta: -2.3101, phi: 5.87625
+Matched jet no tag pT: 1195.25, eta: 1.06825, phi: 0.110109
+Tagging quarks 1 pT: 190.212, eta: -2.33044, phi: 5.87268
+Tagging quarks 2 pT: 1271.89, eta: 1.06827, phi: 0.1125932570
+Tagging jet pair pT: 277.296, eta: -1.4544, DeltaEta: 4.30296, Eta product: -4.6037, Mass: 1119.7
+VBS jet true pair pT: 1356.18, eta: 0.447628, DeltaEta: 3.37835, Eta product: -2.46776, Mass: 2449.65
+VBS quarks pair pT: 1439.81, eta: 0.445986, DeltaEta: 3.39871, Eta product: -2.48954, Mass: 2613.22570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 83.6854, eta: -1.1738, phi: 6.12114, mass: 17.1092
+Matched tag jet pT: 78.1829, eta: 3.27798, phi: 3.60053
+Matched jet no tag pT: 142.869, eta: -0.499757, phi: 6.00727
+Tagging quarks 1 pT: 176.032, eta: -0.496587, phi: 6.00223
+Tagging quarks 2 pT: 70.3595, eta: 2.98552, phi: 3.791732570
+Tagging jet pair pT: 49.7318, eta: 3.6039, DeltaEta: 4.45178, Eta product: -3.84769, Mass: 757.904
+VBS jet true pair pT: 99.7469, eta: 2.96107, DeltaEta: 3.77774, Eta product: -1.63819, Mass: 711.447
+VBS quarks pair pT: 145.432, eta: 2.13059, DeltaEta: 3.48211, Eta product: -1.48257, Mass: 646.5722570
+Merged region
+Mismatched tag jet pT: 719.808, eta: 0.480664, phi: 4.97405, mass: 86.7343
+Matched tag jet pT: 36.0288, eta: -4.28621, phi: 0.738359
+Matched jet no tag pT: 315.644, eta: 0.105693, phi: 1.06326
+Tagging quarks 1 pT: 105.649, eta: 0.273173, phi: 0.927073
+Tagging quarks 2 pT: 38.0362, eta: -4.16658, phi: 0.7240762570
+Tagging jet pair pT: 704.005, eta: -1.10803, DeltaEta: 4.76688, Eta product: -2.06023, Mass: 1758.51
+VBS jet true pair pT: 349.977, eta: -2.00491, DeltaEta: 4.3919, Eta product: -0.453022, Mass: 956.215
+VBS quarks pair pT: 143.11, eta: -2.8207, DeltaEta: 4.43975, Eta product: -1.1382, Mass: 576.8512570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 580.683, eta: -2.30224, phi: 5.68419, mass: 80.4871
+Matched tag jet pT: 62.6161, eta: 3.48126, phi: 1.23553
+Matched jet no tag pT: 29.7217, eta: -1.99058, phi: 1.16797
+Tagging quarks 1 pT: 41.6442, eta: 3.44674, phi: 1.14936
+Tagging quarks 2 pT: 50.1323, eta: -2.06751, phi: 1.221442570
+Tagging jet pair pT: 567.587, eta: -1.90093, DeltaEta: 5.7835, Eta product: -8.01469, Mass: 3441.17
+VBS jet true pair pT: 92.2918, eta: 2.98401, DeltaEta: 5.47185, Eta product: -6.92974, Mass: 662.854
+VBS quarks pair pT: 91.7174, eta: 2.31145, DeltaEta: 5.51424, Eta product: -7.12615, Mass: 716.9522570
+Merged region
+Mismatched tag jet pT: 110.733, eta: -0.354386, phi: 2.88581, mass: 13.6271
+Matched tag jet pT: 119.594, eta: 3.24629, phi: 4.09142
+Matched jet no tag pT: 160.666, eta: 0.0273424, phi: 4.75113
+Tagging quarks 1 pT: 164.278, eta: 0.0295688, phi: 4.75069
+Tagging quarks 2 pT: 133.769, eta: 3.29856, phi: 4.033162570
+Tagging jet pair pT: 189.799, eta: 2.76047, DeltaEta: 3.60068, Eta product: -1.15044, Mass: 691.838
+VBS jet true pair pT: 265.484, eta: 2.45755, DeltaEta: 3.21895, Eta product: 0.0887615, Mass: 672.207
+VBS quarks pair pT: 279.277, eta: 2.56966, DeltaEta: 3.26899, Eta product: 0.0975343, Mass: 738.472570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 63.9474, eta: 2.37659, phi: 1.35853, mass: 6.18195
+Matched tag jet pT: 146.882, eta: -2.50936, phi: 2.99553
+Matched jet no tag pT: 298.722, eta: 1.14943, phi: 6.00923
+Tagging quarks 1 pT: 175.347, eta: -2.53916, phi: 2.89431
+Tagging quarks 2 pT: 310.29, eta: 1.17319, phi: 5.989342570
+Tagging jet pair pT: 156.272, eta: -1.98119, DeltaEta: 4.88595, Eta product: -5.96372, Mass: 1116.15
+VBS jet true pair pT: 154.182, eta: -1.83971, DeltaEta: 3.65879, Eta product: -2.88433, Mass: 1339.43
+VBS quarks pair pT: 135.379, eta: -2.27322, DeltaEta: 3.71235, Eta product: -2.97892, Mass: 1529.072570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 75.4773, eta: -2.07456, phi: 2.30818, mass: 6.6987
+Matched tag jet pT: 48.0388, eta: 2.32315, phi: 4.49601
+Matched jet no tag pT: 190.638, eta: 0.292159, phi: 0.539537
+Tagging quarks 1 pT: 52.9885, eta: 2.32465, phi: 4.46809
+Tagging quarks 2 pT: 217.05, eta: 0.316605, phi: 0.5862570
+Tagging jet pair pT: 61.7139, eta: -0.776288, DeltaEta: 4.3977, Eta product: -4.8195, Mass: 546.913
+VBS jet true pair pT: 161.513, eta: 1.37601, DeltaEta: 2.03099, Eta product: 0.678729, Mass: 292.422
+VBS quarks pair pT: 181.493, eta: 1.38066, DeltaEta: 2.00804, Eta product: 0.735996, Mass: 322.7872570Mismatched tag jet pT: 36.2719, eta: -2.33645, phi: 2.36923, mass: 7.18919
+Matched tag jet pT: 51.0414, eta: 3.88044, phi: 5.60432
+Matched jet no tag pT: 40.7383, eta: -1.67732, phi: 4.59317
+Tagging quarks 1 pT: 70.3232, eta: 3.85306, phi: 5.61367
+Tagging quarks 2 pT: 45.2985, eta: -1.64614, phi: 4.665482570
+Tagging jet pair pT: 15.3072, eta: 4.92141, DeltaEta: 6.21689, Eta product: -9.06645, Mass: 965.348
+VBS jet true pair pT: 80.4527, eta: 3.33729, DeltaEta: 5.55776, Eta product: -6.50875, Mass: 732.93
+VBS quarks pair pT: 103.502, eta: 3.39653, DeltaEta: 5.4992, Eta product: -6.34268, Mass: 880.4282570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 32.5108, eta: -2.92312, phi: 0.813078, mass: 5.28546
+Matched tag jet pT: 109.734, eta: 2.25863, phi: 2.50894
+Matched jet no tag pT: 282.524, eta: -1.88819, phi: 5.44342
+Tagging quarks 1 pT: 109.044, eta: 2.19408, phi: 2.47816
+Tagging quarks 2 pT: 170.259, eta: -2.03022, phi: 5.432632570
+Tagging jet pair pT: 110.492, eta: 1.431, DeltaEta: 5.18175, Eta product: -6.60225, Mass: 797.533
+VBS jet true pair pT: 176.583, eta: -1.53938, DeltaEta: 4.14682, Eta product: -4.26472, Mass: 1423.76
+VBS quarks pair pT: 66.2979, eta: -1.57975, DeltaEta: 4.2243, Eta product: -4.45447, Mass: 1142.492570
+Merged region
+Mismatched tag jet pT: 190.12, eta: -3.25691, phi: 3.76324, mass: 8.72508
+Matched tag jet pT: 90.8592, eta: 2.61777, phi: 2.38435
+Matched jet no tag pT: 32.2308, eta: -2.55146, phi: 5.18496
+Tagging quarks 1 pT: 91.7576, eta: 2.50958, phi: 2.34808
+Tagging quarks 2 pT: 31.2397, eta: -2.48323, phi: 5.170152570
+Tagging jet pair pT: 225.811, eta: -2.79777, DeltaEta: 5.87468, Eta product: -8.52585, Mass: 2478.27
+VBS jet true pair pT: 61.4369, eta: 2.60615, DeltaEta: 5.16923, Eta product: -6.67913, Mass: 721.447
+VBS quarks pair pT: 62.8696, eta: 2.48531, DeltaEta: 4.99281, Eta product: -6.23188, Mass: 654.0952570Mismatched tag jet pT: 91.6146, eta: -1.70808, phi: 3.45097, mass: 19.0894
+Matched tag jet pT: 44.5334, eta: 4.18614, phi: 2.02334
+Matched jet no tag pT: 150.191, eta: -1.31846, phi: 3.00525
+Tagging quarks 1 pT: 44.8248, eta: 4.10656, phi: 2.07059
+Tagging quarks 2 pT: 159.735, eta: -1.32155, phi: 3.007272570
+Tagging jet pair pT: 107.427, eta: 3.12457, DeltaEta: 5.89423, Eta product: -7.15028, Mass: 1217.39
+VBS jet true pair pT: 178.803, eta: 2.60534, DeltaEta: 5.5046, Eta product: -5.51925, Mass: 1279.47
+VBS quarks pair pT: 189.76, eta: 2.44225, DeltaEta: 5.42811, Eta product: -5.42704, Mass: 1273.592570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 236.319, eta: 2.15039, phi: 5.10102, mass: 19.0373
+Matched tag jet pT: 107.252, eta: -3.20067, phi: 5.68
+Matched jet no tag pT: 32.601, eta: 2.05661, phi: 1.09107
+Tagging quarks 1 pT: 26.7352, eta: 2.02276, phi: 1.16272
+Tagging quarks 2 pT: 106.511, eta: -3.18073, phi: 5.659952570
+Tagging jet pair pT: 331.33, eta: -0.84227, DeltaEta: 5.35106, Eta product: -6.88269, Mass: 2302.68
+VBS jet true pair pT: 108.188, eta: -3.09212, DeltaEta: 5.25728, Eta product: -6.58252, Mass: 820.106
+VBS quarks pair pT: 104.132, eta: -3.12276, DeltaEta: 5.2035, Eta product: -6.43387, Mass: 720.5772570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 55.869, eta: -3.73513, phi: 6.21241, mass: 8.32424
+Matched tag jet pT: 70.6732, eta: 3.43268, phi: 3.7691
+Matched jet no tag pT: 164.832, eta: -2.67146, phi: 5.63545
+Tagging quarks 1 pT: 173.523, eta: -2.66821, phi: 5.63696
+Tagging quarks 2 pT: 70.2986, eta: 3.39633, phi: 3.74772570
+Tagging jet pair pT: 45.4691, eta: -1.29466, DeltaEta: 7.16781, Eta product: -12.8215, Mass: 2264.41
+VBS jet true pair pT: 159.305, eta: -0.55632, DeltaEta: 6.10414, Eta product: -9.17028, Mass: 2285.31
+VBS quarks pair pT: 165.569, eta: -1.00711, DeltaEta: 6.06454, Eta product: -9.06213, Mass: 2292.812570
+Merged region
+
+Merged region
+Mismatched tag jet pT: 1028.76, eta: 1.55177, phi: 1.78401, mass: 70.0433
+Matched tag jet pT: 50.2901, eta: -3.95578, phi: 4.26961
+Matched jet no tag pT: 193.883, eta: 1.52356, phi: 2.47484
+Tagging quarks 1 pT: 56.3399, eta: -3.82888, phi: 4.27637
+Tagging quarks 2 pT: 221.5, eta: 1.50165, phi: 2.488482570
+Tagging jet pair pT: 989.386, eta: 0.893055, DeltaEta: 5.50755, Eta product: -6.13847, Mass: 3584.06
+VBS jet true pair pT: 189.179, eta: -2.25203, DeltaEta: 5.47934, Eta product: -6.02687, Mass: 1530.52
+VBS quarks pair pT: 216.474, eta: -2.04552, DeltaEta: 5.33052, Eta product: -5.74962, Mass: 1607.172570
+Merged region
+
+Merged region
+
+Merged region
+Mismatched tag jet pT: 52.5952, eta: 0.666675, phi: 2.71435, mass: 6.04377
+Matched tag jet pT: 34.89, eta: -3.91738, phi: 4.41256
+Matched jet no tag pT: 82.4434, eta: 0.659655, phi: 4.38307
+Tagging quarks 1 pT: 34.9825, eta: -3.84324, phi: 4.50842
+Tagging quarks 2 pT: 82.5697, eta: 0.657698, phi: 4.387442570
+Tagging jet pair pT: 59.306, eta: -3.34374, DeltaEta: 4.58406, Eta product: -2.61162, Mass: 425.1
+VBS jet true pair pT: 117.323, eta: -2.6404, DeltaEta: 4.57704, Eta product: -2.58412, Mass: 524.287
+VBS quarks pair pT: 117.372, eta: -2.5641, DeltaEta: 4.50094, Eta product: -2.52769, Mass: 504.5362570
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+
+Merged region
+/exp/atlas/sali...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] D9BFFCDF-E084-5B4E-8EB0-CB9E9C50AEF3
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |            1127 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |            5415 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Listing sources of suppressed message: 
+=====================================================
+ Message Source              |   Level |    Count
+-----------------------------+---------+-------------
+ AthenaEventLoopMgr          |    INFO |     4003
+=====================================================
+Py:Athena            INFO leaving with code 0: "successful run"
+From conf found production dec WmZ_llqq
+Dir would be /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/
+searching for dir with pattern /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq//*MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq*
+found possibilities for dir ['/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400']
+#### will run rivet with athena rivet_job.py -c 'conf="MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq";DOCUT="YES";Part=""' --evtMax 2000
+dont do plot from yoda since redoPlots= no and dir /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//rivet-plots/ exists  True
+Cross section in fb for FM0_QUAD_WmZ_llqq: 0.011073
+reading from yoda file  /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+have 1d hists to be saved in root: ['/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CS_V_cos_theta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Centrality', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_CentralityVlepVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Full_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_fjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Ntrk_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaEta_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaPhi_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vhad_DeltaR_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VlepVhad_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VlepVhad_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_VlepVhad_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_Vlep_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppMerged', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppVhadVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_ZeppVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_cos_theta_star', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_D2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_lepton2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_DR_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Deta_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_Dphi_tagjet2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_n', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_fjet_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_leptons_pids', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_n_lepton_stable', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjet2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dphi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_dy', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_m', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//merged_tagjets_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Centrality', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_CentralityVlepVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_sigjets2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets1', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DR_min_lepton_tagjets2', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_DeltaPt_sig_jet2_jet3', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Full_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Full_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_signal_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Ntrk_tagjets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaEta_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaPhi_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_DeltaR_Vlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vhad_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VlepVhad_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VlepVhad_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_VlepVhad_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_DR_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_Deta_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_Dphi_tagjet', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_Vlep_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppRes', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppVhad', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppVhadVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_ZeppVlep', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_lepton_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_leptons_pids', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_mjjj', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_jets', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_n_lepton_stable', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaEta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaPhi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_DeltaR', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_mass', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_signal_jets_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet1_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjet2_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_delta_pt', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dphi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_dy', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_eta', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_m', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_phi', '/WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES//resolved_tagjets_pt'] in yoda file /exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/MyOutput.yoda.gz
+looking for prefix in counter /WmZ_llqq:OUTDIR=/exp/atlas/salin/ATLAS/VBS_mc/EFT_files_AMI/WmZ_llqq/mc16_13TeV.503164.MGPy8EG_aQGCFM0_QUAD_1_WmZ_llqq.merge.EVNT.e8263_e7400/DOCUT_YES/
+pos_n_in: 1979, neg_n_in: 21, pos_n_f: 357, neg_n_f: 1 pos_n_f_merged: 338, neg_n_f_merged: 1 pos_n_f_resolved: 19, neg_n_f_resolved: 0
+converting to root hist with name merged_CS_V_cos_theta
+converting to root hist with name merged_Centrality
+converting to root hist with name merged_CentralityVhad
+converting to root hist with name merged_CentralityVlep
+converting to root hist with name merged_CentralityVlepVhad
+converting to root hist with name merged_Full_mass
+converting to root hist with name merged_Full_pt
+converting to root hist with name merged_Ntrk_fjets
+converting to root hist with name merged_Ntrk_tagjets
+converting to root hist with name merged_Vhad_DeltaEta_Vlep
+converting to root hist with name merged_Vhad_DeltaPhi_Vlep
+converting to root hist with name merged_Vhad_DeltaR_Vlep
+converting to root hist with name merged_VlepVhad_eta
+converting to root hist with name merged_VlepVhad_mass
+converting to root hist with name merged_VlepVhad_pt
+converting to root hist with name merged_Vlep_DR_tagjet
+converting to root hist with name merged_Vlep_Deta_tagjet
+converting to root hist with name merged_Vlep_Dphi_tagjet
+converting to root hist with name merged_Vlep_eta
+converting to root hist with name merged_Vlep_mass
+converting to root hist with name merged_Vlep_phi
+converting to root hist with name merged_Vlep_pt
+converting to root hist with name merged_ZeppMerged
+converting to root hist with name merged_ZeppVhad
+converting to root hist with name merged_ZeppVhadVlep
+converting to root hist with name merged_ZeppVlep
+converting to root hist with name merged_cos_theta_star
+converting to root hist with name merged_fjet_D2
+converting to root hist with name merged_fjet_DR_lepton1
+converting to root hist with name merged_fjet_DR_lepton2
+converting to root hist with name merged_fjet_DR_tagjet1
+converting to root hist with name merged_fjet_DR_tagjet2
+converting to root hist with name merged_fjet_Deta_tagjet1
+converting to root hist with name merged_fjet_Deta_tagjet2
+converting to root hist with name merged_fjet_Dphi_tagjet1
+converting to root hist with name merged_fjet_Dphi_tagjet2
+converting to root hist with name merged_fjet_eta
+converting to root hist with name merged_fjet_mass
+converting to root hist with name merged_fjet_n
+converting to root hist with name merged_fjet_pt
+converting to root hist with name merged_lepton1_eta
+converting to root hist with name merged_lepton1_pt
+converting to root hist with name merged_lepton2_eta
+converting to root hist with name merged_lepton2_pt
+converting to root hist with name merged_lepton_delta_eta
+converting to root hist with name merged_lepton_delta_phi
+converting to root hist with name merged_lepton_delta_pt
+converting to root hist with name merged_lepton_eta
+converting to root hist with name merged_lepton_pt
+converting to root hist with name merged_leptons_pids
+converting to root hist with name merged_n_jets
+converting to root hist with name merged_n_lepton_stable
+converting to root hist with name merged_tagjet1_eta
+converting to root hist with name merged_tagjet1_phi
+converting to root hist with name merged_tagjet1_pt
+converting to root hist with name merged_tagjet2_eta
+converting to root hist with name merged_tagjet2_phi
+converting to root hist with name merged_tagjet2_pt
+converting to root hist with name merged_tagjets_delta_eta
+converting to root hist with name merged_tagjets_delta_pt
+converting to root hist with name merged_tagjets_dphi
+converting to root hist with name merged_tagjets_dy
+converting to root hist with name merged_tagjets_eta
+converting to root hist with name merged_tagjets_m
+converting to root hist with name merged_tagjets_phi
+converting to root hist with name merged_tagjets_pt
+converting to root hist with name resolved_Centrality
+converting to root hist with name resolved_CentralityVhad
+converting to root hist with name resolved_CentralityVlep
+converting to root hist with name resolved_CentralityVlepVhad
+converting to root hist with name resolved_DR_min_lepton_sigjets1
+converting to root hist with name resolved_DR_min_lepton_sigjets2
+converting to root hist with name resolved_DR_min_lepton_tagjets1
+converting to root hist with name resolved_DR_min_lepton_tagjets2
+converting to root hist with name resolved_DeltaPt_sig_jet2_jet3
+converting to root hist with name resolved_Full_mass
+converting to root hist with name resolved_Full_pt
+converting to root hist with name resolved_Ntrk_signal_jets
+converting to root hist with name resolved_Ntrk_tagjets
+converting to root hist with name resolved_Vhad_DR_tagjet
+converting to root hist with name resolved_Vhad_DeltaEta_Vlep
+converting to root hist with name resolved_Vhad_DeltaPhi_Vlep
+converting to root hist with name resolved_Vhad_DeltaR_Vlep
+converting to root hist with name resolved_Vhad_Deta_tagjet
+converting to root hist with name resolved_Vhad_Dphi_tagjet
+converting to root hist with name resolved_VlepVhad_eta
+converting to root hist with name resolved_VlepVhad_mass
+converting to root hist with name resolved_VlepVhad_pt
+converting to root hist with name resolved_Vlep_DR_tagjet
+converting to root hist with name resolved_Vlep_Deta_tagjet
+converting to root hist with name resolved_Vlep_Dphi_tagjet
+converting to root hist with name resolved_Vlep_eta
+converting to root hist with name resolved_Vlep_mass
+converting to root hist with name resolved_Vlep_phi
+converting to root hist with name resolved_Vlep_pt
+converting to root hist with name resolved_ZeppRes
+converting to root hist with name resolved_ZeppVhad
+converting to root hist with name resolved_ZeppVhadVlep
+converting to root hist with name resolved_ZeppVlep
+converting to root hist with name resolved_lepton1_eta
+converting to root hist with name resolved_lepton1_pt
+converting to root hist with name resolved_lepton2_eta
+converting to root hist with name resolved_lepton2_pt
+converting to root hist with name resolved_lepton_delta_eta
+converting to root hist with name resolved_lepton_delta_phi
+converting to root hist with name resolved_lepton_delta_pt
+converting to root hist with name resolved_lepton_eta
+converting to root hist with name resolved_lepton_pt
+converting to root hist with name resolved_leptons_pids
+converting to root hist with name resolved_mjjj
+converting to root hist with name resolved_n_jets
+converting to root hist with name resolved_n_lepton_stable
+converting to root hist with name resolved_signal_jets_DeltaEta
+converting to root hist with name resolved_signal_jets_DeltaPhi
+converting to root hist with name resolved_signal_jets_DeltaR
+converting to root hist with name resolved_signal_jets_eta
+converting to root hist with name resolved_signal_jets_mass
+converting to root hist with name resolved_signal_jets_pt
+converting to root hist with name resolved_tagjet1_eta
+converting to root hist with name resolved_tagjet1_pt
+converting to root hist with name resolved_tagjet2_eta
+converting to root hist with name resolved_tagjet2_pt
+converting to root hist with name resolved_tagjets_delta_eta
+converting to root hist with name resolved_tagjets_delta_pt
+converting to root hist with name resolved_tagjets_dphi
+converting to root hist with name resolved_tagjets_dy
+converting to root hist with name resolved_tagjets_eta
+converting to root hist with name resolved_tagjets_m
+converting to root hist with name resolved_tagjets_phi
+converting to root hist with name resolved_tagjets_pt
+saving cutflow resolved as img
+['WmZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['2000.0', '100', '-', '']
+['Pass', 'have_two_lep', '1231.0', '62', '62']
+['Pass', 'pt_lep1_2', '1143.0', '57', '93']
+['Pass', 'n_jets', '1143.0', '57', '100']
+['Pass', 'found_tag_jets', '867.0', '43', '76']
+['Pass', 'm_tagjets', '829.0', '41', '96']
+['Pass', 'At_least_one_fjets', '429.0', '21', '52']
+['Pass', 'fjets_is_W/Z', '339.0', '17', '79']
+['Pass', 'Total_Merged_selec', '339.0', '17', '100']
+['']
+['WmZ_llqq_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['2000.0', '100', '-', '']
+['Pass', 'have_two_lep', '1231.0', '62', '62']
+['Pass', 'pt_lep1_2', '1143.0', '57', '93']
+['Pass', 'n_jets', '1143.0', '57', '100']
+['Pass', 'found_tag_jets', '867.0', '43', '76']
+['Pass', 'm_tagjets', '829.0', '41', '96']
+['Pass', 'Failed_Merged_selection', '490.0', '25', '59']
+['Pass', 'At_least_two_signal_jets', '178.0', '9', '36']
+['Pass', 'signal_jets_pT', '167.0', '8', '94']
+['Pass', 'signal_mjj', '33.0', '2', '20']
+['Pass', 'M_jjj', '19.0', '1', '58']
+['Pass', 'Total_Resolved_selec', '19.0', '1', '100']
+['']
