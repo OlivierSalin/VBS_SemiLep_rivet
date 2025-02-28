@@ -125,18 +125,36 @@ def cross_section_fb(EFT_op, EFT_type,  proces, dec):
         return None
 
 
-def take_xsec_fb(EFT_op, EFT_type, proces, dec):
+def take_xsec_fb(VBS_txt,EFT_op, EFT_type, proces, dec):
     # Create the key
     key = f"{proces}_{dec}_{EFT_op}_{EFT_type}"
     
     # Open the text file and read the cross sections
-    with open('VBS_xsection_test.txt', 'r') as f:
+    with open(VBS_txt, 'r') as f:
         for line in f:
             # Split the line into key and value
             key_file, xsection_fb = line.strip().split(': ')
             # If the key matches the input, return the cross section
             if key_file == key:
                 return float(xsection_fb)
+    
+    # If the key was not found in the file, return None
+    return None
+
+def take_xsec_fb_aqgc(VBS_txt,EFT_op, EFT_type, proces, dec):
+    # Create the key
+    key= f"{EFT_op}_{EFT_type}_{proces}_{dec}"
+    #print(key)
+    
+    # Open the text file and read the cross sections
+    with open(VBS_txt, 'r') as f:
+        for line in f:
+            # Split the line into key and value
+            info_xsec= line.strip().split(': ')
+            if len(info_xsec)>1:
+                key_file, xsection_fb = info_xsec[0], info_xsec[1]
+                if key_file == key:
+                    return float(xsection_fb)
     
     # If the key was not found in the file, return None
     return None
@@ -165,7 +183,7 @@ def take_xsec_fb2(EFT_op, EFT_type, proces, dec):
     
 
 
-def plot_histograms(output_plot,desired_num_bins, file_path, label):
+def plot_histograms(output_plot, desired_num_bins, file_path, label):
     # Open the first ROOT file to retrieve the list of parameters (branches)
     if not os.path.exists(output_plot):
         os.makedirs(output_plot)
@@ -182,9 +200,7 @@ def plot_histograms(output_plot,desired_num_bins, file_path, label):
         # Create a THStack
         hs = ROOT.THStack("hs", "Distribution of " + parameter_to_plot)
         
-        
         # Loop over the files to retrieve and stack the histograms
-
         root_file = ROOT.TFile(file_path, "READ")
     
         # Retrieve the histogram
@@ -196,11 +212,8 @@ def plot_histograms(output_plot,desired_num_bins, file_path, label):
         if rebin_factor > 0:
             histogram.Rebin(rebin_factor)
             
-         
         # Add the histogram to the stack
         hs.Add(histogram)
-        
-
 
         legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)  # x1, y1, x2, y2
 
@@ -217,14 +230,14 @@ def plot_histograms(output_plot,desired_num_bins, file_path, label):
         root_file.Close()
         
         # Draw the histograms
-        #hs.Draw("nostack")
-        hs.Draw("hist")
-        hs.GetXaxis().SetTitle(parameter_to_plot )
+        hs.Draw("HIST E")
+        hs.GetXaxis().SetTitle(parameter_to_plot)
         hs.GetYaxis().SetTitle("Events / bin")
         
-        # Set log scale for y-axis
-        canvas.SetLogy()
-        
+        # Allow negative bins
+        ROOT.gStyle.SetOptStat(0)
+        hs.SetMinimum(-1.1 * abs(histogram.GetMinimum()))
+
         # Draw the legend
         legend.Draw()
         canvas.Draw()
@@ -233,8 +246,8 @@ def plot_histograms(output_plot,desired_num_bins, file_path, label):
         canvas.Update()
         
         # Save the canvas to a file
-        canvas.SaveAs(output_plot+parameter_to_plot + "_hist.png")
-        
+        canvas.SaveAs(output_plot + parameter_to_plot + "_hist.png")
+
 def possible_process(proc, decay):
     
     valid_combinations = {
@@ -751,7 +764,7 @@ def combine_ntuples_jetAlgo(dir_details, Processes, Decays, Operators,output_dir
         for path in ntuple_files_all:
             file.write(path + "\n")
 
-                    
+
 
 
 

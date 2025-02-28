@@ -6,6 +6,7 @@ import os
 import shutil
 import run_chain
 import yoda
+import rivet
 import glob
 import ROOT
 from datetime import datetime
@@ -24,11 +25,14 @@ parser.add_option("--runAgain", default = "yes")
 parser.add_option("--name", default = "")
 parser.add_option("--keep", default = False)
 parser.add_option("--part", default = "")
+parser.add_option("--type_MC", default = "")
 opts, _ = parser.parse_args()
 
-prod_dec, base_dir = lu.find_prod_dec_and_dir_bis(opts.conf)
+prod_dec, base_dir = lu.find_prod_dec_and_dir_tres(opts.conf,opts.type_MC)
+print(f'prod_dec: {prod_dec}, base_dir: {base_dir}')
 
 conf_dir, _, _ = lu.find_evnt_dir_and_file_bis(base_dir,opts.conf)
+print(f'conf_dir: {conf_dir}')
 conf_cut_dir = lu.get_conf_cut_dir(conf_dir, opts.DOCUT)
 
 if opts.part != "": 
@@ -42,7 +46,7 @@ if not os.path.exists(rivet_out_name): do_rivet = 1
 elif os.path.exists(rivet_out_name) and opts.redoRivet=="yes": do_rivet = 1
 else: do_rivet = 0
 if do_rivet:
-    run_com = "athena rivet_job.py -c 'conf=" + f'"{opts.conf}";DOCUT=' + f'"{opts.DOCUT}";Part=' + f'"{opts.part}"' + f"' --evtMax {opts.evtMax}"
+    run_com = "athena rivet_job.py -c 'conf=" + f'"{opts.conf}";DOCUT=' + f'"{opts.DOCUT}";Part=' + f'"{opts.part}";type_MC=' + f'"{opts.type_MC}"' + f"' --evtMax {opts.evtMax} "
 
     print("#### will run rivet with", run_com)
     subprocess.call(run_com, shell=True)
@@ -54,7 +58,7 @@ if opts.redoPlots=="no": do_plots = 0
 elif opts.redoPlots=="yes": do_plots = 1
 else: do_plots = 0
 if do_plots:
-    plot_com = f"rivet-mkhtml MyOutput.yoda.gz:'Title={prod_dec}' --no-ratio"
+    plot_com = f"rivet-mkhtml  MyOutput.yoda.gz:'Title={prod_dec}' --no-ratio"
     print("#### will run mkhtml in dir", conf_cut_dir, "with com", plot_com)
     subprocess.call(plot_com, shell=True, cwd = conf_cut_dir)
 else:
@@ -73,13 +77,24 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
         print("dont see yoda file in dir ", mydir, ",return")
         return
     
-    yoda_f = yoda.read(yoda_f_str)
     print("reading from yoda file ", yoda_f_str)
-    all_hists_in_yoda = [iname  for iname in yoda_f.keys() if "[" not in iname and "RAW" not in iname]
+    yoda_f = yoda.read(yoda_f_str)
+    print("Weight name:")
+    print(set(name for name in yoda_f if 'merged_VlepVhad_mass' in name))
+    weight_names= set([rivet.extractWeightName(name) for name in yoda_f])
+    #print({rivet.extractWeightName(name) for name in yoda_f if 'quad' in rivet.extractWeightName(name) or 'cross' in rivet.extractWeightName(name)})
+    #print({rivet.extractWeightName(name) for name in yoda_f })
+    #print("reading from yoda file ", yoda_f_str)
+
+
+    yoda_f = yoda.read(yoda_f_str)
+    #print("reading from yoda file ", yoda_f_str)
+    #print("hist yoda keys", [name for name in yoda_f.keys() if "RAW" not in name] )
+    all_hists_in_yoda = [iname  for iname in yoda_f.keys() if "RAW" not in iname]
     hists_1h_in_yoda = []
     for i_name in all_hists_in_yoda:
         if yoda_f[i_name].type()=="Histo1D": hists_1h_in_yoda.append(i_name)  
-    print("have 1d hists to be saved in root:", hists_1h_in_yoda, "in yoda file", yoda_f_str)
+    #print("have 1d hists to be saved in root:", hists_1h_in_yoda, "in yoda file", yoda_f_str)
 
 
 
@@ -89,6 +104,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     
     # save fid xsec
     rivet_dir_name = f"/{prod_dec}:OUTDIR=/{mydir}".replace("//","/")
+    #rivet_dir_name = f"/{prod_dec}".replace("//","/")
     print("looking for prefix in counter",rivet_dir_name)
     pos_n_in = yoda_f[f"{rivet_dir_name}/pos_w_initial"].numEntries()
     neg_n_in = yoda_f[f"{rivet_dir_name}/neg_w_initial"].numEntries()
@@ -146,12 +162,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     write_to_f(Dir_info + "frac_after_cuts_error_bar_resolved.txt", frac_cut_er_bar_resolved)
     write_to_f(Dir_info + "Cross_section_fb.txt", xsec_fb)
     
-    lu.save_xsec_frac_prod(Dir_info,xsec_fb,
-                        frac_cut_merged,frac_pos_merged,frac_neg_merged, 
-                        pos_w_in, neg_w_in, pos_w_f_resolved, neg_w_f_resolved,pos_w_f_merged, neg_w_f_merged,
-                        pos_n_in, neg_n_in, pos_n_f_resolved, neg_n_f_resolved, pos_n_f_merged, neg_n_f_merged)
-    
-
+    print("Write to files")
 
 
     # save hists in root for further plotting
@@ -161,6 +172,18 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
         h_root = lu.yoda_to_root_1d(h_yoda, i_hist.split("/")[-1])
         h_root.Write("", ROOT.TObject.kOverwrite)
     root_file.Close()
+
+    os.makedirs(mydir + "/plots_bis/", exist_ok=True)
+
+    uf.plot_histograms(output_plot=mydir + "/plots_bis/" , desired_num_bins=25, file_path=mydir + "/hists.root", label='M rwg')
+
+    
+    lu.save_xsec_frac_prod(Dir_info,xsec_fb,
+                        frac_cut_merged,frac_pos_merged,frac_neg_merged, 
+                        pos_w_in, neg_w_in, pos_w_f_resolved, neg_w_f_resolved,pos_w_f_merged, neg_w_f_merged,
+                        pos_n_in, neg_n_in, pos_n_f_resolved, neg_n_f_resolved, pos_n_f_merged, neg_n_f_merged)
+    
+    print("Save frac files")
     
     #plot_root_histograms(mydir + "/hists.root")
     
@@ -168,18 +191,18 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     ############## draw event and cutflow
 
     print("saving cutflow resolved as img") 
+    
+    print("cutflow merged")
         
     cutflow_merged_file = mydir + "cutflow_merged.txt"
     if os.path.exists(cutflow_merged_file):
         cut_merged_names, cut_merged_cumu, cut_merged_incr = lu.get_cutflow_arrays(cutflow_merged_file)
-        lu.draw_cutflows(cut_merged_names, [cut_merged_incr,cut_merged_cumu], ["incremental","cumulative"],
-                        mydir+"/cutflow_merged_img.png", prod_dec) 
-        
+        #lu.draw_cutflows(cut_merged_names, [cut_merged_incr,cut_merged_cumu], ["incremental","cumulative"],mydir+"/cutflow_merged_img.png", prod_dec) 
+    print("saving cutflow merged ")    
     cutflow_resolved_file = mydir + "cutflow_resolved.txt"
     if os.path.exists(cutflow_resolved_file):
         cut_resolved_names, cut_resolved_cumu, cut_resolved_incr = lu.get_cutflow_arrays(cutflow_resolved_file)
-        lu.draw_cutflows(cut_resolved_names, [cut_resolved_incr,cut_resolved_cumu], ["incremental","cumulative"],
-                        mydir+"/cutflow_resolved_img.png", prod_dec)   
+        #lu.draw_cutflows(cut_resolved_names, [cut_resolved_incr,cut_resolved_cumu], ["incremental","cumulative"],mydir+"/cutflow_resolved_img.png", prod_dec)   
 
 
 # prod_dec, _ = lu.find_prod_dec_and_dir(job_name)
@@ -188,9 +211,21 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
 
 EFT_op, EFT_type, proc, decay = uf.extract_EFT_op_proces_dec_bis(opts.conf)
 
-keyy = f"{EFT_op}_{EFT_type}_{proc}_{decay}"    
+keyy = f"{EFT_op}_{EFT_type}_{proc}_{decay}" 
+print(f'Process studied: {keyy}')   
 #xsection_fb = uf.cross_section_fb(EFT_op,EFT_type, proc, decay)
-xsection_fb = uf.take_xsec_fb(EFT_op,EFT_type, proc, decay)
+if opts.type_MC == "model" or opts.type_MC == "aqgc":
+    print("Will take cross section from aqgc model file")
+    VBS_txt='VBS_cross_section_aqgc.txt'
+    xsection_fb = uf.take_xsec_fb_aqgc(VBS_txt,EFT_op,EFT_type, proc, decay)
+elif opts.type_MC == "run3" or opts.type_MC == "Run3":
+    print("Will take cross section from Run3 file")
+    VBS_txt='VBS_cross_section_Eboli_run3.txt'
+    xsection_fb = uf.take_xsec_fb_aqgc(VBS_txt,EFT_op,EFT_type, proc, decay)
+else:
+    VBS_txt='VBS_xsection_test.txt'
+    xsection_fb = uf.take_xsec_fb(VBS_txt,EFT_op,EFT_type, proc, decay)
+
 
 if xsection_fb is None:
     print(f'No cross section in txt found for {keyy}')
@@ -199,6 +234,7 @@ if xsection_fb is None:
     if xsection_fb is None:
         print(f'No cross section found in AMI for {keyy}')
         print("Cross section set at 0 to avoid errors but ISSUE")
+        xsection_fb = 0
         
 print(f'Cross section in fb for {keyy}: {xsection_fb}')
 
@@ -218,9 +254,6 @@ if os.path.exists(dir_plot_):
     # Delete the directory
     shutil.rmtree(dir_plot_)
     
-#uf.plot_histograms(output_plot=dir_plot_ , desired_num_bins=200, file_path=mydir + "/hists.root", label=label_plot)
-
-#uf.plot_histograms(output_plot=dir_plot_2 , desired_num_bins=200, file_path=mydir + "/ntuple_rivet.root", label=label_plot)
 
 
 if (opts.keep):
@@ -232,7 +265,6 @@ if (opts.keep):
     os.makedirs(run_dir, exist_ok=True)
 
     files_to_copy = [
-        "hists.root",
         "ntuple_rivet.root",
         "/Info/frac_cuts_merged.txt",
         "/Info/frac_after_cuts_error_bar_merged.txt",
@@ -240,8 +272,6 @@ if (opts.keep):
         "/Info/frac_after_cuts_error_bar_resolved.txt",
         "cutflow_merged.txt",
         "cutflow_resolved.txt",
-        "cutflow_merged_img.png",
-        "cutflow_resolved_img.png",
         "/Info/Cross_section_fb.txt",
     ]
 
@@ -250,5 +280,5 @@ if (opts.keep):
 
     # Copy the repository mydir + "/plots/"
     #shutil.copytree(mydir + "/plots/", run_dir + "plots/")
-#print(f'Cross section in fb: {xsec_fb}')
+print(f'Cross section in fb: {xsection_fb}')
 

@@ -254,6 +254,45 @@ def find_prod_dec_and_dir_bis(conf):
             raise ValueError("Invalid conf format")
     return prod_dec, conf_dir
 
+
+def find_prod_dec_and_dir_tres(conf, type_MC=None):
+    base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files"
+    #print("New models")
+    
+    def extract_prod_dec(conf):
+        prod_temp = conf[conf.find("user.osalin.MadGraph_") + len("user.osalin.MadGraph_"):]
+        #print("start from string", prod_temp)
+        prod_dec = prod_temp[:prod_temp.find("_F")]
+        #print("from conf found production dec", prod_dec)
+        return prod_dec
+
+    if conf.startswith("user."):
+        prod_dec = extract_prod_dec(conf)
+        
+        if "Run3" in type_MC or "run3" in type_MC:
+            conf_dir = f"{base_path}/Run3/{prod_dec}/"
+        elif "aqgc" in type_MC or "model" in type_MC:
+            conf_dir = f"{base_path}/aqgc_model/{prod_dec}/"
+        elif "Reweighting" in type_MC or "reweight" in type_MC or "rwg" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/{prod_dec}/"
+        else:
+            conf_dir = f"{base_path}/{prod_dec}/"
+        
+        #print("dir would be", conf_dir)
+    else:
+        pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
+        match = re.search(pattern, conf)
+        if match:
+            prod_dec = match.group(3) + "_" + match.group(4)
+            print("From conf found production dec", prod_dec)
+            conf_dir = f"{base_path}/EFT_files_AMI/{prod_dec}/"
+            print("Dir would be", conf_dir)
+        else:
+            raise ValueError("Invalid conf format")
+    
+    return prod_dec, conf_dir
+
+
 def find_evnt_dir_and_file(search_com):
     conf_dir_arr = glob.glob(search_com)
     print("found possibilities for dir", conf_dir_arr)
@@ -359,8 +398,8 @@ def get_envt_log_names_dirs(base_dir,i_job_name):
     evnt_dir = base_dir + "/" + evnt_did 
     log_did = i_job_name + ".log"
     log_dir = evnt_dir + "/" + log_did
-    print("returnning envt did and dir",evnt_did, evnt_dir)
-    print("returnning log did and dir",log_did, log_dir)
+    #print("returnning envt did and dir",evnt_did, evnt_dir)
+    #print("returnning log did and dir",log_did, log_dir)
     return evnt_did, evnt_dir, log_did, log_dir  
 
 def get_rivet_com(job_name, evtMax=-1, redoRivet=-1, redoPlots=-1, DOCUT=-1):
@@ -383,6 +422,21 @@ def get_xsec(log_file):
     print("found xsec value ",xsec_val,"with unit",xsec_unit,"converting to fb get in fb",xsec_fb)
     return xsec_fb
 
+def get_xsec_bef_decay(log_file):
+    with open(log_file) as textf:
+        xsec_val, xsec_uncert, xsec_unit = -999.0, -999.0, 'pb'
+        for line in textf:
+            if 'Current estimate of cross-section:' in line:
+                #print("found xsec line", line)
+                xsection_values = line[line.find('n:')+2:].strip().split("+-")
+                xsec_val = float(xsection_values[0])
+                xsec_uncert = float(xsection_values[1])
+                #print("found xsec values", xsection_values)
+                #print("found xsec value ", xsec_val, "with unit", xsec_unit, "uncert", xsec_uncert)
+    conv_fact_to_pb = {"mb": 1e9, "um": 1e6, "nb": 1e3, "pb": 1, "fb": 1e-3}
+    xsec_fb = xsec_val * conv_fact_to_pb[xsec_unit] * 1000
+    #print("found xsec value ", xsec_val, "with unit", xsec_unit, "converting to fb get in fb", xsec_fb)
+    return xsec_val, xsec_uncert
 
 def cross_section_fb(EFT_op, proces, dec):
     """

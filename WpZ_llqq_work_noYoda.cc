@@ -28,11 +28,11 @@ namespace Rivet {
 
 
     /// @brief Add a short analysis description here
-    class ZZ_llqq : public Analysis {
+    class WpZ_llqq : public Analysis {
     public:
 
     /// Constructor
-    RIVET_DEFAULT_ANALYSIS_CTOR(ZZ_llqq);
+    RIVET_DEFAULT_ANALYSIS_CTOR(WpZ_llqq);
 
     // Calculate the number of charged tracks in a jet
     int CountChargedTracks(Jet& jet, double pTcut = 0.5) 
@@ -112,7 +112,7 @@ namespace Rivet {
         std::cout << "++++++received outidir" << out_dir << "meaning _docut is " << _docut << "\n";
 
         std::string jsonfilestr =  txt_dir + "Cuts_def.json"; 
-        std::cout << "++++++assume .json for this ZZ_llqq" << " is " << jsonfilestr << "\n";
+        std::cout << "++++++assume .json for this WpZ_llqq" << " is " << jsonfilestr << "\n";
         std::ifstream json_file(jsonfilestr);
         
         _jcuts = json::parse(json_file);
@@ -195,12 +195,15 @@ namespace Rivet {
         }
 
         // plots that are not in other ana
+
+        /*
         std::ifstream ana_hist_resolved_file(txt_dir + "/Hists_bis/2lepton_hists_resolved.json");      
         json ana_hist_resolved = json::parse(ana_hist_resolved_file);
         for (json::iterator it = ana_hist_resolved.begin(); it != ana_hist_resolved.end(); ++it) {
             book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
             _hist_names.push_back(it.key());
         }
+        */
 
 
         _tf = make_unique<TFile>(getOption("ROOTFILE", ntuple_dir+ "ntuple_rivet.root").c_str(), "RECREATE");
@@ -258,11 +261,11 @@ namespace Rivet {
 
 
         // Cut-flows merged region
-        _cutflows_merged.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
+        _cutflows_merged.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","m_tagjets",
                             "At_least_one_fjets","fjets_is_W/Z","Total_Merged_selec",});
         // Cut-flows resolved region
-        _cutflows_resolved.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
+        _cutflows_resolved.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","m_tagjets",
                             "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","M_jjj","Total_Resolved_selec",});
 
@@ -563,6 +566,7 @@ namespace Rivet {
                 merged_tagjet2_pt = tag2_jet.pt();
 
                 merged_tagjets_pt = fourvec_tag_jj.pT();
+
                 merged_tagjets_delta_pt = abs(tag1_jet.pt()-tag2_jet.pt());
                 merged_tagjets_delta_eta = abs(tag1_jet.eta()-tag2_jet.eta());
                 merged_tagjet1_eta = tag1_jet.eta();
@@ -633,6 +637,8 @@ namespace Rivet {
                 merged_Ntrk_tagjets1 = CountChargedTracks(tag_jets[0]);
                 merged_Ntrk_tagjets2 = CountChargedTracks(tag_jets[1]);
                 merged_Ntrk_fjets = CountChargedTracks(fjets_[0]);
+
+
 
                 merged_EventNumber = EventNumber;
                 merged_EventWeight = ev_nominal_weight;
@@ -1092,6 +1098,6 @@ namespace Rivet {
     };
 
 
-    RIVET_DECLARE_PLUGIN(ZZ_llqq);
+    RIVET_DECLARE_PLUGIN(WpZ_llqq);
 
 }

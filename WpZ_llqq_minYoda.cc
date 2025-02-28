@@ -1,5 +1,9 @@
 // -*- C++ -*-
 #include "Rivet/Analysis.hh"
+#include "Rivet/AnalysisHandler.hh"
+#include "Rivet/AnalysisInfo.hh"
+#include "Rivet/Tools/RivetHepMC.hh"
+
 #include "Rivet/Projections/FinalState.hh"
 #include "Rivet/Projections/VetoedFinalState.hh"
 #include "Rivet/Projections/FastJets.hh"
@@ -28,11 +32,11 @@ namespace Rivet {
 
 
     /// @brief Add a short analysis description here
-    class ZZ_llqq : public Analysis {
+    class WpZ_llqq : public Analysis {
     public:
 
     /// Constructor
-    RIVET_DEFAULT_ANALYSIS_CTOR(ZZ_llqq);
+    RIVET_DEFAULT_ANALYSIS_CTOR(WpZ_llqq);
 
     // Calculate the number of charged tracks in a jet
     int CountChargedTracks(Jet& jet, double pTcut = 0.5) 
@@ -89,6 +93,7 @@ namespace Rivet {
 
         std::cout << "out_dir Rivet: " << getOption("OUTDIR") << std::endl;
 
+
         //cross_section_fb = crossSection()/femtobarn;
 
         if (out_dir.find("SM") != std::string::npos) _label = 0;
@@ -112,7 +117,7 @@ namespace Rivet {
         std::cout << "++++++received outidir" << out_dir << "meaning _docut is " << _docut << "\n";
 
         std::string jsonfilestr =  txt_dir + "Cuts_def.json"; 
-        std::cout << "++++++assume .json for this ZZ_llqq" << " is " << jsonfilestr << "\n";
+        std::cout << "++++++assume .json for this WpZ_llqq" << " is " << jsonfilestr << "\n";
         std::ifstream json_file(jsonfilestr);
         
         _jcuts = json::parse(json_file);
@@ -168,6 +173,7 @@ namespace Rivet {
         // Merged histograms
         
         // plots common with others
+        /*
         std::ifstream jet_hist_merged_file(txt_dir + "/Hists_bis/jet_hists_merged.json");      
         json jet_hist_merged = json::parse(jet_hist_merged_file);
         for (json::iterator it = jet_hist_merged.begin(); it != jet_hist_merged.end(); ++it) {
@@ -181,12 +187,19 @@ namespace Rivet {
         for (json::iterator it = ana_hist_merged.begin(); it != ana_hist_merged.end(); ++it) {
             book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
             _hist_names.push_back(it.key());
+        } */
+
+        // plots that are not in other ana
+        std::ifstream ana_hist_min_file(txt_dir + "/Hists_bis/2lepton_hists_min.json");      
+        json ana_hist_min = json::parse(ana_hist_min_file);
+        for (json::iterator it = ana_hist_min.begin(); it != ana_hist_min.end(); ++it) {
+            book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
+            _hist_names.push_back(it.key());
         }
-
-
 
         // Resolved histograms
         // plots common with others
+        /*
         std::ifstream jet_hist_resolved_file(txt_dir + "/Hists_bis/jet_hists_resolved.json");      
         json jet_hist_resolved = json::parse(jet_hist_resolved_file);
         for (json::iterator it = jet_hist_resolved.begin(); it != jet_hist_resolved.end(); ++it) {
@@ -195,12 +208,15 @@ namespace Rivet {
         }
 
         // plots that are not in other ana
+
+        
         std::ifstream ana_hist_resolved_file(txt_dir + "/Hists_bis/2lepton_hists_resolved.json");      
         json ana_hist_resolved = json::parse(ana_hist_resolved_file);
         for (json::iterator it = ana_hist_resolved.begin(); it != ana_hist_resolved.end(); ++it) {
             book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
             _hist_names.push_back(it.key());
         }
+        */
 
 
         _tf = make_unique<TFile>(getOption("ROOTFILE", ntuple_dir+ "ntuple_rivet.root").c_str(), "RECREATE");
@@ -258,13 +274,16 @@ namespace Rivet {
 
 
         // Cut-flows merged region
-        _cutflows_merged.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
+        _cutflows_merged.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","m_tagjets",
                             "At_least_one_fjets","fjets_is_W/Z","Total_Merged_selec",});
         // Cut-flows resolved region
-        _cutflows_resolved.addCutflow("ZZ_llqq_selections", {"have_two_lep","pt_lep1_2",
+        _cutflows_resolved.addCutflow("WpZ_llqq_selections", {"have_two_lep","pt_lep1_2",
                             "n_jets","found_tag_jets","m_tagjets",
                             "Failed_Merged_selection","At_least_two_signal_jets","signal_jets_pT","signal_mjj","M_jjj","Total_Resolved_selec",});
+
+
+
 
     }
 
@@ -274,6 +293,20 @@ namespace Rivet {
         EventNumber= event.genEvent()->event_number();       
         double ev_nominal_weight =  event.weights()[0];
 
+        std::vector<string> weight_names = Rivet::HepMCUtils::weightNames(*event.genEvent());
+
+
+        std::cout << "All events weight "<< event.weights().size() << std::endl;
+        std::cout << "All events weight HEPMC "<< event.genEvent()->weights().size() << std::endl;
+
+        std::cout << "All events weight names "<< weight_names.size() << std::endl;
+
+        std::cout << "Event number: " << event.genEvent()->event_number() << std::endl;
+        std::cout << "Event gen Event: " << event.genEvent() << std::endl;
+        //std::cout << "Event weight name" << event.genEvent()->weight_names() << std::endl;
+
+
+
 
         //std::cout << "Type of event.genEvent()->event_number(): " << typeid(event.genEvent()->event_number()).name() << std::endl;
         //std::cout << "Value of event.genEvent()->event_number(): " << EvntNumber << std::endl;
@@ -282,13 +315,13 @@ namespace Rivet {
         else {_c["neg_w_initial"]->fill();}
 
         const Particles all_particles = event.allParticles();
-        double Vhad_mass= 80.4;
+        //double Vhad_mass= 80.4;
 
 
         _tt_bef_cut->Fill();
 
 
-        const double cutof_DR = 0.4;
+        //const double cutof_DR = 0.4;
 
 
         _cutflows_merged.fillinit();
@@ -350,14 +383,16 @@ namespace Rivet {
 
         Jets tag_jets;
         bool foundVBSJetPair = false; 
-        double max_m_tag_jj = 0;
+        //double max_m_tag_jj = 0;
         double max_eta_jj = 0;
-        double max_eta_mTag = 0;
+        //double max_eta_mTag = 0;
         int tag1_jet_index = -1 ,tag2_jet_index = -1;
 
 
            // MAX mass
-/*         for (int i = 0; i < n_jets; i++) {
+/*         
+        double max_m_tag_jj = 0;
+        for (int i = 0; i < n_jets; i++) {
             const Jet& i_jet = jets[i];
             for (int j = i + 1; j < n_jets; j++) {
                 const Jet& j_jet = jets[j];
@@ -543,10 +578,10 @@ namespace Rivet {
                 const FourMomentum fourvec_fjets_full = fourvec_Vlep + fjets[0].mom() + tag1_jet + tag2_jet;
 
 
-                double ZeppMerged = 0.0;
+                //double ZeppMerged = 0.0;
                 if (n_fjets > 1) {
                     const FourMomentum fourvec_fjets2 = fjets[1].mom();
-                    ZeppMerged = abs(fourvec_fjets2.eta() - eta_tag_jet_mean);
+                    //ZeppMerged = abs(fourvec_fjets2.eta() - eta_tag_jet_mean);
                     SubLeading_fjet_eta = fjets[1].eta(); SubLeading_fjet_mass = fjets[1].mass(); SubLeading_fjet_pt = fjets[1].pt();
                     Delta_R_fjets = deltaR(fjets[0], fjets[1]);
                     Delta_M_fjets = abs(fjets[0].mass()- fjets[1].mass());
@@ -558,33 +593,45 @@ namespace Rivet {
                 // We are in the Merged signal region
                 // Fill in the histogram of the merged region
                 merged_n_jets = n_jets;
+                _h["merged_n_jets"]->fill(merged_n_jets);
                 merged_tagjet1_pt = tag1_jet.pt();
-
                 merged_tagjet2_pt = tag2_jet.pt();
-
                 merged_tagjets_pt = fourvec_tag_jj.pT();
+                _h["merged_tagjets_pt"]->fill(merged_tagjets_pt);
                 merged_tagjets_delta_pt = abs(tag1_jet.pt()-tag2_jet.pt());
+
                 merged_tagjets_delta_eta = abs(tag1_jet.eta()-tag2_jet.eta());
+                _h["merged_tagjets_delta_eta"]->fill(merged_tagjets_delta_eta);
                 merged_tagjet1_eta = tag1_jet.eta();
                 merged_tagjet2_eta = tag2_jet.eta();
                 merged_tagjet1_phi = tag1_jet.phi(); merged_tagjet2_phi = tag2_jet.phi();
                 merged_tagjets_m = m_tagjets;
+                _h["merged_tagjets_m"]->fill(merged_tagjets_m);
                 merged_tagjets_eta = fourvec_tag_jj.eta();
                 merged_tagjets_dy = dy_tagjets;
                 merged_tagjets_dphi = deltaPhi(tag1_jet,tag2_jet);
                 //lepton plots
                 merged_n_lepton_stable = nlep;
+                _h["merged_n_lepton_stable"]->fill(merged_n_lepton_stable);
+                _h["merged_lepton_pt"]->fill(lep1.pT()); _h["merged_lepton_pt"]->fill(lep2.pT()); 
                 merged_lepton_delta_pt = abs(lep1.pT()-lep2.pT());
+                _h["merged_lepton_delta_pt"]->fill(merged_lepton_delta_pt);
                 merged_lepton1_pt = lep1.pT();
                 merged_lepton2_pt = lep2.pT();
                 merged_lepton1_eta = lep1.eta();
                 merged_lepton2_eta = lep2.eta();
+                    
                 merged_lepton_delta_eta = abs(lep1.eta()-lep2.eta());
+                _h["merged_lepton_delta_eta"]->fill(merged_lepton_delta_eta);  
+
                 merged_lepton_delta_phi = deltaPhi(lep1, lep2);
                 //ana-specific
                 merged_Vlep_mass = m_Vlep;
+                _h["merged_Vlep_mass"]->fill(merged_Vlep_mass);
                 merged_Vlep_pt = fourvec_Vlep.pT();
+                _h["merged_Vlep_pt"]->fill(merged_Vlep_pt);
                 merged_Vlep_eta = fourvec_Vlep.eta();
+                _h["merged_Vlep_eta"]->fill(merged_Vlep_eta);
                 merged_Vlep_phi = fourvec_Vlep.phi();
                 merged_Vlep_DR_tagjet1 = deltaR(fourvec_Vlep, tag1_jet);
                 merged_Vlep_DR_tagjet2 = deltaR(fourvec_Vlep, tag2_jet);
@@ -594,10 +641,15 @@ namespace Rivet {
                 merged_Vlep_Deta_tagjet2 = abs(fourvec_Vlep.eta() - tag2_jet.eta());
                 merged_lepton1_pids = lep1.pid();
                 merged_lepton2_pids = lep2.pid();
+
+
                 merged_fjet_eta = fourvec_fjets.eta();
+                _h["merged_fjet_eta"]->fill(merged_fjet_eta);
                 merged_fjet_pt = fourvec_fjets.pT();
+                _h["merged_fjet_pt"]->fill(merged_fjet_pt);
                 merged_fjet_D2 = d2_fjets;
                 merged_fjet_n = n_fjets;
+                _h["merged_fjet_n"]->fill(merged_fjet_n);
                 merged_fjet_DR_lepton1 = deltaR(fourvec_fjets, lep1);
                 merged_fjet_DR_lepton2 = deltaR(fourvec_fjets, lep2);
                 merged_fjet_DR_tagjet1 = deltaR(fourvec_fjets, tag1_jet);
@@ -609,30 +661,36 @@ namespace Rivet {
                 merged_Vhad_DeltaR_Vlep = deltaR(fourvec_fjets, fourvec_Vlep);
                 merged_Vhad_DeltaPhi_Vlep = deltaPhi(fourvec_fjets, fourvec_Vlep);
                 merged_Vhad_DeltaEta_Vlep = abs(fourvec_fjets.eta() - fourvec_Vlep.eta());
+                _h["merged_Vhad_DeltaEta_Vlep"]->fill(merged_Vhad_DeltaEta_Vlep);
                 merged_fjet_mass = fourvec_fjets.mass();
+                _h["merged_fjet_mass"]->fill(merged_fjet_mass);
                 merged_VlepVhad_mass = fourvec_fjets_Vlep.mass();
+                _h["merged_VlepVhad_mass"]->fill(merged_VlepVhad_mass);
                 merged_VlepVhad_pt = fourvec_fjets_Vlep.pt();
+                _h["merged_VlepVhad_pt"]->fill(merged_VlepVhad_pt);
                 merged_VlepVhad_eta = fourvec_fjets_Vlep.eta();
-                merged_VlepVhad_Deta_tagjets = abs(fourvec_fjets_Vlep.eta() - fourvec_tag_jj.eta());
-                merged_VlepVhad_Dphi_tagjets = deltaPhi(fourvec_fjets_Vlep, fourvec_tag_jj);
                 merged_Full_mass = fourvec_fjets_full.mass();
                 merged_Full_pt = fourvec_fjets_full.pt();
-
+                _h["merged_Full_pt"]->fill(merged_Full_pt);
  
                 // Centrality variables
                 merged_Centrality = Centrality(tag_jets, fourvec_Vlep, fourvec_fjets);
                 merged_CentralityVhad = Centrality(tag_jets, fourvec_fjets, fourvec_fjets);
                 merged_CentralityVlep = Centrality(tag_jets, fourvec_Vlep,fourvec_Vlep);
                 merged_CentralityVlepVhad = Centrality(tag_jets, fourvec_fjets_Vlep, fourvec_fjets_Vlep);
+                _h["merged_CentralityVlepVhad"]->fill(merged_CentralityVlepVhad);
 
                 // Zeppenfeld variables
                 merged_ZeppVlep = abs(fourvec_Vlep.eta() - eta_tag_jet_mean);
                 merged_ZeppVhad = abs(fourvec_fjets.eta() - eta_tag_jet_mean);
-                merged_ZeppVhadVlep = abs(fourvec_fjets_Vlep.eta() - eta_tag_jet_mean);                
+                merged_ZeppVhadVlep = abs(fourvec_fjets_Vlep.eta() - eta_tag_jet_mean);
+                
                 //_h["merged_ZeppMerged"]->fill(ZeppMerged);
                 merged_Ntrk_tagjets1 = CountChargedTracks(tag_jets[0]);
                 merged_Ntrk_tagjets2 = CountChargedTracks(tag_jets[1]);
                 merged_Ntrk_fjets = CountChargedTracks(fjets_[0]);
+
+
 
                 merged_EventNumber = EventNumber;
                 merged_EventWeight = ev_nominal_weight;
@@ -938,6 +996,8 @@ namespace Rivet {
     /// @}
 
 
+    double eventWeight;
+    std::map<std::string, double> weightMap;
 
 
 
@@ -1092,6 +1152,6 @@ namespace Rivet {
     };
 
 
-    RIVET_DECLARE_PLUGIN(ZZ_llqq);
+    RIVET_DECLARE_PLUGIN(WpZ_llqq);
 
 }
