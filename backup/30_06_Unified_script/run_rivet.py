@@ -75,7 +75,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     
     yoda_f = yoda.read(yoda_f_str)
     print("reading from yoda file ", yoda_f_str)
-    all_hists_in_yoda = [iname  for iname in yoda_f.keys() if "[" not in iname and "RAW" not in iname]
+    all_hists_in_yoda = [iname  for iname in yoda_f.keys() if "RAW" not in iname]
     hists_1h_in_yoda = []
     for i_name in all_hists_in_yoda:
         if yoda_f[i_name].type()=="Histo1D": hists_1h_in_yoda.append(i_name)  
@@ -161,6 +161,8 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
         h_root = lu.yoda_to_root_1d(h_yoda, i_hist.split("/")[-1])
         h_root.Write("", ROOT.TObject.kOverwrite)
     root_file.Close()
+
+    uf.plot_histograms(output_plot=mydir + "/plots/" , desired_num_bins=200, file_path=mydir + "/hists.root", label=prod_dec)
     
     #plot_root_histograms(mydir + "/hists.root")
     

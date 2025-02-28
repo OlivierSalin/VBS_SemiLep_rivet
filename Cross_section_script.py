@@ -1,6 +1,6 @@
 import pyAMI.client
 import pyAMI.atlas.api as AtlasAPI
-from lib_utils import find_prod_dec_and_dir
+import lib_utils as lu
 from optparse import OptionParser
 import utils_func as uf
 parser = OptionParser()
@@ -11,7 +11,7 @@ client = pyAMI.client.Client('atlas')
 
 AtlasAPI.init()
 
-prod_dec, base_dir = find_prod_dec_and_dir(opts.conf)
+prod_dec, base_dir = lu.find_prod_dec_and_dir(opts.conf)
 print(f'prod_dec: {prod_dec}')
 def extract_EFT_op_proces_dec(conf):
     """
@@ -126,8 +126,14 @@ Decay = ["llqq",'lvqq','vvqq']
 
 VBS_xsection = {}
 
+path_log="/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Test/aqgc_model/WpZ_llqq/user.osalin.MadGraph_WpZ_llqq_FM2_QUAD_aqgcModel_new_all_EXT0/user.osalin.MadGraph_WpZ_llqq_FM2_QUAD_aqgcModel_new_1.log/tarball_PandaJob_6437928208_FZK-LCG2/log.generate"
+
+
+x_sec,xsec_unc= lu.get_xsec_bef_decay(path_log)
+print(f'Xsec before decay: {x_sec} +- {xsec_unc}')
+
 # Loop over all combinations of operators, processes, and decays
-for EFT_op_ in all_ops_:
+""" for EFT_op_ in all_ops_:
     EFT_op, EFT_type = EFT_op_.split('_')
     for proc in Processes:
         for decay in Decay:
@@ -147,4 +153,4 @@ with open('VBS_xsection_test.txt', 'w') as f:
         
 with open('VBS_valid_ops.txt', 'w') as f:
     for key in VBS_xsection.keys():
-        f.write(f'{key}\n')
+        f.write(f'{key}\n') """

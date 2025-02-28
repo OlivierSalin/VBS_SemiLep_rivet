@@ -14,6 +14,9 @@ source setupRivet
 lsetup "panda 1.5.68"
 lsetup "pyami"
 lsetup "rucio -w"
+lsetup "astyle"
+
+
 voms-proxy-init -voms atlas --valid 48:0 # 48h grid certif and not 12h default
 
 #source /exp/atlas/kurdysh/vbs_cross_terms_study/python_packages/setup.sh # this is for sympy installed with pipInstall

@@ -21,6 +21,11 @@ all_ops_SM = ["SM","FM0","FM1","FM2","FM3","FM4","FM5","FM7",
         "FS02","FS1",
         "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
 
+all_ops_both = ["FM0","FM1","FM2","FM8","FM9",
+            "FS2","FS1",
+            "FT0","FT1","FT5","FT6",
+            "FM1odd","FM2odd","FM3odd","FM6odd","FT2odd","FT4odd","FT6odd"]
+
 if not opts.linear:
     base_dir_plot = "/exp/atlas/salin/ATLAS/VBS_mc/plotting/Ntuple/Plots_op_stat2/"
 else:
@@ -33,7 +38,10 @@ categories = {
     "cat4": ["FT5", "FT6", "FT7", ROOT.kAzure, ROOT.kCyan],
     "cat5": ["FT8", "FT9", ROOT.kCyan-10, ROOT.kTeal-6],
     "cat6": ["FS1","FS02", ROOT.kGreen+3, ROOT.kSpring-9],
-    "cat7": ["SM", ROOT.kBlack, ROOT.kBlack]
+    "cat7": ["SM", ROOT.kBlack, ROOT.kBlack],
+    "cat8": ["FM8", "FM9", ROOT.kOrange+1, ROOT.kOrange-3],
+    "cat9": ["FM1odd", "FM2odd", "FM3odd", "FM6odd", ROOT.kRed+2, ROOT.kRed-7],
+    "cat10": ["FT2odd", "FT4odd", "FT6odd", ROOT.kBlue+2, ROOT.kBlue-7]
 }
 
 categories_bis = {
@@ -54,7 +62,16 @@ categories_bis = {
     "FT9": [ROOT.kTeal-6,9],
     "FS1": [ROOT.kGreen+3,1],
     "FS02": [ROOT.kSpring-9,9],
-    "SM": [ROOT.kBlack,1]
+    "SM": [ROOT.kBlack,1],
+    "FM8": [ROOT.kOrange+1, 1],
+    "FM9": [ROOT.kOrange-3, 9],
+    "FM1odd": [ROOT.kRed+2, 1],
+    "FM2odd": [ROOT.kRed-7, 9],
+    "FM3odd": [ROOT.kRed+3, 7],
+    "FM6odd": [ROOT.kRed-9, 4],
+    "FT2odd": [ROOT.kBlue+2, 1],
+    "FT4odd": [ROOT.kBlue-7, 9],
+    "FT6odd": [ROOT.kBlue+3, 7]
 }
 
 
