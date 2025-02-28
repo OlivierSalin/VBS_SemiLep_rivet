@@ -4,3 +4,4 @@ RivetVBS_CROSS_TERMS.so
 *.so
 eventLoopHeartBeat.txt
 
+__pycache__/
