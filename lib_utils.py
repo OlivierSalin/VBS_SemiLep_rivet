@@ -256,30 +256,74 @@ def find_prod_dec_and_dir_bis(conf):
 
 
 def find_prod_dec_and_dir_tres(conf, type_MC=None):
-    base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files"
+    base_path = "/exp/atlas/salin/ATLAS/VBS_mc/"
     #print("New models")
     
     def extract_prod_dec(conf):
         prod_temp = conf[conf.find("user.osalin.MadGraph_") + len("user.osalin.MadGraph_"):]
-        #print("start from string", prod_temp)
-        prod_dec = prod_temp[:prod_temp.find("_F")]
+        #prod_temp = conf[conf.find("user.osalin.Madgraph_") + len("user.osalin.MadGraph_"):]
+        print("start from string", prod_temp)
+        prod_dec = prod_temp[:prod_temp.find("qq_") + 2]
         #print("from conf found production dec", prod_dec)
         return prod_dec
 
     if conf.startswith("user."):
+        base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files"
         prod_dec = extract_prod_dec(conf)
         
         if "Run3" in type_MC or "run3" in type_MC:
             conf_dir = f"{base_path}/Run3/{prod_dec}/"
         elif "aqgc" in type_MC or "model" in type_MC:
             conf_dir = f"{base_path}/aqgc_model/{prod_dec}/"
-        elif "Reweighting" in type_MC or "reweight" in type_MC or "rwg" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/{prod_dec}/"
+        #elif "Reweighting" in type_MC or "reweight" in type_MC or "rwg" in type_MC:
+            #conf_dir = f"{base_path}/Reweighting/{prod_dec}/"
+        elif "ReweightMadspin" in type_MC or "Reweighting_Madspin" in type_MC or "rwgMadspin" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Madspin/{prod_dec}/"
+        elif "Reweighthel_ignore" in type_MC or "Reweighting_hel_ignore" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/{prod_dec}/"
+
+        elif "Reweighthel_aware" in type_MC or "Reweighting_hel_aware" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/{prod_dec}/"
+
+
+        elif "ReweightNoSpin" in type_MC or "Reweighting_NoSpin" in type_MC or "rwgNoSpin" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/NoSpin/{prod_dec}/"
+        elif "ReweightDecay_chain" in type_MC or "Reweighting_Decay_chain" in type_MC or "rwgDecay_chain" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Decay_chain/{prod_dec}/"
+
+        elif "Reweight_Polarisation" in type_MC or "Reweighting_Pol" in type_MC or "rwgPol" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/{prod_dec}/"
+       
+        elif "EFTDec_Madspin" in type_MC or "EFTDecMadspin" in type_MC or "eftdecMadspin" in type_MC:
+            conf_dir = f"{base_path}/EFTDec/Madspin/{prod_dec}/"
+        elif "EFTDec_NoSpin" in type_MC or "EFTDecNoSpin" in type_MC or "eftdecNoSpin" in type_MC:
+            conf_dir = f"{base_path}/EFTDec/NoSpin/{prod_dec}/"
+        elif "EFTDec_Decay_chain" in type_MC or "EFTDecDecay_chain" in type_MC or "eftdecDecay_chain" in type_MC:
+            conf_dir = f"{base_path}/EFTDec/Decay_chain/{prod_dec}/"
+            
+        elif "EFTDec_Polarisation" in type_MC or "EFTDecPolarisation" in type_MC:
+            conf_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"
+        #elif "13p0" in type_MC or "13TeV" in type_MC:
+            #conf_dir = f"{base_path}/13p0/{prod_dec}/"
+            
+            
+            
+        elif "MCprod_QGC_R3" in type_MC or "MCprod_aqgc_R3" in type_MC:
+            conf_dir = f"{base_path}/MCprod/aqgc/13p6/{prod_dec}/"
+        elif "MCprod_QGC_R2" in type_MC or "MCprod_aqgc_R2" in type_MC:
+            conf_dir = f"{base_path}/MCprod/aqgc/13p0/{prod_dec}/"
+        elif "MCprod_13p0" in type_MC or "MCprod_13TeV" in type_MC:
+            conf_dir = f"{base_path}/MCprod/SM/13p0/{prod_dec}/"
+        elif "MCprod_13p6" in type_MC or "MCprod_13p6TeV" in type_MC:
+            conf_dir = f"{base_path}/MCprod/SM/13p6/{prod_dec}/"
+        
+
         else:
             conf_dir = f"{base_path}/{prod_dec}/"
         
         #print("dir would be", conf_dir)
     else:
+        base_path = "/exp/atlas/salin/ATLAS/VBS_mc/"
         pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
         match = re.search(pattern, conf)
         if match:
@@ -313,7 +357,7 @@ def find_evnt_dir_and_file_bis(base_dir, conf):
         conf_dir = conf_dir_arr[0] if len(conf_dir_arr)>=1 else -1  
         if conf_dir == -1: raise ValueError("did not find folder for this config ",search_com)
 
-        evnt_file_candidates = glob.glob(conf_dir + "/*EVNT.root")
+        evnt_file_candidates = glob.glob(conf_dir + "/*EVNT*.root*")
         print("found possibilities for evnt file", evnt_file_candidates)
         evnt_file = evnt_file_candidates[0] if len(evnt_file_candidates)>0 else -1
         if evnt_file == -1: raise ValueError("did not find EVNT file for this config ",conf_dir)

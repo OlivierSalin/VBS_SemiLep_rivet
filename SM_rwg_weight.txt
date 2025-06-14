@@ -1,0 +1,66 @@
+
+Applying ATLAS style settings...
+
+norm_xsec: False
+Not normalizing to cross section
+Channel name 'WpZ_llqq' is a valid process_decay combination.
+Model: rwg_fmfs_Nohel
+Looking for file at path: /exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms//Reweighting/STM_op_50k///WpZ_llqq/rwg_fmfs_Nohel//ntuple_rivet.root
+Found 1 matches for operator FM2 and process WpZ
+Matches: ['/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms//Reweighting/STM_op_50k///WpZ_llqq/rwg_fmfs_Nohel//ntuple_rivet.root']
+Model: rwg_fmfs_hel_aware
+Looking for file at path: /exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms//Reweighting/STM_op_50k///WpZ_llqq/rwg_fmfs_hel_aware//ntuple_rivet.root
+Found 1 matches for operator FM2 and process WpZ
+Matches: ['/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms//Reweighting/STM_op_50k///WpZ_llqq/rwg_fmfs_hel_aware//ntuple_rivet.root']
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm0_fm1_cross, min: -0.0013179817000000002, max: 0.00055756175
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm0_fm1_cross, min: -0.011485815000000002, max: 0.0031409038000000007
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm0_quad, min: -0.0004672778300000001, max: 0.0010313611000000002
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm0_quad, min: -0.003007495800000001, max: 0.012847401000000003
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm1_quad, min: -0.000193059, max: 0.00043586379000000013
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm1_quad, min: -0.0008202835100000002, max: 0.0085334663
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm2_quad, min: -6.570558100000002e-05, max: 0.0002813343200000001
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm2_quad, min: -1.9119685000000005e-05, max: 0.0020853306000000005
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm3_quad, min: -1.5574360000000002e-05, max: 5.2038052000000015e-05
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm3_quad, min: -2.4662423000000006e-05, max: 0.00053537213
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm4_quad, min: -0.00061724657, max: 0.00064535622
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm4_quad, min: -0.0006360338000000001, max: 0.04336085600000001
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm5_quad, min: -0.00015751591, max: 0.00014923435000000003
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm5_quad, min: -0.00015447038000000003, max: 0.0013985530000000003
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm7_quad, min: -5.3419879e-05, max: 0.00013793034000000003
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm7_quad, min: -0.00021554348000000007, max: 0.0023539183000000005
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm8_quad, min: -0.00013239529, max: 0.00012301709000000002
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm8_quad, min: -0.00016761169000000003, max: 0.00033602764000000007
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fm9_quad, min: -0.00065774358, max: 0.0013935490000000002
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fm9_quad, min: -0.0012004943000000002, max: 0.004716091000000001
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fs0_quad, min: -6.686203400000002e-06, max: 7.3047217e-06
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fs0_quad, min: -6.989208400000002e-06, max: 0.00033206755000000004
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fs1_quad, min: -4.0154962000000005e-06, max: 4.434597800000001e-06
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fs1_quad, min: -4.1663317000000005e-06, max: 4.382488100000001e-05
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_Nohel,param: EventWeight_fs2_quad, min: -6.686203400000002e-06, max: 7.3047217e-06
+Lengend name: WpZ_llqq_FM2_QUAD_rwg_fmfs_hel_aware,param: EventWeight_fs2_quad, min: -6.989208400000002e-06, max: 0.00033206755000000004
+Model name:  rwg_fmfs_Nohel
+Model name:  rwg_fmfs_hel_aware

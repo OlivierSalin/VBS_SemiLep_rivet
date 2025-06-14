@@ -6,9 +6,10 @@ import lib_utils
 import os
 import json
 
+print(f"type_MC: {type_MC}")
 prod_dec, base_dir = lib_utils.find_prod_dec_and_dir_tres(conf,type_MC)
 #evnt_conf_dir,evnt_file  = lib_utils.find_evnt_dir_and_file(base_dir + f"/*{conf}_EXT0")
-
+print("base_dir: ", base_dir)
 
 evnt_conf_dir,evnt_file,evnt_files  = lib_utils.find_evnt_dir_and_file_bis(base_dir,conf)
 
@@ -57,9 +58,15 @@ for item in systWeights:
             systName=systName+'_'+s
         else:
             systName=s
-    if 'quad' in systName or 'cross' in systName:
-        print('weight name:',item,', output name',systName)
-        Weight_name_rwg.append(systName)
+        #print(f'item: {item}, systName: {systName}')
+        if 'DYNSCALE' in systName or 'PDF303000' in systName:
+            #print('weight name:',item,', output name',systName)
+            Weight_name_rwg.append(systName)
+            #print(f'Event_Weight_{systName}')
+        if 'QUAD' in systName or 'cross' in systName:
+            #print('weight name:',item,', output name',systName)
+            Weight_name_rwg.append(systName)
+            print(f'{systName}')
 
 
 from AthenaCommon.AlgSequence import AlgSequence
@@ -77,7 +84,7 @@ rivet.AnalysisPath = os.environ['PWD']
 rivet.Analyses += [f'{prod_dec}:OUTDIR={conf_cut_dir}']
 rivet.RunName = f''
 rivet.HistoFile = conf_cut_dir + f'/MyOutput.yoda.gz'
-rivet.MatchWeights = '(fm\d+_(fm\d+_cross|quad))'
+rivet.MatchWeights = '.*PDF303000gugu.*'
 #rivet.CrossSection = 1.0 #xsec_pb
 #rivet.IgnoreBeamCheck = True
 job += rivet

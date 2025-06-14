@@ -229,8 +229,8 @@ else:
 
 if xsection_fb is None:
     print(f'No cross section in txt found for {keyy}')
-    
-    xsection_fb=uf.cross_section_fb(EFT_op,EFT_type, proc, decay)
+    xsection_fb = None
+    #xsection_fb=uf.cross_section_fb(EFT_op,EFT_type, proc, decay)
     if xsection_fb is None:
         print(f'No cross section found in AMI for {keyy}')
         print("Cross section set at 0 to avoid errors but ISSUE")

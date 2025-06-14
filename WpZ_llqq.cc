@@ -28,6 +28,8 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
+#include "EventWeights.h"
+
 namespace Rivet
 {
 
@@ -185,21 +187,7 @@ namespace Rivet
             // Merged histograms
 
             // plots common with others
-            /*
-            std::ifstream jet_hist_merged_file(txt_dir + "/Hists_bis/jet_hists_merged.json");
-            json jet_hist_merged = json::parse(jet_hist_merged_file);
-            for (json::iterator it = jet_hist_merged.begin(); it != jet_hist_merged.end(); ++it) {
-            book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
-            _hist_names.push_back(it.key());
-            }
 
-            // plots that are not in other ana
-            std::ifstream ana_hist_merged_file(txt_dir + "/Hists_bis/2lepton_hists_merged.json");
-            json ana_hist_merged = json::parse(ana_hist_merged_file);
-            for (json::iterator it = ana_hist_merged.begin(); it != ana_hist_merged.end(); ++it) {
-                book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
-                _hist_names.push_back(it.key());
-            } */
 
             // plots that are not in other ana
             std::ifstream ana_hist_min_file(txt_dir + "/Hists_bis/2lepton_hists_min2.json");
@@ -210,32 +198,16 @@ namespace Rivet
                 _hist_names.push_back(it.key());
             }
 
-            // Resolved histograms
-            // plots common with others
-            /*
-            std::ifstream jet_hist_resolved_file(txt_dir + "/Hists_bis/jet_hists_resolved.json");
-            json jet_hist_resolved = json::parse(jet_hist_resolved_file);
-            for (json::iterator it = jet_hist_resolved.begin(); it != jet_hist_resolved.end(); ++it) {
-            book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
-            _hist_names.push_back(it.key());
-            }
-
-            // plots that are not in other ana
-
-
-            std::ifstream ana_hist_resolved_file(txt_dir + "/Hists_bis/2lepton_hists_resolved.json");
-            json ana_hist_resolved = json::parse(ana_hist_resolved_file);
-            for (json::iterator it = ana_hist_resolved.begin(); it != ana_hist_resolved.end(); ++it) {
-                book(_h[it.key()], it.key(), it.value()[0], it.value()[1], it.value()[2]);
-                _hist_names.push_back(it.key());
-            }
-            */
 
             _tf = make_unique<TFile>(getOption("ROOTFILE", ntuple_dir + "ntuple_rivet.root").c_str(), "RECREATE");
             _tt_merged = make_unique<TTree>("Merged", "Rivet_physics");
             _tt_merged->Branch("EventNumber", &merged_EventNumber);
             _tt_merged->Branch("EventWeight", &merged_EventWeight);
             for (auto &var_ : weightMap)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
             {
                 _tt_merged->Branch(var_.first.c_str(), &var_.second);
             }
@@ -252,12 +224,18 @@ namespace Rivet
                 _tt_merged->Branch(var_.first.c_str(), var_.second);
             }
 
-            // Define branches for each weight
 
+            for (auto &var_ : weightMap_Polarisation)
+            {_tt_merged->Branch(var_.first.c_str(), &var_.second);}
+
+            // Define branches for each weight
+            //_tt_merged_Fjet = make_unique<TTree>("Merged_Fjet", "Rivet_physics");
+            //_tt_merged_Fjet->Branch("EventNumber", &merged_EventNumber);
+            //_tt_merged_Fjet->Branch("EventWeight", &merged_EventWeight);
 
             _tt_resolved = make_unique<TTree>("Resolved", "Rivet_physics");
-            _tt_resolved->Branch("EventNumber", &merged_EventNumber);
-            _tt_resolved->Branch("EventWeight", &merged_EventWeight);
+            _tt_resolved->Branch("EventNumber", &EventNumber);
+            _tt_resolved->Branch("EventWeight", &EventWeight);
             _tt_resolved->Branch("Label", &_label);
             _tt_resolved->Branch("Label_binary", &_label_binary);
             for (auto &var_ : varMap_resolved)
@@ -267,6 +245,7 @@ namespace Rivet
 
             _tt_bef_cut = make_unique<TTree>("Bef_cut", "Rivet_physics");
             _tt_bef_cut->Branch("EventNumber", &EventNumber);
+            _tt_bef_cut->Branch("EventWeight", &EventWeight);
             _tt_bef_cut->Branch("VBS_event", &VBS_event);
             _tt_bef_cut->Branch("Label", &_label);
 
@@ -336,23 +315,19 @@ namespace Rivet
             // save weights before cuts
             EventNumber = event.genEvent()->event_number();
             double ev_nominal_weight = event.weights()[0];
+            EventWeight = ev_nominal_weight;
 
             std::vector<string> weight_names = Rivet::HepMCUtils::weightNames(*event.genEvent());
 
-            //std::cout << "All events weight " << event.weights().size() << std::endl;
-            //std::cout << "All events crossSection " << event.crossSections().size() << std::endl;
-            //std::cout << "Weight 1 " << event.weights()[0] << " Weight 2 " << event.weights()[1] << " Weight 3 " << event.weights()[2] << std::endl;
-            //std::cout << "Cross section 1 " << event.crossSections()[0] << " Cross section 2 " << event.crossSections()[1] << " Cross section 3 " << event.crossSections()[2] << std::endl;
+ 
             std::vector<double> weights_mc = event.genEvent()->weights();
-            //std::cout << "All events weight HEPMC " << weights_mc.size() << std::endl;
 
-
-            //std::cout << "Event weight for FM0 quad" << weights_mc[weightNameToIndex["fm0_quad"]] << std::endl;
             int i_=1;
             for (auto& [key, value] : weightNameToIndex) {
-                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos) {
+                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos
+                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos) {
                     //std::cout << "Weight name: " << key << " Index: " << value << std::endl;
-                    //std::cout << "HepMC Weight: " << weights_mc[value] << std::endl;
+                    ///std::cout << "HepMC Weight: " << weights_mc[value] << std::endl;
                     //std::cout << "Weight from Rivet: " << event.weights()[i_] << std::endl;
                     i_++;
                     //printf("\n");
@@ -361,23 +336,33 @@ namespace Rivet
 
             // Set the weight values
             for (const auto& [key, value] : weightNameToIndex) {
-                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos) {
-                    std::string weightName = "EventWeight_" + key;
+                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos
+                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos) {
+                    std::string key_lower = key;
+                    std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
+                    std::string weightName = "EventWeight_" + key_lower;
                     double weight = weights_mc[value];
                     //std::cout << "Weight name: " << weightName << " Weight: " << weight << std::endl;
-                    weightMap[weightName] = weight;
+                    if (key.find("quad")!= std::string::npos ||key.find("QUAD") != std::string::npos){
+                        weightMap[weightName] = weight;
+                        // Fill polarisation map for _quad_ll, _quad_lt, _quad_tl, _quad_tt (case-insensitive)
+                        if (
+                            key_lower.find("_quad_ll") != std::string::npos || key.find("_QUAD_LL") != std::string::npos ||
+                            key_lower.find("_quad_lt") != std::string::npos || key.find("_QUAD_LT") != std::string::npos ||
+                            key_lower.find("_quad_tl") != std::string::npos || key.find("_QUAD_TL") != std::string::npos ||
+                            key_lower.find("_quad_tt") != std::string::npos || key.find("_QUAD_TT") != std::string::npos
+                        ) {
+                            weightMap_Polarisation[weightName] = weight;
+                        }
+                    }
+                    else if (key.find("cross")!= std::string::npos || key.find("CROSS") != std::string::npos){
+                        weightMap_cross[weightName] = weight;
+                    }
                     //std::cout << "Weight name: " << weightName << " Weight: " << weightMap[weightName] << std::endl;
                 }
             }
 
-            //std::cout << "All events weight names " << Rivet::HepMCUtils::weightNames(*event.genEvent()).size() << std::endl;
 
-            //std::cout << "Event number: " << event.genEvent()->event_number() << std::endl;
-            //std::cout << "Event gen Event: " << event.genEvent() << std::endl;
-            //std::cout << "Event weight name" << event.genEvent()->weight_names() << std::endl;
-
-            // std::cout << "Type of event.genEvent()->event_number(): " << typeid(event.genEvent()->event_number()).name() << std::endl;
-            // std::cout << "Value of event.genEvent()->event_number(): " << EvntNumber << std::endl;
 
             if (ev_nominal_weight >= 0)
             {
@@ -927,6 +912,10 @@ namespace Rivet
                 resolved_signal_jets_DeltaEta = abs(signal_jet1.eta() - signal_jet2.eta());
                 resolved_signal_jets_DeltaR = deltaR(signal_jet2, signal_jet1);
                 resolved_signal_jets_DeltaPhi = deltaPhi(signal_jet2, signal_jet1);
+                resolved_Vhad_mass = signal_mjj;
+                resolved_Vhad_pt = fourvec_Vhad.pt();
+                resolved_Vhad_eta = fourvec_Vhad.eta();
+
                 resolved_signal_jets_mass = signal_mjj;
                 resolved_Vhad_DR_tagjet1 = deltaR(fourvec_Vhad, tag1_jet);
                 resolved_Vhad_DR_tagjet2 = deltaR(fourvec_Vhad, tag2_jet);
@@ -997,10 +986,28 @@ namespace Rivet
 
                 std::string cut_resolved_str = _cutflows_resolved.str();
                 std::string cutflow_resolved_file = getOption("OUTDIR") + "/cutflow_resolved.txt";
-
                 std::ofstream ofs_resolved(cutflow_resolved_file, std::ofstream::out);
                 ofs_resolved << cut_resolved_str;
                 ofs_resolved.close();
+
+                const double sumw = sumOfWeights();
+                const double cross_section_fb = crossSection() / femtobarn;
+                std::cout << "Sum of weights: " << sumw << std::endl;
+                std::cout << "Cross section in fb: " << crossSection() / femtobarn << std::endl;
+                
+                std::string SumW_str = std::to_string(sumOfWeights());
+                std::string SumW_file = getOption("OUTDIR") + "/SumW.txt";
+                std::ofstream ofs_sumW(SumW_file, std::ofstream::out);
+                ofs_sumW << SumW_str;
+                ofs_sumW.close();
+
+                std::string X_section_str = std::to_string(cross_section_fb);
+                std::string X_section_fb_file = getOption("OUTDIR") + "/X_section_fb.txt";
+                std::ofstream ofs_xsec(X_section_fb_file, std::ofstream::out);
+                ofs_xsec << X_section_str;
+                ofs_xsec.close();
+
+
 
                 for (auto &i_name : _hist_names)
                 {
@@ -1035,6 +1042,7 @@ namespace Rivet
         int EventNumber;
         int merged_EventNumber;
         double merged_EventWeight;
+        double EventWeight;
         int nsys = 0;
         std::string operator_strings = "";
         int _label = -1;
@@ -1079,6 +1087,7 @@ namespace Rivet
         double resolved_n_lepton_stable, resolved_lepton1_pt, resolved_lepton2_pt, resolved_lepton_delta_pt;
         double resolved_lepton1_eta, resolved_lepton2_eta, resolved_lepton_delta_eta, resolved_Vlep_mass;
         double resolved_Vlep_pt, resolved_Vlep_eta, resolved_Vlep_phi, resolved_Vlep_DR_tagjet1, resolved_Vlep_DR_tagjet2;
+        double resolved_Vhad_mass, resolved_Vhad_eta, resolved_Vhad_pt;
         double resolved_Vlep_Dphi_tagjet1, resolved_Vlep_Dphi_tagjet2, resolved_Vlep_Deta_tagjet1, resolved_Vlep_Deta_tagjet2;
         double resolved_DR_min_lepton_tagjets1, resolved_DR_min_lepton_tagjets2, resolved_DR_min_lepton_sigjets1, resolved_DR_min_lepton_sigjets2;
         double resolved_signal_jets_pt1, resolved_signal_jets_pt2, resolved_signal_jets_eta1, resolved_signal_jets_eta2;
@@ -1096,57 +1105,8 @@ namespace Rivet
         std::map<std::string, int> weightNameToIndex;
         std::map<int, std::string> indexToWeightName;
 
-        double eventWeight;
-
-        double eventWeight_fm0_quad, eventWeight_fm1_quad, eventWeight_fm2_quad, eventWeight_fm3_quad, eventWeight_fm4_quad; 
-        double eventWeight_fm5_quad, eventWeight_fm7_quad, eventWeight_fm8_quad, eventWeight_fm9_quad;
-        double eventWeight_fs0_quad, eventWeight_fs1_quad, eventWeight_fs2_quad;
-        double eventWeight_ft0_quad, eventWeight_ft1_quad, eventWeight_ft2_quad, eventWeight_ft3_quad, eventWeight_ft4_quad, eventWeight_ft5_quad, eventWeight_ft6_quad, eventWeight_ft7_quad;
-        double eventWeight_fm0_fm1_cross, eventWeight_fm0_fm2_cross, eventWeight_fm0_fm3_cross, eventWeight_fm0_fm4_cross, eventWeight_fm0_fm5_cross, eventWeight_fm0_fm7_cross, eventWeight_fm0_fm8_cross, eventWeight_fm0_fm9_cross;
-        double eventWeight_fm0_fs1_cross, eventWeight_fm0_fs2_cross, eventWeight_fm0_fs3_cross;
-        double eventWeight_fm0_ft1_cross, eventWeight_fm0_ft2_cross, eventWeight_fm0_ft3_cross, eventWeight_fm0_ft4_cross, eventWeight_fm0_ft5_cross, eventWeight_fm0_ft6_cross;
-
-
-        std::map<std::string, double> weightMap = {
-            {"EventWeight_0", eventWeight},
-            {"EventWeight_fm0_quad", eventWeight_fm0_quad},
-            {"EventWeight_fm1_quad", eventWeight_fm1_quad},
-            {"EventWeight_fm2_quad", eventWeight_fm2_quad},
-            {"EventWeight_fm3_quad", eventWeight_fm3_quad},
-            {"EventWeight_fm4_quad", eventWeight_fm4_quad},
-            {"EventWeight_fm5_quad", eventWeight_fm5_quad},
-            {"EventWeight_fm7_quad", eventWeight_fm7_quad},
-            {"EventWeight_fm8_quad", eventWeight_fm8_quad},
-            {"EventWeight_fm9_quad", eventWeight_fm9_quad},
-            {"EventWeight_fs0_quad", eventWeight_fs0_quad},
-            {"EventWeight_fs1_quad", eventWeight_fs1_quad},
-            {"EventWeight_fs2_quad", eventWeight_fs2_quad},
-            {"EventWeight_ft0_quad", eventWeight_ft0_quad},
-            {"EventWeight_ft1_quad", eventWeight_ft1_quad},
-            {"EventWeight_ft2_quad", eventWeight_ft2_quad},
-            {"EventWeight_ft3_quad", eventWeight_ft3_quad},
-            {"EventWeight_ft4_quad", eventWeight_ft4_quad},
-            {"EventWeight_ft5_quad", eventWeight_ft5_quad},
-            {"EventWeight_ft6_quad", eventWeight_ft6_quad},
-            {"EventWeight_ft7_quad", eventWeight_ft7_quad},
-            {"EventWeight_fm0_fm1_cross", eventWeight_fm0_fm1_cross},
-            {"EventWeight_fm0_fm2_cross", eventWeight_fm0_fm2_cross},
-            {"EventWeight_fm0_fm3_cross", eventWeight_fm0_fm3_cross},
-            {"EventWeight_fm0_fm4_cross", eventWeight_fm0_fm4_cross},
-            {"EventWeight_fm0_fm5_cross", eventWeight_fm0_fm5_cross},
-            {"EventWeight_fm0_fm7_cross", eventWeight_fm0_fm7_cross},
-            {"EventWeight_fm0_fm8_cross", eventWeight_fm0_fm8_cross},
-            {"EventWeight_fm0_fm9_cross", eventWeight_fm0_fm9_cross},
-            {"EventWeight_fm0_fs1_cross", eventWeight_fm0_fs1_cross},
-            {"EventWeight_fm0_fs2_cross", eventWeight_fm0_fs2_cross},
-            {"EventWeight_fm0_ft1_cross", eventWeight_fm0_ft1_cross},
-            {"EventWeight_fm0_ft2_cross", eventWeight_fm0_ft2_cross},
-            {"EventWeight_fm0_ft3_cross", eventWeight_fm0_ft3_cross},
-            {"EventWeight_fm0_ft4_cross", eventWeight_fm0_ft4_cross},
-            {"EventWeight_fm0_ft5_cross", eventWeight_fm0_ft5_cross},
-            {"EventWeight_fm0_ft6_cross", eventWeight_fm0_ft6_cross}};
-            
-
+        //double eventWeight;
+    
         std::map<std::string, double *> varMap = {
             {"merged_CS_V_cos_theta", &merged_CS_V_cos_theta},
             {"merged_cos_theta_star", &merged_cos_theta_star},
@@ -1218,7 +1178,7 @@ namespace Rivet
             {"merged_Ntrk_tagjets1", &merged_Ntrk_tagjets1},
             {"merged_Ntrk_tagjets2", &merged_Ntrk_tagjets2},
             {"merged_Ntrk_tagjets", &merged_Ntrk_tagjets},
-            {"merged_Ntrk_fjets", &merged_Ntrk_fjets},
+            {"merged_Ntrk_fjets", &merged_Ntrk_fjets}
         };
 
         std::map<std::string, double *> varMap_resolved = {
@@ -1246,7 +1206,9 @@ namespace Rivet
             {"resolved_Vlep_mass", &resolved_Vlep_mass},
             {"resolved_Vlep_pt", &resolved_Vlep_pt},
             {"resolved_Vlep_eta", &resolved_Vlep_eta},
-            {"resolved_Vlep_phi", &resolved_Vlep_phi},
+            {"resolved_Vhad_mass", &resolved_Vhad_mass},
+            {"resolved_Vhad_pt", &resolved_Vhad_pt},
+            {"resolved_Vhad_eta", &resolved_Vhad_eta},
             {"resolved_Vlep_DR_tagjet1", &resolved_Vlep_DR_tagjet1},
             {"resolved_Vlep_DR_tagjet2", &resolved_Vlep_DR_tagjet2},
             {"resolved_Vlep_Dphi_tagjet1", &resolved_Vlep_Dphi_tagjet1},
@@ -1264,7 +1226,6 @@ namespace Rivet
             {"resolved_signal_jets_DeltaEta", &resolved_signal_jets_DeltaEta},
             {"resolved_signal_jets_DeltaR", &resolved_signal_jets_DeltaR},
             {"resolved_signal_jets_DeltaPhi", &resolved_signal_jets_DeltaPhi},
-            {"resolved_signal_jets_mass", &resolved_signal_jets_mass},
             {"resolved_Vhad_DR_tagjet1", &resolved_Vhad_DR_tagjet1},
             {"resolved_Vhad_DR_tagjet2", &resolved_Vhad_DR_tagjet2},
             {"resolved_Vhad_Dphi_tagjet1", &resolved_Vhad_Dphi_tagjet1},
@@ -1293,6 +1254,7 @@ namespace Rivet
             {"resolved_mjjj", &resolved_mjjj},
             {"resolved_ZeppRes", &resolved_ZeppRes}};
     };
+
 
     RIVET_DECLARE_PLUGIN(WpZ_llqq);
 

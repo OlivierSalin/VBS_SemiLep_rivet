@@ -18,7 +18,7 @@ plt.rcParams.update({'text.usetex': True})
 c = panda_api.get_api()
 parser = OptionParser()
 
-parser.add_option("--All_channel", default=False)
+parser.add_option("--All_channel", default=True)
 parser.add_option("--EFT_order", default="QUAD")
 parser.add_option("--Channel", default="")
 parser.add_option("--nb_lep", default=2)
@@ -26,32 +26,83 @@ parser.add_option('--type_MC', default="")
 parser.add_option('--Add_stats', default=False)
 opts, _ = parser.parse_args()
 
-Processes = ["WmZ", "WpZ", "ZZ", "WmWm", "WpWm", "WpWp"]
-Decay = ["llqq", 'lvqq', 'vvqq']
+Processes = ["WmZ", "WpZ", "ZZ", "WmWm", "WpWm", "WpWp","WZjj","ZZjj","WWjj"]
+Processes=["WmZ", "WpZ", "ZZ", "WmWm", "WpWm", "WpWp"]
+Processes=["WmZ", "WpZ", "WmWm", "WpWm", "WpWp","ZZ"]
+Processes=["WpZ"]
+#Processes=["WpZ", "WmZ","ZZ"]
+Decay = ['llqq','lvqq',"vvqq"]
+Decay = ['llqq']
+valid_combinaison_SM=["WZjj_llqq", "ZZjj_llqq", "WZjj_vvqq", "ZZjj_vvqq", "WZjj_lvqq", "WWjj_lvqq"]
+valid_combi_aQGC=["WpZ_llqq","WpZ_vvqq","WpZ_lvqq","WmZ_llqq","WmZ_vvqq","WmZ_lvqq","ZZ_llqq","ZZ_vvqq"
+                  ,"WmWm_lvqq","WpWm_lvqq","WpWp_lvqq"]
+#Decay = ['llqq']
+
+
+
 nb_lepton = int(opts.nb_lep)
 
 order = opts.EFT_order
 type_MC = opts.type_MC
-name_panda= "Olivier Thomas Salin"
+name_panda= "Olivier Salin"
 if "model" in type_MC or "aqgc" in type_MC:
-    name_spe_task="aqgcModel"
-    name_spe_task="aqgcModel_new_1"
-    name_spe_task="_aqgcModel_ne"
+    name_spe_task="aqgcModel_new_test_Produc"
 elif "Run3" in type_MC or "run3" in type_MC:
-    name_spe_task="Run3_13p6_"
-    name_spe_task="Run13p6_1"
+    name_spe_task="Run13p6_Eboli_Prod_Eb"
+    print("Run3")
+
+elif "MCprod_aQGC_13p0" in type_MC:
+    name_spe_task="aqgcModel_TruthRun2_Prod_aQGC_13p0"
+elif "UpdateMCprodaQGC_13p0" in type_MC:
+    name_spe_task="aqgcModel_NewJOMR23647_aQGC_13p0"
+elif "MCprod_aQGC_13p6" in type_MC:
+    name_spe_task="aqgcModel_Run2_Prod_aQGC"
+    name_spe_task="aqgcModel_TRun3_Prod_aQGC_13p6"
+    
+
+elif "Reweighting_Madspin" in type_MC:
+    name_spe_task="MadSpinRwg_testCore02_50k"
+elif "Reweighting_hel_ignore" in type_MC:
+    name_spe_task="Rwg_hel_IGNORE_REAL_rwgTest01_50k"
+elif "Reweighting_hel_aware" in type_MC:
+    name_spe_task="Rwg_hel_ignore_rwgTest01_50k"
+elif "Reweighting_NoSpin" in type_MC:
+    name_spe_task="NoSpinRwg_testCore01_50k"
+elif "Reweighting_Decay_chain" in type_MC:
+    name_spe_task="DecayChainRwg_testCore01_50"
+elif "Reweighting_Polarisation" in type_MC:
+    name_spe_task="Reweighting_RwgPolar_test01_50k"
+
+elif "EFTDec_Madspin" in type_MC:
+    name_spe_task="aqgcModel_EFTDec_Madspin_Core01"
+    name_spe_task="aqgcModel_EFTDec_Madspin_Core04_Cross"
+elif "EFTDec_NoSpin" in type_MC:
+    name_spe_task="aqgcModel_EFTDecomp_Nospin01"
+elif "EFTDec_Decay_chain" in type_MC:
+    name_spe_task="DecayChainRwg_testCore01_50k"
+    
+elif "EFTDec_Polarisation" in type_MC:
+    name_spe_task="aqgcModel_EFTDec_Pol_test02"
+    
 else:
     name_spe_task=""
-
+print("name_spe_task", name_spe_task)
 
 #all_ops_cat = ["SM", "FM0", "FM2", "FS1", "FT1", "FT5"]
 
 all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
             "FS0","FS1","FS2",
             "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7","FT8","FT9"]
-all_ops_cat = [""]
+all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9"]
+#all_ops_cat = ["FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
+#all_ops_cat = ["FS0","FS1","FS2"]
+
+all_ops_cat = ["FM","FT","FS"]
 cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2)]
 print("Defined cross terms:", cross_terms_)
+
+if opts.EFT_order == "CROSS":
+    all_ops_cat = cross_terms_
 
 #all_ops_cat=cross_terms_ 
 #all_ops_cat =["FM0"]
@@ -62,15 +113,56 @@ if "aqgc" in type_MC or "model" in type_MC:
             "FS0","FS1","FS2",
             "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT8",
             "FM1odd","FM2odd","FM3odd","FM6odd","FT2odd","FT4odd","FT6odd"]
-        all_ops_cat = ["FT7","FT8"]
+        all_ops_cat = ["FM0","FS0","FT0"]
 
 
         
 base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files/"
-base_dir = f"{base_path}/{'Run3/' if 'Run3' in type_MC or 'run3' in type_MC else 'aqgc_model/' if 'aqgc' in type_MC or 'model' in type_MC else ''}"
+base_dir = f"{base_path}/{'13p0/' if '13p0' in type_MC or '13p0' in type_MC else 'aqgc_model/' if 'aqgc' in type_MC or 'model' in type_MC else ''}"
+if "Run3" in type_MC or "run3" in type_MC:
+    base_dir = f"{base_path}/Run3/"
+elif "Run2" in type_MC or "run2" in type_MC:
+    base_dir = f"{base_path}/Run2/"
+
+elif "aqgc" in type_MC or "model" in type_MC:
+    base_dir = f"{base_path}/aqgc_model/"
+elif "MCprod_aQGC_13p0" in type_MC:
+    base_dir = f"{base_path}/MCprod/aqgc/13p0/"
+elif "UpdateMCprodaQGC_13p0" in type_MC:
+    base_dir = f"{base_path}/MCprod/NewJOMR23647/aqgc/13p0/"
+elif "MCprod_aQGC_13p6" in type_MC:
+    base_dir = f"{base_path}/MCprod/aqgc/13p6/"
+    
+
+elif "Reweighting_Madspin" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Madspin/"
+elif "Reweighting_hel_ignore" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/"
+elif "Reweighting_hel_aware" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/"
+elif "Reweighting_NoSpin" in type_MC:
+    base_dir = f"{base_path}/Reweighting/NoSpin/"
+elif "Reweighting_Decay_chain" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Decay_chain/"
+elif "Reweighting_Polarisation" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/"
+    
+elif "EFTDec_Madspin" in type_MC:
+    base_dir = f"{base_path}/EFTDec/Madspin/"
+elif "EFTDec_NoSpin" in type_MC:
+    base_dir = f"{base_path}/EFTDec/NoSpin/"
+elif "EFTDec_Decay_chain" in type_MC:
+    base_dir = f"{base_path}/EFTDec/Decay_chain/"
+elif "EFTDec_Polarisation" in type_MC:
+    base_dir = f"{base_path}/EFTDec/Polarisation/"
+
+else:
+    base_dir = f"{base_path}/BAD_attempt/"
+    exception_message = f"Invalid type_MC: {type_MC}. Please check the input."
+    raise ValueError(exception_message)
 os.makedirs(base_dir, exist_ok=True)
 base_dir_SM = f"{base_path}/" if not base_dir else ""
-base_path= "/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Run3/test_WpZ_llqq"
+#base_path= "/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Run3/test_WpZ_llqq"
 
 name_run = "Type_MC_test"
 
@@ -136,9 +228,11 @@ def prepare_grid_files(Job_name, base_dir=base_dir):
             evnt_dir_pattern = re.sub(rf'_{order}.*?_EXT0', f'_{order}*_EXT0', evnt_dir)
             matching_evnt_dirs = glob.glob(evnt_dir_pattern)
             print(f"Event dir: {evnt_dir}\n, pattern: {evnt_dir_pattern},\n matching dirs: {matching_evnt_dirs}")
+            print("will download", evnt_did, "since no matching dir found for pattern", evnt_dir_pattern)
+            subprocess.call(f"rucio download {evnt_did}", shell=True, cwd=base_dir)
             if not matching_evnt_dirs:
                 print("will download", evnt_did, "since no matching dir found for pattern", evnt_dir_pattern)
-                subprocess.call(f"rucio download {evnt_did}", shell=True, cwd=base_dir)
+                #subprocess.call(f"rucio download {evnt_did}", shell=True, cwd=base_dir)
             else:
                 evnt_dir = matching_evnt_dirs[0]
                 log_dir = matching_evnt_dirs[0] + f"/{log_did}/"
@@ -162,13 +256,15 @@ def prepare_grid_files(Job_name, base_dir=base_dir):
                     
             event_files = glob.glob(f"{evnt_dir}/*.root")
             Event_files[proc_dec_op_order] = event_files
-            
+            evnt_did, evnt_dir, log_did, log_dir = lu.get_envt_log_names_dirs(base_dir, i_job_name)
             log_dir_pattern = re.sub(rf'EXT0/.*?_{order}.*?\.log', f'EXT0/*_{order}_*.log', log_dir)
             matching_log_dirs = glob.glob(log_dir_pattern)
             print(f"Log dir: {log_dir}\n, pattern: {log_dir_pattern},\n matching dirs: {matching_log_dirs}")
+            print("LOG ill download", log_did, "since dir doesn't exist", log_dir)
+            subprocess.call(f"rucio download {log_did}", shell=True, cwd=evnt_dir)
             if not matching_log_dirs:
                 print("LOG ill download", log_did, "since dir doesn't exist", log_dir)
-                subprocess.call(f"rucio download {log_did}", shell=True, cwd=evnt_dir)
+                #subprocess.call(f"rucio download {log_did}", shell=True, cwd=evnt_dir)
             else:
                 log_dir = matching_log_dirs[0]
                 os.makedirs(evnt_dir + "/Log_other/", exist_ok=True)
@@ -197,6 +293,7 @@ def prepare_grid_files(Job_name, base_dir=base_dir):
                 
             Log_files[proc_dec_op_order] = log_files
             xsec = lu.get_xsec(log_files[0])
+            subprocess.call(f"cp {log_files[0]} {evnt_dir}", shell=True)
             ## Cross section before decay
             xsec_value,x_sec_unc = lu.get_xsec_bef_decay(log_files[0])
             xsec_bef_decay= f'{xsec_value} +- {x_sec_unc}'
@@ -253,7 +350,7 @@ else:
         print("1 lepton")
         processes, decays = ["WmZ", "WpZ", "WmWm", "WpWm", "WpWp"], ['lvqq']
     elif nb_lepton == 2:
-        processes, decays = ["WpZ", "WmZ", "ZZ"], ['llqq']
+        processes, decays = ["WpZ", "WmZ","WZjj", "ZZ"], ['llqq']
     elif nb_lepton == 0:
         processes, decays = ["WpZ", "WmZ", "ZZ"], ['vvqq']
 
@@ -279,35 +376,40 @@ Cross_section_bef_decay={}
 for process in processes:
     for decay in decays:
         
+        
         prod_dec = f"{process}_{decay}"
         print(f"Process: {process}, Decay: {decay}")
-            
-        tasks = c.get_tasks(limit=100000000, days=13000, username=name_panda, status="done") # get already last try since only retry if it failed
-        task_names = [i_task['taskname'].replace("/","") for i_task in tasks if "MadGraph" in i_task['taskname'] and prod_dec in i_task['taskname'] and name_spe_task in i_task['taskname']]
-        print(f"task_names: {task_names}")
-        # Filter task_names to keep only those with an operator from all_ops_cat
-        print(f"Filtering task names for operators: {all_ops_cat}, eft order: {order}")
-        filtered_task_names = [task for task in task_names if any(op in task for op in all_ops_cat) & any(order_eft in task for order_eft in [order] )]
-        print(f"Filtered task names: {filtered_task_names}")
-        base_dir_prod = base_dir + f"{prod_dec}/"
-        os.makedirs(base_dir_prod, exist_ok=True)
-        if filtered_task_names:
-            found_ops = [op for op in all_ops_cat if any(op in task for task in filtered_task_names)]
-            print(f"Found valid task names for {prod_dec} with operators from {all_ops_cat}: {found_ops}")
-            TaskName[f"{prod_dec}"] = filtered_task_names
-            print(f"task_names: {filtered_task_names}")
-            print("Jobname", extract_jobName_info(filtered_task_names[0]))
+        if prod_dec in valid_combinaison_SM or prod_dec in valid_combi_aQGC: 
+            print(f"{prod_dec} is a good combinaison")           
+            tasks = c.get_tasks(limit=100000000, days=13000, username=name_panda, status="done") # get already last try since only retry if it failed
+            print(f"Number of tasks: {len(tasks)}")
+            print(f"Name special for task: {name_spe_task}")
+
+            task_names = [i_task['taskname'].replace("/","") for i_task in tasks if name_spe_task in i_task['taskname'] and prod_dec in i_task['taskname']]
+            print(f"task_names: {task_names}")
+            # Filter task_names to keep only those with an operator from all_ops_cat
+            print(f"Filtering task names for operators: {all_ops_cat}, eft order: {order}")
+            filtered_task_names = [task for task in task_names if any(op in task for op in all_ops_cat) & any(order_eft in task for order_eft in [order] )]
+            print(f"Filtered task names: {filtered_task_names}")
+            base_dir_prod = base_dir + f"{prod_dec}/"
+            os.makedirs(base_dir_prod, exist_ok=True)
+            if filtered_task_names:
+                found_ops = [op for op in all_ops_cat if any(op in task for task in filtered_task_names)]
+                print(f"Found valid task names for {prod_dec} with operators from {all_ops_cat}: {found_ops}")
+                TaskName[f"{prod_dec}"] = filtered_task_names
+                print(f"task_names: {filtered_task_names}")
+                print("Jobname", extract_jobName_info(filtered_task_names[0]))
 
 
-            Evnt_f,Log_f,X_sec,X_sec_bef_decay=prepare_grid_files(TaskName[f"{prod_dec}"], base_dir=base_dir_prod)
-        else:
-            missing_ops = [op for op in all_ops_cat if not any(op in task for task in task_names)]
-            print(f"No valid task names found for {prod_dec} with operators from {all_ops_cat}. Missing operators: {missing_ops}")
+                Evnt_f,Log_f,X_sec,X_sec_bef_decay=prepare_grid_files(TaskName[f"{prod_dec}"], base_dir=base_dir_prod)
+            else:
+                missing_ops = [op for op in all_ops_cat if not any(op in task for task in task_names)]
+                print(f"No valid task names found for {prod_dec} with operators from {all_ops_cat}. Missing operators: {missing_ops}")
 
-        Event_files[f"{prod_dec}"] = Evnt_f
-        Log_files[f"{prod_dec}"] = Log_f
-        Cross_section[f"{prod_dec}"] = X_sec
-        Cross_section_bef_decay[f"{prod_dec}"] = X_sec_bef_decay
+            Event_files[f"{prod_dec}"] = Evnt_f
+            Log_files[f"{prod_dec}"] = Log_f
+            Cross_section[f"{prod_dec}"] = X_sec
+            Cross_section_bef_decay[f"{prod_dec}"] = X_sec_bef_decay
         
 
 # Write the Cross_section dictionary to a text file in the same format as VBS_xsection.txt

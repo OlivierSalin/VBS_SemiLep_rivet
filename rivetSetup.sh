@@ -15,6 +15,7 @@ lsetup "panda 1.5.68"
 lsetup "pyami"
 lsetup "rucio -w"
 lsetup "astyle"
+lsetup "git"
 
 
 voms-proxy-init -voms atlas --valid 48:0 # 48h grid certif and not 12h default
