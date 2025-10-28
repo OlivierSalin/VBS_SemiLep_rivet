@@ -56,9 +56,17 @@ all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
             "FS0","FS1","FS2",
             "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
 
-all_ops_cat = ["FM0"]
+#all_ops_cat = ["FM0"]
+
+cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2)]
+
+if opts.EFT_order == "CROSS":
+    all_ops_cat = cross_terms_
+    print("Using cross terms for all_ops_cat:", all_ops_cat)
+    
+#all_ops_cat = ["FM0"]
 if opts.Rwg:
-    all_ops_cat = ["FM","FS","FT"]
+    all_ops_cat = ["FM","FS","FT","FSFM","FSFT","FMFT"]
 
 processes = ["WpZ"]
 decays = ['llqq']
@@ -105,6 +113,10 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
             base_dir = f"{base_path}/Reweighting/Polarisation/{prod_dec}/"
         elif "Reweighthel_ignore" in type_MC or "Reweighting_hel_ignore" in type_MC:
             base_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/{prod_dec}/"
+
+        elif "Reweighting_hel_ign_100k" in type_MC or "Reweighting_hel_ign_100k" in type_MC:
+            base_dir = f"{base_path}/Reweighting/Polarisation/hel_ign_100k/{prod_dec}/"
+
         elif "Reweighthel_aware" in type_MC or "Reweighting_hel_aware" in type_MC:
             base_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/{prod_dec}/"
             
@@ -136,7 +148,7 @@ path_build_command = "-I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/
 for process in processes:
     for decay in decays:
         build_command = ["rivet-build", f"Rivet{process}_{decay}.so", f"{process}_{decay}.cc", "EventWeights.cc", f"{path_build_command}"]
-        subprocess.run(build_command)
+        #subprocess.run(build_command)
         
 def run_command(proc_decay_op_pol_tuple):
     process, decay, op, polarisation = proc_decay_op_pol_tuple
@@ -156,6 +168,7 @@ print(combined_processes_ops)
 if __name__ == "__main__":
     # Define polarisation states
     polarisations = ["LL", "LT", "TL", "TT"]
+    #polarisations = ["LL"]
     # Prepare all (process, decay, op, polarisation) combinations
     proc_decay_op_pol_tuples = [
         (process, decay, op, pol)
@@ -179,7 +192,9 @@ if __name__ == "__main__":
                     continue
                 print("Base_dir: ", Base_dir + f"/DOCUT_YES/")
                 Dir_ntuple= Base_dir + f"/DOCUT_YES/"
-                path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/Rwg_test/{opts.type_MC}_Polarisation/"
+                File_cross_section= Base_dir + f"/cross_section_fb.txt"
+                File_log_file= Base_dir + f"/log.generate"
+                path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/Rwg_test/{opts.type_MC}/"
                 path_hist= path_hist_base + f"/{process}_{decay}/{op}_{order}_{polarisation}//"
                 if not os.path.exists(path_hist):
                     os.makedirs(path_hist)
@@ -192,6 +207,10 @@ if __name__ == "__main__":
                 # Copy the content of Dir_ntuple into path_hist
                 print(f"Copying {Dir_ntuple} to {path_hist}")
                 shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)
+                shutil.copy(File_cross_section, path_hist)
+                print(f"Copied ntuple and cross section files to {path_hist}")
+                shutil.copy(File_log_file, path_hist)
+                print(f"Copied log file to {path_hist}")
 
 
 

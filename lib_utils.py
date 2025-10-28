@@ -281,11 +281,22 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
             conf_dir = f"{base_path}/Reweighting/Madspin/{prod_dec}/"
         elif "Reweighthel_ignore" in type_MC or "Reweighting_hel_ignore" in type_MC:
             conf_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/{prod_dec}/"
+        
+        elif "Reweighting_hel_ign_100k" in type_MC or "Reweighting_hel_ign_100k" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/hel_ign_100k/{prod_dec}/"
+            
+        elif "Reweighting_InvSqrtXsec" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/InvSqrtXsec/{prod_dec}/"
+
+        elif "Reweighting_InvXsec" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/InvXsec/{prod_dec}/"
 
         elif "Reweighthel_aware" in type_MC or "Reweighting_hel_aware" in type_MC:
             conf_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/{prod_dec}/"
 
-
+        elif "ReweightwithINT" in type_MC or "ReweightwithINT" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/Polarisation/with_INT/{prod_dec}/"
+            
         elif "ReweightNoSpin" in type_MC or "Reweighting_NoSpin" in type_MC or "rwgNoSpin" in type_MC:
             conf_dir = f"{base_path}/Reweighting/NoSpin/{prod_dec}/"
         elif "ReweightDecay_chain" in type_MC or "Reweighting_Decay_chain" in type_MC or "rwgDecay_chain" in type_MC:

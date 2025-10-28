@@ -7,9 +7,38 @@
 
 extern double eventWeight;
 
-extern double eventWeight_fm0_quad, eventWeight_fm1_quad, eventWeight_fm2_quad, eventWeight_fm3_quad, eventWeight_fm4_quad, eventWeight_fm5_quad, eventWeight_fm7_quad, eventWeight_fm8_quad, eventWeight_fm9_quad;
+extern double eventWeight_fm0_quad, eventWeight_fm1_quad, eventWeight_fm2_quad, eventWeight_fm3_quad, eventWeight_fm4_quad;
+extern double eventWeight_fm5_quad, eventWeight_fm7_quad, eventWeight_fm8_quad, eventWeight_fm9_quad;
 extern double eventWeight_fs0_quad, eventWeight_fs1_quad, eventWeight_fs2_quad;
-extern double eventWeight_ft0_quad, eventWeight_ft1_quad, eventWeight_ft2_quad, eventWeight_ft3_quad, eventWeight_ft4_quad, eventWeight_ft5_quad, eventWeight_ft6_quad;
+extern double eventWeight_ft0_quad, eventWeight_ft1_quad, eventWeight_ft2_quad, eventWeight_ft3_quad, eventWeight_ft4_quad, eventWeight_ft5_quad, eventWeight_ft6_quad, eventWeight_ft7_quad, eventWeight_ft8_quad, eventWeight_ft9_quad;
+extern double eventWeight_fm1odd_quad, eventWeight_fm2odd_quad, eventWeight_fm3odd_quad, eventWeight_fm4odd_quad, eventWeight_fm5odd_quad, eventWeight_fm6odd_quad;
+extern double eventWeight_ft1odd_quad, eventWeight_ft2odd_quad, eventWeight_ft3odd_quad, eventWeight_ft4odd_quad, eventWeight_ft5odd_quad, eventWeight_ft6odd_quad;
+
+extern double eventWeight_fm0_int, eventWeight_fm1_int, eventWeight_fm2_int, eventWeight_fm3_int, eventWeight_fm4_int;
+extern double eventWeight_fm5_int, eventWeight_fm7_int, eventWeight_fm8_int, eventWeight_fm9_int;
+extern double eventWeight_fs0_int, eventWeight_fs1_int, eventWeight_fs2_int;
+extern double eventWeight_ft0_int, eventWeight_ft1_int, eventWeight_ft2_int, eventWeight_ft3_int, eventWeight_ft4_int, eventWeight_ft5_int, eventWeight_ft6_int, eventWeight_ft7_int, eventWeight_ft8_int, eventWeight_ft9_int;
+extern double eventWeight_fm1odd_int, eventWeight_fm2odd_int, eventWeight_fm3odd_int, eventWeight_fm4odd_int, eventWeight_fm5odd_int, eventWeight_fm6odd_int;
+extern double eventWeight_ft1odd_int, eventWeight_ft2odd_int, eventWeight_ft3odd_int, eventWeight_ft4odd_int, eventWeight_ft5odd_int, eventWeight_ft6odd_int;
+
+extern double eventWeight_fs0_fs1_cross, eventWeight_fs0_fs2_cross;
+extern double eventWeight_fs1_fs2_cross;
+
+extern double eventWeight_ft0_ft1_cross, eventWeight_ft0_ft2_cross, eventWeight_ft0_ft3_cross, eventWeight_ft0_ft4_cross, eventWeight_ft0_ft5_cross, eventWeight_ft0_ft6_cross;
+extern double eventWeight_ft1_ft2_cross, eventWeight_ft1_ft3_cross, eventWeight_ft1_ft4_cross, eventWeight_ft1_ft5_cross, eventWeight_ft1_ft6_cross;
+extern double eventWeight_ft2_ft3_cross, eventWeight_ft2_ft4_cross, eventWeight_ft2_ft5_cross, eventWeight_ft2_ft6_cross;
+extern double eventWeight_ft3_ft4_cross, eventWeight_ft3_ft5_cross, eventWeight_ft3_ft6_cross;
+extern double eventWeight_ft4_ft5_cross, eventWeight_ft4_ft6_cross;
+extern double eventWeight_ft5_ft6_cross;
+
+extern double eventWeight_fm0_fm1_cross, eventWeight_fm0_fm2_cross, eventWeight_fm0_fm3_cross, eventWeight_fm0_fm4_cross, eventWeight_fm0_fm5_cross, eventWeight_fm0_fm7_cross, eventWeight_fm0_fm8_cross, eventWeight_fm0_fm9_cross;
+extern double eventWeight_fm1_fm2_cross, eventWeight_fm1_fm3_cross, eventWeight_fm1_fm4_cross, eventWeight_fm1_fm5_cross, eventWeight_fm1_fm7_cross, eventWeight_fm1_fm8_cross, eventWeight_fm1_fm9_cross;
+extern double eventWeight_fm2_fm3_cross, eventWeight_fm2_fm4_cross, eventWeight_fm2_fm5_cross, eventWeight_fm2_fm7_cross, eventWeight_fm2_fm8_cross, eventWeight_fm2_fm9_cross;
+extern double eventWeight_fm3_fm4_cross, eventWeight_fm3_fm5_cross, eventWeight_fm3_fm7_cross, eventWeight_fm3_fm8_cross, eventWeight_fm3_fm9_cross;
+extern double eventWeight_fm4_fm5_cross, eventWeight_fm4_fm7_cross, eventWeight_fm4_fm8_cross, eventWeight_fm4_fm9_cross;
+extern double eventWeight_fm5_fm7_cross, eventWeight_fm5_fm8_cross, eventWeight_fm5_fm9_cross;
+extern double eventWeight_fm7_fm8_cross, eventWeight_fm7_fm9_cross;
+extern double eventWeight_fm8_fm9_cross;
 
 extern double eventWeight_fm0_quad_ll, eventWeight_fm1_quad_ll, eventWeight_fm2_quad_ll, eventWeight_fm3_quad_ll, eventWeight_fm4_quad_ll;
 extern double eventWeight_fm5_quad_ll, eventWeight_fm7_quad_ll, eventWeight_fm8_quad_ll, eventWeight_fm9_quad_ll;
@@ -31,29 +60,13 @@ extern double eventWeight_fm5_quad_tt, eventWeight_fm7_quad_tt, eventWeight_fm8_
 extern double eventWeight_fs0_quad_tt, eventWeight_fs1_quad_tt, eventWeight_fs2_quad_tt;
 extern double eventWeight_ft0_quad_tt, eventWeight_ft1_quad_tt, eventWeight_ft2_quad_tt, eventWeight_ft3_quad_tt, eventWeight_ft4_quad_tt, eventWeight_ft5_quad_tt, eventWeight_ft6_quad_tt;
 
-extern double eventWeight_fm0_fm1_cross, eventWeight_fm0_fm2_cross, eventWeight_fm0_fm3_cross, eventWeight_fm0_fm4_cross, eventWeight_fm0_fm5_cross, eventWeight_fm0_fm7_cross, eventWeight_fm0_fm8_cross, eventWeight_fm0_fm9_cross;
-extern double eventWeight_fm0_fs1_cross, eventWeight_fm0_fs2_cross, eventWeight_fm0_fs3_cross;
-extern double eventWeight_fm0_ft1_cross, eventWeight_fm0_ft2_cross, eventWeight_fm0_ft3_cross, eventWeight_fm0_ft4_cross, eventWeight_fm0_ft5_cross, eventWeight_fm0_ft6_cross;
+extern double eventWeight_mur1p0_muf1p0_dynscale1_pdf303000, eventWeight_mur1p0_muf1p0_dynscale2_pdf303000, eventWeight_mur1p0_muf1p0_dynscale3_pdf303000, eventWeight_mur1p0_muf1p0_dynscale4_pdf303000, eventWeight_mur1p0_muf1p0_pdf303000;
 
-extern double eventWeight_fs0_fs1_cross, eventWeight_fs0_fs2_cross;
-extern double eventWeight_fs1_fs2_cross;
-extern double eventWeight_ft0_ft1_cross, eventWeight_ft0_ft2_cross, eventWeight_ft0_ft3_cross, eventWeight_ft0_ft4_cross, eventWeight_ft0_ft5_cross, eventWeight_ft0_ft6_cross;
-extern double eventWeight_ft1_ft2_cross, eventWeight_ft1_ft3_cross, eventWeight_ft1_ft4_cross, eventWeight_ft1_ft5_cross, eventWeight_ft1_ft6_cross;
-extern double eventWeight_ft2_ft3_cross, eventWeight_ft2_ft4_cross, eventWeight_ft2_ft5_cross, eventWeight_ft2_ft6_cross;
-extern double eventWeight_ft3_ft4_cross, eventWeight_ft3_ft5_cross, eventWeight_ft3_ft6_cross;
-extern double eventWeight_ft4_ft5_cross, eventWeight_ft4_ft6_cross;
-extern double eventWeight_ft5_ft6_cross;
-
-extern double eventWeight_fm1_fm2_cross, eventWeight_fm1_fm3_cross, eventWeight_fm1_fm4_cross, eventWeight_fm1_fm5_cross, eventWeight_fm1_fm7_cross, eventWeight_fm1_fm8_cross, eventWeight_fm1_fm9_cross;
-extern double eventWeight_fm2_fm3_cross, eventWeight_fm2_fm4_cross, eventWeight_fm2_fm5_cross, eventWeight_fm2_fm7_cross, eventWeight_fm2_fm8_cross, eventWeight_fm2_fm9_cross;
-extern double eventWeight_fm3_fm4_cross, eventWeight_fm3_fm5_cross, eventWeight_fm3_fm7_cross, eventWeight_fm3_fm8_cross, eventWeight_fm3_fm9_cross;
-extern double eventWeight_fm4_fm5_cross, eventWeight_fm4_fm7_cross, eventWeight_fm4_fm8_cross, eventWeight_fm4_fm9_cross;
-extern double eventWeight_fm5_fm7_cross, eventWeight_fm5_fm8_cross, eventWeight_fm5_fm9_cross;
-extern double eventWeight_fm7_fm8_cross, eventWeight_fm7_fm9_cross;
-extern double eventWeight_fm8_fm9_cross;
 
 extern std::map<std::string, double> weightMap;
 extern std::map<std::string, double> weightMap_cross;
+extern std::map<std::string, double> weightMap_int;
+extern std::map<std::string, double> weightMap_dynscale;
 extern std::map<std::string, double> weightMap_Polarisation;
 
 #endif // WPZ_LLQQ_WEIGHTS_H

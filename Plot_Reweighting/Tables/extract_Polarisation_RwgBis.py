@@ -78,6 +78,11 @@ def pb_to_fb(xsec_pb):
     """
     return float(xsec_pb) * 1000
 
+def xsec_decay(branching_ratio, xsec):
+    if branching_ratio <= 0:
+        raise ValueError("Branching ratio must be greater than zero.")
+    return xsec * branching_ratio
+
 def logfile_find(conf, type_MC=None):
     base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files"
     #print("New models")

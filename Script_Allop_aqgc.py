@@ -46,14 +46,14 @@ all_ops_cat = ["FM0","FS0","FT0"]
 #all_ops_cat = ["FM0"]
 all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
             "FS0","FS1","FS2",
-            "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7"]
+            "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
 
 #all_ops_cat = ["FM0","FM1"]
-all_ops_cat = ["FM","FS","FT"]
+#all_ops_cat = ["FM","FS","FT"]
 
 #all_ops_cat = ["FS0","FS1","FS2"]
 #all_ops_cat = ["FM0","FM1"]
-cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2)]
+cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2) if op1[:2] == op2[:2] and op1 != op2]
 print("Defined cross terms:", cross_terms_)
 
 if opts.EFT_order == "CROSS":
@@ -134,7 +134,7 @@ for process in processes:
     for decay in decays:
         build_command = ["rivet-build", f"Rivet{process}_{decay}.so", f"{process}_{decay}.cc", "EventWeights.cc", f"{path_build_command}"]
         print(f"Build command: {build_command}")
-        subprocess.run(build_command)
+        #subprocess.run(build_command)
         
 def run_command(proc_decay_op_tuple):
     process, decay, op = proc_decay_op_tuple
@@ -158,9 +158,8 @@ if __name__ == "__main__":
         for (process, decay) in proc_decays_tuple
         for op in all_ops_cat
     ]
-    with Pool() as p:
-        print("test")
-        p.map(run_command, proc_decay_op_tuples)
+    #with Pool() as p:
+        #p.map(run_command, proc_decay_op_tuples)
 
     for process,decay in proc_decays_tuple:
         for op in all_ops_cat:
@@ -174,19 +173,27 @@ if __name__ == "__main__":
                 continue
             print("Base_dir: ", Base_dir + f"/DOCUT_YES/")
             Dir_ntuple= Base_dir + f"/DOCUT_YES/"
-            path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/Rwg_test/{opts.type_MC}/"
+            File_cross_section= Base_dir + f"/cross_section_fb.txt"
+            File_log_file= Base_dir + f"/log.generate"
+            path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/Rwg_test/{opts.type_MC}//"
             path_hist= path_hist_base + f"/{process}_{decay}/{op}_{order}//"
-            if not os.path.exists(path_hist):
-                os.makedirs(path_hist)
-            else:
-                print("Warning: directory already exists, skipping.")
-                timestamp = time.strftime("%m%d-%H%M")
-                path_hist = path_hist + f"/Already_exist/{opts.name_copy}_{timestamp}//{process}_{decay}/{op}_{order}/{opts.type_MC}/"
-                os.makedirs(path_hist)
+            #if not os.path.exists(path_hist):
+            #    os.makedirs(path_hist)
+            #else:
+            #    print("Warning: directory already exists, skipping.")
+            #    timestamp = time.strftime("%m%d-%H%M")
+            #    path_hist = path_hist + f"/Already_exist/{opts.name_copy}_{timestamp}//{process}_{decay}/{op}_{order}/{opts.type_MC}/"
+            #    os.makedirs(path_hist)
             
             # Copy the content of Dir_ntuple into path_hist
             print(f"Copying {Dir_ntuple} to {path_hist}")
-            shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)
+            #shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)
+            if os.path.exists(File_cross_section):
+                shutil.copy(File_cross_section, path_hist)
+                print(f"Copied ntuple and cross section files to {path_hist}")
+            if os.path.exists(File_log_file):
+                shutil.copy(File_log_file, path_hist)
+                print(f"Copied log file to {path_hist}")
 
 
 

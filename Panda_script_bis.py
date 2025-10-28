@@ -20,6 +20,7 @@ parser = OptionParser()
 
 parser.add_option("--All_channel", default=True)
 parser.add_option("--EFT_order", default="QUAD")
+parser.add_option("--Rwg", default= False)
 parser.add_option("--Channel", default="")
 parser.add_option("--nb_lep", default=2)
 parser.add_option('--type_MC', default="")
@@ -63,7 +64,16 @@ elif "MCprod_aQGC_13p6" in type_MC:
 elif "Reweighting_Madspin" in type_MC:
     name_spe_task="MadSpinRwg_testCore02_50k"
 elif "Reweighting_hel_ignore" in type_MC:
-    name_spe_task="Rwg_hel_IGNORE_REAL_rwgTest01_50k"
+    name_spe_task="Rwg_hel_ignore_stat_bis_100k"
+elif "Reweighting_hel_ign_100k" in type_MC:
+    name_spe_task="Rwg_hel_ignore_stat_bis_100k"
+
+elif "Reweighting_InvSqrtXsec" in type_MC:
+    name_spe_task="Rwg_QUAD_InvSqrtXsec_50k"
+
+elif "Reweighting_InvXsec" in type_MC:
+    name_spe_task="Rwg_QUAD_InvXsec_50k"
+
 elif "Reweighting_hel_aware" in type_MC:
     name_spe_task="Rwg_hel_ignore_rwgTest01_50k"
 elif "Reweighting_NoSpin" in type_MC:
@@ -72,10 +82,18 @@ elif "Reweighting_Decay_chain" in type_MC:
     name_spe_task="DecayChainRwg_testCore01_50"
 elif "Reweighting_Polarisation" in type_MC:
     name_spe_task="Reweighting_RwgPolar_test01_50k"
+elif "Reweighting_with_INT" in type_MC:
+    name_spe_task="with_INT_inside_100k"
+elif "Reweighting_only_INT" in type_MC:
+    name_spe_task="Rwg_test_order_for_INT_tres_10k"
+
+elif "Reweighting_CPodd" in type_MC:
+    name_spe_task="Rwg_test01_RwgCPodd_100k"
+
 
 elif "EFTDec_Madspin" in type_MC:
     name_spe_task="aqgcModel_EFTDec_Madspin_Core01"
-    name_spe_task="aqgcModel_EFTDec_Madspin_Core04_Cross"
+    name_spe_task="aqgcModel_EFTDec_INT_better"
 elif "EFTDec_NoSpin" in type_MC:
     name_spe_task="aqgcModel_EFTDecomp_Nospin01"
 elif "EFTDec_Decay_chain" in type_MC:
@@ -83,7 +101,11 @@ elif "EFTDec_Decay_chain" in type_MC:
     
 elif "EFTDec_Polarisation" in type_MC:
     name_spe_task="aqgcModel_EFTDec_Pol_test02"
-    
+    name_spe_task="aqgcModel_EFTDec_Pol_Cross_bis"
+
+elif "EFTDec_CPodd" in type_MC:
+    name_spe_task="CROSS_testCross_Valid_Todd"
+
 else:
     name_spe_task=""
 print("name_spe_task", name_spe_task)
@@ -98,7 +120,27 @@ all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9"]
 #all_ops_cat = ["FS0","FS1","FS2"]
 
 all_ops_cat = ["FM","FT","FS"]
+all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
+            "FS0","FS1","FS2",
+            "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
+
+all_ops_cat= ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
+            "FS0","FS1","FS2",
+            "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7","FT8","FT9",
+            "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd","FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
+
+all_ops_cat= ["FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
+
+#all_ops_cat = ["FM0","FT0"]
+if opts.Rwg:
+    #all_ops_cat = ["FS"]
+    all_ops_cat = ["FM","FS","FT","FSFM","FSFT","FMFT"
+                   ,"FModd","FTodd","FModdFTodd","FMFModd","FTFTodd"]
+
+
 cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2)]
+
+
 print("Defined cross terms:", cross_terms_)
 
 if opts.EFT_order == "CROSS":
@@ -137,9 +179,23 @@ elif "MCprod_aQGC_13p6" in type_MC:
 elif "Reweighting_Madspin" in type_MC:
     base_dir = f"{base_path}/Reweighting/Madspin/"
 elif "Reweighting_hel_ignore" in type_MC:
-    base_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/"
+    base_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/TESTbjbfe/"
+
+elif "Reweighting_hel_ign_100k" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/hel_ign_100k/"
+
+elif "Reweighting_InvSqrtXsec" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/InvSqrtXsec/"
+
+elif "Reweighting_InvXsec" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/InvXsec/"
+
 elif "Reweighting_hel_aware" in type_MC:
     base_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/"
+elif "Reweighting_with_INT" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/with_INT/"
+elif "Reweighting_only_INT" in type_MC:
+    base_dir = f"{base_path}/Reweighting/Polarisation/only_INT_From_INT/"
 elif "Reweighting_NoSpin" in type_MC:
     base_dir = f"{base_path}/Reweighting/NoSpin/"
 elif "Reweighting_Decay_chain" in type_MC:
@@ -147,6 +203,9 @@ elif "Reweighting_Decay_chain" in type_MC:
 elif "Reweighting_Polarisation" in type_MC:
     base_dir = f"{base_path}/Reweighting/Polarisation/"
     
+elif "Reweighting_CPodd" in type_MC:
+    base_dir = f"{base_path}/Reweighting/CPodd/Validation/"
+
 elif "EFTDec_Madspin" in type_MC:
     base_dir = f"{base_path}/EFTDec/Madspin/"
 elif "EFTDec_NoSpin" in type_MC:
@@ -155,6 +214,8 @@ elif "EFTDec_Decay_chain" in type_MC:
     base_dir = f"{base_path}/EFTDec/Decay_chain/"
 elif "EFTDec_Polarisation" in type_MC:
     base_dir = f"{base_path}/EFTDec/Polarisation/"
+elif "EFTDec_CPodd" in type_MC:
+    base_dir = f"{base_path}/EFTDec/CPodd/Validation/"
 
 else:
     base_dir = f"{base_path}/BAD_attempt/"
@@ -389,6 +450,7 @@ for process in processes:
             print(f"task_names: {task_names}")
             # Filter task_names to keep only those with an operator from all_ops_cat
             print(f"Filtering task names for operators: {all_ops_cat}, eft order: {order}")
+            op__= [f"_{op}_" for op in all_ops_cat if op in task_names[0]]
             filtered_task_names = [task for task in task_names if any(op in task for op in all_ops_cat) & any(order_eft in task for order_eft in [order] )]
             print(f"Filtered task names: {filtered_task_names}")
             base_dir_prod = base_dir + f"{prod_dec}/"

@@ -4,7 +4,16 @@ double eventWeight;
 double eventWeight_fm0_quad, eventWeight_fm1_quad, eventWeight_fm2_quad, eventWeight_fm3_quad, eventWeight_fm4_quad;
 double eventWeight_fm5_quad, eventWeight_fm7_quad, eventWeight_fm8_quad, eventWeight_fm9_quad;
 double eventWeight_fs0_quad, eventWeight_fs1_quad, eventWeight_fs2_quad;
-double eventWeight_ft0_quad, eventWeight_ft1_quad, eventWeight_ft2_quad, eventWeight_ft3_quad, eventWeight_ft4_quad, eventWeight_ft5_quad, eventWeight_ft6_quad;
+double eventWeight_ft0_quad, eventWeight_ft1_quad, eventWeight_ft2_quad, eventWeight_ft3_quad, eventWeight_ft4_quad, eventWeight_ft5_quad, eventWeight_ft6_quad, eventWeight_ft7_quad, eventWeight_ft8_quad, eventWeight_ft9_quad;
+double eventWeight_fm1odd_quad, eventWeight_fm2odd_quad, eventWeight_fm3odd_quad, eventWeight_fm4odd_quad, eventWeight_fm5odd_quad, eventWeight_fm6odd_quad;
+double eventWeight_ft1odd_quad, eventWeight_ft2odd_quad, eventWeight_ft3odd_quad, eventWeight_ft4odd_quad, eventWeight_ft5odd_quad, eventWeight_ft6odd_quad;
+
+double eventWeight_fm0_int, eventWeight_fm1_int, eventWeight_fm2_int, eventWeight_fm3_int, eventWeight_fm4_int;
+double eventWeight_fm5_int, eventWeight_fm7_int, eventWeight_fm8_int, eventWeight_fm9_int;
+double eventWeight_fs0_int, eventWeight_fs1_int, eventWeight_fs2_int;
+double eventWeight_ft0_int, eventWeight_ft1_int, eventWeight_ft2_int, eventWeight_ft3_int, eventWeight_ft4_int, eventWeight_ft5_int, eventWeight_ft6_int, eventWeight_ft7_int, eventWeight_ft8_int, eventWeight_ft9_int;
+double eventWeight_fm1odd_int, eventWeight_fm2odd_int, eventWeight_fm3odd_int, eventWeight_fm4odd_int, eventWeight_fm5odd_int, eventWeight_fm6odd_int;
+double eventWeight_ft1odd_int, eventWeight_ft2odd_int, eventWeight_ft3odd_int, eventWeight_ft4odd_int, eventWeight_ft5odd_int, eventWeight_ft6odd_int;
 
 double eventWeight_fs0_fs1_cross, eventWeight_fs0_fs2_cross;
 double eventWeight_fs1_fs2_cross;
@@ -45,6 +54,8 @@ double eventWeight_fm5_quad_tt, eventWeight_fm7_quad_tt, eventWeight_fm8_quad_tt
 double eventWeight_fs0_quad_tt, eventWeight_fs1_quad_tt, eventWeight_fs2_quad_tt;
 double eventWeight_ft0_quad_tt, eventWeight_ft1_quad_tt, eventWeight_ft2_quad_tt, eventWeight_ft3_quad_tt, eventWeight_ft4_quad_tt, eventWeight_ft5_quad_tt, eventWeight_ft6_quad_tt;
 
+double eventWeight_mur1p0_muf1p0_dynscale1_pdf303000, eventWeight_mur1p0_muf1p0_dynscale2_pdf303000, eventWeight_mur1p0_muf1p0_dynscale3_pdf303000, eventWeight_mur1p0_muf1p0_dynscale4_pdf303000, eventWeight_mur1p0_muf1p0_pdf303000;
+
 std::map<std::string, double> weightMap = {
     {"EventWeight_0", eventWeight},
     {"EventWeight_fm0_quad", eventWeight_fm0_quad},
@@ -65,7 +76,56 @@ std::map<std::string, double> weightMap = {
     {"EventWeight_ft3_quad", eventWeight_ft3_quad},
     {"EventWeight_ft4_quad", eventWeight_ft4_quad},
     {"EventWeight_ft5_quad", eventWeight_ft5_quad},
-    {"EventWeight_ft6_quad", eventWeight_ft6_quad}
+    {"EventWeight_ft6_quad", eventWeight_ft6_quad},
+    {"EventWeight_ft7_quad", eventWeight_ft7_quad},
+    {"EventWeight_ft8_quad", eventWeight_ft8_quad},
+    {"EventWeight_ft9_quad", eventWeight_ft9_quad},
+    {"EventWeight_fm1odd_quad", eventWeight_fm1odd_quad},
+    {"EventWeight_fm2odd_quad", eventWeight_fm2odd_quad},
+    {"EventWeight_fm3odd_quad", eventWeight_fm3odd_quad},
+    {"EventWeight_fm4odd_quad", eventWeight_fm4odd_quad},
+    {"EventWeight_fm5odd_quad", eventWeight_fm5odd_quad},
+    {"EventWeight_fm6odd_quad", eventWeight_fm6odd_quad},
+    {"EventWeight_ft1odd_quad", eventWeight_ft1odd_quad},
+    {"EventWeight_ft2odd_quad", eventWeight_ft2odd_quad},
+    {"EventWeight_ft3odd_quad", eventWeight_ft3odd_quad},
+    {"EventWeight_ft4odd_quad", eventWeight_ft4odd_quad},
+    {"EventWeight_ft5odd_quad", eventWeight_ft5odd_quad},
+    {"EventWeight_ft6odd_quad", eventWeight_ft6odd_quad}
+};
+
+std::map<std::string, double> weightMap_int = {
+    {"EventWeight_fm0_int", eventWeight_fm0_int},
+    {"EventWeight_fm1_int", eventWeight_fm1_int},
+    {"EventWeight_fm2_int", eventWeight_fm2_int},
+    {"EventWeight_fm3_int", eventWeight_fm3_int},
+    {"EventWeight_fm4_int", eventWeight_fm4_int},
+    {"EventWeight_fm5_int", eventWeight_fm5_int},
+    {"EventWeight_fm7_int", eventWeight_fm7_int},
+    {"EventWeight_fm8_int", eventWeight_fm8_int},
+    {"EventWeight_fm9_int", eventWeight_fm9_int},
+    {"EventWeight_fs0_int", eventWeight_fs0_int},
+    {"EventWeight_fs1_int", eventWeight_fs1_int},
+    {"EventWeight_fs2_int", eventWeight_fs2_int},
+    {"EventWeight_ft0_int", eventWeight_ft0_int},
+    {"EventWeight_ft1_int", eventWeight_ft1_int},
+    {"EventWeight_ft2_int", eventWeight_ft2_int},
+    {"EventWeight_ft3_int", eventWeight_ft3_int},
+    {"EventWeight_ft4_int", eventWeight_ft4_int},
+    {"EventWeight_ft5_int", eventWeight_ft5_int},
+    {"EventWeight_ft6_int", eventWeight_ft6_int},
+    {"EventWeight_fm1odd_int", eventWeight_fm1odd_int},
+    {"EventWeight_fm2odd_int", eventWeight_fm2odd_int},
+    {"EventWeight_fm3odd_int", eventWeight_fm3odd_int},
+    {"EventWeight_fm4odd_int", eventWeight_fm4odd_int},
+    {"EventWeight_fm5odd_int", eventWeight_fm5odd_int},
+    {"EventWeight_fm6odd_int", eventWeight_fm6odd_int},
+    {"EventWeight_ft1odd_int", eventWeight_ft1odd_int},
+    {"EventWeight_ft2odd_int", eventWeight_ft2odd_int},
+    {"EventWeight_ft3odd_int", eventWeight_ft3odd_int},
+    {"EventWeight_ft4odd_int", eventWeight_ft4odd_int},
+    {"EventWeight_ft5odd_int", eventWeight_ft5odd_int},
+    {"EventWeight_ft6odd_int", eventWeight_ft6odd_int}
 };
 
 std::map<std::string, double> weightMap_cross = {
@@ -212,4 +272,12 @@ std::map<std::string, double> weightMap_Polarisation = {
     {"EventWeight_ft4_quad_tt", eventWeight_ft4_quad_tt},
     {"EventWeight_ft5_quad_tt", eventWeight_ft5_quad_tt},
     {"EventWeight_ft6_quad_tt", eventWeight_ft6_quad_tt}
+};
+
+std::map<std::string, double> weightMap_dynscale = {
+    {"EventWeight_mur1p0_muf1p0_dynscale1_pdf303000", eventWeight_mur1p0_muf1p0_dynscale1_pdf303000},
+    {"EventWeight_mur1p0_muf1p0_dynscale2_pdf303000", eventWeight_mur1p0_muf1p0_dynscale2_pdf303000},
+    {"EventWeight_mur1p0_muf1p0_dynscale3_pdf303000", eventWeight_mur1p0_muf1p0_dynscale3_pdf303000},
+    {"EventWeight_mur1p0_muf1p0_dynscale4_pdf303000", eventWeight_mur1p0_muf1p0_dynscale4_pdf303000},
+    {"EventWeight_mur1p0_muf1p01_pdf303000", eventWeight_mur1p0_muf1p0_pdf303000}
 };

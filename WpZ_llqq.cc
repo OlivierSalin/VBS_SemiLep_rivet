@@ -203,14 +203,6 @@ namespace Rivet
             _tt_merged = make_unique<TTree>("Merged", "Rivet_physics");
             _tt_merged->Branch("EventNumber", &merged_EventNumber);
             _tt_merged->Branch("EventWeight", &merged_EventWeight);
-            for (auto &var_ : weightMap)
-            {
-                _tt_merged->Branch(var_.first.c_str(), &var_.second);
-            }
-            for (auto &var_ : weightMap_cross)
-            {
-                _tt_merged->Branch(var_.first.c_str(), &var_.second);
-            }
       
     
             _tt_merged->Branch("Label", &_label);
@@ -224,9 +216,26 @@ namespace Rivet
                 _tt_merged->Branch(var_.first.c_str(), var_.second);
             }
 
+            for (auto &var_ : weightMap)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
 
-            for (auto &var_ : weightMap_Polarisation)
-            {_tt_merged->Branch(var_.first.c_str(), &var_.second);}
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+
+            //for (auto &var_ : weightMap_Polarisation)
+            //{_tt_merged->Branch(var_.first.c_str(), &var_.second);}
 
             // Define branches for each weight
             //_tt_merged_Fjet = make_unique<TTree>("Merged_Fjet", "Rivet_physics");
@@ -248,13 +257,43 @@ namespace Rivet
             _tt_bef_cut->Branch("EventWeight", &EventWeight);
             _tt_bef_cut->Branch("VBS_event", &VBS_event);
             _tt_bef_cut->Branch("Label", &_label);
-
-
+            for (auto &var_ : weightMap)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
 
             _tt_angle = make_unique<TTree>("Angle", "Rivet_physics");
             _tt_angle->Branch("EventWeight", &Angle_EventWeight);
             _tt_angle->Branch("Label", &_label);
             _tt_angle->Branch("cos_theta_star", &cos_theta_star);
+            for (auto &var_ : weightMap)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
 
             // counter for efficiency
             book(_c["pos_w_initial"], "pos_w_initial");
@@ -337,7 +376,8 @@ namespace Rivet
             // Set the weight values
             for (const auto& [key, value] : weightNameToIndex) {
                 if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos
-                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos) {
+                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos
+                    || key.find("int") != std::string::npos || key.find("INT") != std::string::npos) {
                     std::string key_lower = key;
                     std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
                     std::string weightName = "EventWeight_" + key_lower;
@@ -358,10 +398,27 @@ namespace Rivet
                     else if (key.find("cross")!= std::string::npos || key.find("CROSS") != std::string::npos){
                         weightMap_cross[weightName] = weight;
                     }
+                    else if (key.find("int")!= std::string::npos || key.find("INT") != std::string::npos){
+                        weightMap_int[weightName] = weight;
+                        //std::cout << "Weight name: " << weightName << " Weight: " << weightMap_int[weightName] << std::endl;
+                    }
                     //std::cout << "Weight name: " << weightName << " Weight: " << weightMap[weightName] << std::endl;
                 }
             }
+            for (const auto& [key, value] : weightNameToIndex) {
+                if (key.find("MUR1.0_MUF1.0_DYNSCALE") != std::string::npos && key.find("PDF303000") != std::string::npos) {
+                    std::string key_lower = key;
+                    std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
+                    std::string weightName = "EventWeight_" + key_lower;
+                    std::replace(weightName.begin(), weightName.end(), '.', 'p');
+                    
+                    double weight = weights_mc[value];
+                    weightMap_dynscale[weightName] = weight;
 
+                    //std::cout << "Weight name: " << weightName << " Weight: " << weightMap_dynscale[weightName] << std::endl;
+                
+                }
+            }
 
 
             if (ev_nominal_weight >= 0)
@@ -755,7 +812,8 @@ namespace Rivet
 
                     // Fill the TTree with the weight values
                     for (const auto& [key, value] : weightNameToIndex) {
-                        if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos) {
+                        if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos|| 
+                        key.find("int") != std::string::npos || key.find("dynscale") != std::string::npos) {
                             
                             std::string weightName = "EventWeight_" + std::to_string(value);
                         }
@@ -1103,7 +1161,9 @@ namespace Rivet
         /// @}
 
         std::map<std::string, int> weightNameToIndex;
+        std::map<std::string, int> weightNameToIndex_DynScale;
         std::map<int, std::string> indexToWeightName;
+        std::map<int, std::string> indexToWeightName_DynScale;
 
         //double eventWeight;
     

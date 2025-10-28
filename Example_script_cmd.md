@@ -5,7 +5,7 @@ python Save_run_rivet_type_mc.py --Channel "WpZ_llqq" --nb_lep 2 --type_MC "run3
 
 
 ## Rivet
-rivet-build RivetWpZ_llqq.so WpZ_llqq.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/ `root-config --cflags --libs` 
+rivet-build RivetWpZ_llqq.so WpZ_llqq.cc EventWeights.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/ `root-config --cflags --libs` 
 
 python run_rivet.py --evtMax 100 --conf "user.osalin.MadGraph_WpZ_llqq_FM0_QUAD" --DOCUT "YES" --redoRivet "yes" --redoPlots "no" --type_MC ""
 

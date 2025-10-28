@@ -11,6 +11,7 @@ import math
 import json
 import re
 import mplhep as hep
+import itertools
 
 
 from format_utils import (
@@ -42,6 +43,7 @@ def parse_options():
     parser.add_option("--Name", default="test")
     parser.add_option("--type_MC", default="")
     parser.add_option("--EFT_order", default="QUAD")
+    parser.add_option("--CROSS", default="True")
     parser.add_option("--Channel", default="")
     parser.add_option("--nb_lep", default=2)
     parser.add_option("--bins", default=25)
@@ -94,7 +96,7 @@ def get_histogram_limits(root_files_info, parameter_to_plot, tree_name, Xsec_mod
 def get_histogram(tree, model_name, parameter, bins, weight_branch_name, min_val, max_val, scale_factor=1.0, weight_cut=None):
     histogram = ROOT.TH1D("histogram", "title", bins, min_val, max_val)
     draw_option = weight_branch_name if weight_branch_name in [branch.GetName() for branch in tree.GetListOfBranches()] else ""
-    if "hel_aware" in model_name:
+    if "hel_awaredihfihfdi" in model_name:
         tree.Draw(f"{parameter}>>histogram", f"(({weight_branch_name} < {weight_cut})&&({weight_branch_name}>0))*{weight_branch_name}", "norm")
     else:
         tree.Draw(f"{parameter}>>histogram", draw_option, "norm")
@@ -109,7 +111,10 @@ def construct_path(base_path, folder_name, process, decay, op, op_rwg, order_EFT
     if op == "SM":
         return f"{base_dir}/{op}_SM/"
     if any(keyword in name_model_ for keyword in ["Reweight",'rwg', 'reweight', 'wg']):
-        return f"{base_dir}/{op_rwg}_{order_EFT}/"
+        order_EFT_=order_EFT
+        if order_EFT == "CROSS":
+            order_EFT_ = "QUAD"
+        return f"{base_dir}/{op_rwg}_{order_EFT_}/"
     return f"{base_dir}/{op}_{order_EFT}/"
 
 
@@ -136,7 +141,7 @@ def find_files_and_Xsections_sumW(processes, decays, all_op_plot, op_rwg, order,
             print(f"Good path: {good_path}")
             key = f"{process}_{decay}_{op}_{order_EFT}_{name_model_}"
             Root_paths[key] = good_path + '/ntuple_rivet.root'
-            xsec_path = good_path + '/X_section_fb.txt'
+            xsec_path = good_path + '/cross_section_fb.txt'
             sumW_path = good_path + '/SumW.txt'
             if glob.glob(xsec_path):
                 xsec = float(open(xsec_path, "r").readline())
@@ -234,8 +239,11 @@ def plot_histograms2(desired_num_bins,variables_plot, root_files_info, output_pl
             histogram.SetDirectory(0)
             if "hel_aware" in model_name:
                 histogram.SetLineColor(ROOT.kBlack)
+            if "EFTDec_Polarisation" in model_name:
+                histogram.SetLineColor(ROOT.kBlue)
             else:
-                histogram.SetLineColor(categories_bis[op][0])
+                #histogram.SetLineColor(categories_bis[op][0])
+                histogram.SetLineColor(ROOT.kRed)
             histogram.SetLineWidth(3)
             histogram.SetLineStyle(1 if any(keyword in model_name for keyword in ["Reweight",'rwg', 'reweight', 'wg']) else 2)
             max_bin_content = max(max_bin_content, histogram.GetMaximum())
@@ -278,6 +286,7 @@ def plot_histograms2(desired_num_bins,variables_plot, root_files_info, output_pl
 def main():
     opts = parse_options()
     order_ = opts.EFT_order
+    
     nb_lepton = int(opts.nb_lep)
     num_bins = int(opts.bins)
     name_plt = opts.Name
@@ -287,13 +296,24 @@ def main():
     types = ["Madspin", "NoSpin"]
     #types = ["Madspin"]
 
+
+    
+    all_operators=["FM0","FM2","FM3","FM7","FM9",
+                "FS0","FS1",
+                "FT0","FT2","FT5"]
+    all_operators = ["FM0","FM1","FM2","FM3"]
+    
     all_operators=["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
                 "FS0","FS1","FS2",
                 "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7"]
+    all_operators = ["FM0"]
+    cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_operators, 2) if op1[:2] == op2[:2]]
+
+    if "True" in opts.CROSS:
+        all_operators = cross_terms_
     
-    all_operators=["FM0","FM2","FM7","FM8",
-                "FS0","FS1",
-                "FT0","FT2","FT5"]
+    #all_operators = cross_terms_
+    print(f"All operators: {all_operators}")
     operators_rwg= ["FM","FS","FT"]
 
     #all_ops_both = ["FS0", "FS1", "FS2"]
@@ -304,59 +324,58 @@ def main():
         'merged_tagjets_delta_eta', 'merged_tagjets_mass', 'merged_tagjets_pt', 'merged_Full_pt',"merged_fjet_mass", 'merged_fjet_pt',
         "merged_Vlep_pt","merged_Vlep_mass", "merged_lepton*","merged_Centrality*", "merged_CS_V_cos_theta",
     ]
-    #variables_plot = ["merged_VlepVhad_mass"]
+    #variables_plot = ["merged_VlepVhad_mass",'merged_cos_theta_star','merged_tagjets_delta_eta', "merged_CS_V_cos_theta","merged_fjet_mass","merged_Vlep"]
+    #variables_plot = ["merged_VlepVhad_mass",'merged_cos_theta_star','merged_tagjets_delta_eta']
 
 
 
     base_dir = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/"
     Special_name = "/Reweighting/Rwg_test/"
 
-    for type_ in types:
 
-        Complement_path = f"Study_SpinCorrelation/Type_lessOP/{type_}/"
-        base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/Plots/Plot_Reweighting/{Complement_path}/bins_{opts.bins}/"
+    Complement_path = f"Polarisation/Test/test02/Reweight_Cross/Cross_term_EFTDec_Pola/"
+    base_dir_plot = f"/exp/atlas/salin/ATLAS/VBS_mc/Plots/Plot_Reweighting/{Complement_path}/"
 
-        reweighting_cat = f"Reweighting_{type_}"
-        eftdec_cat = f"EFTDec_{type_}"
-        aQGC_models = [reweighting_cat, eftdec_cat]
-        for op_rwg in operators_rwg:
-            if op_rwg in ["FM", "FS", "FT"]:
-                eftdec_ops = [op for op in all_operators if op.startswith(op_rwg)]
-            elif op_rwg == "FSFT":
-                eftdec_ops = [op for op in all_operators if op.startswith("FS") or op.startswith("FT")]
-            elif op_rwg == "FMFT":
-                eftdec_ops = [op for op in all_operators if op.startswith("FM") or op.startswith("FT")]
-            elif op_rwg == "FSFM":
-                eftdec_ops = [op for op in all_operators if op.startswith("FS") or op.startswith("FM")]
-            else:
-                eftdec_ops = all_operators
+
+    aQGC_models = ["EFTDec_Madspin", "EFTDec_Polarisation", "Reweighthel_ignore_Polarisation","Reweighthel_ignore_Polarisation"]
+    aQGC_models = ["EFTDec_Madspin","Reweighthel_ignore_Polarisation"]
+    aQGC_models = ["EFTDec_Madspin","EFTDec_Polarisation","Reweighting_hel_ignore_Polarisation"]
+    #aQGC_models = ["EFTDec_Polarisation","Reweighthel_ignore_Polarisation"]
+    
+    for op_rwg in operators_rwg:
+        if op_rwg in ["FM", "FS", "FT"]:
+            eftdec_ops = [op for op in all_operators if op.startswith(op_rwg)]
+        else:
+            eftdec_ops = all_operators
+        
+        
+            
+        all_ops_both = eftdec_ops
+
+        Root_paths, X_section, SumW = find_files_and_Xsections_sumW(
+            processes, decays, all_ops_both, op_rwg, order, aQGC_models, base_dir, Special_name
+        )
+
+        for process in processes:
+            for decay in decays:
+                all_op_plot = all_ops_both
+                Root_paths_model = {k: v for k, v in Root_paths.items() if f"{process}_{decay}" in k}
                 
-            all_ops_both = eftdec_ops
-
-            Root_paths, X_section, SumW = find_files_and_Xsections_sumW(
-                processes, decays, all_ops_both, op_rwg, order, aQGC_models, base_dir, Special_name
-            )
-
-            for process in processes:
-                for decay in decays:
-                    all_op_plot = all_ops_both
-                    Root_paths_model = {k: v for k, v in Root_paths.items() if f"{process}_{decay}" in k}
-                    
-                    Process_name = f"{process}_{decay}"
-                    
+                Process_name = f"{process}_{decay}"
+                
+                outPlot = f"{base_dir_plot}/{process}_{decay}/{op_rwg}/"
+                os.makedirs(outPlot, exist_ok=True)
+                
+                plot_histograms2(num_bins,variables_plot , Root_paths_model, outPlot, Process_name, X_section,
+                                    norm_xsec, tree_name="Merged", weight_cut=weight_cut, perOp=False, op_rwg=op_rwg)
+                for op in all_op_plot:
+                    order_eft_ = "CROSS" if "vs" in op else order[0]
+                    Process_name = f"{process}_{decay}_{op}_{order_eft_}"
+                    Root_paths_model = {k: v for k, v in Root_paths.items() if f"{process}_{decay}_{op}" in k}
                     outPlot = f"{base_dir_plot}/{process}_{decay}/{op_rwg}/"
                     os.makedirs(outPlot, exist_ok=True)
-                    
-                    plot_histograms2(num_bins,variables_plot , Root_paths_model, outPlot, Process_name, X_section,
-                                     norm_xsec, tree_name="Merged", weight_cut=weight_cut, perOp=False, op_rwg=op_rwg)
-                    for op in all_op_plot:
-                        order_eft_ = "CROSS" if "vs" in op else order[0]
-                        Process_name = f"{process}_{decay}_{op}_{order_eft_}"
-                        Root_paths_model = {k: v for k, v in Root_paths.items() if f"{process}_{decay}_{op}" in k}
-                        outPlot = f"{base_dir_plot}/{process}_{decay}/{op_rwg}/"
-                        os.makedirs(outPlot, exist_ok=True)
-                        plot_histograms2(num_bins,variables_plot, Root_paths_model, outPlot, Process_name, X_section
-                                         , norm_xsec, tree_name="Merged", weight_cut=weight_cut, perOp=True,op_rwg=op_rwg)
+                    plot_histograms2(num_bins,variables_plot, Root_paths_model, outPlot, Process_name, X_section
+                                        , norm_xsec, tree_name="Merged", weight_cut=weight_cut, perOp=True,op_rwg=op_rwg)
             # Add the new comparison logic
   
 if __name__ == "__main__":

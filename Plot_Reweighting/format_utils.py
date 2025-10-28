@@ -8,10 +8,20 @@ def format_model_name(model_name,op_rwg=None):
     elif "rwg" in model_name or "reweight" in model_name:
         model_name = model_name.replace("rwg", "Rwg").replace("_", " ").replace("fs", "").replace("fm", "").replace("ft", "")
         model_name = model_name.replace("Nohel", "Hel ignorant").replace("hel_aware", "Hel aware")
-    elif "Reweighting" in model_name:
-        model_name = model_name.replace("Reweighting",f"Reweighting {op_rwg}").replace("_", " ")
+    elif "Reweighting" in model_name or "Reweight" in model_name:
+        #model_name = model_name.replace("Reweighting",f"Rwg {op_rwg}").replace("_", " ")
+        #model_name = model_name.replace("Reweight",f" {op_rwg} Rwg").replace("_", " ")
+        #model_name = model_name.replace("Reweighthel_ignore", f"{op_rwg} Rwg hel ignore: ")
+        #model_name = model_name.replace("Reweighthel_aware", f"{op_rwg} Rwg hel aware: ")
+        model_name = model_name.replace("Reweighthel_ignore", f"{op_rwg} Rwg hel ignore: ")
+        model_name = model_name.replace("Reweighthel_aware", f"{op_rwg} Rwg hel aware: ")
+        model_name = model_name.replace("Polarisation", f"Pol")
+        
+
     elif "EFTDec" in model_name:
-        model_name = model_name.replace("EFTDec", "EFT Decomposition").replace("_", " ")
+        model_name = model_name.replace("EFTDec", "EFT Dec").replace("_", " ")
+    elif "Polarisation" in model_name:
+        model_name = model_name.replace("Polarisation", "Pol").replace("_", " ")
     return model_name
 
 def format_title_name(title_name):
@@ -39,15 +49,45 @@ def format_Y_axis(X_param, nb_bins, max_hist):
     per_bins = round(max_hist / nb_bins, 2)
     return f"Normalized Entry / {per_bins} (GeV)" if "pt" in X_param or "mass" in X_param else f"Normalized Entry / {per_bins}"
 
-
-def get_cross_section(EFT_op, EFT_type, proc, decay, name_model_):
-    path = "/exp/atlas/salin/ATLAS/VBS_mc/plotting/"
-    if "aqgc_new" in name_model_ or "model" in name_model_ or "new" in name_model_:
-        VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
-    elif "Eboli_Run3" in name_model_ or "Run3" in name_model_ or "run3" in name_model_:
-        VBS_txt = f'{path}/VBS_cross_section_Eboli_run3.txt'
-    elif "run2" in name_model_ or "Run2" in name_model_:
-        VBS_txt = f'{path}/VBS_xsection_test.txt'
+def take_xsec_fb(VBS_txt,op, order_EFT, process, decay,pol=None):
+    # Create the key
+    if pol in ["LL", "LT", "TL", "TT"]:
+        key = f"{process}_{decay}_{op}_{order_EFT}_{pol}"
     else:
-        VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
-    return uf.take_xsec_fb_aqgc(VBS_txt, EFT_op, EFT_type, proc, decay)
+        key = f"{process}_{decay}_{op}_{order_EFT}" 
+    
+    with open(VBS_txt, 'r') as f:
+        for line in f:
+            # Split the line into key and value
+            info_xsec= line.strip().split(': ')
+            if len(info_xsec)>1:
+                key_file, xsection_fb = info_xsec[0], info_xsec[1]
+                if key_file == key:
+                    return float(xsection_fb)
+    
+    # If the key was not found in the file, return None
+    return None
+
+
+
+
+def get_cross_section(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
+    path = "/exp/atlas/salin/ATLAS/VBS_mc/plotting//Plot_Reweighting/Tables/Cross_section/"
+    lower_name_model_ = name_model_.lower()
+    if "polarisation" in lower_name_model_ or "pol" in lower_name_model_ or "xsec" in lower_name_model_:
+        xsec_text_name_spe=lower_name_model_
+        if "reweighting_hel" in lower_name_model_:
+            xsec_text_name_spe = xsec_text_name_spe.replace("reweighting_hel", "reweighthel")
+        VBS_txt =  f'{path}/VBS_cross_section_run2_{xsec_text_name_spe}.txt'
+        
+    else: 
+        if "aqgc_new" in name_model_ or "model" in name_model_ or "new" in name_model_:
+            VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
+        elif "Eboli_Run3" in name_model_ or "Run3" in name_model_ or "run3" in name_model_:
+            VBS_txt = f'{path}/VBS_cross_section_Eboli_run3.txt'
+        elif "run2" in name_model_ or "Run2" in name_model_:
+            VBS_txt = f'{path}/VBS_xsection_test.txt'
+
+        else:
+            VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
+    return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)
