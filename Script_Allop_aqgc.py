@@ -19,6 +19,7 @@ parser.add_option("--name_copy", default= "aqgc_prod")
 parser.add_option("--EFT_order", default = "QUAD")
 parser.add_option('--type_MC', default = "")
 parser.add_option("--Channel", default = "")
+parser.add_option("--CPodd", default ="False")
 parser.add_option("--decays", default = "llqq")
 parser.add_option("--Conf", default = "user.osalin")
 opts, _ = parser.parse_args()
@@ -32,27 +33,33 @@ order=opts.EFT_order
 
 all_ops_cat=["FM0","FM"]
 
-
+if opts.CPodd=="True" or opts.CPodd=="true":
+    CP_odd_or_Not = True
+else:
+    CP_odd_or_Not = False
 
 Conf_list = {}
-
-
-
 
 
 
 all_ops_cat = ["SM","FM0","FM2","FS1","FT1","FT5"]
 all_ops_cat = ["FM0","FS0","FT0"]
 #all_ops_cat = ["FM0"]
-all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
-            "FS0","FS1","FS2",
-            "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
+if CP_odd_or_Not:
+    all_ops_cat = ["FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
+else:
+    all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
+                "FS0","FS1","FS2",
+                "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
+
+all_ops_cat = ["FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
 
 #all_ops_cat = ["FM0","FM1"]
 #all_ops_cat = ["FM","FS","FT"]
 
 #all_ops_cat = ["FS0","FS1","FS2"]
 #all_ops_cat = ["FM0","FM1"]
+cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2) if op1[:2] == op2[:2] and op1 != op2]
 cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2) if op1[:2] == op2[:2] and op1 != op2]
 print("Defined cross terms:", cross_terms_)
 
@@ -97,23 +104,29 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
             
         elif "Reweighting_Madspin" in type_MC:
             base_dir = f"{base_path}/Reweighting/Madspin/{prod_dec}/"
-        elif "Reweighting_NoSpin" in type_MC:
-            base_dir = f"{base_path}/Reweighting/NoSpin/{prod_dec}/"
-        elif "Reweighting_Decay_chain" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Decay_chain/{prod_dec}/"
+
         elif "Reweighthel_ignore" in type_MC or "Reweighting_hel_ignore" in type_MC:
             base_dir = f"{base_path}/Reweighting/Madspin/hel_ignore/{prod_dec}/"
         elif "Reweighthel_aware" in type_MC or "Reweighting_hel_aware" in type_MC:
             base_dir = f"{base_path}/Reweighting/Madspin/hel_aware/{prod_dec}/"
         elif "Reweight_Polarisation" in type_MC or "Reweighting_Polarisation" in type_MC:
             base_dir = f"{base_path}/Reweighting/Polarisation/{prod_dec}/"
+
+        elif "Reweighting_CPodd" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/CPodd/Validation/{prod_dec}/"
+
+        elif "Reweighting_INT" in type_MC:
+            conf_dir = f"{base_path}/Reweighting/INT/Validation/AllTest/{prod_dec}/"
             
         elif "EFTDec_Madspin" in type_MC:
             base_dir = f"{base_path}/EFTDec/Madspin//{prod_dec}/"
-        elif "EFTDec_NoSpin" in type_MC:
-            base_dir = f"{base_path}/EFTDec/NoSpin//{prod_dec}/"
-        elif "EFTDec_Decay_chain" in type_MC:
-            base_dir = f"{base_path}/EFTDec/Decay_chain//{prod_dec}/"
+
+
+        elif "EFTDec_CPodd" in type_MC:
+            base_dir = f"{base_path}/EFTDec/CPodd/Validation/{prod_dec}/"
+
+        elif "EFTDec_INT" in type_MC:
+            base_dir = f"{base_path}/EFTDec/INT/Validation/{prod_dec}/"
 
         else:
             base_dir = f"{base_path}/{prod_dec}/"
@@ -158,8 +171,8 @@ if __name__ == "__main__":
         for (process, decay) in proc_decays_tuple
         for op in all_ops_cat
     ]
-    #with Pool() as p:
-        #p.map(run_command, proc_decay_op_tuples)
+    with Pool() as p:
+        p.map(run_command, proc_decay_op_tuples)
 
     for process,decay in proc_decays_tuple:
         for op in all_ops_cat:
@@ -175,19 +188,15 @@ if __name__ == "__main__":
             Dir_ntuple= Base_dir + f"/DOCUT_YES/"
             File_cross_section= Base_dir + f"/cross_section_fb.txt"
             File_log_file= Base_dir + f"/log.generate"
-            path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/Rwg_test/{opts.type_MC}//"
+            path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/CPodd/Validation/Newtest/20k/{opts.type_MC}//"
+            path_hist_base =f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/INT/Validation/EFTDec/"
             path_hist= path_hist_base + f"/{process}_{decay}/{op}_{order}//"
-            #if not os.path.exists(path_hist):
-            #    os.makedirs(path_hist)
-            #else:
-            #    print("Warning: directory already exists, skipping.")
-            #    timestamp = time.strftime("%m%d-%H%M")
-            #    path_hist = path_hist + f"/Already_exist/{opts.name_copy}_{timestamp}//{process}_{decay}/{op}_{order}/{opts.type_MC}/"
-            #    os.makedirs(path_hist)
+            os.makedirs(path_hist, exist_ok=True)
+
             
             # Copy the content of Dir_ntuple into path_hist
             print(f"Copying {Dir_ntuple} to {path_hist}")
-            #shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)
+            shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)
             if os.path.exists(File_cross_section):
                 shutil.copy(File_cross_section, path_hist)
                 print(f"Copied ntuple and cross section files to {path_hist}")

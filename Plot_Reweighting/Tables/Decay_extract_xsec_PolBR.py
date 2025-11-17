@@ -28,12 +28,14 @@ order="QUAD"
 
 all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
             "FS0","FS1","FS2",
-            "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
+            "FT0","FT1","FT2","FT3","FT4","FT5","FT6",
+            "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd",
+            "FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
 
 #all_ops_cat = ["FM0","FM1"]  # Reduced set for testing
 all_ops_cat_rwg=["FM","FS","FT"]
 if opts.Rwg:
-    all_ops_cat = ["FM","FS","FT"]
+    all_ops_cat = ["FM","FS","FT","FModd","FTodd","FModdFTodd"]
 
 processes = ["WpZ"]
 decays = ['llqq']
@@ -118,12 +120,17 @@ def logfile_find(conf, type_MC=None):
             base_dir = f"{base_path}/Reweighting/Polarisation/InvSqrtXsec/{prod_dec}/"
         elif "Reweighting_InvXsec_50k" in type_MC or "Rwg_InvXsec_50k" in type_MC:
             base_dir = f"{base_path}/Reweighting/Polarisation/InvXsec/{prod_dec}/"
-            
+        elif "Reweighting_CPodd" in type_MC or "Reweighting_CPodd" in type_MC:
+            base_dir = f"{base_path}/Reweighting/CPodd/Validation/{prod_dec}/"
+
+
             
         elif "EFTDec_Madspin" in type_MC:
             base_dir = f"{base_path}/EFTDec/Madspin//{prod_dec}/"
         elif "EFTDec_Polarisation" in type_MC or "EFTDec_polarisation" in type_MC:
             base_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"
+        elif "EFTDec_CPodd" in type_MC or "EFTDec_CPodd" in type_MC:
+            base_dir = f"{base_path}/EFTDec/CPodd/Validation/{prod_dec}/"
 
         else:
             raise ValueError("Unknown type_MC: ", type_MC)

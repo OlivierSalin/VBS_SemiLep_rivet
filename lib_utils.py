@@ -155,8 +155,11 @@ def get_bookletdir(start_path, normalized=""):
 
 def get_ops(include_fs0_2):
     all_ops = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7",
-                "FS02","FS1",
-                "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
+                "FS0","FS1","FS2",
+                "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9",
+                "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd",
+                "FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
+    
     if include_fs0_2: 
         all_ops += ["FS0","FS2"]
         all_ops.remove("FS02")
@@ -272,67 +275,83 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
         prod_dec = extract_prod_dec(conf)
         
         if "Run3" in type_MC or "run3" in type_MC:
-            conf_dir = f"{base_path}/Run3/{prod_dec}/"
+            base_dir = f"{base_path}/Run3/{prod_dec}/"
         elif "aqgc" in type_MC or "model" in type_MC:
-            conf_dir = f"{base_path}/aqgc_model/{prod_dec}/"
+            base_dir = f"{base_path}/aqgc_model/{prod_dec}/"
         #elif "Reweighting" in type_MC or "reweight" in type_MC or "rwg" in type_MC:
-            #conf_dir = f"{base_path}/Reweighting/{prod_dec}/"
+            #base_dir = f"{base_path}/Reweighting/{prod_dec}/"
         elif "ReweightMadspin" in type_MC or "Reweighting_Madspin" in type_MC or "rwgMadspin" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Madspin/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Madspin/{prod_dec}/"
         elif "Reweighthel_ignore" in type_MC or "Reweighting_hel_ignore" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/{prod_dec}/"
         
         elif "Reweighting_hel_ign_100k" in type_MC or "Reweighting_hel_ign_100k" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/hel_ign_100k/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/hel_ign_100k/{prod_dec}/"
             
         elif "Reweighting_InvSqrtXsec" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/InvSqrtXsec/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/InvSqrtXsec/{prod_dec}/"
 
         elif "Reweighting_InvXsec" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/InvXsec/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/InvXsec/{prod_dec}/"
 
         elif "Reweighthel_aware" in type_MC or "Reweighting_hel_aware" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/{prod_dec}/"
 
         elif "ReweightwithINT" in type_MC or "ReweightwithINT" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/with_INT/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/with_INT/{prod_dec}/"
             
         elif "ReweightNoSpin" in type_MC or "Reweighting_NoSpin" in type_MC or "rwgNoSpin" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/NoSpin/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/NoSpin/{prod_dec}/"
         elif "ReweightDecay_chain" in type_MC or "Reweighting_Decay_chain" in type_MC or "rwgDecay_chain" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Decay_chain/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Decay_chain/{prod_dec}/"
 
         elif "Reweight_Polarisation" in type_MC or "Reweighting_Pol" in type_MC or "rwgPol" in type_MC:
-            conf_dir = f"{base_path}/Reweighting/Polarisation/{prod_dec}/"
+            base_dir = f"{base_path}/Reweighting/Polarisation/{prod_dec}/"
        
+        elif "Reweighting_CPodd" in type_MC:
+            base_dir = f"{base_path}/Reweighting/CPodd/Validation/{prod_dec}/"
+
+        elif "Reweighting_OddPol" in type_MC:
+            base_dir = f"{base_path}/Reweighting/CPodd/Validation/Polarisation/{prod_dec}/"
+
+        elif "Reweighting_INT" in type_MC:
+            base_dir = f"{base_path}/Reweighting/INT/Validation/AllTest/{prod_dec}/"
+
+        elif "ReweightingINT_NPQuad_Wils1" in type_MC:
+            base_dir = f"{base_path}/Reweighting/INT/Validation/Test_all/Stats50k_INT_NPQUAD_withquadCross_wils1/"  
+
         elif "EFTDec_Madspin" in type_MC or "EFTDecMadspin" in type_MC or "eftdecMadspin" in type_MC:
-            conf_dir = f"{base_path}/EFTDec/Madspin/{prod_dec}/"
+            base_dir = f"{base_path}/EFTDec/Madspin/{prod_dec}/"
         elif "EFTDec_NoSpin" in type_MC or "EFTDecNoSpin" in type_MC or "eftdecNoSpin" in type_MC:
-            conf_dir = f"{base_path}/EFTDec/NoSpin/{prod_dec}/"
+            base_dir = f"{base_path}/EFTDec/NoSpin/{prod_dec}/"
         elif "EFTDec_Decay_chain" in type_MC or "EFTDecDecay_chain" in type_MC or "eftdecDecay_chain" in type_MC:
-            conf_dir = f"{base_path}/EFTDec/Decay_chain/{prod_dec}/"
+            base_dir = f"{base_path}/EFTDec/Decay_chain/{prod_dec}/"
             
         elif "EFTDec_Polarisation" in type_MC or "EFTDecPolarisation" in type_MC:
-            conf_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"
+            base_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"
         #elif "13p0" in type_MC or "13TeV" in type_MC:
-            #conf_dir = f"{base_path}/13p0/{prod_dec}/"
+            #base_dir = f"{base_path}/13p0/{prod_dec}/"
             
-            
-            
+        elif "EFTDec_CPodd" in type_MC:
+            base_dir = f"{base_path}/EFTDec/CPodd/Validation/{prod_dec}/"
+
+        elif "EFTDec_INT" in type_MC:
+            base_dir = f"{base_path}/EFTDec/INT/Validation/{prod_dec}/"    
+    
         elif "MCprod_QGC_R3" in type_MC or "MCprod_aqgc_R3" in type_MC:
-            conf_dir = f"{base_path}/MCprod/aqgc/13p6/{prod_dec}/"
+            base_dir = f"{base_path}/MCprod/aqgc/13p6/{prod_dec}/"
         elif "MCprod_QGC_R2" in type_MC or "MCprod_aqgc_R2" in type_MC:
-            conf_dir = f"{base_path}/MCprod/aqgc/13p0/{prod_dec}/"
+            base_dir = f"{base_path}/MCprod/aqgc/13p0/{prod_dec}/"
         elif "MCprod_13p0" in type_MC or "MCprod_13TeV" in type_MC:
-            conf_dir = f"{base_path}/MCprod/SM/13p0/{prod_dec}/"
+            base_dir = f"{base_path}/MCprod/SM/13p0/{prod_dec}/"
         elif "MCprod_13p6" in type_MC or "MCprod_13p6TeV" in type_MC:
-            conf_dir = f"{base_path}/MCprod/SM/13p6/{prod_dec}/"
+            base_dir = f"{base_path}/MCprod/SM/13p6/{prod_dec}/"
         
 
         else:
-            conf_dir = f"{base_path}/{prod_dec}/"
+            base_dir = f"{base_path}/test/{prod_dec}/"
         
-        #print("dir would be", conf_dir)
+        #print("dir would be", base_dir)
     else:
         base_path = "/exp/atlas/salin/ATLAS/VBS_mc/"
         pattern = r"MGPy8EG_aQGC(.*)_(.*)_1_(.*)_(.*)"
@@ -340,12 +359,12 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
         if match:
             prod_dec = match.group(3) + "_" + match.group(4)
             print("From conf found production dec", prod_dec)
-            conf_dir = f"{base_path}/EFT_files_AMI/{prod_dec}/"
-            print("Dir would be", conf_dir)
+            base_dir = f"{base_path}/EFT_files_AMI/{prod_dec}/"
+            print("Dir would be", base_dir)
         else:
             raise ValueError("Invalid conf format")
     
-    return prod_dec, conf_dir
+    return prod_dec, base_dir
 
 
 def find_evnt_dir_and_file(search_com):
@@ -500,9 +519,11 @@ def cross_section_fb(EFT_op, proces, dec):
     """
     all_ops = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7",
                "FS02","FS1",
-               "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9"]
-    
-    all_ops2 = ["FM","FS","FT"]
+               "FT0","FT1","FT2","FT5","FT6","FT7","FT8","FT9",
+               "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd",
+               "FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
+
+    all_ops2 = ["FM","FS","FT","FModd","FTodd"]
     Processes = [proces]
     Decay = [dec]
 

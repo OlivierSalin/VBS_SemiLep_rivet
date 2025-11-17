@@ -1,4 +1,6 @@
 import utils_func as uf
+import os
+import re
 
 
 
@@ -71,6 +73,23 @@ def take_xsec_fb(VBS_txt,op, order_EFT, process, decay,pol=None):
 
 
 
+#def get_cross_section_reweighting(path ,EFT_op, EFT_type, proc, decay, name_model_,pol=None):
+#    if "reweighting" in name_model_.lower() or "rwg" in name_model_.lower():
+#        log_path= f"{path}/log.generate"
+#        if not os.path.exists(log_path):
+#            print(f"Log file {log_path} does not exist.")
+#            return None
+#        PATTERN_XSEC_RWG = re.compile(r'INFO: (\w+_\w+) : ([\d.\-e]+) \+- ([\d.\-e]+) pb')
+#        with open(log_path, 'r') as file:
+#            content = file.read()
+#        matches = PATTERN_XSEC_RWG.findall(content)
+
+
+
+
+
+
+
 def get_cross_section(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
     path = "/exp/atlas/salin/ATLAS/VBS_mc/plotting//Plot_Reweighting/Tables/Cross_section/"
     lower_name_model_ = name_model_.lower()
@@ -90,4 +109,27 @@ def get_cross_section(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
 
         else:
             VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
+    return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)
+
+def get_cross_section_cpodd(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
+    path = "/exp/atlas/salin/ATLAS/VBS_mc/plotting//Plot_Reweighting/Tables/Cross_section/"
+    lower_name_model_ = name_model_.lower()
+    if "eftdec" in lower_name_model_:
+        if "polarisation"  in lower_name_model_:
+            VBS_txt = f'{path}/VBS_cross_section_run2_eftdec_polarisation.txt'
+        elif "int" in lower_name_model_.lower():
+            VBS_txt = f'{path}/VBS_cross_section_run2_eftdec_int.txt'
+        else:
+            VBS_txt = f'{path}/VBS_cross_section_run2_eftdec.txt'
+    elif "reweight" in lower_name_model_ or "rwg" in lower_name_model_:
+        if "polarisation"  in lower_name_model_ or "pol" in lower_name_model_:
+            VBS_txt = f'{path}/VBS_cross_section_run2_rwg_pol.txt'
+        elif "int" in lower_name_model_.lower():
+            VBS_txt = f'{path}/VBS_cross_section_run2_rwg_int.txt'
+        else:
+            VBS_txt = f'{path}/VBS_cross_section_run2_rwg.txt'
+    else:
+        VBS_txt = f'{path}/VBS_cross_section_run2_eftdec.txt'
+    print(f"VBS_txt: {VBS_txt} ") 
+
     return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)
