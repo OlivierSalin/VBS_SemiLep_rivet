@@ -1,0 +1,3 @@
+rivet-build RivetWpWm_lvlv.so WpWm_lvlv.cc EventWeights.cc -I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/ `root-config --cflags --libs`
+python run_rivet.py --evtMax 1000 --conf "user.osalin.MadGraph_WpWm_lvlv_FS_QUAD_LL" --DOCUT "YES" --redoRivet "yes" --redoPlots "no" --type_MC "Reweight_VBSLep"
+python run_rivet.py --evtMax 1000 --conf "user.osalin.MadGraph_WpWm_lvlv_FT_QUAD_LL" --DOCUT "YES" --redoRivet "yes" --redoPlots "no" --type_MC "Reweight_VBSLep"

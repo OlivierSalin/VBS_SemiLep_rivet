@@ -1,0 +1,13 @@
+{"n_jets":2,
+"n_lepton_stable":2,
+"eta_lepton":2.5,
+"eta_jet":4.5,
+"pt_lepton1":30.0,
+"pt_lepton2":20.0,
+"pt_jet":30.0,
+"pt_MET":130.0,
+"dR_ll":1.8,
+"dphi_MET_pt_ll":2.2,
+"m_ll": [76.0, 106.0],
+"MET_by_HT": 0.65
+}

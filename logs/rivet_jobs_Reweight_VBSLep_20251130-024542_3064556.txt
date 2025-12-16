@@ -1,0 +1,376 @@
+Run timestamp: 20251130-024542
+PID: 3064556
+Total jobs: 2
+
+=== ZZ_llll | operator: FM | pol: LL | conf: user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL | exit: 0 ===
+STDOUT:
+Sun Nov 30 02:45:25 CET 2025
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL";DOCUT="YES";Part="";type_MC="Reweight_VBSLep""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+##### Received conf from cmd through -c 'conf=user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL; DOCUT=YES; Part=; type_MC=Reweight_VBSLep'
+type_MC: Reweight_VBSLep
+start from string ZZ_llll_FM_QUAD_LL
+base_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root']
+conf_cut_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root']
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]...
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]... [done]
+len(systWeights): 215
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Sun Nov 30 02:45:36 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://v4f.hl-lhc.net:6082) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root File version:63404
+ClassIDSvc           INFO getRegistryEntries: read 1897 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/' for ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root File version:63404
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 100004    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #1, run #100004 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+++++++received outidir/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this ZZ_llll is /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Cuts/ZZ_llll_cuts.json
+++++++ to check json 1 var got photon pt min 300.0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #1, run #100004 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #2, run #100004 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #2, run #100004 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #3, run #100004 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #3, run #100004 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #4, run #100004 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #4, run #100004 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #5, run #100004 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #5, run #100004 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6, run #100004 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6, run #100004 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #7, run #100004 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #7, run #100004 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #8, run #100004 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #8, run #100004 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #9, run #100004 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #9, run #100004 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #10, run #100004 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #10, run #100004 10 events processed so far  <<<===
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Sum of weights: 0.000275192
+Cross section in fb: 0.0275192
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |              22 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |              61 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Py:Athena            INFO leaving with code 0: "successful run"
+start from string ZZ_llll_FM_QUAD_LL
+prod_dec: ZZ_llll, base_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root']
+conf_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0
+#### will run rivet with athena rivet_job.py -c 'conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL";DOCUT="YES";Part="";type_MC="Reweight_VBSLep"' --evtMax 10 
+dont do plot from yoda since redoPlots= no and dir /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//rivet-plots/ exists  False
+Process studied: FM_QUAD_ZZ_llll
+No cross section in txt found for FM_QUAD_ZZ_llll
+No cross section found in AMI for FM_QUAD_ZZ_llll
+Cross section set at 0 to avoid errors but ISSUE
+Cross section in fb for FM_QUAD_ZZ_llll: 0
+reading from yoda file  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/MyOutput.yoda.gz
+Weight name:
+{'/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass', '/RAW/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass'}
+looking for prefix in counter /ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Write to files
+converting to root hist with name merged_VlepVhad_mass
+converting to root hist with name merged_VlepVhad_pt
+['merged_VlepVhad_mass', 'merged_VlepVhad_pt']
+Save frac files
+saving cutflow resolved as img
+cutflow merged
+['ZZ_llll_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['10.0', '100', '-', '']
+['Pass', 'have_four_lep', '3.0', '30', '30']
+['Pass', 'pt_lep1_2', '3.0', '30', '100']
+['Pass', 'dR_all_pairs', '3.0', '30', '100']
+['Pass', 'SFOC_2pairs_min', '3.0', '30', '100']
+['Pass', 'm_llll', '3.0', '30', '100']
+['Pass', 'n_jets', '2.0', '20', '67']
+['Pass', 'pt_tagjet1_2', '2.0', '20', '100']
+['Pass', 'm_tagjets', '2.0', '20', '100']
+['Pass', 'dy_tagjets', '1.0', '10', '50']
+['Pass', 'centrality_quadjj', '1.0', '10', '100']
+['']
+saving cutflow merged 
+saving cutflow merged 
+Cross section in fb: 0
+STDERR:
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_mass_hist.png has been created
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_pt_hist.png has been created
+
+=== ZZ_llll | operator: FM | pol: LT | conf: user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT | exit: 0 ===
+STDOUT:
+Sun Nov 30 02:45:25 CET 2025
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT";DOCUT="YES";Part="";type_MC="Reweight_VBSLep""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+##### Received conf from cmd through -c 'conf=user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT; DOCUT=YES; Part=; type_MC=Reweight_VBSLep'
+type_MC: Reweight_VBSLep
+start from string ZZ_llll_FM_QUAD_LT
+base_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root']
+conf_cut_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root']
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]...
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]... [done]
+len(systWeights): 215
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Sun Nov 30 02:45:36 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://v4f.hl-lhc.net:6082) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root File version:63404
+ClassIDSvc           INFO getRegistryEntries: read 1897 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/' for ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root File version:63404
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 100005    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #1, run #100005 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+++++++received outidir/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this ZZ_llll is /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Cuts/ZZ_llll_cuts.json
+++++++ to check json 1 var got photon pt min 300.0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #1, run #100005 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #2, run #100005 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #2, run #100005 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #3, run #100005 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #3, run #100005 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #4, run #100005 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #4, run #100005 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #5, run #100005 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #5, run #100005 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6, run #100005 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6, run #100005 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #7, run #100005 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #7, run #100005 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #8, run #100005 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #8, run #100005 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #9, run #100005 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #9, run #100005 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #10, run #100005 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #10, run #100005 10 events processed so far  <<<===
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Sum of weights: 9.8498e-05
+Cross section in fb: 0.0098498
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |              19 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |              52 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Py:Athena            INFO leaving with code 0: "successful run"
+start from string ZZ_llll_FM_QUAD_LT
+prod_dec: ZZ_llll, base_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root']
+conf_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0
+#### will run rivet with athena rivet_job.py -c 'conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT";DOCUT="YES";Part="";type_MC="Reweight_VBSLep"' --evtMax 10 
+dont do plot from yoda since redoPlots= no and dir /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//rivet-plots/ exists  False
+Process studied: FM_QUAD_ZZ_llll
+No cross section in txt found for FM_QUAD_ZZ_llll
+No cross section found in AMI for FM_QUAD_ZZ_llll
+Cross section set at 0 to avoid errors but ISSUE
+Cross section in fb for FM_QUAD_ZZ_llll: 0
+reading from yoda file  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/MyOutput.yoda.gz
+Weight name:
+{'/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass', '/RAW/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass'}
+looking for prefix in counter /ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Write to files
+converting to root hist with name merged_VlepVhad_mass
+converting to root hist with name merged_VlepVhad_pt
+['merged_VlepVhad_mass', 'merged_VlepVhad_pt']
+Save frac files
+saving cutflow resolved as img
+cutflow merged
+['ZZ_llll_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['10.0', '100', '-', '']
+['Pass', 'have_four_lep', '2.0', '20', '20']
+['Pass', 'pt_lep1_2', '2.0', '20', '100']
+['Pass', 'dR_all_pairs', '2.0', '20', '100']
+['Pass', 'SFOC_2pairs_min', '2.0', '20', '100']
+['Pass', 'm_llll', '2.0', '20', '100']
+['Pass', 'n_jets', '2.0', '20', '100']
+['Pass', 'pt_tagjet1_2', '1.0', '10', '50']
+['Pass', 'm_tagjets', '1.0', '10', '100']
+['Pass', 'dy_tagjets', '0.0', '0', '0']
+['Pass', 'centrality_quadjj', '0.0', '0', '-', '']
+['']
+saving cutflow merged 
+saving cutflow merged 
+Cross section in fb: 0
+STDERR:
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_mass_hist.png has been created
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_pt_hist.png has been created
+

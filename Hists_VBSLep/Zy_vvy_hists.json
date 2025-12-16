@@ -1,0 +1,13 @@
+{
+  "pt_MET" : [300, 0, 5000.0],
+  "dphi_MET_photon": [50, 0.0, 12.0],
+  "dphi_MET_tagjet": [50, 0.0, 12.0],
+  "centrality_jjy": [30, 0.0, 2.0],
+  "pt_photon_clip_700": [600, 0, 10000.0],
+  "pt_photon_clip_1000": [600, 0, 10000.0],
+  "pt_photon_clip_1500": [600, 0, 10000.0],
+  "pt_photon_clip_2000": [600, 0, 10000.0],
+  "pt_photon_clip_3000": [600, 0, 10000.0],
+  "pt_photon_clip_inf": [600, 0, 10000.0],
+  "m_Zy": [600, 0, 10000.0]
+  }

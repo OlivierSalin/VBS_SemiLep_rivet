@@ -1,0 +1,23 @@
+{
+  "n_jets" : 2,
+  "n_b_jets": 0,
+  "n_lepton_stable": 3,
+  "n_neutrinos": 1,
+
+  "eta_lepton_electron": [[0.0, 1.37],[1.52, 2.5]], 
+  "eta_lepton_muon" : 2.5,
+  "eta_tagjets": 4.5,
+
+  "pt_lepton": 15.0,
+  "pt_W_lepton": 20.0,
+  "pt_tagjet1": 40.0,
+  "pt_tagjet2": 40.0,
+
+  "m_tagjets": 500.0,
+  "m_T_W": 30,
+
+  "dR_lepton_jet": 0.3,
+  "dR_lepton1_lepton2_Z" : 0.2,
+  "dR_Z_leptons_W_lepton" : 0.3,
+  "abs_diff_m_z": 10.0
+  }

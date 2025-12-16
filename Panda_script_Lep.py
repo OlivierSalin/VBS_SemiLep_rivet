@@ -41,6 +41,10 @@ valid_combinations = {
     1: [("Wpy", "lvy")],
 }
 
+valid_combinations = {
+    3: [("WmZ", "lllv"), ("WpZ", "lllv")],
+}
+
 # Flatten mapping to the same string format used elsewhere in the script (e.g. "ZZ_llll")
 valid_combi_aQGC = [f"{proc}_{dec}" for pairs in valid_combinations.values() for proc, dec in pairs]
 
@@ -82,7 +86,7 @@ elif "EFTDec_Madspin" in type_MC:
 
 
 elif "EFTDec_VBSLeptonic" in type_MC:
-    name_spe_task="Leptonic_testbis"
+    name_spe_task="QGC_Leptonic_testMore"
     
 elif "EFTDec_Polarisation" in type_MC:
     name_spe_task="aqgcModel_EFTDec_Pol_test02"

@@ -1,0 +1,32 @@
+[INFO] Valid process+decay combinations: ['WpZ_llqq']
+[INFO] Branching ratios: {'WpZ_llqq': 0.068080716}
+[INFO] Using EFT order: QUAD
+[DEBUG] op='FM0' -> op_rwg='FM'
+[DEBUG] Processing pol='LL' for op='FM0'
+[DEBUG] Processing pol='LT' for op='FM0'
+[DEBUG] Processing pol='TL' for op='FM0'
+[DEBUG] Processing pol='TT' for op='FM0'
+[DEBUG] op='FS0' -> op_rwg='FS'
+[DEBUG] Processing pol='LL' for op='FS0'
+[DEBUG] Processing pol='LT' for op='FS0'
+[DEBUG] Processing pol='TL' for op='FS0'
+[DEBUG] Processing pol='TT' for op='FS0'
+[DEBUG] op='FT0' -> op_rwg='FT'
+[DEBUG] Processing pol='LL' for op='FT0'
+[DEBUG] Processing pol='LT' for op='FT0'
+[DEBUG] Processing pol='TL' for op='FT0'
+[DEBUG] Processing pol='TT' for op='FT0'
+[DEBUG] op='FM1odd' -> op_rwg='FModd'
+[DEBUG] Processing pol='LL' for op='FM1odd'
+[DEBUG] Processing pol='LT' for op='FM1odd'
+[DEBUG] Processing pol='TL' for op='FM1odd'
+[DEBUG] Processing pol='TT' for op='FM1odd'
+[INFO] Collected 16 cross-section entries.
+                      Type_MC Polarisation Operator   xsec_fb  uncertainty_fb
+0  reweighting_vbssemilep_pol           LL      FM0  0.000099        0.000086
+1  reweighting_vbssemilep_pol           LT      FM0  0.009994        0.002539
+2  reweighting_vbssemilep_pol           TL      FM0  0.012021        0.002750
+3  reweighting_vbssemilep_pol           TT      FM0  0.000065        0.000016
+4  reweighting_vbssemilep_pol           LL      FS0  0.001383        0.000050
+[INFO] TXT table saved: ./Cross_section/Validation/Test/test01/VBS_cross_section_run2_reweighting_vbssemilep_pol.txt
+[INFO] Uncertainty TXT table saved: ./Cross_section/Validation/Test/test01/VBS_Uncertainty_cross_section_run2_reweighting_vbssemilep_pol.txt

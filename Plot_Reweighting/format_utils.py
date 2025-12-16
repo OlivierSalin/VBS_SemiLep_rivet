@@ -111,25 +111,13 @@ def get_cross_section(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
             VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
     return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)
 
-def get_cross_section_cpodd(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
-    path = "/exp/atlas/salin/ATLAS/VBS_mc/plotting//Plot_Reweighting/Tables/Cross_section/"
+def get_cross_section_rwg_pol(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
+    path = "/exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Plot_Reweighting/Tables/Cross_section/"
     lower_name_model_ = name_model_.lower()
-    if "eftdec" in lower_name_model_:
-        if "polarisation"  in lower_name_model_:
-            VBS_txt = f'{path}/VBS_cross_section_run2_eftdec_polarisation.txt'
-        elif "int" in lower_name_model_.lower():
-            VBS_txt = f'{path}/VBS_cross_section_run2_eftdec_int.txt'
-        else:
-            VBS_txt = f'{path}/VBS_cross_section_run2_eftdec.txt'
-    elif "reweight" in lower_name_model_ or "rwg" in lower_name_model_:
-        if "polarisation"  in lower_name_model_ or "pol" in lower_name_model_:
-            VBS_txt = f'{path}/VBS_cross_section_run2_rwg_pol.txt'
-        elif "int" in lower_name_model_.lower():
-            VBS_txt = f'{path}/VBS_cross_section_run2_rwg_int.txt'
-        else:
-            VBS_txt = f'{path}/VBS_cross_section_run2_rwg.txt'
-    else:
-        VBS_txt = f'{path}/VBS_cross_section_run2_eftdec.txt'
+    if "leptonic" in lower_name_model_:
+        VBS_txt =  f"/Validation/Valid/VBS_cross_section_run2_reweighting_vbslep_pol_Lep.txt"
+    elif "semilep" in lower_name_model_:
+        VBS_txt =  f"/Validation/Valid/VBS_cross_section_run2_reweighting_vbslep_pol_Lep.txt"
     print(f"VBS_txt: {VBS_txt} ") 
 
     return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)

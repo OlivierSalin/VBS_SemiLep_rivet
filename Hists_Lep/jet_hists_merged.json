@@ -1,0 +1,17 @@
+{
+  "merged_n_jets" : [10, 0.0, 10.0],
+  "merged_tagjet1_pt": [200, 0.0, 3000.0], 
+  "merged_tagjet2_pt": [200, 0.0, 3000.0],
+  "merged_tagjets_pt": [150, 0.0, 3000.0],
+  "merged_tagjets_delta_pt": [200, 0.0, 3000.0],
+  "merged_tagjets_eta": [60, -6.0, 6.0],
+  "merged_tagjets_delta_eta": [60, 0.0, 12.0],
+  "merged_tagjet1_eta": [60, -6.0, 6.0],
+  "merged_tagjet2_eta": [60, -6.0, 6.0],
+  "merged_tagjets_phi": [60, 0.0, 7.0],
+  "merged_tagjet1_phi": [60, 0.0, 7.0],
+  "merged_tagjet2_phi": [60, 0.0, 7.0],
+  "merged_tagjets_m": [250, 0.0, 5000.0],
+  "merged_tagjets_dy": [50, 0.0, 12.0],
+  "merged_tagjets_dphi": [50, 0.0, 4.0]
+  }

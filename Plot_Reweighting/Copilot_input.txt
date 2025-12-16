@@ -1,0 +1,239 @@
+What I need to do there is much simpler than the function used here 
+
+I need to take my histogram from there /exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic
+["FM","FS","FT","FModd","FTodd"] for Polarisation state ["LL","LT","TL","TT"]
+and sum of all polarisation "FM_QUAD",you can look at the struture of these folder for each of the processes
+
+My goal here is to then inside of those folder there is a ntuple "ntuple_rivet.root" And inside you have multiple branches 
+- For Leptonic: Bef_cut: before any cut you have the weights for each of the reweighted operators like "EventWeight_fm0_quad", ... (you can look at the code on how to take them) and after cut, Branch SR: In the Signal region you also have all of the weights  and also some variables of interest
+For SemiLep the only difference is that the branch after cut is "merged"
+You can also find all the cross-sections in the "VBS_cross_section ... txt" file attached
+The main idea for this function is to look for each processes for each operators from this list   all_operators=["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
+                "FS0","FS1","FS2",
+                "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7",
+                "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"]
+For each polarisation state and combined the acceptance in the Signal region meaning for the operator of interest Sum of EventWeight_op_quad (branch Bef_cut)/ Sum of EventWeight_op_quad (SR)
+And to put all of that in either a txt file, pandas df, excel file or LaTeX tables
+
+Add a small “acceptance table” workflow on top of your existing script (no need for the plotting logic).
+Discover ntuple_rivet.root files under your Polarisation directory for each process/decay, operator, EFT order (QUAD), and polarisation state (LL/LT/TL/TT plus combined).
+For each ROOT file:
+Read TTree Bef_cut and SR (Leptonic) or merged (SemiLep).
+For each operator, sum the corresponding weight branch (e.g. EventWeight_fm0_quad) in each tree.
+Compute acceptance as sumW_SR / sumW_Bef_cut (if you really want the inverted ratio, flip it with a flag).
+Write results to:
+a pandas.DataFrame
+a text/CSV-style file next to your plots area (and optionally LaTeX via df.to_latex()).
+Table_aqgc_Polarisation_rwg_pol.py
+Add a simple acceptance computation (Bef_cut → SR/merged) for each process/operator/polarisation and export to CSV/TXT/LaTeX, using the Polarisation histogram folder structure and the weight-branch naming convention.
+
+
+
+What changed (simplification)
+
+Removed unused helpers: path inference/discovery helpers, xsec-map parser/lookup, branch-iteration sum, and the unused --invert logic.
+Kept only what’s needed: take_xsec_fb(), _sum_branch_rdf(), operator-group filtering, folder naming, and new compact acceptance/table builders.
+pol_directory now comes from --pol_base_dir (no hard-coded Mode path).
+New outputs (table redesign)
+The script now writes two CSV tables (and optional one XLSX with two sheets):
+
+Inclusive cross-section table
+Rows: process_decay, operator
+Columns (two blocks): pol_state with COMB, LL, LT, TL, TT
+Block 1: xsec_fb (absolute cross sections)
+Block 2: pol_fraction_% = 
+𝜎
+𝑝
+𝑜
+𝑙
+𝜎
+𝐶
+𝑂
+𝑀
+𝐵
+×
+100
+σ 
+COMB
+​
+ 
+σ 
+pol
+​
+ 
+​
+ ×100
+ATLAS fiducial (signal region) table
+Uses acceptance 
+𝐴
+=
+∑
+𝑤
+(
+𝑆
+𝑅
+/
+𝑀
+𝑒
+𝑟
+𝑔
+𝑒
+𝑑
+)
+∑
+𝑤
+(
+𝐵
+𝑒
+𝑓
+𝑐
+𝑢
+𝑡
+)
+A= 
+∑w(Bef 
+c
+​
+ ut)
+∑w(SR/Merged)
+​
+ 
+Fiducial cross section: 
+𝜎
+𝑝
+𝑜
+𝑙
+𝑓
+𝑖
+𝑑
+=
+𝜎
+𝑝
+𝑜
+𝑙
+×
+𝐴
+σ 
+pol
+fid
+​
+ =σ 
+pol
+​
+ ×A
+Rows: process_decay, operator
+Columns (two blocks):
+fid_xsec_fb (acc%): formatted as xsec_fid (acc%)
+fid_pol_fraction_%: 
+𝜎
+𝑝
+𝑜
+𝑙
+𝑓
+𝑖
+𝑑
+𝜎
+𝐶
+𝑂
+𝑀
+𝐵
+𝑓
+𝑖
+𝑑
+×
+100
+σ 
+COMB
+fid
+​
+ 
+σ 
+pol
+fid
+​
+ 
+​
+ ×100
+Files
+
+Updated: table_aqgc_Polarisation_rwg_pol.py
+Outputs (in --outdir):
+vbs_<mode>_<order>_xsec_pol_table.csv
+vbs_<mode>_<order>_fiducial_pol_table.csv
+(optional) vbs_<mode>_<order>_pol_tables.xlsx
+
+
+What changed in table_aqgc_Polarisation_rwg_pol.py
+
+Table A (table_xsec) now has flat columns:
+
+unpolarised_xsec_fb
+LL_xsec_fb, LT_xsec_fb, TL_xsec_fb, TT_xsec_fb
+LL_pol_frac, LT_pol_frac, TL_pol_frac, TT_pol_frac
+Removed:
+
+pol_fraction_unpolarised (i.e. no fraction column for unpolarised)
+the xsec_fb__<pol> / pol_fraction_%__<pol> MultiIndex-style names
+Table B (table_fid) now has (as requested) no “unpolarised fraction” and adds acceptances as explicit columns:
+
+unpolarised_fid_xsec_fb (acc%)
+acc_unpolarised (in %)
+For each pol in LL,LT,TL,TT:
+<POL>_fid_xsec_fb (acc%)
+<POL>_pol_frac (fiducial fraction in SR, in % vs unpolarised)
+acc_<POL> (in %)
+So you’ll no longer see fid_pol_fraction_%_unpolarised, and the fraction column names are simplified to e.g. LL_pol_frac.
+
+Note (just to confirm semantics)
+
+LL_pol_frac in the fiducial table is 
+𝑠
+𝑖
+𝑔
+𝑚
+𝑎
+𝐿
+𝐿
+𝑓
+𝑖
+𝑑
+𝑠
+𝑖
+𝑔
+𝑚
+𝑎
+𝑢
+𝑛
+𝑝
+𝑜
+𝑙
+𝑎
+𝑟
+𝑖
+𝑠
+𝑒
+𝑑
+𝑓
+𝑖
+𝑑
+𝑡
+𝑖
+𝑚
+𝑒
+𝑠
+100
+sigma 
+unpolarised
+fid
+​
+ 
+sigma 
+LL
+fid
+​
+ 
+​
+ 
+times100.
+acc_LL etc are acceptances in %, taken from the ntuple sums.
+If you want the fiducial table to omit the per-pol ..._fid_xsec_fb (acc%) columns and keep only unpolarised total + acc_unpolarised + (LL_pol_frac, acc_LL, ...), tell me and I’ll trim it further.

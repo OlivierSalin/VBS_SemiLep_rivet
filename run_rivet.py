@@ -111,31 +111,14 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     pos_n_f = yoda_f[f"{rivet_dir_name}/pos_w_final"].numEntries()
     neg_n_f = yoda_f[f"{rivet_dir_name}/neg_w_final"].numEntries()
     
-    pos_n_f_merged = yoda_f[f"{rivet_dir_name}/pos_w_final_merged"].numEntries()
-    neg_n_f_merged = yoda_f[f"{rivet_dir_name}/neg_w_final_merged"].numEntries()
-    
-    pos_n_f_resolved = yoda_f[f"{rivet_dir_name}/pos_w_final_resolved"].numEntries()
-    neg_n_f_resolved = yoda_f[f"{rivet_dir_name}/neg_w_final_resolved"].numEntries()
-    #
-    print(f'pos_n_in: {pos_n_in}, neg_n_in: {neg_n_in}, pos_n_f: {pos_n_f}, neg_n_f: {neg_n_f}', 
-          f'pos_n_f_merged: {pos_n_f_merged}, neg_n_f_merged: {neg_n_f_merged}',
-          f'pos_n_f_resolved: {pos_n_f_resolved}, neg_n_f_resolved: {neg_n_f_resolved}')
+
     
     frac_cut = (pos_n_f+neg_n_f) / (pos_n_in+neg_n_in) if (pos_n_in+neg_n_in) != 0 else 0
     frac_pos = pos_n_f / pos_n_in if pos_n_in != 0 else 0
     frac_neg = neg_n_f / neg_n_in if neg_n_in != 0 else 0
     frac_cut_er_bar = 1/(pos_n_in+neg_n_in) * math.sqrt(pos_n_in*frac_pos*(1-frac_pos) + neg_n_in*frac_neg*(1-frac_neg)) if (pos_n_in+neg_n_in) != 0 else 0
     
-    frac_cut_merged = (pos_n_f_merged+neg_n_f_merged) / (pos_n_in+neg_n_in) if (pos_n_in+neg_n_in) != 0 else 0
-    frac_pos_merged = pos_n_f_merged / pos_n_in if pos_n_in != 0 else 0
-    frac_neg_merged = neg_n_f_merged / neg_n_in if neg_n_in != 0 else 0
-    frac_cut_er_bar_merged = 1/(pos_n_in+neg_n_in) * math.sqrt(pos_n_in*frac_pos_merged*(1-frac_pos_merged) + neg_n_in*frac_neg_merged*(1-frac_neg_merged)) if (pos_n_in+neg_n_in) != 0 else 0
-    
-    frac_cut_resolved = (pos_n_f_resolved+neg_n_f_resolved) / (pos_n_in+neg_n_in) if (pos_n_in+neg_n_in) != 0 else 0
-    frac_pos_resolved = pos_n_f_resolved / pos_n_in if pos_n_in != 0 else 0
-    frac_neg_resolved = neg_n_f_resolved / neg_n_in if neg_n_in != 0 else 0
-    frac_cut_er_bar_resolved = 1/(pos_n_in+neg_n_in) * math.sqrt(pos_n_in*frac_pos_resolved*(1-frac_pos_resolved) + neg_n_in*frac_neg_resolved*(1-frac_neg_resolved)) if (pos_n_in+neg_n_in) != 0 else 0
-  
+
     # frac_cut_er_bar = frac_cut_unc / 2 
     #
     pos_w_in = yoda_f[f"{rivet_dir_name}/pos_w_initial"].sumW()
@@ -143,11 +126,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     pos_w_f = yoda_f[f"{rivet_dir_name}/pos_w_final"].sumW()
     neg_w_f = yoda_f[f"{rivet_dir_name}/neg_w_final"].sumW()
     
-    pos_w_f_resolved = yoda_f[f"{rivet_dir_name}/pos_w_final_resolved"].sumW()
-    neg_w_f_resolved = yoda_f[f"{rivet_dir_name}/neg_w_final_resolved"].sumW()
-    
-    pos_w_f_merged = yoda_f[f"{rivet_dir_name}/pos_w_final_merged"].sumW()
-    neg_w_f_merged = yoda_f[f"{rivet_dir_name}/neg_w_final_merged"].sumW()
+
 
     Dir_info = mydir + "/Info/"
     
@@ -155,11 +134,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
         # If not, create it
         os.makedirs(Dir_info)
     
-    write_to_f(Dir_info + "frac_cuts_merged.txt", frac_cut_merged)
-    write_to_f(Dir_info + "frac_after_cuts_error_bar_merged.txt", frac_cut_er_bar_merged)
-    
-    write_to_f(Dir_info + "frac_cuts_resolved.txt", frac_cut_resolved)
-    write_to_f(Dir_info + "frac_after_cuts_error_bar_resolved.txt", frac_cut_er_bar_resolved)
+
     write_to_f(Dir_info + "Cross_section_fb.txt", xsec_fb)
     
     print("Write to files")
@@ -178,11 +153,7 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     uf.plot_histograms(output_plot=mydir + "/plots_bis/" , desired_num_bins=25, file_path=mydir + "/hists.root", label='M rwg')
 
     
-    lu.save_xsec_frac_prod(Dir_info,xsec_fb,
-                        frac_cut_merged,frac_pos_merged,frac_neg_merged, 
-                        pos_w_in, neg_w_in, pos_w_f_resolved, neg_w_f_resolved,pos_w_f_merged, neg_w_f_merged,
-                        pos_n_in, neg_n_in, pos_n_f_resolved, neg_n_f_resolved, pos_n_f_merged, neg_n_f_merged)
-    
+
     print("Save frac files")
     
     #plot_root_histograms(mydir + "/hists.root")
@@ -193,12 +164,19 @@ def save_job_infos(DOCUT_str, mydir, prod_dec,xsec_fb):
     print("saving cutflow resolved as img") 
     
     print("cutflow merged")
-        
+
+    cutflow_SR_file = mydir + "cutflow_SR.txt"
+    if os.path.exists(cutflow_SR_file):
+        cut_SR_names, cut_SR_cumu, cut_SR_incr = lu.get_cutflow_arrays(cutflow_SR_file)
+        #lu.draw_cutflows(cut_merged_names, [cut_merged_incr,cut_merged_cumu], ["incremental","cumulative"],mydir+"/cutflow_merged_img.png", prod_dec) 
+    print("saving cutflow merged ")    
+
     cutflow_merged_file = mydir + "cutflow_merged.txt"
     if os.path.exists(cutflow_merged_file):
         cut_merged_names, cut_merged_cumu, cut_merged_incr = lu.get_cutflow_arrays(cutflow_merged_file)
         #lu.draw_cutflows(cut_merged_names, [cut_merged_incr,cut_merged_cumu], ["incremental","cumulative"],mydir+"/cutflow_merged_img.png", prod_dec) 
-    print("saving cutflow merged ")    
+    print("saving cutflow merged ") 
+
     cutflow_resolved_file = mydir + "cutflow_resolved.txt"
     if os.path.exists(cutflow_resolved_file):
         cut_resolved_names, cut_resolved_cumu, cut_resolved_incr = lu.get_cutflow_arrays(cutflow_resolved_file)
@@ -224,7 +202,8 @@ elif opts.type_MC == "run3" or opts.type_MC == "Run3":
     xsection_fb = uf.take_xsec_fb_aqgc(VBS_txt,EFT_op,EFT_type, proc, decay)
 else:
     VBS_txt='VBS_xsection_test.txt'
-    xsection_fb = uf.take_xsec_fb(VBS_txt,EFT_op,EFT_type, proc, decay)
+    xsection_fb = None
+    #xsection_fb = uf.take_xsec_fb(VBS_txt,EFT_op,EFT_type, proc, decay)
 
 
 if xsection_fb is None:

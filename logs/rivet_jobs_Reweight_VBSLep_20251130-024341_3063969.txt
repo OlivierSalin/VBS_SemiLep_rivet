@@ -1,0 +1,737 @@
+Run timestamp: 20251130-024341
+PID: 3063969
+Total jobs: 2
+
+=== ZZ_llll | operator: FM | pol: LT | conf: user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT | exit: 0 ===
+STDOUT:
+Sun Nov 30 02:43:16 CET 2025
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT";DOCUT="YES";Part="";type_MC="Reweight_VBSLep""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+##### Received conf from cmd through -c 'conf=user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT; DOCUT=YES; Part=; type_MC=Reweight_VBSLep'
+type_MC: Reweight_VBSLep
+start from string ZZ_llll_FM_QUAD_LT
+base_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root']
+conf_cut_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root']
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]...
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]... [done]
+len(systWeights): 215
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Sun Nov 30 02:43:26 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://v4f.hl-lhc.net:6082) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root File version:63404
+ClassIDSvc           INFO getRegistryEntries: read 1897 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/' for ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root File version:63404
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 100005    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #1, run #100005 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+++++++received outidir/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this ZZ_llll is /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Cuts/ZZ_llll_cuts.json
+++++++ to check json 1 var got photon pt min 300.0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #1, run #100005 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #2, run #100005 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #2, run #100005 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #3, run #100005 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #3, run #100005 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #4, run #100005 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #4, run #100005 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #5, run #100005 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #5, run #100005 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6, run #100005 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6, run #100005 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #7, run #100005 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #7, run #100005 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #8, run #100005 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #8, run #100005 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #9, run #100005 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #9, run #100005 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #10, run #100005 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #10, run #100005 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #11, run #100005 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #11, run #100005 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #12, run #100005 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #12, run #100005 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #13, run #100005 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #13, run #100005 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #14, run #100005 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #14, run #100005 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #15, run #100005 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #15, run #100005 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #16, run #100005 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #16, run #100005 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #17, run #100005 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #17, run #100005 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #18, run #100005 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #18, run #100005 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #19, run #100005 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #19, run #100005 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20, run #100005 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20, run #100005 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #21, run #100005 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #21, run #100005 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #22, run #100005 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #22, run #100005 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #23, run #100005 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #23, run #100005 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #24, run #100005 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #24, run #100005 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #25, run #100005 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #25, run #100005 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #26, run #100005 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #26, run #100005 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #27, run #100005 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #27, run #100005 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #28, run #100005 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #28, run #100005 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #29, run #100005 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #29, run #100005 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #30, run #100005 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #30, run #100005 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #31, run #100005 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #31, run #100005 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #32, run #100005 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #32, run #100005 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #33, run #100005 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #33, run #100005 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #34, run #100005 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #34, run #100005 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #35, run #100005 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #35, run #100005 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #36, run #100005 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #36, run #100005 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #37, run #100005 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #37, run #100005 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #38, run #100005 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #38, run #100005 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #39, run #100005 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #39, run #100005 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #40, run #100005 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #40, run #100005 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #41, run #100005 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #41, run #100005 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #42, run #100005 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #42, run #100005 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #43, run #100005 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #43, run #100005 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #44, run #100005 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #44, run #100005 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #45, run #100005 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #45, run #100005 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #46, run #100005 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #46, run #100005 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #47, run #100005 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #47, run #100005 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #48, run #100005 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #48, run #100005 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #49, run #100005 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #49, run #100005 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #50, run #100005 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #50, run #100005 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #51, run #100005 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #51, run #100005 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #52, run #100005 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #52, run #100005 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #53, run #100005 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #53, run #100005 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #54, run #100005 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #54, run #100005 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #55, run #100005 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #55, run #100005 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #56, run #100005 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #56, run #100005 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #57, run #100005 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #57, run #100005 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #58, run #100005 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #58, run #100005 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #59, run #100005 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #59, run #100005 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #60, run #100005 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #60, run #100005 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #61, run #100005 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #61, run #100005 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #62, run #100005 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #62, run #100005 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #63, run #100005 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #63, run #100005 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #64, run #100005 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #64, run #100005 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #65, run #100005 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #65, run #100005 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #66, run #100005 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #66, run #100005 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #67, run #100005 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #67, run #100005 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #68, run #100005 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #68, run #100005 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #69, run #100005 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #69, run #100005 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #70, run #100005 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #70, run #100005 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #71, run #100005 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #71, run #100005 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #72, run #100005 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #72, run #100005 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #73, run #100005 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #73, run #100005 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #74, run #100005 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #74, run #100005 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #75, run #100005 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #75, run #100005 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #76, run #100005 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #76, run #100005 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #77, run #100005 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #77, run #100005 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #78, run #100005 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #78, run #100005 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #79, run #100005 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #79, run #100005 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #80, run #100005 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #80, run #100005 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #81, run #100005 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #81, run #100005 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #82, run #100005 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #82, run #100005 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #83, run #100005 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #83, run #100005 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #84, run #100005 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #84, run #100005 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #85, run #100005 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #85, run #100005 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #86, run #100005 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #86, run #100005 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #87, run #100005 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #87, run #100005 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #88, run #100005 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #88, run #100005 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #89, run #100005 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #89, run #100005 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #90, run #100005 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #90, run #100005 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #91, run #100005 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #91, run #100005 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #92, run #100005 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #92, run #100005 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #93, run #100005 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #93, run #100005 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #94, run #100005 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #94, run #100005 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #95, run #100005 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #95, run #100005 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #96, run #100005 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #96, run #100005 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #97, run #100005 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #97, run #100005 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #98, run #100005 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #98, run #100005 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #99, run #100005 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #99, run #100005 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #100, run #100005 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #100, run #100005 100 events processed so far  <<<===
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] EBA227CE-99AC-6F4A-A471-85938D42555C
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Sum of weights: 0.000945581
+Cross section in fb: 0.00945581
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |              61 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |             264 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Py:Athena            INFO leaving with code 0: "successful run"
+start from string ZZ_llll_FM_QUAD_LT
+prod_dec: ZZ_llll, base_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483559.EXT0._000001.out.EVNT.root']
+conf_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0
+#### will run rivet with athena rivet_job.py -c 'conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT";DOCUT="YES";Part="";type_MC="Reweight_VBSLep"' --evtMax 100 
+dont do plot from yoda since redoPlots= no and dir /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//rivet-plots/ exists  False
+Process studied: FM_QUAD_ZZ_llll
+No cross section in txt found for FM_QUAD_ZZ_llll
+No cross section found in AMI for FM_QUAD_ZZ_llll
+Cross section set at 0 to avoid errors but ISSUE
+Cross section in fb for FM_QUAD_ZZ_llll: 0
+reading from yoda file  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/MyOutput.yoda.gz
+Weight name:
+{'/RAW/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass', '/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass'}
+looking for prefix in counter /ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Write to files
+converting to root hist with name merged_VlepVhad_mass
+converting to root hist with name merged_VlepVhad_pt
+['merged_VlepVhad_mass', 'merged_VlepVhad_pt']
+Save frac files
+saving cutflow resolved as img
+cutflow merged
+['ZZ_llll_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['100.0', '100', '-', '']
+['Pass', 'have_four_lep', '23.0', '23', '23']
+['Pass', 'pt_lep1_2', '23.0', '23', '100']
+['Pass', 'dR_all_pairs', '23.0', '23', '100']
+['Pass', 'SFOC_2pairs_min', '23.0', '23', '100']
+['Pass', 'm_llll', '23.0', '23', '100']
+['Pass', 'n_jets', '16.0', '16', '70']
+['Pass', 'pt_tagjet1_2', '13.0', '13', '81']
+['Pass', 'm_tagjets', '10.0', '10', '77']
+['Pass', 'dy_tagjets', '6.0', '6', '60']
+['Pass', 'centrality_quadjj', '6.0', '6', '100']
+['']
+saving cutflow merged 
+saving cutflow merged 
+Cross section in fb: 0
+STDERR:
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_mass_hist.png has been created
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LT_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_pt_hist.png has been created
+
+=== ZZ_llll | operator: FM | pol: LL | conf: user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL | exit: 0 ===
+STDOUT:
+Sun Nov 30 02:43:16 CET 2025
+Preloading tcmalloc_minimal.so
+Py:Athena            INFO using release [AthGeneration-23.6.22] [x86_64-centos7-gcc11-opt] [main/2a47a2d3675] -- built on [2023-12-09T2101]
+Py:Athena            INFO including file "AthenaCommon/Preparation.py"
+Py:Athena            INFO including file "AthenaCommon/Atlas.UnixStandardJob.py"
+Py:Athena            INFO executing ROOT6Setup
+Py:Athena            INFO executing CLI (-c) command: "conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL";DOCUT="YES";Part="";type_MC="Reweight_VBSLep""
+Py:Athena            INFO including file "AthenaCommon/Execution.py"
+Py:Athena            INFO including file "rivet_job.py"
+##### Received conf from cmd through -c 'conf=user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL; DOCUT=YES; Part=; type_MC=Reweight_VBSLep'
+type_MC: Reweight_VBSLep
+start from string ZZ_llll_FM_QUAD_LL
+base_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root']
+conf_cut_dir:  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Py:ConfigurableDb    INFO Read module info for 484 configurables from 2 genConfDb files
+Py:ConfigurableDb    INFO No duplicates have been found: that's good !
+Evnts to run over:  ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root']
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]...
+Py:AthFile           INFO loading cache from [athfile-cache.ascii.gz]... [done]
+Py:AthFile           INFO opening [/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root]...
+len(systWeights): 215
+Py:Athena            INFO including file "AthenaCommon/runbatch.py"
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to ApplicationMgr (GaudiCoreSvc v37r2)
+                                          running on atlas1.ijclab.in2p3.fr on Sun Nov 30 02:43:33 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+AthDictLoaderSvc     INFO in initialize...
+AthDictLoaderSvc     INFO acquired Dso-registry
+ClassIDSvc           INFO getRegistryEntries: read 3092 CLIDRegistry entries for module ALL
+CoreDumpSvc          INFO Handling signals: 11(Segmentation fault) 7(Bus error) 4(Illegal instruction) 8(Floating point exception) 14(Alarm clock) 
+AthenaEventLoopMgr   INFO Initializing AthenaEventLoopMgr
+ClassIDSvc           INFO getRegistryEntries: read 751 CLIDRegistry entries for module ALL
+ClassIDSvc           INFO getRegistryEntries: read 524 CLIDRegistry entries for module ALL
+xAODMaker::Even...   INFO Initializing xAODMaker::EventInfoCnvAlg
+MetaDataSvc          INFO Initializing MetaDataSvc
+PoolSvc              INFO io_register[PoolSvc](xmlcatalog_file:PoolFileCatalog.xml) [ok]
+PoolSvc              INFO Set connectionsvc retry/timeout/IDLE timeout to  'ConnectionRetrialPeriod':300/ 'ConnectionRetrialTimeOut':3600/ 'ConnectionTimeOut':5 seconds with connection cleanup disabled
+PoolSvc              INFO Frontier compression level set to 5
+DBReplicaSvc         INFO Frontier server at (serverurl=http://atlasfrontier-ai.cern.ch:8000/atlr)(proxyurl=http://v4f.hl-lhc.net:6082) will be considered for COOL data
+DBReplicaSvc         INFO Read replica configuration from /cvmfs/atlas.cern.ch/repo/sw/software/23.6/AthGeneration/23.6.22/InstallArea/x86_64-centos7-gcc11-opt/share/dbreplica.config
+DBReplicaSvc         INFO Total of 1 servers found for host atlas1.ijclab.in2p3.fr [ATLF ]
+PoolSvc              INFO Successfully setup replica sorting algorithm
+PoolSvc              INFO Setting up APR FileCatalog and Streams
+PoolSvc              INFO POOL WriteCatalog is xmlcatalog_file:PoolFileCatalog.xml
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+MetaDataSvc          INFO Found MetaDataTools = PublicToolHandleArray(['IOVDbMetaDataTool'])
+EventSelector        INFO EventSelection with query 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root File version:63404
+ClassIDSvc           INFO getRegistryEntries: read 1897 CLIDRegistry entries for module ALL
+EventPersistenc...   INFO Added successfully Conversion service:AthenaPoolCnvSvc
+ClassIDSvc           INFO getRegistryEntries: read 8 CLIDRegistry entries for module ALL
+MetaDataSvc          INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet_i              INFO Using Rivet version 3.1.9
+Rivet_i.xAODtoH...   INFO Initializing xAODtoHepMCTool Rivet_i.xAODtoHepMCTool...
+Rivet_i.xAODtoH...   INFO SignalOnly         =  'SignalOnly':True
+Rivet_i              INFO Setting Rivet plugin analyses loader env path: /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet
+Rivet_i           WARNING $CMTPATH variable not set: finding the main analysis plugin directory will be difficult...
+Rivet_i              INFO Loading Rivet analysis ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Rivet.AnalysisHandler: WARN  Setting the option 'OUTDIR' to '/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/' for ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/ has not been declared in the info file  and may be ignored in the analysis.
+AthenaEventLoopMgr   INFO Setup EventSelector service EventSelector
+ApplicationMgr       INFO Application Manager Initialized successfully
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+DbSession            INFO     Open     DbSession    
+Domain[ROOT_All]     INFO >   Access   DbDomain     READ      [ROOT_All] 
+Domain[ROOT_All]     INFO ->  Access   DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+Domain[ROOT_All]     INFO                           /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root
+RootDatabase.open    INFO /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root File version:63404
+ApplicationMgr       INFO Application Manager Started successfully
+ClassIDSvc           INFO getRegistryEntries: read 129 CLIDRegistry entries for module ALL
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+AthenaPoolConve...   INFO massageEventInfo: unable to get OverrideRunNumberFromInput property from EventSelector 
+AthenaEventLoopMgr   INFO   ===>>>  start of run 100004    <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #1, run #100004 0 events processed so far  <<<===
+ClassIDSvc           INFO getRegistryEntries: read 137 CLIDRegistry entries for module ALL
+HepMCWeightSvc       INFO   AlgTool: ToolSvc.IOVDbMetaDataTool
+Rivet.AnalysisHandler: INFO  Using named weights
+out_dir Rivet: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+++++++received outidir/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/meaning _docut is 1
+++++++assume .json for this ZZ_llll is /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Cuts/ZZ_llll_cuts.json
+++++++ to check json 1 var got photon pt min 300.0
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #1, run #100004 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #2, run #100004 1 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #2, run #100004 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #3, run #100004 2 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #3, run #100004 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #4, run #100004 3 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #4, run #100004 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #5, run #100004 4 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #5, run #100004 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #6, run #100004 5 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #6, run #100004 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #7, run #100004 6 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #7, run #100004 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #8, run #100004 7 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #8, run #100004 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #9, run #100004 8 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #9, run #100004 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #10, run #100004 9 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #10, run #100004 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #11, run #100004 10 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #11, run #100004 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #12, run #100004 11 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #12, run #100004 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #13, run #100004 12 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #13, run #100004 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #14, run #100004 13 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #14, run #100004 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #15, run #100004 14 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #15, run #100004 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #16, run #100004 15 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #16, run #100004 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #17, run #100004 16 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #17, run #100004 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #18, run #100004 17 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #18, run #100004 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #19, run #100004 18 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #19, run #100004 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #20, run #100004 19 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #20, run #100004 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #21, run #100004 20 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #21, run #100004 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #22, run #100004 21 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #22, run #100004 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #23, run #100004 22 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #23, run #100004 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #24, run #100004 23 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #24, run #100004 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #25, run #100004 24 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #25, run #100004 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #26, run #100004 25 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #26, run #100004 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #27, run #100004 26 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #27, run #100004 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #28, run #100004 27 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #28, run #100004 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #29, run #100004 28 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #29, run #100004 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #30, run #100004 29 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #30, run #100004 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #31, run #100004 30 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #31, run #100004 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #32, run #100004 31 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #32, run #100004 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #33, run #100004 32 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #33, run #100004 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #34, run #100004 33 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #34, run #100004 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #35, run #100004 34 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #35, run #100004 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #36, run #100004 35 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #36, run #100004 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #37, run #100004 36 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #37, run #100004 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #38, run #100004 37 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #38, run #100004 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #39, run #100004 38 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #39, run #100004 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #40, run #100004 39 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #40, run #100004 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #41, run #100004 40 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #41, run #100004 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #42, run #100004 41 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #42, run #100004 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #43, run #100004 42 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #43, run #100004 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #44, run #100004 43 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #44, run #100004 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #45, run #100004 44 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #45, run #100004 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #46, run #100004 45 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #46, run #100004 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #47, run #100004 46 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #47, run #100004 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #48, run #100004 47 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #48, run #100004 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #49, run #100004 48 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #49, run #100004 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #50, run #100004 49 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #50, run #100004 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #51, run #100004 50 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #51, run #100004 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #52, run #100004 51 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #52, run #100004 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #53, run #100004 52 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #53, run #100004 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #54, run #100004 53 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #54, run #100004 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #55, run #100004 54 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #55, run #100004 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #56, run #100004 55 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #56, run #100004 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #57, run #100004 56 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #57, run #100004 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #58, run #100004 57 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #58, run #100004 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #59, run #100004 58 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #59, run #100004 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #60, run #100004 59 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #60, run #100004 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #61, run #100004 60 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #61, run #100004 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #62, run #100004 61 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #62, run #100004 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #63, run #100004 62 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #63, run #100004 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #64, run #100004 63 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #64, run #100004 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #65, run #100004 64 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #65, run #100004 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #66, run #100004 65 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #66, run #100004 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #67, run #100004 66 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #67, run #100004 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #68, run #100004 67 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #68, run #100004 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #69, run #100004 68 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #69, run #100004 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #70, run #100004 69 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #70, run #100004 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #71, run #100004 70 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #71, run #100004 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #72, run #100004 71 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #72, run #100004 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #73, run #100004 72 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #73, run #100004 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #74, run #100004 73 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #74, run #100004 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #75, run #100004 74 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #75, run #100004 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #76, run #100004 75 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #76, run #100004 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #77, run #100004 76 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #77, run #100004 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #78, run #100004 77 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #78, run #100004 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #79, run #100004 78 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #79, run #100004 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #80, run #100004 79 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #80, run #100004 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #81, run #100004 80 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #81, run #100004 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #82, run #100004 81 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #82, run #100004 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #83, run #100004 82 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #83, run #100004 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #84, run #100004 83 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #84, run #100004 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #85, run #100004 84 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #85, run #100004 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #86, run #100004 85 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #86, run #100004 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #87, run #100004 86 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #87, run #100004 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #88, run #100004 87 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #88, run #100004 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #89, run #100004 88 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #89, run #100004 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #90, run #100004 89 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #90, run #100004 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #91, run #100004 90 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #91, run #100004 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #92, run #100004 91 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #92, run #100004 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #93, run #100004 92 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #93, run #100004 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #94, run #100004 93 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #94, run #100004 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #95, run #100004 94 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #95, run #100004 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #96, run #100004 95 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #96, run #100004 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #97, run #100004 96 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #97, run #100004 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #98, run #100004 97 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #98, run #100004 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #99, run #100004 98 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #99, run #100004 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  start processing event #100, run #100004 99 events processed so far  <<<===
+AthenaEventLoopMgr   INFO   ===>>>  done processing event #100, run #100004 100 events processed so far  <<<===
+/data/atlas/sal...   INFO Database being retired...
+Domain[ROOT_All]     INFO ->  Deaccess DbDatabase   READ      [ROOT_All] E8BB0F2C-8194-D946-B5D0-C107D4D55EAC
+ApplicationMgr       INFO Application Manager Stopped successfully
+Rivet_i              INFO Rivet_i finalizing
+Sum of weights: 0.00269688
+Cross section in fb: 0.0269688
+Domain[ROOT_All]     INFO >   Deaccess DbDomain     READ      [ROOT_All] 
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats Timing Measurements for AthenaPoolCnvSvc
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthenaPoolCnvSvc     INFO PerfStats | cObjR_ALL       |              62 ms |
+AthenaPoolCnvSvc     INFO PerfStats | cObj_ALL        |             278 ms |
+AthenaPoolCnvSvc     INFO PerfStats ----------------------------------------
+AthDictLoaderSvc     INFO in finalize...
+ToolSvc              INFO Removing all tools created by ToolSvc
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ==========    xAOD -> HepMC Tool :: Run Summary     ==========
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO No suggest_barcode failures
+Rivet_i.xAODtoH...   INFO No missing production vertices
+Rivet_i.xAODtoH...   INFO No events with undefined beams.
+Rivet_i.xAODtoH...   INFO ==============================================================
+Rivet_i.xAODtoH...   INFO ===================    End Run Summary     ===================
+Rivet_i.xAODtoH...   INFO ==============================================================
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+Py:Athena            INFO leaving with code 0: "successful run"
+start from string ZZ_llll_FM_QUAD_LL
+prod_dec: ZZ_llll, base_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/
+searching for dir with pattern /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll//*user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL*EXT0
+found possibilities for dir ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0']
+found possibilities for evnt file ['/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/user.osalin.47483551.EXT0._000001.out.EVNT.root']
+conf_dir: /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0
+#### will run rivet with athena rivet_job.py -c 'conf="user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL";DOCUT="YES";Part="";type_MC="Reweight_VBSLep"' --evtMax 100 
+dont do plot from yoda since redoPlots= no and dir /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//rivet-plots/ exists  False
+Process studied: FM_QUAD_ZZ_llll
+No cross section in txt found for FM_QUAD_ZZ_llll
+No cross section found in AMI for FM_QUAD_ZZ_llll
+Cross section set at 0 to avoid errors but ISSUE
+Cross section in fb for FM_QUAD_ZZ_llll: 0
+reading from yoda file  /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/MyOutput.yoda.gz
+Weight name:
+{'/RAW/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass', '/ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//merged_VlepVhad_mass'}
+looking for prefix in counter /ZZ_llll:OUTDIR=/data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES/
+Write to files
+converting to root hist with name merged_VlepVhad_mass
+converting to root hist with name merged_VlepVhad_pt
+['merged_VlepVhad_mass', 'merged_VlepVhad_pt']
+Save frac files
+saving cutflow resolved as img
+cutflow merged
+['ZZ_llll_selections', 'cut-flow:']
+['Count', 'A_cumu', 'A_incr']
+['100.0', '100', '-', '']
+['Pass', 'have_four_lep', '38.0', '38', '38']
+['Pass', 'pt_lep1_2', '38.0', '38', '100']
+['Pass', 'dR_all_pairs', '38.0', '38', '100']
+['Pass', 'SFOC_2pairs_min', '38.0', '38', '100']
+['Pass', 'm_llll', '38.0', '38', '100']
+['Pass', 'n_jets', '33.0', '33', '87']
+['Pass', 'pt_tagjet1_2', '29.0', '29', '88']
+['Pass', 'm_tagjets', '24.0', '24', '83']
+['Pass', 'dy_tagjets', '13.0', '13', '54']
+['Pass', 'centrality_quadjj', '13.0', '13', '100']
+['']
+saving cutflow merged 
+saving cutflow merged 
+Cross section in fb: 0
+STDERR:
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC3::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Warning in <TInterpreter::ReadRootmapFile>: class  HepMC::FourVector found in libGeneratorObjectsDict.so  is already in libHepMC3rootIO.so 
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_mass_hist.png has been created
+Info in <TCanvas::Print>: png file /data/atlas/salin/VBS_mc/VBS/eft_Files/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/ZZ_llll/user.osalin.MadGraph_ZZ_llll_FM_QUAD_LL_Rwg_VBSLep_all_Pol_30k_30k_EXT0/DOCUT_YES//plots_bis/merged_VlepVhad_pt_hist.png has been created
+

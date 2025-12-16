@@ -106,20 +106,16 @@ namespace Rivet
                 _label = 0;
             else
             {
-                if (out_dir.find("FM0") != std::string::npos)
+                if (out_dir.find("FS") != std::string::npos)
                     _label = 1;
-                if (out_dir.find("FM2") != std::string::npos)
+                if (out_dir.find("FM") != std::string::npos && out_dir.find("odd") == std::string::npos)
                     _label = 2;
-                if (out_dir.find("FS1") != std::string::npos)
+                if (out_dir.find("FT") != std::string::npos)
                     _label = 3;
-                if (out_dir.find("FT0") != std::string::npos)
+                if (out_dir.find("FM") != std::string::npos && out_dir.find("odd") != std::string::npos)
                     _label = 4;
-                if (out_dir.find("FT1") != std::string::npos)
-                    _label = 4;
-                if (out_dir.find("FT5") != std::string::npos)
+                if (out_dir.find("FT") != std::string::npos && out_dir.find("odd") != std::string::npos)
                     _label = 5;
-                if (out_dir.find("FT8") != std::string::npos)
-                    _label = 6;
             }
 
             if (out_dir.find("SM") != std::string::npos)
@@ -234,14 +230,6 @@ namespace Rivet
                 _tt_merged->Branch(var_.first.c_str(), &var_.second);
             }
 
-            //for (auto &var_ : weightMap_Polarisation)
-            //{_tt_merged->Branch(var_.first.c_str(), &var_.second);}
-
-            // Define branches for each weight
-            //_tt_merged_Fjet = make_unique<TTree>("Merged_Fjet", "Rivet_physics");
-            //_tt_merged_Fjet->Branch("EventNumber", &merged_EventNumber);
-            //_tt_merged_Fjet->Branch("EventWeight", &merged_EventWeight);
-
             _tt_resolved = make_unique<TTree>("Resolved", "Rivet_physics");
             _tt_resolved->Branch("EventNumber", &EventNumber);
             _tt_resolved->Branch("EventWeight", &EventWeight);
@@ -344,9 +332,6 @@ namespace Rivet
                 indexToWeightName[value] = key;
             }
 
-            // Example usage
-            //std::cout << "Weight name for index 1: " << indexToWeightName[1] << std::endl;
-            //std::cout << "Index for weight name 'MUR0.5_MUF0.5_PDF303000': " << weightNameToIndex["MUR0.5_MUF0.5_PDF303000"] << std::endl;
         }
 
         void analyze(const Event &event)
@@ -360,18 +345,6 @@ namespace Rivet
 
  
             std::vector<double> weights_mc = event.genEvent()->weights();
-
-            int i_=1;
-            for (auto& [key, value] : weightNameToIndex) {
-                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos
-                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos) {
-                    //std::cout << "Weight name: " << key << " Index: " << value << std::endl;
-                    ///std::cout << "HepMC Weight: " << weights_mc[value] << std::endl;
-                    //std::cout << "Weight from Rivet: " << event.weights()[i_] << std::endl;
-                    i_++;
-                    //printf("\n");
-                }
-            }
 
             // Set the weight values
             for (const auto& [key, value] : weightNameToIndex) {
@@ -658,14 +631,18 @@ namespace Rivet
                     // Total cutflow of the merged region
                     _cutflows_merged.fillnext();
 
+                    // Polarisation sensitive variable definition
+                    
+                    // Collin-Soper frame axes definition
                     Vector3 Axis_lab(1, 1, 1);
                     Vector3 Axis_x_lab(1, 0, 0);
                     Vector3 Axis_y_lab(0, 1, 0);
                     Vector3 Axis_Vlep_lab(0, 0, 1);
-                    // Four vector of the QGC system in resolved region llJ
+                    
+
+
                     const FourMomentum fourvec_fjets_Vlep = fourvec_Vlep + fjets[0].mom();
                     FourMomentum fourvec_V = fjets[0].mom();
-                    // Polarization variable VZ system
                     FourMomentum fourvec_VlepVhad = fourvec_Vlep + fjets[0].mom();
 
                     LorentzTransform boost_VlepVhad;
@@ -675,11 +652,9 @@ namespace Rivet
 
                     double alpha_ = atan2(fourvec_VlepVhad_rotZ.py(), fourvec_VlepVhad_rotZ.px());
                     fourvec_VlepVhad_rotZ = RotateZ(-alpha_, 1, fourvec_VlepVhad_rotZ);
-
                     boost_VlepVhad.setBetaVec(-fourvec_VlepVhad_rotZ.betaVec());
                     Vector3 BoostVZ_vec = -fourvec_VlepVhad.betaVec();
                     const Vector3 unitboostVZvec = BoostVZ_vec.unit();
-
                     FourMomentum fourvec_Vlep_CS = boost_VlepVhad.transform(RotateZ(-alpha_, 1, fourvec_Vlep));
                     FourMomentum fourvec_VlepVhad_CS = boost_VlepVhad.transform(RotateZ(-alpha_, 1, fourvec_VlepVhad));
 
@@ -687,15 +662,18 @@ namespace Rivet
                     merged_CS_V_cos_theta = abs(cos(fourvec_Vlep_CS.p3().theta()));
                     //
 
+                    // Variable in the Vlep Rest Frame
+                    FourMomentum beam_lab; beam_lab.setXYZE(0.0, 0.0, 1.0, 1.0);
                     LorentzTransform boost_Vlep_rf;
                     boost_Vlep_rf.setBetaVec(-fourvec_Vlep.betaVec());
+                    FourMomentum beam_Vlep_rf = boost_Vlep_rf.transform(beam_lab);
                     FourMomentum fourvec_Vlep_Vlep_rf = boost_Vlep_rf.transform(fourvec_Vlep);
                     FourMomentum fourvec_V_Vlep_rf = boost_Vlep_rf.transform(fourvec_V);
                     FourMomentum fourvec_lep_Vlep_rf = boost_Vlep_rf.transform(lep1.mom());
                     FourMomentum fourvec_lepm_Vlep_rf = boost_Vlep_rf.transform(lepton_minus.mom());
 
-                    merged_cos_theta_star = cos(fourvec_lepm_Vlep_rf.p3().angle(fourvec_Vlep.p3()));
-                    //
+                    merged_cos_theta_star = cos(fourvec_lepm_Vlep_rf.p3().angle(beam_Vlep_rf.p3()));
+                    
 
                     // Four vector of the Full system in resolved region
                     const FourMomentum fourvec_fjets_full = fourvec_Vlep + fjets[0].mom() + tag1_jet + tag2_jet;
@@ -811,13 +789,7 @@ namespace Rivet
                     merged_EventWeight = ev_nominal_weight;
 
                     // Fill the TTree with the weight values
-                    for (const auto& [key, value] : weightNameToIndex) {
-                        if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos|| 
-                        key.find("int") != std::string::npos || key.find("dynscale") != std::string::npos) {
-                            
-                            std::string weightName = "EventWeight_" + std::to_string(value);
-                        }
-                    }
+
 
                     _tt_merged->Fill();
 

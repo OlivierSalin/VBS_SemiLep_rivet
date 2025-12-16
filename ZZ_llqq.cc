@@ -28,6 +28,8 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
+#include "EventWeights.h"
+
 namespace Rivet
 {
 
@@ -100,6 +102,26 @@ namespace Rivet
 
             // cross_section_fb = crossSection()/femtobarn;
 
+            if (out_dir.find("SM") != std::string::npos)
+                _label = 0;
+            else
+            {
+                if (out_dir.find("FS") != std::string::npos)
+                    _label = 1;
+                if (out_dir.find("FM") != std::string::npos && out_dir.find("odd") == std::string::npos)
+                    _label = 2;
+                if (out_dir.find("FT") != std::string::npos)
+                    _label = 3;
+                if (out_dir.find("FM") != std::string::npos && out_dir.find("odd") != std::string::npos)
+                    _label = 4;
+                if (out_dir.find("FT") != std::string::npos && out_dir.find("odd") != std::string::npos)
+                    _label = 5;
+            }
+
+            if (out_dir.find("SM") != std::string::npos)
+                _label_binary = 0;
+            if (out_dir.find("QUAD") != std::string::npos)
+                _label_binary = 1;
 
             std::string ntuple_dir = out_dir;
 
@@ -160,6 +182,8 @@ namespace Rivet
 
             // Merged histograms
 
+            // plots common with others
+
 
             // plots that are not in other ana
             std::ifstream ana_hist_min_file(txt_dir + "/Hists_bis/2lepton_hists_min2.json");
@@ -171,17 +195,14 @@ namespace Rivet
             }
 
 
-
             _tf = make_unique<TFile>(getOption("ROOTFILE", ntuple_dir + "ntuple_rivet.root").c_str(), "RECREATE");
             _tt_merged = make_unique<TTree>("Merged", "Rivet_physics");
             _tt_merged->Branch("EventNumber", &merged_EventNumber);
             _tt_merged->Branch("EventWeight", &merged_EventWeight);
-            /*for (auto &var_ : weightMap)
-            {
-                _tt_merged->Branch(var_.first.c_str(), &var_.second);
-            }*/
       
     
+            _tt_merged->Branch("Label", &_label);
+            _tt_merged->Branch("Label_binary", &_label_binary);
             for (auto &var_ : varMap)
             {
                 _tt_merged->Branch(var_.first.c_str(), var_.second);
@@ -191,11 +212,29 @@ namespace Rivet
                 _tt_merged->Branch(var_.first.c_str(), var_.second);
             }
 
+            for (auto &var_ : weightMap)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
 
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
 
             _tt_resolved = make_unique<TTree>("Resolved", "Rivet_physics");
             _tt_resolved->Branch("EventNumber", &EventNumber);
             _tt_resolved->Branch("EventWeight", &EventWeight);
+            _tt_resolved->Branch("Label", &_label);
+            _tt_resolved->Branch("Label_binary", &_label_binary);
             for (auto &var_ : varMap_resolved)
             {
                 _tt_resolved->Branch(var_.first.c_str(), var_.second);
@@ -205,12 +244,44 @@ namespace Rivet
             _tt_bef_cut->Branch("EventNumber", &EventNumber);
             _tt_bef_cut->Branch("EventWeight", &EventWeight);
             _tt_bef_cut->Branch("VBS_event", &VBS_event);
-
-
+            _tt_bef_cut->Branch("Label", &_label);
+            for (auto &var_ : weightMap)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
 
             _tt_angle = make_unique<TTree>("Angle", "Rivet_physics");
             _tt_angle->Branch("EventWeight", &Angle_EventWeight);
+            _tt_angle->Branch("Label", &_label);
             _tt_angle->Branch("cos_theta_star", &cos_theta_star);
+            for (auto &var_ : weightMap)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
 
             // counter for efficiency
             book(_c["pos_w_initial"], "pos_w_initial");
@@ -275,7 +346,52 @@ namespace Rivet
  
             std::vector<double> weights_mc = event.genEvent()->weights();
 
+            // Set the weight values
+            for (const auto& [key, value] : weightNameToIndex) {
+                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos
+                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos
+                    || key.find("int") != std::string::npos || key.find("INT") != std::string::npos) {
+                    std::string key_lower = key;
+                    std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
+                    std::string weightName = "EventWeight_" + key_lower;
+                    double weight = weights_mc[value];
+                    //std::cout << "Weight name: " << weightName << " Weight: " << weight << std::endl;
+                    if (key.find("quad")!= std::string::npos ||key.find("QUAD") != std::string::npos){
+                        weightMap[weightName] = weight;
+                        // Fill polarisation map for _quad_ll, _quad_lt, _quad_tl, _quad_tt (case-insensitive)
+                        if (
+                            key_lower.find("_quad_ll") != std::string::npos || key.find("_QUAD_LL") != std::string::npos ||
+                            key_lower.find("_quad_lt") != std::string::npos || key.find("_QUAD_LT") != std::string::npos ||
+                            key_lower.find("_quad_tl") != std::string::npos || key.find("_QUAD_TL") != std::string::npos ||
+                            key_lower.find("_quad_tt") != std::string::npos || key.find("_QUAD_TT") != std::string::npos
+                        ) {
+                            weightMap_Polarisation[weightName] = weight;
+                        }
+                    }
+                    else if (key.find("cross")!= std::string::npos || key.find("CROSS") != std::string::npos){
+                        weightMap_cross[weightName] = weight;
+                    }
+                    else if (key.find("int")!= std::string::npos || key.find("INT") != std::string::npos){
+                        weightMap_int[weightName] = weight;
+                        //std::cout << "Weight name: " << weightName << " Weight: " << weightMap_int[weightName] << std::endl;
+                    }
+                    //std::cout << "Weight name: " << weightName << " Weight: " << weightMap[weightName] << std::endl;
+                }
+            }
+            for (const auto& [key, value] : weightNameToIndex) {
+                if (key.find("MUR1.0_MUF1.0_DYNSCALE") != std::string::npos && key.find("PDF303000") != std::string::npos) {
+                    std::string key_lower = key;
+                    std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
+                    std::string weightName = "EventWeight_" + key_lower;
+                    std::replace(weightName.begin(), weightName.end(), '.', 'p');
+                    
+                    double weight = weights_mc[value];
+                    weightMap_dynscale[weightName] = weight;
 
+                    //std::cout << "Weight name: " << weightName << " Weight: " << weightMap_dynscale[weightName] << std::endl;
+                
+                }
+            }
 
 
             if (ev_nominal_weight >= 0)
@@ -514,19 +630,50 @@ namespace Rivet
 
                     // Total cutflow of the merged region
                     _cutflows_merged.fillnext();
+
+                    // Polarisation sensitive variable definition
+                    
+                    // Collin-Soper frame axes definition
+                    Vector3 Axis_lab(1, 1, 1);
+                    Vector3 Axis_x_lab(1, 0, 0);
+                    Vector3 Axis_y_lab(0, 1, 0);
+                    Vector3 Axis_Vlep_lab(0, 0, 1);
+                    
+
+
                     const FourMomentum fourvec_fjets_Vlep = fourvec_Vlep + fjets[0].mom();
                     FourMomentum fourvec_V = fjets[0].mom();
-                    // Polarization variable VZ system
                     FourMomentum fourvec_VlepVhad = fourvec_Vlep + fjets[0].mom();
 
+                    LorentzTransform boost_VlepVhad;
+                    FourMomentum fourvec_VlepVhad_rotZ = fourvec_VlepVhad;
+                    FourMomentum taggjet1 = tag1_jet;
+                    FourMomentum taggjet2 = tag2_jet;
+
+                    double alpha_ = atan2(fourvec_VlepVhad_rotZ.py(), fourvec_VlepVhad_rotZ.px());
+                    fourvec_VlepVhad_rotZ = RotateZ(-alpha_, 1, fourvec_VlepVhad_rotZ);
+                    boost_VlepVhad.setBetaVec(-fourvec_VlepVhad_rotZ.betaVec());
+                    Vector3 BoostVZ_vec = -fourvec_VlepVhad.betaVec();
+                    const Vector3 unitboostVZvec = BoostVZ_vec.unit();
+                    FourMomentum fourvec_Vlep_CS = boost_VlepVhad.transform(RotateZ(-alpha_, 1, fourvec_Vlep));
+                    FourMomentum fourvec_VlepVhad_CS = boost_VlepVhad.transform(RotateZ(-alpha_, 1, fourvec_VlepVhad));
+
+                    // Calculate the theta and phi angles for each variable in the CS frame and fill the histograms
+                    merged_CS_V_cos_theta = abs(cos(fourvec_Vlep_CS.p3().theta()));
                     //
 
+                    // Variable in the Vlep Rest Frame
+                    FourMomentum beam_lab; beam_lab.setXYZE(0.0, 0.0, 1.0, 1.0);
                     LorentzTransform boost_Vlep_rf;
                     boost_Vlep_rf.setBetaVec(-fourvec_Vlep.betaVec());
+                    FourMomentum beam_Vlep_rf = boost_Vlep_rf.transform(beam_lab);
+                    FourMomentum fourvec_Vlep_Vlep_rf = boost_Vlep_rf.transform(fourvec_Vlep);
+                    FourMomentum fourvec_V_Vlep_rf = boost_Vlep_rf.transform(fourvec_V);
+                    FourMomentum fourvec_lep_Vlep_rf = boost_Vlep_rf.transform(lep1.mom());
                     FourMomentum fourvec_lepm_Vlep_rf = boost_Vlep_rf.transform(lepton_minus.mom());
 
-                    merged_cos_theta_star = cos(fourvec_lepm_Vlep_rf.p3().angle(fourvec_Vlep.p3()));
-                    //
+                    merged_cos_theta_star = cos(fourvec_lepm_Vlep_rf.p3().angle(beam_Vlep_rf.p3()));
+                    
 
                     // Four vector of the Full system in resolved region
                     const FourMomentum fourvec_fjets_full = fourvec_Vlep + fjets[0].mom() + tag1_jet + tag2_jet;
@@ -642,12 +789,7 @@ namespace Rivet
                     merged_EventWeight = ev_nominal_weight;
 
                     // Fill the TTree with the weight values
-                    for (const auto& [key, value] : weightNameToIndex) {
-                        if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos) {
-                            
-                            std::string weightName = "EventWeight_" + std::to_string(value);
-                        }
-                    }
+
 
                     _tt_merged->Fill();
 
@@ -800,6 +942,10 @@ namespace Rivet
                 resolved_signal_jets_DeltaEta = abs(signal_jet1.eta() - signal_jet2.eta());
                 resolved_signal_jets_DeltaR = deltaR(signal_jet2, signal_jet1);
                 resolved_signal_jets_DeltaPhi = deltaPhi(signal_jet2, signal_jet1);
+                resolved_Vhad_mass = signal_mjj;
+                resolved_Vhad_pt = fourvec_Vhad.pt();
+                resolved_Vhad_eta = fourvec_Vhad.eta();
+
                 resolved_signal_jets_mass = signal_mjj;
                 resolved_Vhad_DR_tagjet1 = deltaR(fourvec_Vhad, tag1_jet);
                 resolved_Vhad_DR_tagjet2 = deltaR(fourvec_Vhad, tag2_jet);
@@ -929,6 +1075,8 @@ namespace Rivet
         double EventWeight;
         int nsys = 0;
         std::string operator_strings = "";
+        int _label = -1;
+        int _label_binary = -1;
         double cross_section_fb;
 
         unique_ptr<TFile> _tf;
@@ -969,6 +1117,7 @@ namespace Rivet
         double resolved_n_lepton_stable, resolved_lepton1_pt, resolved_lepton2_pt, resolved_lepton_delta_pt;
         double resolved_lepton1_eta, resolved_lepton2_eta, resolved_lepton_delta_eta, resolved_Vlep_mass;
         double resolved_Vlep_pt, resolved_Vlep_eta, resolved_Vlep_phi, resolved_Vlep_DR_tagjet1, resolved_Vlep_DR_tagjet2;
+        double resolved_Vhad_mass, resolved_Vhad_eta, resolved_Vhad_pt;
         double resolved_Vlep_Dphi_tagjet1, resolved_Vlep_Dphi_tagjet2, resolved_Vlep_Deta_tagjet1, resolved_Vlep_Deta_tagjet2;
         double resolved_DR_min_lepton_tagjets1, resolved_DR_min_lepton_tagjets2, resolved_DR_min_lepton_sigjets1, resolved_DR_min_lepton_sigjets2;
         double resolved_signal_jets_pt1, resolved_signal_jets_pt2, resolved_signal_jets_eta1, resolved_signal_jets_eta2;
@@ -984,15 +1133,14 @@ namespace Rivet
         /// @}
 
         std::map<std::string, int> weightNameToIndex;
+        std::map<std::string, int> weightNameToIndex_DynScale;
         std::map<int, std::string> indexToWeightName;
+        std::map<int, std::string> indexToWeightName_DynScale;
 
-        double eventWeight;
-
-
-
-            
-
+        //double eventWeight;
+    
         std::map<std::string, double *> varMap = {
+            {"merged_CS_V_cos_theta", &merged_CS_V_cos_theta},
             {"merged_cos_theta_star", &merged_cos_theta_star},
             {"merged_tagjet1_pt", &merged_tagjet1_pt},
             {"merged_tagjet2_pt", &merged_tagjet2_pt},
@@ -1062,7 +1210,7 @@ namespace Rivet
             {"merged_Ntrk_tagjets1", &merged_Ntrk_tagjets1},
             {"merged_Ntrk_tagjets2", &merged_Ntrk_tagjets2},
             {"merged_Ntrk_tagjets", &merged_Ntrk_tagjets},
-            {"merged_Ntrk_fjets", &merged_Ntrk_fjets},
+            {"merged_Ntrk_fjets", &merged_Ntrk_fjets}
         };
 
         std::map<std::string, double *> varMap_resolved = {
@@ -1090,7 +1238,9 @@ namespace Rivet
             {"resolved_Vlep_mass", &resolved_Vlep_mass},
             {"resolved_Vlep_pt", &resolved_Vlep_pt},
             {"resolved_Vlep_eta", &resolved_Vlep_eta},
-            {"resolved_Vlep_phi", &resolved_Vlep_phi},
+            {"resolved_Vhad_mass", &resolved_Vhad_mass},
+            {"resolved_Vhad_pt", &resolved_Vhad_pt},
+            {"resolved_Vhad_eta", &resolved_Vhad_eta},
             {"resolved_Vlep_DR_tagjet1", &resolved_Vlep_DR_tagjet1},
             {"resolved_Vlep_DR_tagjet2", &resolved_Vlep_DR_tagjet2},
             {"resolved_Vlep_Dphi_tagjet1", &resolved_Vlep_Dphi_tagjet1},
@@ -1108,7 +1258,6 @@ namespace Rivet
             {"resolved_signal_jets_DeltaEta", &resolved_signal_jets_DeltaEta},
             {"resolved_signal_jets_DeltaR", &resolved_signal_jets_DeltaR},
             {"resolved_signal_jets_DeltaPhi", &resolved_signal_jets_DeltaPhi},
-            {"resolved_signal_jets_mass", &resolved_signal_jets_mass},
             {"resolved_Vhad_DR_tagjet1", &resolved_Vhad_DR_tagjet1},
             {"resolved_Vhad_DR_tagjet2", &resolved_Vhad_DR_tagjet2},
             {"resolved_Vhad_Dphi_tagjet1", &resolved_Vhad_Dphi_tagjet1},
@@ -1137,6 +1286,7 @@ namespace Rivet
             {"resolved_mjjj", &resolved_mjjj},
             {"resolved_ZeppRes", &resolved_ZeppRes}};
     };
+
 
     RIVET_DECLARE_PLUGIN(ZZ_llqq);
 

@@ -264,14 +264,18 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
     
     def extract_prod_dec(conf):
         prod_temp = conf[conf.find("user.osalin.MadGraph_") + len("user.osalin.MadGraph_"):]
-        #prod_temp = conf[conf.find("user.osalin.Madgraph_") + len("user.osalin.MadGraph_"):]
         print("start from string", prod_temp)
-        prod_dec = prod_temp[:prod_temp.find("qq_") + 2]
+        # take the first two underscore-separated fields as production+decay, e.g. "ZZ_llll", "WpZ_lvlv", "WmZ_lllv"
+        parts = prod_temp.split("_")
+        if len(parts) >= 2:
+            prod_dec = f"{parts[0]}_{parts[1]}"
+        else:
+            prod_dec = parts[0]
         #print("from conf found production dec", prod_dec)
         return prod_dec
 
     if conf.startswith("user."):
-        base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files"
+        base_path = "/data/atlas/salin/VBS_mc/VBS/eft_Files"
         prod_dec = extract_prod_dec(conf)
         
         if "Run3" in type_MC or "run3" in type_MC:
@@ -282,28 +286,15 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
             #base_dir = f"{base_path}/Reweighting/{prod_dec}/"
         elif "ReweightMadspin" in type_MC or "Reweighting_Madspin" in type_MC or "rwgMadspin" in type_MC:
             base_dir = f"{base_path}/Reweighting/Madspin/{prod_dec}/"
-        elif "Reweighthel_ignore" in type_MC or "Reweighting_hel_ignore" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Polarisation/hel_ignore/{prod_dec}/"
-        
-        elif "Reweighting_hel_ign_100k" in type_MC or "Reweighting_hel_ign_100k" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Polarisation/hel_ign_100k/{prod_dec}/"
-            
-        elif "Reweighting_InvSqrtXsec" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Polarisation/InvSqrtXsec/{prod_dec}/"
-
-        elif "Reweighting_InvXsec" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Polarisation/InvXsec/{prod_dec}/"
-
-        elif "Reweighthel_aware" in type_MC or "Reweighting_hel_aware" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Polarisation/hel_aware/{prod_dec}/"
 
         elif "ReweightwithINT" in type_MC or "ReweightwithINT" in type_MC:
             base_dir = f"{base_path}/Reweighting/Polarisation/with_INT/{prod_dec}/"
             
-        elif "ReweightNoSpin" in type_MC or "Reweighting_NoSpin" in type_MC or "rwgNoSpin" in type_MC:
-            base_dir = f"{base_path}/Reweighting/NoSpin/{prod_dec}/"
-        elif "ReweightDecay_chain" in type_MC or "Reweighting_Decay_chain" in type_MC or "rwgDecay_chain" in type_MC:
-            base_dir = f"{base_path}/Reweighting/Decay_chain/{prod_dec}/"
+        elif "Reweight_VBSLep" in type_MC:
+            base_dir = f"{base_path}/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/{prod_dec}/"
+
+        elif "Reweight_VBSSemiLep" in type_MC:
+            base_dir = f"{base_path}/Reweighting/VBSAll/Pol/Gen/VBS/SemiLep/{prod_dec}/"
 
         elif "Reweight_Polarisation" in type_MC or "Reweighting_Pol" in type_MC or "rwgPol" in type_MC:
             base_dir = f"{base_path}/Reweighting/Polarisation/{prod_dec}/"
@@ -324,9 +315,10 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
             base_dir = f"{base_path}/EFTDec/Madspin/{prod_dec}/"
         elif "EFTDec_NoSpin" in type_MC or "EFTDecNoSpin" in type_MC or "eftdecNoSpin" in type_MC:
             base_dir = f"{base_path}/EFTDec/NoSpin/{prod_dec}/"
-        elif "EFTDec_Decay_chain" in type_MC or "EFTDecDecay_chain" in type_MC or "eftdecDecay_chain" in type_MC:
-            base_dir = f"{base_path}/EFTDec/Decay_chain/{prod_dec}/"
-            
+
+        elif "EFTDec_VBSLeptonic" in type_MC:
+            base_dir = f"{base_path}/EFTDec/VBSAll/Pol/Leptonic/{prod_dec}/"   
+
         elif "EFTDec_Polarisation" in type_MC or "EFTDecPolarisation" in type_MC:
             base_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"
         #elif "13p0" in type_MC or "13TeV" in type_MC:
@@ -337,15 +329,7 @@ def find_prod_dec_and_dir_tres(conf, type_MC=None):
 
         elif "EFTDec_INT" in type_MC:
             base_dir = f"{base_path}/EFTDec/INT/Validation/{prod_dec}/"    
-    
-        elif "MCprod_QGC_R3" in type_MC or "MCprod_aqgc_R3" in type_MC:
-            base_dir = f"{base_path}/MCprod/aqgc/13p6/{prod_dec}/"
-        elif "MCprod_QGC_R2" in type_MC or "MCprod_aqgc_R2" in type_MC:
-            base_dir = f"{base_path}/MCprod/aqgc/13p0/{prod_dec}/"
-        elif "MCprod_13p0" in type_MC or "MCprod_13TeV" in type_MC:
-            base_dir = f"{base_path}/MCprod/SM/13p0/{prod_dec}/"
-        elif "MCprod_13p6" in type_MC or "MCprod_13p6TeV" in type_MC:
-            base_dir = f"{base_path}/MCprod/SM/13p6/{prod_dec}/"
+
         
 
         else:

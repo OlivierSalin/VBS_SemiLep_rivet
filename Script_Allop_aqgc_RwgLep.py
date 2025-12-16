@@ -1,0 +1,264 @@
+import subprocess
+from multiprocessing import Pool
+import itertools
+import glob
+import os
+import shutil
+import time
+
+from optparse import OptionParser
+parser = OptionParser()
+
+parser.add_option("--nb_part", default = 0)
+parser.add_option("--nb_lep", default = 2)
+parser.add_option("--nb_events", default = 1000)
+parser.add_option("--All_channel", default= True)
+parser.add_option("--aQGC", default= True)
+parser.add_option("--Name", default= "All_ops")
+parser.add_option("--name_copy", default= "aqgc_prod")
+parser.add_option("--EFT_order", default = "QUAD")
+parser.add_option('--type_MC', default = "")
+parser.add_option("--Channel", default = "")
+parser.add_option("--decays", default = "llqq")
+parser.add_option("--Conf", default = "user.osalin")
+parser.add_option("--Rwg", default = False)
+parser.add_option("--Pol", default="")
+opts, _ = parser.parse_args()
+
+nb_events = int(opts.nb_events)
+nb_lepton= int(opts.nb_lep)
+#nb_lepton=1
+
+order=opts.EFT_order
+Polarisation = opts.Pol
+if Polarisation != "":
+    if Polarisation not in ["LL", "LT", "TL","TT"]:
+        raise ValueError("Polarisation must be one of: LL, LT, TL, TT")
+
+
+all_ops_cat=["FM0","FM"]
+
+
+
+Conf_list = {}
+
+
+all_ops_cat = ["SM","FM0","FM2","FS1","FT1","FT5"]
+all_ops_cat = ["FM0","FS0","FT0"]
+#all_ops_cat = ["FM0"]
+all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
+            "FS0","FS1","FS2",
+            "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7"]
+
+#all_ops_cat = ["FM0","FM1"]
+all_ops_cat = ["FM","FS","FT","FSFM","FSFT","FMFT"]
+all_ops_cat = ["FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
+            "FS0","FS1","FS2",
+            "FT0","FT1","FT2","FT3","FT4","FT5","FT6"]
+
+#all_ops_cat = ["FM0"]
+
+cross_terms_ = [f"{op1}vs{op2}" for op1, op2 in itertools.combinations(all_ops_cat, 2)]
+
+if opts.EFT_order == "CROSS":
+    all_ops_cat = cross_terms_
+    print("Using cross terms for all_ops_cat:", all_ops_cat)
+    
+#all_ops_cat = ["FM0"]
+if opts.Rwg:
+    all_ops_cat = ["FM","FS","FT"]
+
+valid_combinations = {
+    4: [("ZZ", "llll")],
+    3: [("WmZ", "lllv"), ("WpZ", "lllv")],
+    2: [("WmWm", "lvlv"), ("WpWm", "lvlv"), ("WpWp", "lvlv"), ("Zy", "lly")],
+    1: [("Wpy", "lvy")],
+}
+valid_combi_aQGC = [f"{proc}_{dec}" for pairs in valid_combinations.values() for proc, dec in pairs]
+valid_combi_aQGC_lep = [f"{proc}_{dec}" for proc, dec in valid_combinations[nb_lepton]]
+
+processes = ["WpZ"]
+decays = ['llqq']
+proc_decays_tuple = list(itertools.product(processes, decays))
+#decays=[opts.decays]
+name_run = opts.Name
+
+
+def find_prod_dec_and_dir_tres(conf, type_MC=None):
+    base_path = "/exp/atlas/salin/ATLAS/VBS_mc/eft_files"
+    #print("New models")
+    
+    def extract_prod_dec(conf):
+        prod_temp = conf[conf.find("user.osalin.MadGraph_") + len("user.osalin.MadGraph_"):]
+        #prod_temp = conf[conf.find("user.osalin.Madgraph_") + len("user.osalin.MadGraph_"):]
+        print("start from string", prod_temp)
+        prod_dec = prod_temp[:prod_temp.find("qq_") + 2]
+        #print("from conf found production dec", prod_dec)
+        return prod_dec
+
+    if conf.startswith("user."):
+        prod_dec = extract_prod_dec(conf)
+        
+        elif "Reweighting_VBSLeptonic" in type_MC:
+            base_dir = f"{base_path}/Reweighting/VBSAll/Pol/Gen/VBS/Leptonic/{prod_dec}/"
+
+        elif "Reweighting_VBSSemiLeptonic" in type_MC:
+            base_dir = f"{base_path}/Reweighting/VBSAll/Pol/Gen/VBS/SemiLep/{prod_dec}/"
+
+        elif "EFTDec_VBSLeptonic" in type_MC:
+            base_dir = f"{base_path}/EFTDec/VBSAll/Pol/Leptonic/{prod_dec}/"   
+
+        elif "EFTDec_Polarisation" in type_MC or "EFTDecPolarisation" in type_MC:
+            base_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"      
+            
+            
+        elif "EFTDec_Madspin" in type_MC:
+            base_dir = f"{base_path}/EFTDec/Madspin//{prod_dec}/"
+        elif "EFTDec_NoSpin" in type_MC:
+            base_dir = f"{base_path}/EFTDec/NoSpin//{prod_dec}/"
+        elif "EFTDec_Decay_chain" in type_MC:
+            base_dir = f"{base_path}/EFTDec/Decay_chain//{prod_dec}/"
+        elif "EFTDec_Polarisation" in type_MC:
+            base_dir = f"{base_path}/EFTDec/Polarisation/{prod_dec}/"
+
+        else:
+            base_dir = f"{base_path}/{prod_dec}/"
+        
+        print("base_dir: ", base_dir)
+        search_com= base_dir + f"/*{conf}*EXT0"
+        print("searching for dir with pattern", search_com)
+        conf_dir_arr = glob.glob(search_com)
+        print("found possibilities for dir", conf_dir_arr)
+        conf_dir = conf_dir_arr[0] if len(conf_dir_arr)>=1 else -1  
+        if conf_dir == -1: raise ValueError("did not find folder for this config ",search_com)
+    
+    return prod_dec, conf_dir
+
+
+path_build_command = "-I/exp/atlas/salin/ATLAS/VBS_mc/vcpkg/installed/x64-linux/include/ `root-config --cflags --libs`"
+for process in processes:
+    for decay in decays:
+        build_command = ["rivet-build", f"Rivet{process}_{decay}.so", f"{process}_{decay}.cc", "EventWeights.cc", f"{path_build_command}"]
+        subprocess.run(build_command)
+        
+def run_command(proc_decay_op_pol_tuple):
+    process, decay, op, polarisation = proc_decay_op_pol_tuple
+    if op == "SM":
+        command = ["python", "run_rivet.py", "--evtMax", f"{nb_events}", "--conf", f"user.osalin.MadGraph_{process}_{decay}_FM0_SM", "--DOCUT", "YES","--type_MC",f"{opts.type_MC}", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", f"{name_run}"]
+    else:
+        if "FM" in op:
+            command = ["python", "run_rivet.py", "--evtMax", f"{nb_events}", "--conf", f"user.osalin.MadGraph_{process}_{decay}_{op}_{order}_{polarisation}", "--DOCUT", "YES","--type_MC",f"{opts.type_MC}", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", f"{name_run}"]
+        else:
+            command = ["python", "run_rivet.py", "--evtMax", f"{nb_events}", "--conf", f"user.osalin.MadGraph_{process}_{decay}_{op}_{order}", "--DOCUT", "YES","--type_MC",f"{opts.type_MC}", "--redoRivet", "yes", "--redoPlots", "no", "--keep", "True", "--name", f"{name_run}"]
+    print(f"Running command: {command}")
+    subprocess.run(command)
+
+combined_processes_ops = list(itertools.product(processes, decays))
+print(combined_processes_ops)
+
+if __name__ == "__main__":
+    polarisations = ["LL", "LT", "TL", "TT"]
+    # Separate ops for FM and FS/FT
+    fm_ops = [op for op in all_ops_cat if op.startswith("FM")]
+    fsft_ops = [op for op in all_ops_cat if op.startswith("FS") or op.startswith("FT")]
+
+    # Prepare tuples for FM (with polarisation)
+    fm_proc_decay_op_pol_tuples = [
+        (process, decay, op, pol)
+        for (process, decay) in proc_decays_tuple
+        for op in fm_ops
+        for pol in polarisations
+    ]
+    # Prepare tuples for FS/FT (no polarisation, use None)
+    fsft_proc_decay_op_pol_tuples = [
+        (process, decay, op, None)
+        for (process, decay) in proc_decays_tuple
+        for op in fsft_ops
+    ]
+    # Combine all jobs
+    all_jobs = fm_proc_decay_op_pol_tuples + fsft_proc_decay_op_pol_tuples
+
+    with Pool() as p:
+        p.map(run_command, all_jobs)
+
+    # File operations for FM (with polarisation)
+    path_hist_base = f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Reweighting/Rwg_test/{opts.type_MC}/"
+    for process, decay in proc_decays_tuple:
+        for op in fm_ops:
+            for polarisation in polarisations:
+                Conf = f"user.osalin.MadGraph_{process}_{decay}_{op}_{order}_{polarisation}"
+                print("Conf: ", Conf)
+                try:
+                    proc, Base_dir = find_prod_dec_and_dir_tres(Conf, opts.type_MC)
+                except ValueError as e:
+                    print(f"Error: {e}")
+                    continue
+                print("Base_dir: ", Base_dir + f"/DOCUT_YES/")
+                Dir_ntuple = Base_dir + f"/DOCUT_YES/"
+                File_cross_section = Base_dir + f"/cross_section_fb.txt"
+                File_log_file = Base_dir + f"/log.generate"
+                path_hist = path_hist_base + f"/{process}_{decay}/{op}_{order}_{polarisation}//"
+                
+                if not os.path.exists(path_hist):
+                    os.makedirs(path_hist)
+                else:
+                    print("Warning: directory already exists, skipping.")
+                    timestamp = time.strftime("%m%d-%H%M")
+                    path_hist = path_hist + f"/Already_exist/{opts.name_copy}_{timestamp}//{process}_{decay}/{op}_{order}/{opts.type_MC}/"
+                    os.makedirs(path_hist)
+                
+                # Copy the content of Dir_ntuple into path_hist
+                print(f"Copying {Dir_ntuple} to {path_hist}")
+                shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)
+
+                shutil.copy(File_cross_section, path_hist)
+                print(f"Copied ntuple and cross section files to {path_hist}")
+                shutil.copy(File_log_file, path_hist)
+                print(f"Copied log file to {path_hist}")
+
+    # File operations for FS/FT (no polarisation)
+    for process, decay in proc_decays_tuple:
+        for op in fsft_ops:
+            Conf = f"user.osalin.MadGraph_{process}_{decay}_{op}_{order}"
+            print("Conf: ", Conf)
+            try:
+                proc, Base_dir = find_prod_dec_and_dir_tres(Conf, opts.type_MC)
+            except ValueError as e:
+                print(f"Error: {e}")
+                continue
+            print("Base_dir: ", Base_dir + f"/DOCUT_YES/")
+            Dir_ntuple = Base_dir + f"/DOCUT_YES/"
+            File_cross_section = Base_dir + f"/cross_section_fb.txt"
+            File_log_file = Base_dir + f"/log.generate"
+            path_hist = path_hist_base + f"/{process}_{decay}/{op}_{order}//"
+            
+            if not os.path.exists(path_hist):
+                os.makedirs(path_hist)
+            else:
+                print("Warning: directory already exists, skipping.")
+                timestamp = time.strftime("%m%d-%H%M")
+                path_hist = path_hist + f"/Already_exist/{opts.name_copy}_{timestamp}//{process}_{decay}/{op}_{order}/{opts.type_MC}/"
+                os.makedirs(path_hist)
+            
+            # Copy the content of Dir_ntuple into path_hist
+            print(f"Copying {Dir_ntuple} to {path_hist}")
+            shutil.copytree(Dir_ntuple, path_hist, dirs_exist_ok=True)        
+    
+            shutil.copy(File_cross_section, path_hist)
+            print(f"Copied ntuple and cross section files to {path_hist}")
+            shutil.copy(File_log_file, path_hist)
+            print(f"Copied log file to {path_hist}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+{   "n_jets" : 2,
+    "n_b_jets": 0,
+    "n_lepton_stable": 2,
+
+    "eta_muon" : 2.5,
+    "eta_electron" : [[0.0, 1.37],[1.52, 2.47]],
+    "eta_electron_ee" : 1.37,
+    "eta_tagjets": 4.5,
+  
+    "pt_lepton12": 27.0,
+    "pt_lepton3": 15.0,
+    "pt_tagjet1": 65.0,
+    "pt_tagjet2": 35.0,
+    "pt_MET": 30.0,
+  
+    "m_tagjets_SR": 500.0,
+    "m_tagjets_LowmjjCR": [200.0,500.0],
+    "m_tagjets_WZCR": 200,
+    "dy_tagjets": 2.0,
+    "m_ll": 20.0,
+    "abs_diff_m_z": 15.0,
+    "m_lll": 106
+  }

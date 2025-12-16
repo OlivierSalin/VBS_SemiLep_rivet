@@ -1,3 +1,3 @@
-setupATLAS -c centos7 -m /exp/
+setupATLAS -c centos7 -m /exp/ -m /data
 
 

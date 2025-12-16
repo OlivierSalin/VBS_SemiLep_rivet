@@ -3,7 +3,7 @@ lsetup git
 cd /exp/atlas/salin/ATLAS/VBS_mc/vcpkg/
 ./bootstrap-vcpkg.sh
 ./vcpkg install nlohmann-json
-cd /exp/atlas/salin/ATLAS/VBS_mc/plotting/
+cd /exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet
 
 export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
 source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh 

@@ -28,6 +28,9 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
+
+#include "EventWeights.h"
+
 namespace Rivet
 {
 
@@ -98,20 +101,16 @@ namespace Rivet
                 _label = 0;
             else
             {
-                if (out_dir.find("FM0") != std::string::npos)
+                if (out_dir.find("FS") != std::string::npos)
                     _label = 1;
-                if (out_dir.find("FM2") != std::string::npos)
+                if (out_dir.find("FM") != std::string::npos && out_dir.find("odd") == std::string::npos)
                     _label = 2;
-                if (out_dir.find("FS1") != std::string::npos)
+                if (out_dir.find("FT") != std::string::npos)
                     _label = 3;
-                if (out_dir.find("FT0") != std::string::npos)
+                if (out_dir.find("FM") != std::string::npos && out_dir.find("odd") != std::string::npos)
                     _label = 4;
-                if (out_dir.find("FT1") != std::string::npos)
-                    _label = 4;
-                if (out_dir.find("FT5") != std::string::npos)
+                if (out_dir.find("FT") != std::string::npos && out_dir.find("odd") != std::string::npos)
                     _label = 5;
-                if (out_dir.find("FT8") != std::string::npos)
-                    _label = 6;
             }
 
             if (out_dir.find("SM") != std::string::npos)
@@ -195,10 +194,6 @@ namespace Rivet
             _tt_merged = make_unique<TTree>("Merged", "Rivet_physics");
             _tt_merged->Branch("EventNumber", &merged_EventNumber);
             _tt_merged->Branch("EventWeight", &merged_EventWeight);
-            /*for (auto &var_ : weightMap)
-            {
-                _tt_merged->Branch(var_.first.c_str(), &var_.second);
-            }*/
       
     
             _tt_merged->Branch("Label", &_label);
@@ -212,11 +207,24 @@ namespace Rivet
                 _tt_merged->Branch(var_.first.c_str(), var_.second);
             }
 
-            // Define branches for each weight
-            //_tt_merged_Fjet = make_unique<TTree>("Merged_Fjet", "Rivet_physics");
-            //_tt_merged_Fjet->Branch("EventNumber", &merged_EventNumber);
-            //_tt_merged_Fjet->Branch("EventWeight", &merged_EventWeight);
-            
+            for (auto &var_ : weightMap)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_merged->Branch(var_.first.c_str(), &var_.second);
+            }
+
             _tt_resolved = make_unique<TTree>("Resolved", "Rivet_physics");
             _tt_resolved->Branch("EventNumber", &EventNumber);
             _tt_resolved->Branch("EventWeight", &EventWeight);
@@ -232,13 +240,43 @@ namespace Rivet
             _tt_bef_cut->Branch("EventWeight", &EventWeight);
             _tt_bef_cut->Branch("VBS_event", &VBS_event);
             _tt_bef_cut->Branch("Label", &_label);
-
-
+            for (auto &var_ : weightMap)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_bef_cut->Branch(var_.first.c_str(), &var_.second);
+            }
 
             _tt_angle = make_unique<TTree>("Angle", "Rivet_physics");
             _tt_angle->Branch("EventWeight", &Angle_EventWeight);
             _tt_angle->Branch("Label", &_label);
             _tt_angle->Branch("cos_theta_star", &cos_theta_star);
+            for (auto &var_ : weightMap)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_cross)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_int)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
+            for (auto &var_ : weightMap_dynscale)
+            {
+                _tt_angle->Branch(var_.first.c_str(), &var_.second);
+            }
 
             // counter for efficiency
             book(_c["pos_w_initial"], "pos_w_initial");
@@ -306,18 +344,53 @@ namespace Rivet
  
             std::vector<double> weights_mc = event.genEvent()->weights();
 
-
-
             // Set the weight values
             for (const auto& [key, value] : weightNameToIndex) {
-                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos) {
-                    std::string weightName = "EventWeight_" + key;
+                if (key.find("quad") != std::string::npos || key.find("cross") != std::string::npos
+                    || key.find("QUAD") != std::string::npos || key.find("CROSS") != std::string::npos
+                    || key.find("int") != std::string::npos || key.find("INT") != std::string::npos) {
+                    std::string key_lower = key;
+                    std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
+                    std::string weightName = "EventWeight_" + key_lower;
                     double weight = weights_mc[value];
                     //std::cout << "Weight name: " << weightName << " Weight: " << weight << std::endl;
-                    weightMap[weightName] = weight;
+                    if (key.find("quad")!= std::string::npos ||key.find("QUAD") != std::string::npos){
+                        weightMap[weightName] = weight;
+                        // Fill polarisation map for _quad_ll, _quad_lt, _quad_tl, _quad_tt (case-insensitive)
+                        if (
+                            key_lower.find("_quad_ll") != std::string::npos || key.find("_QUAD_LL") != std::string::npos ||
+                            key_lower.find("_quad_lt") != std::string::npos || key.find("_QUAD_LT") != std::string::npos ||
+                            key_lower.find("_quad_tl") != std::string::npos || key.find("_QUAD_TL") != std::string::npos ||
+                            key_lower.find("_quad_tt") != std::string::npos || key.find("_QUAD_TT") != std::string::npos
+                        ) {
+                            weightMap_Polarisation[weightName] = weight;
+                        }
+                    }
+                    else if (key.find("cross")!= std::string::npos || key.find("CROSS") != std::string::npos){
+                        weightMap_cross[weightName] = weight;
+                    }
+                    else if (key.find("int")!= std::string::npos || key.find("INT") != std::string::npos){
+                        weightMap_int[weightName] = weight;
+                        //std::cout << "Weight name: " << weightName << " Weight: " << weightMap_int[weightName] << std::endl;
+                    }
                     //std::cout << "Weight name: " << weightName << " Weight: " << weightMap[weightName] << std::endl;
                 }
             }
+            for (const auto& [key, value] : weightNameToIndex) {
+                if (key.find("MUR1.0_MUF1.0_DYNSCALE") != std::string::npos && key.find("PDF303000") != std::string::npos) {
+                    std::string key_lower = key;
+                    std::transform(key_lower.begin(), key_lower.end(), key_lower.begin(), ::tolower);
+                    std::string weightName = "EventWeight_" + key_lower;
+                    std::replace(weightName.begin(), weightName.end(), '.', 'p');
+                    
+                    double weight = weights_mc[value];
+                    weightMap_dynscale[weightName] = weight;
+
+                    //std::cout << "Weight name: " << weightName << " Weight: " << weightMap_dynscale[weightName] << std::endl;
+                
+                }
+            }
+
 
 
 
@@ -1005,58 +1078,10 @@ namespace Rivet
         /// @}
 
         std::map<std::string, int> weightNameToIndex;
+        std::map<std::string, int> weightNameToIndex_DynScale;
         std::map<int, std::string> indexToWeightName;
+        std::map<int, std::string> indexToWeightName_DynScale;
 
-        double eventWeight;
-
-        double eventWeight_fm0_quad, eventWeight_fm1_quad, eventWeight_fm2_quad, eventWeight_fm3_quad, eventWeight_fm4_quad; 
-        double eventWeight_fm5_quad, eventWeight_fm7_quad, eventWeight_fm8_quad, eventWeight_fm9_quad;
-        double eventWeight_fs0_quad, eventWeight_fs1_quad, eventWeight_fs2_quad;
-        double eventWeight_ft0_quad, eventWeight_ft1_quad, eventWeight_ft2_quad, eventWeight_ft3_quad, eventWeight_ft4_quad, eventWeight_ft5_quad, eventWeight_ft6_quad, eventWeight_ft7_quad;
-        double eventWeight_fm0_fm1_cross, eventWeight_fm0_fm2_cross, eventWeight_fm0_fm3_cross, eventWeight_fm0_fm4_cross, eventWeight_fm0_fm5_cross, eventWeight_fm0_fm7_cross, eventWeight_fm0_fm8_cross, eventWeight_fm0_fm9_cross;
-        double eventWeight_fm0_fs1_cross, eventWeight_fm0_fs2_cross, eventWeight_fm0_fs3_cross;
-        double eventWeight_fm0_ft1_cross, eventWeight_fm0_ft2_cross, eventWeight_fm0_ft3_cross, eventWeight_fm0_ft4_cross, eventWeight_fm0_ft5_cross, eventWeight_fm0_ft6_cross;
-
-
-        std::map<std::string, double> weightMap = {
-            {"EventWeight_0", eventWeight},
-            {"EventWeight_fm0_quad", eventWeight_fm0_quad},
-            {"EventWeight_fm1_quad", eventWeight_fm1_quad},
-            {"EventWeight_fm2_quad", eventWeight_fm2_quad},
-            {"EventWeight_fm3_quad", eventWeight_fm3_quad},
-            {"EventWeight_fm4_quad", eventWeight_fm4_quad},
-            {"EventWeight_fm5_quad", eventWeight_fm5_quad},
-            {"EventWeight_fm7_quad", eventWeight_fm7_quad},
-            {"EventWeight_fm8_quad", eventWeight_fm8_quad},
-            {"EventWeight_fm9_quad", eventWeight_fm9_quad},
-            {"EventWeight_fs0_quad", eventWeight_fs0_quad},
-            {"EventWeight_fs1_quad", eventWeight_fs1_quad},
-            {"EventWeight_fs2_quad", eventWeight_fs2_quad},
-            {"EventWeight_ft0_quad", eventWeight_ft0_quad},
-            {"EventWeight_ft1_quad", eventWeight_ft1_quad},
-            {"EventWeight_ft2_quad", eventWeight_ft2_quad},
-            {"EventWeight_ft3_quad", eventWeight_ft3_quad},
-            {"EventWeight_ft4_quad", eventWeight_ft4_quad},
-            {"EventWeight_ft5_quad", eventWeight_ft5_quad},
-            {"EventWeight_ft6_quad", eventWeight_ft6_quad},
-            {"EventWeight_ft7_quad", eventWeight_ft7_quad},
-            {"EventWeight_fm0_fm1_cross", eventWeight_fm0_fm1_cross},
-            {"EventWeight_fm0_fm2_cross", eventWeight_fm0_fm2_cross},
-            {"EventWeight_fm0_fm3_cross", eventWeight_fm0_fm3_cross},
-            {"EventWeight_fm0_fm4_cross", eventWeight_fm0_fm4_cross},
-            {"EventWeight_fm0_fm5_cross", eventWeight_fm0_fm5_cross},
-            {"EventWeight_fm0_fm7_cross", eventWeight_fm0_fm7_cross},
-            {"EventWeight_fm0_fm8_cross", eventWeight_fm0_fm8_cross},
-            {"EventWeight_fm0_fm9_cross", eventWeight_fm0_fm9_cross},
-            {"EventWeight_fm0_fs1_cross", eventWeight_fm0_fs1_cross},
-            {"EventWeight_fm0_fs2_cross", eventWeight_fm0_fs2_cross},
-            {"EventWeight_fm0_ft1_cross", eventWeight_fm0_ft1_cross},
-            {"EventWeight_fm0_ft2_cross", eventWeight_fm0_ft2_cross},
-            {"EventWeight_fm0_ft3_cross", eventWeight_fm0_ft3_cross},
-            {"EventWeight_fm0_ft4_cross", eventWeight_fm0_ft4_cross},
-            {"EventWeight_fm0_ft5_cross", eventWeight_fm0_ft5_cross},
-            {"EventWeight_fm0_ft6_cross", eventWeight_fm0_ft6_cross}};
-            
 
         std::map<std::string, double *> varMap = {
             {"merged_CS_V_cos_theta", &merged_CS_V_cos_theta},
