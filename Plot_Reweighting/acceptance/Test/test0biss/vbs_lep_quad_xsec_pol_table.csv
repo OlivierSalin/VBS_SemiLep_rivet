@@ -1,0 +1,5 @@
+process_decay,operator,unpolarised_xsec_fb,LL_pol_frac,LT_pol_frac,TL_pol_frac,TT_pol_frac
+WpZ_lllv,FM0,0.010812594301236426,0.426,45.81,53.473,0.291
+WpZ_lllv,FM3,0.001406587011371377,0.162,99.526,0.002,0.311
+WpZ_lllv,FS0,0.0006745198143039402,99.683,0.179,0.138,
+WpZ_lllv,FT0,0.8036100158778096,0.0,0.134,0.161,99.705

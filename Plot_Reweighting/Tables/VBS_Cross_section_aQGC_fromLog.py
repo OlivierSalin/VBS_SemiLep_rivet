@@ -46,7 +46,7 @@ elif opts.Mode == "SemiLep":
     type_MC_all_bis= ["reweighting_vbssemilep_pol"]
 else:
     type_MC_all_bis= ["Reweighting_VBSLep_pol"]
-outdir_path= f"./Cross_section/Validation//{opts.name}/"
+outdir_path= f"./Cross_section/Validation_bis//{opts.name}/"
 
 all_ops_cat = [
     "FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
@@ -56,9 +56,7 @@ all_ops_cat = [
     "FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"
 ]
 
-all_ops_cat = [
-    "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd"
-]
+
 
 all_ops_cat = [
     "FM0","FM1","FM2","FM3","FM4","FM5","FM7","FM8","FM9",
@@ -67,7 +65,9 @@ all_ops_cat = [
     "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd",
     "FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"
 ]
-#all_ops_cat = ["FM0"]
+
+
+all_ops_cat = ["FM0","FM1","FM2","FM3","FS0","FT0","FT1","FT2","FT3","FT4"]
 all_ops_cat_rwg = ["FM","FS","FT","FModd","FTodd"]
 all_ops_cat_rwg = ["FModd"]
 #all_ops_cat_rwg = ["FM","FS","FT"]
@@ -142,15 +142,17 @@ def diboson_br(process: str, decay: str):
     if decay == "lvqq":   # WZ or WW semileptonic
         if "Z" in process:
             return W_l * Z_had
+        elif "WpWp" in process or "WmWm" in process:
+            return 2 * W_l * W_had
         else:
             return W_l * W_had
     if decay == "llqq":   # WZ or ZZ semileptonic with dilepton
         if "Z" in process and process.count("Z") == 1:
             return Z_ll * W_had
         else:
-            return Z_ll * Z_had
+            return 2*Z_ll * Z_had
     if decay == "vvqq":   # ZZ → νν qq
-        return Z_inv * Z_had
+        return 2*Z_inv * Z_had
     if decay == "lly":    # Zγ with Z → ℓℓ
         return Z_ll
     if decay == "lvy":    # Wγ with W → ℓν

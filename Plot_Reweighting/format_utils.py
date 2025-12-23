@@ -111,13 +111,9 @@ def get_cross_section(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
             VBS_txt = f'{path}/VBS_cross_section_aqgc.txt'
     return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)
 
-def get_cross_section_rwg_pol(EFT_op, EFT_type, proc, decay, name_model_,pol=None):
+def get_cross_section_rwg_pol(EFT_op, EFT_type, proc, decay, pol=None):
     path = "/exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Plot_Reweighting/Tables/Cross_section/"
-    lower_name_model_ = name_model_.lower()
-    if "leptonic" in lower_name_model_:
-        VBS_txt =  f"/Validation/Valid/VBS_cross_section_run2_reweighting_vbslep_pol_Lep.txt"
-    elif "semilep" in lower_name_model_:
-        VBS_txt =  f"/Validation/Valid/VBS_cross_section_run2_reweighting_vbslep_pol_Lep.txt"
-    print(f"VBS_txt: {VBS_txt} ") 
-
+    print(f"EFT_op: {EFT_op}, EFT_type: {EFT_type}, proc: {proc}, decay: {decay}, pol: {pol}")
+    VBS_txt = f'{path}/Validation/Validation_bis/VBS_cross_section_run2_reweighting_vbs_ALL.txt'
+    
     return take_xsec_fb(VBS_txt, EFT_op, EFT_type, proc, decay,pol)

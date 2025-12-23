@@ -133,15 +133,14 @@ def main():
             3: [("WZ", "lllv")],
             2: [("ssWW", "lvlv"), ("osWW", "lvlv"), ("Zy", "lly")],
         }
+
     elif opts.Mode == "SemiLep":
         valid_combinations = {
             1: [("WZ", "lvqq"), ("ssWW", "lvqq"), ("osWW", "lvqq")],
             2: [("WZ", "llqq"), ("ZZ", "llqq")],
             0: [("WZ", "vvqq"), ("ZZ", "vvqq")],
         }
-        valid_combinations = {
-            2: [("WpZ", "llqq")],
-        }
+
     else:
         valid_combinations = {2: [("WpZ", "vvqq"), ("WmZ", "vvqq")]}
 
@@ -153,10 +152,11 @@ def main():
         "FS0","FS1","FS2",
         "FT0","FT1","FT2","FT3","FT4","FT5","FT6","FT7",
         "FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd",
-        "FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"
+        "FT1odd","FT2odd","FT3odd","FT4odd","FT5odd","FT6odd"
     ]
 
-    all_operators_all = ["FM0","FM1","FM2","FM3"]
+    #all_operators_all = ["FM0","FS0","FT0","FM3"]
+    #all_operators_all = ["FM1odd","FM2odd","FM3odd","FM4odd","FM5odd","FM6odd",]
     
 
     operators_rwg = ["FM", "FS", "FT", "FModd", "FTodd"]
@@ -355,7 +355,7 @@ def main():
     os.makedirs(opts.outdir, exist_ok=True)
     tag = f"vbs_{opts.Mode.lower()}_{opts.EFT_order.lower()}"
 
-    out_xsec_csv = os.path.join(opts.outdir, f"{tag}_xsec_pol_table.csv")
+    out_xsec_csv = os.path.join(opts.outdir, f"{tag}_pol_table.csv")
     out_fid_csv = os.path.join(opts.outdir, f"{tag}_fiducial_pol_table.csv")
     table_xsec.to_csv(out_xsec_csv, index=False)
     table_fid.to_csv(out_fid_csv, index=False)

@@ -444,6 +444,7 @@ namespace Rivet
             FourMomentum fourvec_lepminus_Z_rf = boost_Z_rf.transform(Z_lepton_minus.mom());
             FourMomentum beam_Zrf = boost_Z_rf.transform(beam_lab);
             cos_theta_star_Zrf = cos(fourvec_lepminus_Z_rf.p3().angle(beam_Zrf.p3()));           
+            cos_theta_star_V1 = cos(fourvec_lepminus_Z_rf.p3().angle(beam_Zrf.p3()));           
 
 
             n_lep = leptons.size();
@@ -571,6 +572,8 @@ namespace Rivet
         int n_photons_iso;
         double mass_ll, mass_lly, m_VV;
         double cos_theta_star_Zrf;
+        double cos_theta_star_V1;
+
 
 
 
@@ -605,7 +608,8 @@ namespace Rivet
             {"mass_ll", &mass_ll},
             {"mass_lly", &mass_lly},
             {"m_VV", &m_VV},
-            {"cos_theta_star_Zrf", &cos_theta_star_Zrf}
+            {"cos_theta_star_Zrf", &cos_theta_star_Zrf},
+            {"cos_theta_star_V1", &cos_theta_star_V1}  
         };
 
         std::map<std::string, int *> varMapInt = {

@@ -1,0 +1,7 @@
+process_decay,operator,unpolarised_xsec_fb,LL_pol_frac,LT_pol_frac,TL_pol_frac,TT_pol_frac
+osWW_lvlv,FM1odd,0.2942933147312,99.312,0.065,0.078,0.003
+osWW_lvlv,FM2odd,0.0390295832454272,88.621,5.4,6.233,0.027
+osWW_lvlv,FM3odd,0.0053232786120064,53.239,20.743,26.67,0.226
+osWW_lvlv,FM4odd,0.0186251885882176,62.238,18.35,20.551,0.049
+osWW_lvlv,FM5odd,2.55,92.622,2.244,2.91,1.496
+osWW_lvlv,FM6odd,0.06815,54.75,39.406,4.777,1.108

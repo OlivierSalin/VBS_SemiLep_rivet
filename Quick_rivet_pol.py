@@ -39,12 +39,7 @@ if opts.Mode == "Lep":
 		2: [("WmWm", "lvlv"), ("WpWm", "lvlv"), ("WpWp", "lvlv"),("Zy", "lly")],
 		1: [("Wpy", "lvy")],
 	}
-	valid_combinations = {
-		#4: [("ZZ", "llll")],
-		#3: [("WmZ", "lllv"), ("WpZ", "lllv")],
-		2: [("WpWm", "lvlv")],
-		#1: [("Wpy", "lvy")],
-	}
+
 
 elif opts.Mode == "SemiLep":
 	print("Running in Semi-Leptonic mode")
@@ -59,7 +54,7 @@ valid_combi_aQGC_lep = [f"{proc}_{dec}" for proc, dec in valid_combinations[nb_l
 print("Selected processes for nb_lep =", nb_lepton, ":\n", valid_combi_aQGC_lep)
 
 base_path_outdir = f"/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/"
-outdir = f"{base_path_outdir}/TEST/GOOD/{name_outdir}/{opts.Mode}/"
+outdir = f"{base_path_outdir}//GOOD_output//{name_outdir}/{opts.Mode}/"
 
 PROCESSES = valid_combi_aQGC_lep         # list of processes (example: ["ZZ_llll"])
 #PROCESSES = ["WpWp_lvlv"]          # list of processes (example: ["ZZ_llll"])

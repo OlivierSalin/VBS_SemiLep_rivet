@@ -1084,8 +1084,6 @@ namespace Rivet
 
 
         std::map<std::string, double *> varMap = {
-            {"merged_CS_V_cos_theta", &merged_CS_V_cos_theta},
-            {"merged_cos_theta_star", &merged_cos_theta_star},
             {"merged_tagjet1_pt", &merged_tagjet1_pt},
             {"merged_tagjet2_pt", &merged_tagjet2_pt},
             {"merged_tagjets_pt", &merged_tagjets_pt},

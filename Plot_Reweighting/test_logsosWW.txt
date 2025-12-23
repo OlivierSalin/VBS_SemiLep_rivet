@@ -1,0 +1,153 @@
+[CFG] Mode=Lep EFT_order=QUAD
+[CFG] pol_base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic exists=True
+[CFG] xsec_file=/exp/atlas/salin/ATLAS/VBS_mc/VBS_Pol_Rivet/VBS_rivet/Plot_Reweighting/Tables/Cross_section/Validation/Validation/VBS_cross_section_run2_reweighting_vbs_ALL.txt exists=True
+[CFG] outdir=./acceptance/testosWW_lep/
+[CFG] proc_decay_pairs=[('osWW', 'lvlv')]
+
+[GRP] op_rwg=FM -> n_ops=0 ops=[]
+[POL] pol=LL folder=FM_QUAD_LL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FM_QUAD_LL exists=True
+[PROC] found ntuples=1
+[POL] pol=LT folder=FM_QUAD_LT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FM_QUAD_LT exists=True
+[PROC] found ntuples=1
+[POL] pol=TL folder=FM_QUAD_TL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FM_QUAD_TL exists=True
+[PROC] found ntuples=1
+[POL] pol=TT folder=FM_QUAD_TT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FM_QUAD_TT exists=True
+[PROC] found ntuples=1
+[POL] pol=unpolarised folder=FM_QUAD
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FM_QUAD exists=True
+[PROC] found ntuples=1
+
+[GRP] op_rwg=FS -> n_ops=0 ops=[]
+[POL] pol=LL folder=FS_QUAD_LL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FS_QUAD_LL exists=True
+[PROC] found ntuples=1
+[POL] pol=LT folder=FS_QUAD_LT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FS_QUAD_LT exists=True
+[PROC] found ntuples=1
+[POL] pol=TL folder=FS_QUAD_TL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FS_QUAD_TL exists=True
+[PROC] found ntuples=1
+[POL] pol=TT folder=FS_QUAD_TT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FS_QUAD_TT exists=True
+[PROC] found ntuples=1
+[POL] pol=unpolarised folder=FS_QUAD
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FS_QUAD exists=True
+[PROC] found ntuples=1
+
+[GRP] op_rwg=FT -> n_ops=0 ops=[]
+[POL] pol=LL folder=FT_QUAD_LL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FT_QUAD_LL exists=True
+[PROC] found ntuples=1
+[POL] pol=LT folder=FT_QUAD_LT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FT_QUAD_LT exists=True
+[PROC] found ntuples=1
+[POL] pol=TL folder=FT_QUAD_TL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FT_QUAD_TL exists=False
+[POL] pol=TT folder=FT_QUAD_TT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FT_QUAD_TT exists=True
+[PROC] found ntuples=1
+[POL] pol=unpolarised folder=FT_QUAD
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FT_QUAD exists=True
+[PROC] found ntuples=1
+
+[GRP] op_rwg=FModd -> n_ops=6 ops=['FM1odd', 'FM2odd', 'FM3odd', 'FM4odd', 'FM5odd', 'FM6odd']
+[POL] pol=LL folder=FModd_QUAD_LL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FModd_QUAD_LL exists=True
+[PROC] found ntuples=1
+Taking xsec for process=osWW decay=lvlv op=FM1odd pol=LL
+Acceptance: 0.05701971748323528 sum_before=6.100683687087478 sum_after=0.3478592602923101 wbr=EventWeight_fm1odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM2odd pol=LL
+Acceptance: 0.06189678416497221 sum_before=0.7145012130671227 sum_after=0.04422532737082652 wbr=EventWeight_fm2odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM3odd pol=LL
+Acceptance: 0.039043959379863435 sum_before=0.059285113576239216 sum_after=0.0023147255663012742 wbr=EventWeight_fm3odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM4odd pol=LL
+Acceptance: 0.05832970731934109 sum_before=0.24269763410924625 sum_after=0.014156481964688867 wbr=EventWeight_fm4odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM5odd pol=LL
+Acceptance: 0.05607202833008988 sum_before=48.967325992853 sum_after=2.74569729032 wbr=EventWeight_fm5odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM6odd pol=LL
+Acceptance: 0.032549785186233825 sum_before=0.7755504971347926 sum_after=0.02524400208281435 wbr=EventWeight_fm6odd_quad
+[POL] pol=LT folder=FModd_QUAD_LT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FModd_QUAD_LT exists=True
+[PROC] found ntuples=1
+Taking xsec for process=osWW decay=lvlv op=FM1odd pol=LT
+Acceptance: 0.0408065048785989 sum_before=0.003907539368320137 sum_after=0.00015945302429667296 wbr=EventWeight_fm1odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM2odd pol=LT
+Acceptance: 0.0454509898027579 sum_before=0.04340083317484009 sum_after=0.0019726108260608535 wbr=EventWeight_fm2odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM3odd pol=LT
+Acceptance: 0.06074307557616995 sum_before=0.022891141656675006 sum_after=0.0013904783476762221 wbr=EventWeight_fm3odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM4odd pol=LT
+Acceptance: 0.04451345300014772 sum_before=0.07037992376867383 sum_after=0.0031328534288308416 wbr=EventWeight_fm4odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM5odd pol=LT
+Acceptance: 0.038148818163204055 sum_before=1.1897138165070644 sum_after=0.04538617605217952 wbr=EventWeight_fm5odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM6odd pol=LT
+Acceptance: 0.04518833140536664 sum_before=0.5586191352708831 sum_after=0.025243066614000005 wbr=EventWeight_fm6odd_quad
+[POL] pol=TL folder=FModd_QUAD_TL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FModd_QUAD_TL exists=True
+[PROC] found ntuples=1
+Taking xsec for process=osWW decay=lvlv op=FM1odd pol=TL
+Acceptance: 0.045344557452903764 sum_before=0.003918197734949387 sum_after=0.00017766894230424987 wbr=EventWeight_fm1odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM2odd pol=TL
+Acceptance: 0.0437096855028255 sum_before=0.044017848757539314 sum_after=0.0019240063257029815 wbr=EventWeight_fm2odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM3odd pol=TL
+Acceptance: 0.06198734275405832 sum_before=0.02313368194014447 sum_after=0.001433995471587104 wbr=EventWeight_fm3odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM4odd pol=TL
+Acceptance: 0.05063745984894895 sum_before=0.07456818830610829 sum_after=0.003775943641359423 wbr=EventWeight_fm4odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM5odd pol=TL
+Acceptance: 0.04273166084570185 sum_before=1.4267229902687004 sum_after=0.060966242940927694 wbr=EventWeight_fm5odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM6odd pol=TL
+Acceptance: 0.07423924603418108 sum_before=0.5191859706785501 sum_after=0.038543975014700006 wbr=EventWeight_fm6odd_quad
+[POL] pol=TT folder=FModd_QUAD_TT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FModd_QUAD_TT exists=True
+[PROC] found ntuples=1
+Taking xsec for process=osWW decay=lvlv op=FM1odd pol=TT
+Acceptance: 0.06692176375451646 sum_before=0.000198014128067 sum_after=1.3251454698556341e-05 wbr=EventWeight_fm1odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM2odd pol=TT
+Acceptance: 0.05823323433041618 sum_before=0.00021035140330507971 sum_after=1.2249442560396588e-05 wbr=EventWeight_fm2odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM3odd pol=TT
+Acceptance: 0.06153506309201559 sum_before=0.0002593342667536385 sum_after=1.5958150466606746e-05 wbr=EventWeight_fm3odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM4odd pol=TT
+Acceptance: 0.03608543030802184 sum_before=0.0001942508740981355 sum_after=7.009626379540593e-06 wbr=EventWeight_fm4odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM5odd pol=TT
+Acceptance: 0.09638002472109833 sum_before=0.79038186807317 sum_after=0.076177023984 wbr=EventWeight_fm5odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM6odd pol=TT
+Acceptance: 0.07202922027577442 sum_before=0.015126463735962546 sum_after=0.00108954738843116 wbr=EventWeight_fm6odd_quad
+[POL] pol=unpolarised folder=FModd_QUAD
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FModd_QUAD exists=True
+[PROC] found ntuples=1
+Taking xsec for process=osWW decay=lvlv op=FM1odd pol=None
+Acceptance: 0.05700217881271473 sum_before=6.108707438318814 sum_after=0.3482096337136096 wbr=EventWeight_fm1odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM2odd pol=None
+Acceptance: 0.06000795279944987 sum_before=0.8021302464028072 sum_after=0.04813419396515075 wbr=EventWeight_fm2odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM3odd pol=None
+Acceptance: 0.04883198932532456 sum_before=0.10556927143981233 sum_after=0.005155157536031207 wbr=EventWeight_fm3odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM4odd pol=None
+Acceptance: 0.054332427859678734 sum_before=0.3878399970581265 sum_after=0.02107228866125867 wbr=EventWeight_fm4odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM5odd pol=None
+Acceptance: 0.05590977670138229 sum_before=52.374144667701934 sum_after=2.928226733297107 wbr=EventWeight_fm5odd_quad
+Taking xsec for process=osWW decay=lvlv op=FM6odd pol=None
+Acceptance: 0.04823198076142852 sum_before=1.8684820668201885 sum_after=0.09012059109994552 wbr=EventWeight_fm6odd_quad
+
+[GRP] op_rwg=FTodd -> n_ops=0 ops=[]
+[POL] pol=LL folder=FTodd_QUAD_LL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FTodd_QUAD_LL exists=True
+[PROC] found ntuples=1
+[POL] pol=LT folder=FTodd_QUAD_LT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FTodd_QUAD_LT exists=True
+[PROC] found ntuples=1
+[POL] pol=TL folder=FTodd_QUAD_TL
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FTodd_QUAD_TL exists=True
+[PROC] found ntuples=1
+[POL] pol=TT folder=FTodd_QUAD_TT
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FTodd_QUAD_TT exists=True
+[PROC] found ntuples=1
+[POL] pol=unpolarised folder=FTodd_QUAD
+[POL] base_dir=/exp/atlas/salin/ATLAS/VBS_mc/eft_files/Histograms/Polarisation/Leptonic/Rwg/GOOD/Pol/Leptonic/osWW_lvlv/FTodd_QUAD exists=True
+[PROC] found ntuples=1
+[OK] wrote -> ./acceptance/testosWW_lep/vbs_lep_quad_xsec_pol_table.csv
+[OK] wrote -> ./acceptance/testosWW_lep/vbs_lep_quad_fiducial_pol_table.csv
+[OK] wrote -> ./acceptance/testosWW_lep/vbs_lep_quad_pol_tables.xlsx
+[OK] wrote -> ./acceptance/testosWW_lep/vbs_lep_quad_fiducial_pol_tables.xlsx

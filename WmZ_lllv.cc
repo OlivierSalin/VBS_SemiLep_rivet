@@ -518,6 +518,7 @@ namespace Rivet
             FourMomentum beam_WZrf = boost_WZ_rf.transform(beam_lab);
 
             cos_theta_star_WZrf = cos(fourvec_Z_WZrf.p3().angle(beam_WZrf.p3())); 
+            cos_theta_star_VV = cos(fourvec_Z_WZrf.p3().angle(beam_WZrf.p3())); 
 
 
             LorentzTransform boost_Z_rf;
@@ -527,6 +528,7 @@ namespace Rivet
             FourMomentum fourvec_lepminus_Z_rf = boost_Z_rf.transform(Z_lepton_minus.mom());
             FourMomentum beam_Zrf = boost_Z_rf.transform(beam_lab);
             cos_theta_star_Zrf = cos(fourvec_lepminus_Z_rf.p3().angle(beam_Zrf.p3())); 
+            cos_theta_star_V2 = cos(fourvec_lepminus_Z_rf.p3().angle(beam_Zrf.p3())); 
 
             LorentzTransform boost_W_rf;
             boost_W_rf.setBetaVec(-fourvec_W.betaVec());
@@ -535,6 +537,7 @@ namespace Rivet
             FourMomentum fourvec_lep_W_rf = boost_W_rf.transform(W_lepton.mom());
             FourMomentum beam_Wrf = boost_W_rf.transform(beam_lab);
             cos_theta_star_Wrf = cos(fourvec_lep_W_rf.p3().angle(beam_Wrf.p3()));   
+            cos_theta_star_V1 = cos(fourvec_lep_W_rf.p3().angle(beam_Wrf.p3()));   
 
             LorentzTransform boost_Z_WZrf;
             boost_Z_WZrf.setBetaVec(-fourvec_Z_WZrf.betaVec());
@@ -677,6 +680,7 @@ namespace Rivet
         double m_VV, n_bjets, mT_W, m_diboson_truth;
 
         double cos_theta_star_WZrf, cos_theta_star_Zrf, cos_theta_star_Wrf;
+        double cos_theta_star_VV, cos_theta_star_V1, cos_theta_star_V2;
         double ModHel_cos_theta_star_Zrf, ModHel_cos_theta_star_Wrf;
 
 
@@ -716,6 +720,9 @@ namespace Rivet
             {"cos_theta_star_WZrf", &cos_theta_star_WZrf},
             {"cos_theta_star_Zrf", &cos_theta_star_Zrf},
             {"cos_theta_star_Wrf", &cos_theta_star_Wrf},
+            {"cos_theta_star_VV", &cos_theta_star_VV},
+            {"cos_theta_star_V1", &cos_theta_star_V1},
+            {"cos_theta_star_V2", &cos_theta_star_V2},
             {"ModHel_cos_theta_star_Zrf", &ModHel_cos_theta_star_Zrf},
             {"ModHel_cos_theta_star_Wrf", &ModHel_cos_theta_star_Wrf},
         };
